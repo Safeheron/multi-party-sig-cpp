@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.cmp;
+
+//import "commitment.proto";
+import "curve_point.proto";
+//import "mta.proto";
+//import "paillier.proto";
+//import "zkp.proto";
+
+message MinimalParty {
+    string party_id = 1;
+    string index = 2;
+    string x = 3; // Sign key share
+    safeheron.proto.CurvePoint g_x = 4; // X = g_x = g^x
+}
+
+message MinimalSignKey {
+    string workspace_id = 1;
+    int32 threshold = 2;
+    int32 n_parties = 3;
+    MinimalParty local_party = 4;
+    repeated MinimalParty remote_parties = 5;
+    safeheron.proto.CurvePoint g_x = 6;
+}
+
+message Party {
+    string party_id = 1;
+    string index = 2;
+    string x = 3; // Sign key share
+    safeheron.proto.CurvePoint g_x = 4; // X = g_x = g^x
+    safeheron.proto.CurvePoint g_y = 5; // Y = g_y = g^y
+    string N = 10;
+    string s = 11;
+    string t = 12;
+    string p = 13;
+    string q = 14;
+}
+
+message SignKey {
+    string workspace_id = 1;
+    int32 threshold = 2;
+    int32 n_parties = 3;
+    Party local_party = 4;
+    repeated Party remote_parties = 5;
+    safeheron.proto.CurvePoint g_x = 6;
+}

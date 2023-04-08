@@ -1,0 +1,28 @@
+include(CMakeFindDependencyMacro)
+@CryptoCurve_FIND_DEPENDENCY_CALLS@
+include("${CMAKE_CURRENT_LIST_DIR}/@exported_targets_filename@")
+
+get_filename_component(CMAKE_CURRENT_LIST_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(_INSTALL_PREFIX "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
+
+
+@PACKAGE_INIT@
+set_and_check(MultiPartyEcdsa_INCLUDE_DIR  "${_INSTALL_PREFIX}/include/safeheron")
+set_and_check(MultiPartyEcdsa_INCLUDE_DIRS "${_INSTALL_PREFIX}/include/safeheron")
+set_and_check(MultiPartyEcdsa_LIBRARY_DIR "${_INSTALL_PREFIX}/lib")
+
+MESSAGE(STATUS "###################################")
+MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}")
+
+IF (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+    MESSAGE(STATUS "current platform: Darwin ")
+    set_and_check(MultiPartyEcdsa_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartyEcdsa.dylib")
+ELSEIF (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    MESSAGE(STATUS "current platform: Windows")
+    set_and_check(MultiPartyEcdsa_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartyEcdsa.dll")
+ELSE ()
+    MESSAGE(STATUS "other platform: ${CMAKE_SYSTEM_NAME}")
+    set_and_check(MultiPartyEcdsa_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartyEcdsa.so")
+ENDIF (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+
+MESSAGE(STATUS "###################################")

@@ -1,0 +1,67 @@
+
+
+#ifndef SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_T_PARTY_H
+#define SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_T_PARTY_H
+
+
+#include "proto_gen/key_gen.pb.switch.h"
+#include "crypto-bn/bn.h"
+#include "crypto-paillier/pail.h"
+#include "crypto-curve/curve.h"
+#include "crypto-zkp/zkp.h"
+#include "crypto-sss/vsss.h"
+#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "crypto-commitment/commitment.h"
+
+namespace safeheron {
+namespace multi_party_ecdsa{
+namespace gg18{
+namespace key_gen {
+
+
+class LocalTParty {
+public:
+    // Original secret share
+    safeheron::bignum::BN u_;
+    // y = g^u
+    safeheron::curve::CurvePoint y_;
+
+    // Commitment of secret share
+    std::vector<safeheron::sss::Point> share_points_;
+    std::vector<safeheron::curve::CurvePoint> vs_;
+
+    // Random numbers for polynomial coefficients
+    safeheron::bignum::BN rand_num_for_schnorr_proof_;
+    std::vector<safeheron::bignum::BN> rand_polynomial_coe_arr_;
+
+    // dlog proof
+    zkp::dlog::DLogProof dlog_proof_x_;
+
+    // [KGC, KGD] = Com(y_i)
+    safeheron::bignum::BN kgc_y_;
+    commitment::KgdCurvePoint kgd_y_;
+
+    // Paillier proof
+    zkp::pail::PailProof pail_proof_;
+
+    // DLN Proof
+    zkp::dln_proof::DLNProof dln_proof1_;
+    zkp::dln_proof::DLNProof dln_proof2_;
+};
+
+class RemoteTParty {
+public:
+    // y = g^u
+    safeheron::curve::CurvePoint y_;
+
+    // [KGC, KGD] = Com(y_i)
+    safeheron::bignum::BN kgc_y_;
+};
+
+}
+}
+}
+}
+
+
+#endif //SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_T_PARTY_H

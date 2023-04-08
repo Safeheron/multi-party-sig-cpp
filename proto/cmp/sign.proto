@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.cmp.sign;
+
+import "curve_point.proto";
+//import "mta.proto";
+//import "paillier.proto";
+import "zkp.proto";
+
+message Round0BCMessage {
+    string ssid = 1;
+    string index = 2;
+    string K = 3;
+    string G = 4;
+}
+
+message Round0P2PMessage {
+    string ssid = 1;
+    string index = 2;
+    safeheron.proto.PailEncRangeProof_V2 psi_0_ij = 5;
+}
+
+
+message Round1P2PMessage {
+    string ssid = 1;
+    string index = 2;
+    safeheron.proto.CurvePoint g_gamma = 3; // Gamma = g^gamma
+    string D_ij = 4;
+    string F_ij = 5;
+    string D_hat_ij = 6;
+    string F_hat_ij = 7;
+    safeheron.proto.PailAffGroupEleRangeProof_V2 psi_ij = 8;
+    safeheron.proto.PailAffGroupEleRangeProof_V2 psi_hat_ij = 9;
+    safeheron.proto.PailEncGroupEleRangeProof psi_prime_ij = 10;
+}
+
+message Round2P2PMessage {
+    string ssid = 1;
+    string index = 2;
+    string delta = 3;
+    safeheron.proto.CurvePoint var_delta = 4;
+    safeheron.proto.PailEncGroupEleRangeProof psi_double_prime_ij = 5;
+}
+
+message Round3P2PMessage {
+    string ssid = 1;
+    string index = 2;
+    string sigma = 3;
+}
+

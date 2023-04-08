@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.cmp.aux_info_key_refresh;
+
+import "curve_point.proto";
+//import "mta.proto";
+//import "paillier.proto";
+import "zkp.proto";
+
+message Round0BCMessage {
+    string ssid = 1;
+    string index = 2;
+    string V = 3;
+}
+
+message Round1BCMessage {
+    string ssid = 1;
+    string index = 2;
+    repeated string party_id_arr_1 = 3; // It contains n elements.
+    repeated safeheron.proto.CurvePoint g_x_arr = 4; // X_i = (X_i1, ..., X_in) = ( g^x_i1, ... , g^x_in)
+    repeated safeheron.proto.CurvePoint c = 5; // F_VSSS_com = (X_i, F_i) = (X_i, F_i1, ..., F_i(t-1))
+    repeated string party_id_arr_2 = 6; // It contains (n-1) elements.
+    repeated safeheron.proto.CurvePoint A_arr = 7; // A_i = (A_i1, ..., A_in)
+    safeheron.proto.CurvePoint g_y = 8; // Y = g^y
+    safeheron.proto.CurvePoint B = 9;
+    string N = 10;
+    string s = 11;
+    string t = 12;
+    safeheron.proto.TwoDLNProof psi_tilde = 13;
+    string rho = 14;
+    string u = 15;
+}
+
+message Round2P2PMessage {
+    string ssid = 1;
+    string index = 2;
+    safeheron.proto.PailBlumModulusProof psi = 3;
+    safeheron.proto.NoSmallFactorProof phi_ij = 4;
+    safeheron.proto.DLogProof_V2 pi = 5;
+    string C = 6;
+    safeheron.proto.DLogProof_V2 psi_ij = 7;
+}

@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.gg20.sign;
+
+//import "commitment.proto";
+import "curve_point.proto";
+import "mta.proto";
+//import "paillier.proto";
+import "zkp.proto";
+
+message Round0BCMessage {
+    string message_a = 1;
+    string commitment = 2;
+}
+
+message Round0P2PMessage {
+    safeheron.proto.PailEncRangeProof_V1 alice_proof = 3;
+}
+
+message Round1P2PMessage {
+    safeheron.proto.MtaMessageB message_b_for_k_gamma = 1;
+    safeheron.proto.MtaMessageB message_b_for_k_w = 2;
+    safeheron.proto.PailAffRangeProof bob_proof_1 = 3;
+    safeheron.proto.PailAffRangeProof bob_proof_2 = 4;
+}
+
+message Round2BCMessage {
+    string delta = 1;
+    safeheron.proto.CurvePoint T = 2;
+    safeheron.proto.CurvePoint H = 3;
+    safeheron.proto.PedersenProof pedersen_proof = 4;
+}
+
+message Round3BCMessage {
+    string blind_factor = 1;
+    safeheron.proto.CurvePoint Gamma = 2;
+}
+
+message Round4BCMessage {
+    // Ri, ZK(Ri, Ei(ki))
+    safeheron.proto.CurvePoint R = 1;
+}
+
+message Round4P2PMessage {
+    // Ri, ZK(Ri, Ei(ki))
+    safeheron.proto.PailEncGroupEleRangeProof pail_enc_group_ele_proof = 2;
+}
+
+message Round5BCMessage {
+    // Si, ZK(Si, Ti)
+    safeheron.proto.CurvePoint S = 1;
+    safeheron.proto.HEGProof_V3 heg_proof = 2;
+}
+
+message Round6BCMessage {
+    string si = 1;
+}

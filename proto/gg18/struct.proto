@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.gg18;
+
+//import "commitment.proto";
+import "curve_point.proto";
+//import "mta.proto";
+import "paillier.proto";
+//import "zkp.proto";
+
+message Party {
+    string party_id = 1;
+    string index = 3;
+    safeheron.proto.PailPriv pail_priv = 6;
+    safeheron.proto.PailPub pail_pub = 7;
+    string x = 8; // local share
+    safeheron.proto.CurvePoint g_x = 9; // X = g^x
+    // For range proof
+    string N_tilde = 10;
+    string p = 11;
+    string q = 12;
+    string h1 = 13;
+    string h2 = 14;
+    string alpha = 15;
+    string beta = 16;
+}
+
+message SignKey {
+    string workspace_id = 1;
+    int32 threshold = 2;
+    int32 n_parties = 3;
+    Party local_party = 5;
+    repeated Party remote_parties = 6;
+    safeheron.proto.CurvePoint g_x = 7;
+}

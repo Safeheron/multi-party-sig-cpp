@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.gg18.sign;
+
+//import "commitment.proto";
+import "curve_point.proto";
+import "mta.proto";
+//import "paillier.proto";
+import "zkp.proto";
+
+message Round0BCMessage {
+    string message_a = 1;
+    string commitment = 2;
+}
+
+message Round0P2PMessage {
+    safeheron.proto.PailEncRangeProof_V1 alice_proof = 3;
+}
+
+message Round1P2PMessage {
+    safeheron.proto.MtaMessageB message_b_for_k_gamma = 1;
+    safeheron.proto.MtaMessageB message_b_for_k_w = 2;
+    safeheron.proto.PailAffRangeProof bob_proof_1 = 3;
+    safeheron.proto.PailAffRangeProof bob_proof_2 = 4;
+}
+
+message Round2BCMessage {
+    string delta = 1;
+}
+
+message Round3BCMessage {
+    string blind_factor = 1;
+    safeheron.proto.DLogProof dlog_proof_gamma_ = 2;
+}
+
+message Round4BCMessage {
+    string commitment = 1;
+}
+
+message Round5BCMessage {
+    safeheron.proto.CurvePoint V = 1;
+    safeheron.proto.CurvePoint A = 2;
+    string blind_factor = 4;
+    safeheron.proto.LinearCombinationProof lc_proof_VRG = 5;
+    safeheron.proto.DLogProof_V2 dlog_proof_rho = 6;
+}
+
+message Round6BCMessage {
+    string commitment = 1;
+}
+
+message Round7BCMessage {
+    safeheron.proto.CurvePoint U = 1;
+    safeheron.proto.CurvePoint T = 2;
+    string blind_factor = 3;
+}
+
+message Round8BCMessage {
+    string si = 1;
+}

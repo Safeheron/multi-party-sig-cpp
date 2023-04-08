@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.gg18.key_gen;
+
+import "commitment.proto";
+import "curve_point.proto";
+//import "mta.proto";
+import "paillier.proto";
+import "zkp.proto";
+
+// P2P message in round 0
+message Round0BCMessage {
+    string index = 1;
+    string kgc_Y = 3;
+    safeheron.proto.PailPub pail_pub = 4;
+
+    safeheron.proto.DLNProof dln_proof1 = 5;
+    safeheron.proto.DLNProof dln_proof2 = 6;
+    string N_tilde = 7;
+    string h1 = 8;
+    string h2 = 9;
+}
+
+// Broadcasting message in round 1
+message Round1BCMessage {
+    safeheron.proto.KGD kgd_y = 2;
+    repeated safeheron.proto.CurvePoint vs = 4;
+}
+
+// P2P message in round 1
+message Round1P2PMessage {
+    string x_ij = 3;
+}
+
+// Broadcasting message in round 2
+message Round2BCMessage {
+    safeheron.proto.CurvePoint pub = 1;
+    safeheron.proto.DLogProof dlog_proof_x = 2;
+    safeheron.proto.PailProof pail_proof = 3;
+}

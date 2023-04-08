@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.cmp.minimal_key_gen;
+
+import "curve_point.proto";
+//import "mta.proto";
+//import "paillier.proto";
+import "zkp.proto";
+
+message Round0BCMessage {
+    string sid = 1;
+    string index = 2;
+    string V = 3;
+}
+
+message Round1BCMessage {
+    string sid = 1;
+    string index = 2;
+    string rid = 3;
+    safeheron.proto.CurvePoint g_x = 4;
+    safeheron.proto.CurvePoint A = 5;
+    safeheron.proto.CurvePoint B = 6;
+    repeated string party_id_arr_1 = 7; // It contains n elements.
+    repeated safeheron.proto.CurvePoint g_x_arr = 8; // X_i = (X_i1, ..., X_in) = ( g^x_i1, ... , g^x_in)
+    repeated safeheron.proto.CurvePoint c = 9; // c = (X_i, \tilde{F}_i) = (X_i, F_i1, ..., F_i(t-1))
+    string u = 10;
+}
+
+message Round1P2PMessage {
+    string sid = 1;
+    string index = 2;
+    string x_ij = 11;
+}
+
+message Round2BCMessage {
+    string sid = 1;
+    string index = 2;
+    safeheron.proto.DLogProof_V2 psi = 3;
+    safeheron.proto.DLogProof_V2 phi = 4;
+}
