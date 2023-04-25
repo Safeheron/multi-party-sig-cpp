@@ -6,6 +6,7 @@
 #include "../../src/multi-party-ecdsa/cmp/cmp.h"
 #include "../thread_safe_queue.h"
 #include "../message.h"
+#include "../party_message_queue.h"
 
 using std::string;
 using std::vector;
@@ -39,7 +40,7 @@ void print_sign_key_info(Context *ctx) {
     printf("%s\n", sign_key_info.c_str());
 }
 
-std::map<std::string, ThreadSafeQueue<Msg>> map_id_message_queue;
+std::map<std::string, PartyMessageQue<Msg>> map_id_message_queue;
 
 #define N_PARTIES 3
 
@@ -61,7 +62,6 @@ bool key_refresh(int n_parties, std::string minimal_sign_key_base64, std::string
     printf("%s", status.c_str());
 
     //perform 3 rounds of MPC
-    ThreadSafeQueue<Msg> &in_queue = map_id_message_queue.at(ctx.sign_key_.local_party_.party_id_);
     for (int round = 0; round <= 3; ++round) {
         if (round == 0) {
             ok = ctx.PushMessage();
@@ -72,6 +72,7 @@ bool key_refresh(int n_parties, std::string minimal_sign_key_base64, std::string
         } else {
             for(int k = 0; k < n_parties - 1; k++) {
                 Msg m;
+                ThreadSafeQueue<Msg> &in_queue = map_id_message_queue.at(ctx.sign_key_.local_party_.party_id_).get(round - 1);
                 in_queue.Pop(m);
                 ok = ctx.PushMessage(m.p2p_msg_, m.bc_msg_, m.src_, round - 1);
                 if (!ok) {
@@ -100,7 +101,7 @@ bool key_refresh(int n_parties, std::string minimal_sign_key_base64, std::string
 
         for (size_t j = 0; j < out_des_arr.size(); ++j) {
             Msg m = {ctx.sign_key_.local_party_.party_id_, out_bc_message, out_p2p_message_arr.empty() ? "": out_p2p_message_arr[j]};
-            ThreadSafeQueue<Msg> &out_queue = map_id_message_queue.at(out_des_arr[j]);
+            ThreadSafeQueue<Msg> &out_queue = map_id_message_queue.at(out_des_arr[j]).get(round);
             out_queue.Push(m);
         }
     }
@@ -136,7 +137,7 @@ TEST(cmp, aux_info_key_refresh_mt) {
     };
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = ThreadSafeQueue<Msg>();
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         res[i] = std::async(std::launch::async, key_refresh, N_PARTIES, minimal_sign_key_base64_arr[i], ssid);
@@ -153,7 +154,7 @@ TEST(cmp, aux_info_key_refresh_mt) {
     minimal_sign_key_base64_arr[2] = "EAIYAyLfAQoKY29fc2lnbmVyMxICMDMaQEQ1QUQ2NkQ1RTlBRjk1RjNGRkJBOUMxMEJEMTZDRTYxNjY2NDg5QjZCRTUyMDRDNUI0NkJCOEZEQzYwQjAxODQiigEKQEE0Njk2NDVDODZCRkRCRTlFRDU2NUMzQkM2MEQwOTRDQjgwMDBENEY2NEY1MjY1MTZBQzAyMjRDNTMzMTc4RUMSQEREQjUzNzEwNUE5QjExRkZGODE3MDQ1NkIwMjE2OTM4MURFRkVDQjU3ODJGMENDQjg3NDIxMTBCRjdCRDU3MUIaBHAyNTYqnQEKCmNvX3NpZ25lcjESAjAxIooBCkAwNTk5QkM4OEMyQTExRjZCOEI1QTY1QTM3OEMxOTk3NjMyMjAwOTI0OTMwOTMzMDQ1NkQ1RTg2NjE2MUI1RkRFEkA5OEU0RDcxN0Q4MzhBRkZBRDlCNUM4OUU0ODJCNjA1MjRENjc2Qjc3M0ZGRTg2QkNEMzEzOTEyOEUyMTZEQzc2GgRwMjU2Kp0BCgpjb19zaWduZXIyEgIwMiKKAQpAQkUwQzlBNTQzNUE4NjcxQ0ExNUE1MzMxQjU3ODE0QUI2NjZBMkVBODVEREFCOEQ3MzkyMTU4NkQ1RjRBQUIyOBJARDZERUE4Q0JCMjBDODM5ODg4RUQwOTYwODE0Q0M2Q0E2MjM5ODdDODI5MjRDOTJCRjE4QzBEMjQwMjE2NkUzRRoEcDI1NjKKAQpAMjI5MzkwQjQ5QTQxN0IwQTQ2RjNDNjdEQjMzMTg2MUZDRUYyNjNBMzQ2NjAwQTUyODVDMTc5QjcyMTM4RTA0MxJARjY2MjM1MDlBNjIwRUQ3MTNGQ0U2NkQ1NDNCNDY1QjMwQjREQkI1QjM4NkMwRDcwQTI3RjM1NTJEMTMyRDEwNRoEcDI1Ng..";
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = ThreadSafeQueue<Msg>();
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         res[i] = std::async(std::launch::async, key_refresh, N_PARTIES, minimal_sign_key_base64_arr[i], ssid);
@@ -170,7 +171,7 @@ TEST(cmp, aux_info_key_refresh_mt) {
     minimal_sign_key_base64_arr[2] = "EAIYAyLgAQoKY29fc2lnbmVyMxICMDMaQDA2MkVBMjg5NjhFNjBDRDZERDRGMzc1M0M0QzYyMENFOEQyQzdCQzM0Rjc4MDM4RUFDNDRBOTY3QjIzMTg2NkEiiwEKQDAzMkNBNkI1NjZGQjI5RUQ3RjEzOTYwRTlCMTRBRkY3RjlBNkRGQjBCMDM0NkNEMDQyNUQ4NkY3Mzk4NUU5RkESQDA1MUMyMDM5MDg1RkFDN0Q4MUUyN0ZDMzE2NUU0OTVDN0Y1MkJCMUE1NTg1NzJEQTNGNUFBRTJBOTU4MkUzMTAaBXN0YXJrKp4BCgpjb19zaWduZXIxEgIwMSKLAQpAMDYzQjgyQjE4QkVGRDNENzYyREY4Q0VCODAyMTkwMDY2QTQ5QUQ3QzZBRTc1RTNBQkJEQjk0REE4NURDQURCNhJAMDM3RjlFMjQ1RDIyMUUxOEREOTFDQUFFNDFEQkI3MEE3OTM4NDNDOTYyQTM3Q0M4QjkzRjgwNzE4NzBGREY2OBoFc3RhcmsqnAEKCmNvX3NpZ25lcjISAjAyIokBCkAwNkRGM0QwQUEwMDcwQjQ2NzEwMEYzMTA0RTFDNDZFMTFCMjBGODg0MEMxMTEzQTJCN0YyNUU5MTA2MjczMzUyEj5ENTdGNEYxNUY5NTk4QUZGQzY1NTQxNEMwQ0RGNjY5NkNDMzY0NkUwNzgyRDJGMDFDNzg3NjlDNzVGQzk1RRoFc3RhcmsyiQEKQDAyQzRDMDMwRjBFNTQ5Q0FENzU5MTVDOUNBODBBNTNFQTc1OTk5RjZGMjgyNTdBMDk0NzcyQUQ2RThENEVDMUYSPjE2NDRDRTNEMTREMkU5RjU2MDc1Nzg2OEVDMDY3MTQyMUI2NUQ5NTMyRkM4NzYwMjhDM0MwMDczNEY5Q0ZBGgVzdGFyaw..";
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = ThreadSafeQueue<Msg>();
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         res[i] = std::async(std::launch::async, key_refresh, N_PARTIES, minimal_sign_key_base64_arr[i], ssid);

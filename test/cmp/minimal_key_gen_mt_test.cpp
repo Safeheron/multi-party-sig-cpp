@@ -8,6 +8,7 @@
 #include "../../src/multi-party-ecdsa/cmp/cmp.h"
 #include "../thread_safe_queue.h"
 #include "../message.h"
+#include "../party_message_queue.h"
 
 using std::string;
 using std::vector;
@@ -40,7 +41,7 @@ void print_sign_key_info(Context *ctx) {
     printf("%s\n", sign_key_info.c_str());
 }
 
-std::map<std::string, ThreadSafeQueue<Msg>> map_id_message_queue;
+std::map<std::string, PartyMessageQue<Msg>> map_id_message_queue;
 
 #define N_PARTIES 3
 
@@ -61,7 +62,6 @@ bool key_gen(CurveType curve_type, int n_parties, int threshold, std::string par
     printf("%s", status.c_str());
 
     //perform 3 rounds of MPC
-    ThreadSafeQueue<Msg> &in_queue = map_id_message_queue.at(ctx.minimal_sign_key_.local_party_.party_id_);
     for (int round = 0; round <= 3; ++round) {
         if (round == 0) {
             ok = ctx.PushMessage();
@@ -72,6 +72,7 @@ bool key_gen(CurveType curve_type, int n_parties, int threshold, std::string par
         } else {
             for(int k = 0; k < n_parties - 1; k++) {
                 Msg m;
+                ThreadSafeQueue<Msg> &in_queue = map_id_message_queue.at(ctx.minimal_sign_key_.local_party_.party_id_).get(round - 1);
                 in_queue.Pop(m);
                 ok = ctx.PushMessage(m.p2p_msg_, m.bc_msg_, m.src_, round - 1);
                 if (!ok) {
@@ -100,7 +101,7 @@ bool key_gen(CurveType curve_type, int n_parties, int threshold, std::string par
 
         for (size_t j = 0; j < out_des_arr.size(); ++j) {
             Msg m = {ctx.minimal_sign_key_.local_party_.party_id_, out_bc_message, out_p2p_message_arr.empty() ? "": out_p2p_message_arr[j]};
-            ThreadSafeQueue<Msg> &out_queue = map_id_message_queue.at(out_des_arr[j]);
+            ThreadSafeQueue<Msg> &out_queue = map_id_message_queue.at(out_des_arr[j]).get(round);
             out_queue.Push(m);
         }
     }
@@ -135,7 +136,7 @@ TEST(cmp, minimal_key_gen_mt) {
     printf("Test cmp key generation with secp256k1 curve\n");
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = ThreadSafeQueue<Msg>();
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         std::vector<std::string> remote_party_ids;
@@ -156,7 +157,7 @@ TEST(cmp, minimal_key_gen_mt) {
     printf("Test cmp key generation with p256 curve\n");
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = ThreadSafeQueue<Msg>();
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         std::vector<std::string> remote_party_ids;
@@ -177,7 +178,7 @@ TEST(cmp, minimal_key_gen_mt) {
     printf("Test cmp key generation with stark curve\n");
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = ThreadSafeQueue<Msg>();
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         std::vector<std::string> remote_party_ids;
