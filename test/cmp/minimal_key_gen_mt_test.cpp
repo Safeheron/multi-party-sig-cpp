@@ -43,8 +43,8 @@ void print_sign_key_info(Context *ctx) {
 
 std::map<std::string, PartyMessageQue<Msg>> map_id_message_queue;
 
+#define ROUNDS 4
 #define N_PARTIES 3
-
 #define THRESHOLD 2
 
 bool key_gen(CurveType curve_type, int n_parties, int threshold, std::string party_id, BN index, std::vector<std::string> remote_party_ids, std::vector<BN> remote_party_indexes, std::string ssid) {
@@ -62,7 +62,7 @@ bool key_gen(CurveType curve_type, int n_parties, int threshold, std::string par
     printf("%s", status.c_str());
 
     //perform 3 rounds of MPC
-    for (int round = 0; round <= 3; ++round) {
+    for (int round = 0; round < ROUNDS; ++round) {
         if (round == 0) {
             ok = ctx.PushMessage();
             if (!ok) {
@@ -136,7 +136,7 @@ TEST(cmp, minimal_key_gen_mt) {
     printf("Test cmp key generation with secp256k1 curve\n");
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(ROUNDS);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         std::vector<std::string> remote_party_ids;
@@ -157,7 +157,7 @@ TEST(cmp, minimal_key_gen_mt) {
     printf("Test cmp key generation with p256 curve\n");
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(ROUNDS);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         std::vector<std::string> remote_party_ids;
@@ -178,7 +178,7 @@ TEST(cmp, minimal_key_gen_mt) {
     printf("Test cmp key generation with stark curve\n");
     //Initialize the message queue
     for (int i = 0; i < N_PARTIES; ++i) {
-        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(4);
+        map_id_message_queue[party_ids[i]] = PartyMessageQue<Msg>(ROUNDS);
     }
     for (int i = 0; i < N_PARTIES; ++i) {
         std::vector<std::string> remote_party_ids;
