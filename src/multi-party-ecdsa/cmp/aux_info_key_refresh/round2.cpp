@@ -8,6 +8,7 @@
 
 using std::string;
 using safeheron::hash::CSHA256;
+using safeheron::sss::Polynomial;
 using safeheron::bignum::BN;
 using safeheron::curve::CurveType;
 using safeheron::curve::CurvePoint;
@@ -144,6 +145,25 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     ok = (ctx->remote_parties_[pos].V_.size() == CSHA256::OUTPUT_SIZE) && (0 == memcmp(ctx->remote_parties_[pos].V_.c_str(), digest, CSHA256::OUTPUT_SIZE));
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ok = (ctx->local_party_.V_.size() == CSHA256::OUTPUT_SIZE) && (0 == memcmp(ctx->local_party_.V_.c_str(), digest, CSHA256::OUTPUT_SIZE))!");
+        return false;
+    }
+
+    std::vector<BN> share_index_arr;
+    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
+        share_index_arr.push_back(sign_key.remote_parties_[i].index_);
+    }
+    share_index_arr.push_back(sign_key.local_party_.index_);
+
+    std::vector<BN> l_arr;
+    Polynomial::GetLArray(l_arr, BN::ZERO, share_index_arr, curv->n);
+
+    CurvePoint ExpectedX = bc_message_arr_[pos].map_party_id_X_.at(sign_key.local_party_.party_id_) * l_arr.back();
+    for(size_t i = 0; i < sign_key.remote_parties_.size(); ++i) {
+        ExpectedX += bc_message_arr_[pos].map_party_id_X_.at(sign_key.remote_parties_[i].party_id_) * l_arr[i];
+    }
+    ok = (ExpectedX == curv->g * BN(0));
+    if (!ok) {
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ok = (ExpectedX == curv->g * BN(0)");
         return false;
     }
 

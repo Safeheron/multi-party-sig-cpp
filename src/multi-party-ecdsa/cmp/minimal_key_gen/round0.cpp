@@ -42,6 +42,8 @@ bool Round0::ComputeVerify() {
         share_index_arr.push_back(minimal_sign_key.remote_parties_[i].index_);
     }
 
+    share_index_arr.push_back(minimal_sign_key.local_party_.index_);
+
     // check if index == 0
     bool ok = safeheron::multi_party_ecdsa::cmp::CheckIndexArr(share_index_arr, curv->n);
     if (!ok) {
@@ -49,7 +51,6 @@ bool Round0::ComputeVerify() {
         return false;
     }
 
-    share_index_arr.push_back(minimal_sign_key.local_party_.index_);
     for(size_t i = 1; i < minimal_sign_key.threshold_; ++i){
         BN num = safeheron::rand::RandomBN(256);
         ctx->local_party_.f_arr_.push_back(num);
