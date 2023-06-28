@@ -32,6 +32,11 @@ bool Round2P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::
         message.mutable_pail_proof()->add_y_n_arr(str);
     }
 
+    safeheron::proto::NoSmallFactorProof no_small_factor_proof;
+    ok = nsf_proof_.ToProtoObject(no_small_factor_proof);
+    if (!ok) return false;
+    message.mutable_nsf_proof()->CopyFrom(no_small_factor_proof);
+
     return true;
 }
 
@@ -46,6 +51,9 @@ bool Round2P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa
         BN y_N = BN::FromHexStr(message.pail_proof().y_n_arr(i));
         pail_proof_.y_N_arr_.push_back(y_N);
     }
+
+    ok = nsf_proof_.FromProtoObject(message.nsf_proof());
+    if (!ok) return false;
 
     return true;
 }

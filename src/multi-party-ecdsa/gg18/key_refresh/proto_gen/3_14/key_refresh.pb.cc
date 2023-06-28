@@ -17,6 +17,7 @@
 extern PROTOBUF_INTERNAL_EXPORT_curve_5fpoint_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CurvePoint_curve_5fpoint_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DLNProof_zkp_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DLogProof_zkp_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_NoSmallFactorProof_zkp_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PailProof_zkp_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_paillier_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PailPub_paillier_2eproto;
 namespace safeheron {
@@ -101,10 +102,11 @@ static void InitDefaultsscc_info_Round2P2PMessage_gg18_2fkey_5frefresh_2eproto()
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Round2P2PMessage_gg18_2fkey_5frefresh_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Round2P2PMessage_gg18_2fkey_5frefresh_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Round2P2PMessage_gg18_2fkey_5frefresh_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Round2P2PMessage_gg18_2fkey_5frefresh_2eproto}, {
       &scc_info_DLogProof_zkp_2eproto.base,
-      &scc_info_PailProof_zkp_2eproto.base,}};
+      &scc_info_PailProof_zkp_2eproto.base,
+      &scc_info_NoSmallFactorProof_zkp_2eproto.base,}};
 
 static void InitDefaultsscc_info_Round3BCMessage_gg18_2fkey_5frefresh_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -156,6 +158,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_gg18_2fkey_5frefresh_2eproto::
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round2P2PMessage, dlog_proof_x_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round2P2PMessage, pail_proof_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round2P2PMessage, nsf_proof_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round3BCMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -168,7 +171,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 6, -1, sizeof(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round1BCMessage)},
   { 19, -1, sizeof(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round1P2PMessage)},
   { 25, -1, sizeof(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round2P2PMessage)},
-  { 32, -1, sizeof(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round3BCMessage)},
+  { 33, -1, sizeof(::safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round3BCMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -191,11 +194,12 @@ const char descriptor_table_protodef_gg18_2fkey_5frefresh_2eproto[] PROTOBUF_SEC
   "\001(\0132\031.safeheron.proto.DLNProof\022*\n\010pail_p"
   "ub\030\007 \001(\0132\030.safeheron.proto.PailPub\022\024\n\014bl"
   "ind_factor\030\010 \001(\t\" \n\020Round1P2PMessage\022\014\n\004"
-  "x_ij\030\010 \001(\t\"t\n\020Round2P2PMessage\0220\n\014dlog_p"
-  "roof_x\030\001 \001(\0132\032.safeheron.proto.DLogProof"
-  "\022.\n\npail_proof\030\002 \001(\0132\032.safeheron.proto.P"
-  "ailProof\"%\n\017Round3BCMessage\022\022\n\nack_statu"
-  "s\030\001 \001(\005b\006proto3"
+  "x_ij\030\010 \001(\t\"\254\001\n\020Round2P2PMessage\0220\n\014dlog_"
+  "proof_x\030\001 \001(\0132\032.safeheron.proto.DLogProo"
+  "f\022.\n\npail_proof\030\002 \001(\0132\032.safeheron.proto."
+  "PailProof\0226\n\tnsf_proof\030\003 \001(\0132#.safeheron"
+  ".proto.NoSmallFactorProof\"%\n\017Round3BCMes"
+  "sage\022\022\n\nack_status\030\001 \001(\005b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_gg18_2fkey_5frefresh_2eproto_deps[3] = {
   &::descriptor_table_curve_5fpoint_2eproto,
@@ -211,7 +215,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_gg1
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_gg18_2fkey_5frefresh_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_gg18_2fkey_5frefresh_2eproto = {
-  false, false, descriptor_table_protodef_gg18_2fkey_5frefresh_2eproto, "gg18/key_refresh.proto", 615,
+  false, false, descriptor_table_protodef_gg18_2fkey_5frefresh_2eproto, "gg18/key_refresh.proto", 672,
   &descriptor_table_gg18_2fkey_5frefresh_2eproto_once, descriptor_table_gg18_2fkey_5frefresh_2eproto_sccs, descriptor_table_gg18_2fkey_5frefresh_2eproto_deps, 5, 3,
   schemas, file_default_instances, TableStruct_gg18_2fkey_5frefresh_2eproto::offsets,
   file_level_metadata_gg18_2fkey_5frefresh_2eproto, 5, file_level_enum_descriptors_gg18_2fkey_5frefresh_2eproto, file_level_service_descriptors_gg18_2fkey_5frefresh_2eproto,
@@ -1146,6 +1150,7 @@ class Round2P2PMessage::_Internal {
  public:
   static const ::safeheron::proto::DLogProof& dlog_proof_x(const Round2P2PMessage* msg);
   static const ::safeheron::proto::PailProof& pail_proof(const Round2P2PMessage* msg);
+  static const ::safeheron::proto::NoSmallFactorProof& nsf_proof(const Round2P2PMessage* msg);
 };
 
 const ::safeheron::proto::DLogProof&
@@ -1155,6 +1160,10 @@ Round2P2PMessage::_Internal::dlog_proof_x(const Round2P2PMessage* msg) {
 const ::safeheron::proto::PailProof&
 Round2P2PMessage::_Internal::pail_proof(const Round2P2PMessage* msg) {
   return *msg->pail_proof_;
+}
+const ::safeheron::proto::NoSmallFactorProof&
+Round2P2PMessage::_Internal::nsf_proof(const Round2P2PMessage* msg) {
+  return *msg->nsf_proof_;
 }
 void Round2P2PMessage::clear_dlog_proof_x() {
   if (GetArena() == nullptr && dlog_proof_x_ != nullptr) {
@@ -1167,6 +1176,12 @@ void Round2P2PMessage::clear_pail_proof() {
     delete pail_proof_;
   }
   pail_proof_ = nullptr;
+}
+void Round2P2PMessage::clear_nsf_proof() {
+  if (GetArena() == nullptr && nsf_proof_ != nullptr) {
+    delete nsf_proof_;
+  }
+  nsf_proof_ = nullptr;
 }
 Round2P2PMessage::Round2P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -1187,6 +1202,11 @@ Round2P2PMessage::Round2P2PMessage(const Round2P2PMessage& from)
   } else {
     pail_proof_ = nullptr;
   }
+  if (from._internal_has_nsf_proof()) {
+    nsf_proof_ = new ::safeheron::proto::NoSmallFactorProof(*from.nsf_proof_);
+  } else {
+    nsf_proof_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage)
 }
 
@@ -1194,8 +1214,8 @@ void Round2P2PMessage::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round2P2PMessage_gg18_2fkey_5frefresh_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&dlog_proof_x_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&pail_proof_) -
-      reinterpret_cast<char*>(&dlog_proof_x_)) + sizeof(pail_proof_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&nsf_proof_) -
+      reinterpret_cast<char*>(&dlog_proof_x_)) + sizeof(nsf_proof_));
 }
 
 Round2P2PMessage::~Round2P2PMessage() {
@@ -1208,6 +1228,7 @@ void Round2P2PMessage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete dlog_proof_x_;
   if (this != internal_default_instance()) delete pail_proof_;
+  if (this != internal_default_instance()) delete nsf_proof_;
 }
 
 void Round2P2PMessage::ArenaDtor(void* object) {
@@ -1239,6 +1260,10 @@ void Round2P2PMessage::Clear() {
     delete pail_proof_;
   }
   pail_proof_ = nullptr;
+  if (GetArena() == nullptr && nsf_proof_ != nullptr) {
+    delete nsf_proof_;
+  }
+  nsf_proof_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1260,6 +1285,13 @@ const char* Round2P2PMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_pail_proof(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .safeheron.proto.NoSmallFactorProof nsf_proof = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_nsf_proof(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1307,6 +1339,14 @@ failure:
         2, _Internal::pail_proof(this), target, stream);
   }
 
+  // .safeheron.proto.NoSmallFactorProof nsf_proof = 3;
+  if (this->has_nsf_proof()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::nsf_proof(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1335,6 +1375,13 @@ size_t Round2P2PMessage::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *pail_proof_);
+  }
+
+  // .safeheron.proto.NoSmallFactorProof nsf_proof = 3;
+  if (this->has_nsf_proof()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *nsf_proof_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1374,6 +1421,9 @@ void Round2P2PMessage::MergeFrom(const Round2P2PMessage& from) {
   if (from.has_pail_proof()) {
     _internal_mutable_pail_proof()->::safeheron::proto::PailProof::MergeFrom(from._internal_pail_proof());
   }
+  if (from.has_nsf_proof()) {
+    _internal_mutable_nsf_proof()->::safeheron::proto::NoSmallFactorProof::MergeFrom(from._internal_nsf_proof());
+  }
 }
 
 void Round2P2PMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1398,8 +1448,8 @@ void Round2P2PMessage::InternalSwap(Round2P2PMessage* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Round2P2PMessage, pail_proof_)
-      + sizeof(Round2P2PMessage::pail_proof_)
+      PROTOBUF_FIELD_OFFSET(Round2P2PMessage, nsf_proof_)
+      + sizeof(Round2P2PMessage::nsf_proof_)
       - PROTOBUF_FIELD_OFFSET(Round2P2PMessage, dlog_proof_x_)>(
           reinterpret_cast<char*>(&dlog_proof_x_),
           reinterpret_cast<char*>(&other->dlog_proof_x_));

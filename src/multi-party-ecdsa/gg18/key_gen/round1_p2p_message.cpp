@@ -28,13 +28,21 @@ bool Round1P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::
     x_ij_.ToHexStr(str);
     message.set_x_ij(str);
 
+    safeheron::proto::NoSmallFactorProof no_small_factor_proof;
+    ok = nsf_proof_.ToProtoObject(no_small_factor_proof);
+    if (!ok) return false;
+    message.mutable_nsf_proof()->CopyFrom(no_small_factor_proof);
+
     return true;
 }
 
 bool Round1P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::gg18::key_gen::Round1P2PMessage &message) {
-    bool ret = true;
+    bool ok = true;
 
     x_ij_ = BN::FromHexStr(message.x_ij());
+
+    ok = nsf_proof_.FromProtoObject(message.nsf_proof());
+    if (!ok) return false;
 
     return true;
 }

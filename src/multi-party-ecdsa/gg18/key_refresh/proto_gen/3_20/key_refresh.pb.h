@@ -780,6 +780,7 @@ class Round2P2PMessage final :
   enum : int {
     kDlogProofXFieldNumber = 1,
     kPailProofFieldNumber = 2,
+    kNsfProofFieldNumber = 3,
   };
   // .safeheron.proto.DLogProof dlog_proof_x = 1;
   bool has_dlog_proof_x() const;
@@ -817,6 +818,24 @@ class Round2P2PMessage final :
       ::safeheron::proto::PailProof* pail_proof);
   ::safeheron::proto::PailProof* unsafe_arena_release_pail_proof();
 
+  // .safeheron.proto.NoSmallFactorProof nsf_proof = 3;
+  bool has_nsf_proof() const;
+  private:
+  bool _internal_has_nsf_proof() const;
+  public:
+  void clear_nsf_proof();
+  const ::safeheron::proto::NoSmallFactorProof& nsf_proof() const;
+  PROTOBUF_NODISCARD ::safeheron::proto::NoSmallFactorProof* release_nsf_proof();
+  ::safeheron::proto::NoSmallFactorProof* mutable_nsf_proof();
+  void set_allocated_nsf_proof(::safeheron::proto::NoSmallFactorProof* nsf_proof);
+  private:
+  const ::safeheron::proto::NoSmallFactorProof& _internal_nsf_proof() const;
+  ::safeheron::proto::NoSmallFactorProof* _internal_mutable_nsf_proof();
+  public:
+  void unsafe_arena_set_allocated_nsf_proof(
+      ::safeheron::proto::NoSmallFactorProof* nsf_proof);
+  ::safeheron::proto::NoSmallFactorProof* unsafe_arena_release_nsf_proof();
+
   // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage)
  private:
   class _Internal;
@@ -826,6 +845,7 @@ class Round2P2PMessage final :
   typedef void DestructorSkippable_;
   ::safeheron::proto::DLogProof* dlog_proof_x_;
   ::safeheron::proto::PailProof* pail_proof_;
+  ::safeheron::proto::NoSmallFactorProof* nsf_proof_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_gg18_2fkey_5frefresh_2eproto;
 };
@@ -1755,6 +1775,91 @@ inline void Round2P2PMessage::set_allocated_pail_proof(::safeheron::proto::PailP
   }
   pail_proof_ = pail_proof;
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage.pail_proof)
+}
+
+// .safeheron.proto.NoSmallFactorProof nsf_proof = 3;
+inline bool Round2P2PMessage::_internal_has_nsf_proof() const {
+  return this != internal_default_instance() && nsf_proof_ != nullptr;
+}
+inline bool Round2P2PMessage::has_nsf_proof() const {
+  return _internal_has_nsf_proof();
+}
+inline const ::safeheron::proto::NoSmallFactorProof& Round2P2PMessage::_internal_nsf_proof() const {
+  const ::safeheron::proto::NoSmallFactorProof* p = nsf_proof_;
+  return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::NoSmallFactorProof&>(
+      ::safeheron::proto::_NoSmallFactorProof_default_instance_);
+}
+inline const ::safeheron::proto::NoSmallFactorProof& Round2P2PMessage::nsf_proof() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage.nsf_proof)
+  return _internal_nsf_proof();
+}
+inline void Round2P2PMessage::unsafe_arena_set_allocated_nsf_proof(
+    ::safeheron::proto::NoSmallFactorProof* nsf_proof) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nsf_proof_);
+  }
+  nsf_proof_ = nsf_proof;
+  if (nsf_proof) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage.nsf_proof)
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round2P2PMessage::release_nsf_proof() {
+  
+  ::safeheron::proto::NoSmallFactorProof* temp = nsf_proof_;
+  nsf_proof_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round2P2PMessage::unsafe_arena_release_nsf_proof() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage.nsf_proof)
+  
+  ::safeheron::proto::NoSmallFactorProof* temp = nsf_proof_;
+  nsf_proof_ = nullptr;
+  return temp;
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round2P2PMessage::_internal_mutable_nsf_proof() {
+  
+  if (nsf_proof_ == nullptr) {
+    auto* p = CreateMaybeMessage<::safeheron::proto::NoSmallFactorProof>(GetArenaForAllocation());
+    nsf_proof_ = p;
+  }
+  return nsf_proof_;
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round2P2PMessage::mutable_nsf_proof() {
+  ::safeheron::proto::NoSmallFactorProof* _msg = _internal_mutable_nsf_proof();
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage.nsf_proof)
+  return _msg;
+}
+inline void Round2P2PMessage::set_allocated_nsf_proof(::safeheron::proto::NoSmallFactorProof* nsf_proof) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(nsf_proof_);
+  }
+  if (nsf_proof) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nsf_proof));
+    if (message_arena != submessage_arena) {
+      nsf_proof = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, nsf_proof, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  nsf_proof_ = nsf_proof;
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.gg18.key_refresh.Round2P2PMessage.nsf_proof)
 }
 
 // -------------------------------------------------------------------

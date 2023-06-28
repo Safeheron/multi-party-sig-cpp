@@ -648,6 +648,7 @@ class Round1P2PMessage final :
 
   enum : int {
     kXIjFieldNumber = 3,
+    kNsfProofFieldNumber = 4,
   };
   // string x_ij = 3;
   void clear_x_ij();
@@ -663,6 +664,24 @@ class Round1P2PMessage final :
   std::string* _internal_mutable_x_ij();
   public:
 
+  // .safeheron.proto.NoSmallFactorProof nsf_proof = 4;
+  bool has_nsf_proof() const;
+  private:
+  bool _internal_has_nsf_proof() const;
+  public:
+  void clear_nsf_proof();
+  const ::safeheron::proto::NoSmallFactorProof& nsf_proof() const;
+  PROTOBUF_NODISCARD ::safeheron::proto::NoSmallFactorProof* release_nsf_proof();
+  ::safeheron::proto::NoSmallFactorProof* mutable_nsf_proof();
+  void set_allocated_nsf_proof(::safeheron::proto::NoSmallFactorProof* nsf_proof);
+  private:
+  const ::safeheron::proto::NoSmallFactorProof& _internal_nsf_proof() const;
+  ::safeheron::proto::NoSmallFactorProof* _internal_mutable_nsf_proof();
+  public:
+  void unsafe_arena_set_allocated_nsf_proof(
+      ::safeheron::proto::NoSmallFactorProof* nsf_proof);
+  ::safeheron::proto::NoSmallFactorProof* unsafe_arena_release_nsf_proof();
+
   // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage)
  private:
   class _Internal;
@@ -671,6 +690,7 @@ class Round1P2PMessage final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr x_ij_;
+  ::safeheron::proto::NoSmallFactorProof* nsf_proof_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_gg18_2fkey_5fgen_2eproto;
 };
@@ -1560,6 +1580,91 @@ inline void Round1P2PMessage::set_allocated_x_ij(std::string* x_ij) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage.x_ij)
+}
+
+// .safeheron.proto.NoSmallFactorProof nsf_proof = 4;
+inline bool Round1P2PMessage::_internal_has_nsf_proof() const {
+  return this != internal_default_instance() && nsf_proof_ != nullptr;
+}
+inline bool Round1P2PMessage::has_nsf_proof() const {
+  return _internal_has_nsf_proof();
+}
+inline const ::safeheron::proto::NoSmallFactorProof& Round1P2PMessage::_internal_nsf_proof() const {
+  const ::safeheron::proto::NoSmallFactorProof* p = nsf_proof_;
+  return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::NoSmallFactorProof&>(
+      ::safeheron::proto::_NoSmallFactorProof_default_instance_);
+}
+inline const ::safeheron::proto::NoSmallFactorProof& Round1P2PMessage::nsf_proof() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage.nsf_proof)
+  return _internal_nsf_proof();
+}
+inline void Round1P2PMessage::unsafe_arena_set_allocated_nsf_proof(
+    ::safeheron::proto::NoSmallFactorProof* nsf_proof) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nsf_proof_);
+  }
+  nsf_proof_ = nsf_proof;
+  if (nsf_proof) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage.nsf_proof)
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round1P2PMessage::release_nsf_proof() {
+  
+  ::safeheron::proto::NoSmallFactorProof* temp = nsf_proof_;
+  nsf_proof_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round1P2PMessage::unsafe_arena_release_nsf_proof() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage.nsf_proof)
+  
+  ::safeheron::proto::NoSmallFactorProof* temp = nsf_proof_;
+  nsf_proof_ = nullptr;
+  return temp;
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round1P2PMessage::_internal_mutable_nsf_proof() {
+  
+  if (nsf_proof_ == nullptr) {
+    auto* p = CreateMaybeMessage<::safeheron::proto::NoSmallFactorProof>(GetArenaForAllocation());
+    nsf_proof_ = p;
+  }
+  return nsf_proof_;
+}
+inline ::safeheron::proto::NoSmallFactorProof* Round1P2PMessage::mutable_nsf_proof() {
+  ::safeheron::proto::NoSmallFactorProof* _msg = _internal_mutable_nsf_proof();
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage.nsf_proof)
+  return _msg;
+}
+inline void Round1P2PMessage::set_allocated_nsf_proof(::safeheron::proto::NoSmallFactorProof* nsf_proof) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(nsf_proof_);
+  }
+  if (nsf_proof) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nsf_proof));
+    if (message_arena != submessage_arena) {
+      nsf_proof = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, nsf_proof, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  nsf_proof_ = nsf_proof;
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.gg18.key_gen.Round1P2PMessage.nsf_proof)
 }
 
 // -------------------------------------------------------------------

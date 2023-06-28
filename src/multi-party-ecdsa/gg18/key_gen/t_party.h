@@ -56,6 +56,9 @@ public:
 
     // [KGC, KGD] = Com(y_i)
     safeheron::bignum::BN kgc_y_;
+
+    // No small factor proof
+    safeheron::zkp::no_small_factor_proof::NoSmallFactorProof nsf_proof_;
 };
 
 }

@@ -77,6 +77,7 @@ class Round2P2PMessage {
 public:
     safeheron::zkp::dlog::DLogProof dlog_proof_x_;
     safeheron::zkp::pail::PailProof pail_proof_;
+    safeheron::zkp::no_small_factor_proof::NoSmallFactorProof nsf_proof_;
 
 public:
     bool ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::key_refresh::Round2P2PMessage &message) const;

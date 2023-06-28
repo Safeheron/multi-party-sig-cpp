@@ -75,6 +75,16 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
+    safeheron::zkp::no_small_factor_proof::NoSmallFactorSetUp set_up(sign_key.local_party_.N_tilde_,
+                                                                     sign_key.local_party_.h1_,
+                                                                     sign_key.local_party_.h2_);
+    safeheron::zkp::no_small_factor_proof::NoSmallFactorStatement statement(sign_key.remote_parties_[pos].pail_pub_.n(), 256, 512);
+    ok = p2p_message_arr_[pos].nsf_proof_.Verify(set_up, statement);
+    if (!ok) {
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ok = message_arr_[pos].nsf_proof_.Verify(set_up, statement)");
+        return false;
+    }
+
     ctx->remote_parties_[pos].y_ = bc_message_arr_[pos].kgd_y_.point_;
 
     return true;

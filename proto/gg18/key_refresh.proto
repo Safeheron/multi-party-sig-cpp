@@ -21,6 +21,7 @@ message Round1BCMessage {
     safeheron.proto.DLNProof dln_proof_1 = 5;
     safeheron.proto.DLNProof dln_proof_2 = 6;
     safeheron.proto.PailPub pail_pub = 7;
+    string blind_factor = 8;
 }
 
 message Round1P2PMessage {
@@ -30,6 +31,7 @@ message Round1P2PMessage {
 message Round2P2PMessage {
     safeheron.proto.DLogProof dlog_proof_x = 1;
     safeheron.proto.PailProof pail_proof = 2;
+    safeheron.proto.NoSmallFactorProof nsf_proof = 3;
 }
 
 message Round3BCMessage {

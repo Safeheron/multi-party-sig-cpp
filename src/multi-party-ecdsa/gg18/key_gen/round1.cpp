@@ -123,6 +123,16 @@ bool Round1::ComputeVerify() {
     // Last point belong to local party.
     sign_key.local_party_.x_ = ctx->local_party_.share_points_[share_index_arr.size() - 1].y;
 
+    // No small factor proof
+    for(size_t i = 0; i < sign_key.remote_parties_.size(); ++i){
+        safeheron::zkp::no_small_factor_proof::NoSmallFactorSetUp set_up(sign_key.remote_parties_[i].N_tilde_,
+                                                                         sign_key.remote_parties_[i].h1_,
+                                                                         sign_key.remote_parties_[i].h2_);
+        safeheron::zkp::no_small_factor_proof::NoSmallFactorStatement statement(sign_key.local_party_.pail_pub_.n(), 256, 512);
+        safeheron::zkp::no_small_factor_proof::NoSmallFactorWitness witness(sign_key.local_party_.pail_priv_.p(), sign_key.local_party_.pail_priv_.q());
+        ctx->remote_parties_[i].nsf_proof_.Prove(set_up, statement, witness);
+    }
+
     return true;
 }
 
@@ -142,6 +152,7 @@ bool Round1::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
         Round1P2PMessage p2p_message;
         p2p_message.x_ij_ = ctx->local_party_.share_points_[i].y;
+        p2p_message.nsf_proof_ = ctx->remote_parties_[i].nsf_proof_;
         string base64;
         bool ok = p2p_message.ToBase64(base64);
         if (!ok) {
