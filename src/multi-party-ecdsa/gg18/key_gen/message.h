@@ -62,6 +62,7 @@ public:
 class Round1P2PMessage {
 public:
     safeheron::bignum::BN x_ij_;
+    safeheron::zkp::no_small_factor_proof::NoSmallFactorProof nsf_proof_;
 
 public:
     bool ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::key_gen::Round1P2PMessage &message) const;

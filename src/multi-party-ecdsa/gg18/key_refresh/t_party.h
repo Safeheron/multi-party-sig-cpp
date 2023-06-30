@@ -51,6 +51,8 @@ class RemoteTParty {
 public:
     std::string V_;
     safeheron::bignum::BN x_ij_;
+    // No small factor proof
+    safeheron::zkp::no_small_factor_proof::NoSmallFactorProof nsf_proof_;
     int ack_status_;
 };
 

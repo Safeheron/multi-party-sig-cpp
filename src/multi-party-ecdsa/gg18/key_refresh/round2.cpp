@@ -158,6 +158,16 @@ bool Round2::ComputeVerify() {
                                         ctx->local_party_.new_X_.x(),
                                         ctx->local_party_.new_X_.y());
 
+
+    // No small factor proof
+    for(size_t i = 0; i < sign_key.remote_parties_.size(); ++i){
+        safeheron::zkp::no_small_factor_proof::NoSmallFactorSetUp set_up(sign_key.remote_parties_[i].N_tilde_,
+                                                                         sign_key.remote_parties_[i].h1_,
+                                                                         sign_key.remote_parties_[i].h2_);
+        safeheron::zkp::no_small_factor_proof::NoSmallFactorStatement statement(sign_key.local_party_.pail_pub_.n(), 256, 512);
+        safeheron::zkp::no_small_factor_proof::NoSmallFactorWitness witness(sign_key.local_party_.pail_priv_.p(), sign_key.local_party_.pail_priv_.q());
+        ctx->remote_parties_[i].nsf_proof_.Prove(set_up, statement, witness);
+    }
     return true;
 }
 
@@ -174,15 +184,20 @@ bool Round2::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
         out_des_arr.push_back(sign_key.remote_parties_[i].party_id_);
     }
 
-    Round2P2PMessage message;
-    message.dlog_proof_x_ = ctx->local_party_.dlog_proof_x_;
-    message.pail_proof_ = ctx->local_party_.pail_proof_;
-    string base64;
-    bool ok = message.ToBase64(out_bc_msg);
-    if (!ok) {
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to encode to base64!");
-        return false;
+    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
+        Round2P2PMessage message;
+        message.dlog_proof_x_ = ctx->local_party_.dlog_proof_x_;
+        message.pail_proof_ = ctx->local_party_.pail_proof_;
+        message.nsf_proof_ = ctx->remote_parties_[i].nsf_proof_;
+        string base64;
+        bool ok = message.ToBase64(base64);
+        if (!ok) {
+            ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to encode to base64!");
+            return false;
+        }
+        out_p2p_msg_arr.push_back(base64);
     }
+
 
     return true;
 }

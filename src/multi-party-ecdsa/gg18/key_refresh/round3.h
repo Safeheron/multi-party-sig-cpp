@@ -17,7 +17,7 @@ public:
     std::vector<Round2P2PMessage> p2p_message_arr_;
 
 public:
-    Round3(): MPCRound(safeheron::mpc_flow::mpc_parallel_v2::MessageType::BROADCAST, safeheron::mpc_flow::mpc_parallel_v2::MessageType::BROADCAST){}
+    Round3(): MPCRound(safeheron::mpc_flow::mpc_parallel_v2::MessageType::P2P, safeheron::mpc_flow::mpc_parallel_v2::MessageType::BROADCAST){}
 
     void Init() override;
 
