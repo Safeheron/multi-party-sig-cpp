@@ -195,29 +195,34 @@ bool Round2::ComputeVerify() {
 
     ctx->local_party_.Delta_ = Gamma * ctx->local_party_.k_;
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        // alpha_ij = dec(D_ij)
-        ctx->remote_parties_[i].alpha_ij_ = ctx->local_party_.pail_priv_.DecryptNeg(p2p_message_arr_[i].D_ij_);
-        // alpha_hat_ij = dec(D_hat_ij)
-        ctx->remote_parties_[i].alpha_hat_ij_ = ctx->local_party_.pail_priv_.DecryptNeg(p2p_message_arr_[i].D_hat_ij_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        // \alpha_ij = dec_i{D_ij}
+        ctx->remote_parties_[j].alpha_ij_ = ctx->local_party_.pail_priv_.DecryptNeg(p2p_message_arr_[j].D_ij_);
+        // \hat{\alpha}_ij = dec_i{\hat{D}_ij}
+        ctx->remote_parties_[j].alpha_hat_ij_ = ctx->local_party_.pail_priv_.DecryptNeg(p2p_message_arr_[j].D_hat_ij_);
+    }
 
-        // delta = gamma * k + Sum_{i!=j}{alpha_ij + beta_ij}
-        BN delta = ctx->local_party_.gamma_ * ctx->local_party_.k_;
-        for (const auto & remote_party : ctx->remote_parties_) {
-            delta = (delta + remote_party.alpha_ij_ + remote_party.beta_ij_) % curv->n;
-        }
+    // \delta_i = \gamma_i * \k_i + \Sum_{j!=i}{ \alpha_ij + \beta_ij }     mod q
+    BN delta = ctx->local_party_.gamma_ * ctx->local_party_.k_;
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        delta = (delta + ctx->remote_parties_[j].alpha_ij_ + ctx->remote_parties_[j].beta_ij_) % curv->n;
         ctx->local_party_.delta_ = delta;
+    }
 
-        // chi = x * k + Sum_{i!=j}{alpha_hat_ij + beta_hat_ij}
-        BN chi = sign_key.local_party_.x_ * ctx->local_party_.k_;
-        for (const auto & remote_party : ctx->remote_parties_) {
-            chi = (chi + remote_party.alpha_hat_ij_ + remote_party.beta_hat_ij_) % curv->n;
-        }
-        ctx->local_party_.chi_ = chi;
+    // \chi_i = x_i * \k_i + \Sum_{j!=i}{ \hat{\alpha}_ij + \hat{\beta}_ij  }     mod q
+    BN chi = sign_key.local_party_.x_ * ctx->local_party_.k_;
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        chi = (chi + ctx->remote_parties_[j].alpha_hat_ij_ + ctx->remote_parties_[j].beta_hat_ij_) % curv->n;
+    }
+    ctx->local_party_.chi_ = chi;
 
-        PailEncGroupEleRangeSetUp setup(sign_key.remote_parties_[i].N_,
-                                          sign_key.remote_parties_[i].s_,
-                                          sign_key.remote_parties_[i].t_);
+    // For j != i, party i prove to party j that according to \PI^{log*}
+    // - K_i = enc_i(\k_i, \rho_i)
+    // - \Delta_i = \Gamma_i * \k_i
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        PailEncGroupEleRangeSetUp setup(sign_key.remote_parties_[j].N_,
+                                          sign_key.remote_parties_[j].s_,
+                                          sign_key.remote_parties_[j].t_);
 
         PailEncGroupEleRangeStatement statement(
                 ctx->local_party_.K_,
@@ -231,7 +236,7 @@ bool Round2::ComputeVerify() {
 
         PailEncGroupEleRangeWitness witness(ctx->local_party_.k_, ctx->local_party_.rho_);
 
-        ctx->remote_parties_[i].psi_double_prime_ij_.Prove(setup, statement, witness);
+        ctx->remote_parties_[j].psi_double_prime_ij_.Prove(setup, statement, witness);
     }
 
     return true;

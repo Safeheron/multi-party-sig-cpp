@@ -37,8 +37,8 @@ bool Round0::ComputeVerify() {
     ctx->local_party_.k_ = safeheron::rand::RandomBNLt(curv->n);
     ctx->local_party_.gamma_ = safeheron::rand::RandomBNLt(curv->n);
 
-    ctx->local_party_.rho_ = safeheron::rand::RandomBNLtCoPrime(curv->n);
-    ctx->local_party_.nu_ = safeheron::rand::RandomBNLtCoPrime(curv->n);
+    ctx->local_party_.rho_ = safeheron::rand::RandomBNLtCoPrime(sign_key.local_party_.N_);
+    ctx->local_party_.nu_ = safeheron::rand::RandomBNLtCoPrime(sign_key.local_party_.N_);
 
     ctx->local_party_.Gamma_ = curv->g * ctx->local_party_.gamma_;
 
