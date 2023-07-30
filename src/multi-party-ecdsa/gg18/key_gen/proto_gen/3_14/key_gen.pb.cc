@@ -19,7 +19,7 @@ extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::S
 extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DLogProof_zkp_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_commitment_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_KGD_commitment_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_NoSmallFactorProof_zkp_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PailProof_zkp_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_zkp_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PailBlumModulusProof_zkp_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_paillier_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PailPub_paillier_2eproto;
 namespace safeheron {
 namespace proto {
@@ -105,7 +105,7 @@ static void InitDefaultsscc_info_Round2BCMessage_gg18_2fkey_5fgen_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Round2BCMessage_gg18_2fkey_5fgen_2eproto}, {
       &scc_info_CurvePoint_curve_5fpoint_2eproto.base,
       &scc_info_DLogProof_zkp_2eproto.base,
-      &scc_info_PailProof_zkp_2eproto.base,}};
+      &scc_info_PailBlumModulusProof_zkp_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_gg18_2fkey_5fgen_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_gg18_2fkey_5fgen_2eproto = nullptr;
@@ -176,11 +176,12 @@ const char descriptor_table_protodef_gg18_2fkey_5fgen_2eproto[] PROTOBUF_SECTION
   "feheron.proto.KGD\022\'\n\002vs\030\004 \003(\0132\033.safehero"
   "n.proto.CurvePoint\"X\n\020Round1P2PMessage\022\014"
   "\n\004x_ij\030\003 \001(\t\0226\n\tnsf_proof\030\004 \001(\0132#.safehe"
-  "ron.proto.NoSmallFactorProof\"\235\001\n\017Round2B"
+  "ron.proto.NoSmallFactorProof\"\250\001\n\017Round2B"
   "CMessage\022(\n\003pub\030\001 \001(\0132\033.safeheron.proto."
   "CurvePoint\0220\n\014dlog_proof_x\030\002 \001(\0132\032.safeh"
-  "eron.proto.DLogProof\022.\n\npail_proof\030\003 \001(\013"
-  "2\032.safeheron.proto.PailProofb\006proto3"
+  "eron.proto.DLogProof\0229\n\npail_proof\030\003 \001(\013"
+  "2%.safeheron.proto.PailBlumModulusProofb"
+  "\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_gg18_2fkey_5fgen_2eproto_deps[4] = {
   &::descriptor_table_commitment_2eproto,
@@ -196,7 +197,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_gg1
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_gg18_2fkey_5fgen_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_gg18_2fkey_5fgen_2eproto = {
-  false, false, descriptor_table_protodef_gg18_2fkey_5fgen_2eproto, "gg18/key_gen.proto", 716,
+  false, false, descriptor_table_protodef_gg18_2fkey_5fgen_2eproto, "gg18/key_gen.proto", 727,
   &descriptor_table_gg18_2fkey_5fgen_2eproto_once, descriptor_table_gg18_2fkey_5fgen_2eproto_sccs, descriptor_table_gg18_2fkey_5fgen_2eproto_deps, 4, 4,
   schemas, file_default_instances, TableStruct_gg18_2fkey_5fgen_2eproto::offsets,
   file_level_metadata_gg18_2fkey_5fgen_2eproto, 4, file_level_enum_descriptors_gg18_2fkey_5fgen_2eproto, file_level_service_descriptors_gg18_2fkey_5fgen_2eproto,
@@ -1227,7 +1228,7 @@ class Round2BCMessage::_Internal {
  public:
   static const ::safeheron::proto::CurvePoint& pub(const Round2BCMessage* msg);
   static const ::safeheron::proto::DLogProof& dlog_proof_x(const Round2BCMessage* msg);
-  static const ::safeheron::proto::PailProof& pail_proof(const Round2BCMessage* msg);
+  static const ::safeheron::proto::PailBlumModulusProof& pail_proof(const Round2BCMessage* msg);
 };
 
 const ::safeheron::proto::CurvePoint&
@@ -1238,7 +1239,7 @@ const ::safeheron::proto::DLogProof&
 Round2BCMessage::_Internal::dlog_proof_x(const Round2BCMessage* msg) {
   return *msg->dlog_proof_x_;
 }
-const ::safeheron::proto::PailProof&
+const ::safeheron::proto::PailBlumModulusProof&
 Round2BCMessage::_Internal::pail_proof(const Round2BCMessage* msg) {
   return *msg->pail_proof_;
 }
@@ -1280,7 +1281,7 @@ Round2BCMessage::Round2BCMessage(const Round2BCMessage& from)
     dlog_proof_x_ = nullptr;
   }
   if (from._internal_has_pail_proof()) {
-    pail_proof_ = new ::safeheron::proto::PailProof(*from.pail_proof_);
+    pail_proof_ = new ::safeheron::proto::PailBlumModulusProof(*from.pail_proof_);
   } else {
     pail_proof_ = nullptr;
   }
@@ -1365,7 +1366,7 @@ const char* Round2BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .safeheron.proto.PailProof pail_proof = 3;
+      // .safeheron.proto.PailBlumModulusProof pail_proof = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_pail_proof(), ptr);
@@ -1416,7 +1417,7 @@ failure:
         2, _Internal::dlog_proof_x(this), target, stream);
   }
 
-  // .safeheron.proto.PailProof pail_proof = 3;
+  // .safeheron.proto.PailBlumModulusProof pail_proof = 3;
   if (this->has_pail_proof()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1454,7 +1455,7 @@ size_t Round2BCMessage::ByteSizeLong() const {
         *dlog_proof_x_);
   }
 
-  // .safeheron.proto.PailProof pail_proof = 3;
+  // .safeheron.proto.PailBlumModulusProof pail_proof = 3;
   if (this->has_pail_proof()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1499,7 +1500,7 @@ void Round2BCMessage::MergeFrom(const Round2BCMessage& from) {
     _internal_mutable_dlog_proof_x()->::safeheron::proto::DLogProof::MergeFrom(from._internal_dlog_proof_x());
   }
   if (from.has_pail_proof()) {
-    _internal_mutable_pail_proof()->::safeheron::proto::PailProof::MergeFrom(from._internal_pail_proof());
+    _internal_mutable_pail_proof()->::safeheron::proto::PailBlumModulusProof::MergeFrom(from._internal_pail_proof());
   }
 }
 

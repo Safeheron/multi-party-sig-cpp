@@ -123,10 +123,9 @@ bool Round2::ComputeVerify() {
     ctx->local_party_.dlog_proof_x_.ProveWithREx(sign_key.local_party_.x_, ctx->local_party_.rand_num_for_schnorr_proof_, ctx->curve_type_);
 
     // Paillier proof
-    ctx->local_party_.pail_proof_.Prove(sign_key.local_party_.pail_priv_,
-                                        sign_key.local_party_.index_,
-                                        sign_key.local_party_.g_x_.x(),
-                                        sign_key.local_party_.g_x_.y());
+    ctx->local_party_.pail_proof_.Prove(sign_key.local_party_.pail_pub_.n(),
+                                        sign_key.local_party_.pail_priv_.p(),
+                                        sign_key.local_party_.pail_priv_.q());
 
     return true;
 }

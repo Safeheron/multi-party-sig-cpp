@@ -37,5 +37,5 @@ message Round1P2PMessage {
 message Round2BCMessage {
     safeheron.proto.CurvePoint pub = 1;
     safeheron.proto.DLogProof dlog_proof_x = 2;
-    safeheron.proto.PailProof pail_proof = 3;
+    safeheron.proto.PailBlumModulusProof pail_proof = 3;
 }
