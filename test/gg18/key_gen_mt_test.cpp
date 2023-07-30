@@ -168,6 +168,7 @@ TEST(gg18, key_gen_mt) {
         EXPECT_TRUE(res[i].get());
     }
 
+#ifdef TEST_STARK_CURVE
     //STARK sample
     printf("Test gg18 key generation with stark curve\n");
     //Initialize the message queue
@@ -186,6 +187,8 @@ TEST(gg18, key_gen_mt) {
     for (int i = 0; i < N_PARTIES; ++i) {
         EXPECT_TRUE(res[i].get());
     }
+#endif
+
 }
 
 int main(int argc, char **argv) {

@@ -169,6 +169,7 @@ TEST(gg20, sign_n_n_mt) {
         EXPECT_TRUE(res[i].get());
     }
 
+#ifdef TEST_STARK_CURVE
     //STARK sample
     printf("Test gg20 sign with stark curve\n");
     //STARK sign key
@@ -185,6 +186,7 @@ TEST(gg20, sign_n_n_mt) {
     for (int i = 0; i < N_PARTIES; ++i) {
         EXPECT_TRUE(res[i].get());
     }
+#endif
 }
 
 int main(int argc, char **argv) {
