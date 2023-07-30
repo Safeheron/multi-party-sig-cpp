@@ -177,12 +177,13 @@ const char descriptor_table_protodef_gg18_2fkey_5frefresh_2eproto[] PROTOBUF_SEC
   "\001(\0132\031.safeheron.proto.DLNProof\022*\n\010pail_p"
   "ub\030\007 \001(\0132\030.safeheron.proto.PailPub\022\024\n\014bl"
   "ind_factor\030\010 \001(\t\" \n\020Round1P2PMessage\022\014\n\004"
-  "x_ij\030\010 \001(\t\"\254\001\n\020Round2P2PMessage\0220\n\014dlog_"
+  "x_ij\030\010 \001(\t\"\267\001\n\020Round2P2PMessage\0220\n\014dlog_"
   "proof_x\030\001 \001(\0132\032.safeheron.proto.DLogProo"
-  "f\022.\n\npail_proof\030\002 \001(\0132\032.safeheron.proto."
-  "PailProof\0226\n\tnsf_proof\030\003 \001(\0132#.safeheron"
-  ".proto.NoSmallFactorProof\"%\n\017Round3BCMes"
-  "sage\022\022\n\nack_status\030\001 \001(\005b\006proto3"
+  "f\0229\n\npail_proof\030\002 \001(\0132%.safeheron.proto."
+  "PailBlumModulusProof\0226\n\tnsf_proof\030\003 \001(\0132"
+  "#.safeheron.proto.NoSmallFactorProof\"%\n\017"
+  "Round3BCMessage\022\022\n\nack_status\030\001 \001(\005b\006pro"
+  "to3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_gg18_2fkey_5frefresh_2eproto_deps[3] = {
   &::descriptor_table_curve_5fpoint_2eproto,
@@ -191,7 +192,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_gg18_2fkey_5frefres
 };
 static ::_pbi::once_flag descriptor_table_gg18_2fkey_5frefresh_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_gg18_2fkey_5frefresh_2eproto = {
-    false, false, 672, descriptor_table_protodef_gg18_2fkey_5frefresh_2eproto,
+    false, false, 683, descriptor_table_protodef_gg18_2fkey_5frefresh_2eproto,
     "gg18/key_refresh.proto",
     &descriptor_table_gg18_2fkey_5frefresh_2eproto_once, descriptor_table_gg18_2fkey_5frefresh_2eproto_deps, 3, 5,
     schemas, file_default_instances, TableStruct_gg18_2fkey_5frefresh_2eproto::offsets,
@@ -1128,7 +1129,7 @@ void Round1P2PMessage::InternalSwap(Round1P2PMessage* other) {
 class Round2P2PMessage::_Internal {
  public:
   static const ::safeheron::proto::DLogProof& dlog_proof_x(const Round2P2PMessage* msg);
-  static const ::safeheron::proto::PailProof& pail_proof(const Round2P2PMessage* msg);
+  static const ::safeheron::proto::PailBlumModulusProof& pail_proof(const Round2P2PMessage* msg);
   static const ::safeheron::proto::NoSmallFactorProof& nsf_proof(const Round2P2PMessage* msg);
 };
 
@@ -1136,7 +1137,7 @@ const ::safeheron::proto::DLogProof&
 Round2P2PMessage::_Internal::dlog_proof_x(const Round2P2PMessage* msg) {
   return *msg->dlog_proof_x_;
 }
-const ::safeheron::proto::PailProof&
+const ::safeheron::proto::PailBlumModulusProof&
 Round2P2PMessage::_Internal::pail_proof(const Round2P2PMessage* msg) {
   return *msg->pail_proof_;
 }
@@ -1177,7 +1178,7 @@ Round2P2PMessage::Round2P2PMessage(const Round2P2PMessage& from)
     dlog_proof_x_ = nullptr;
   }
   if (from._internal_has_pail_proof()) {
-    pail_proof_ = new ::safeheron::proto::PailProof(*from.pail_proof_);
+    pail_proof_ = new ::safeheron::proto::PailBlumModulusProof(*from.pail_proof_);
   } else {
     pail_proof_ = nullptr;
   }
@@ -1251,7 +1252,7 @@ const char* Round2P2PMessage::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
-      // .safeheron.proto.PailProof pail_proof = 2;
+      // .safeheron.proto.PailBlumModulusProof pail_proof = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_pail_proof(), ptr);
@@ -1303,7 +1304,7 @@ uint8_t* Round2P2PMessage::_InternalSerialize(
         _Internal::dlog_proof_x(this).GetCachedSize(), target, stream);
   }
 
-  // .safeheron.proto.PailProof pail_proof = 2;
+  // .safeheron.proto.PailBlumModulusProof pail_proof = 2;
   if (this->_internal_has_pail_proof()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::pail_proof(this),
@@ -1340,7 +1341,7 @@ size_t Round2P2PMessage::ByteSizeLong() const {
         *dlog_proof_x_);
   }
 
-  // .safeheron.proto.PailProof pail_proof = 2;
+  // .safeheron.proto.PailBlumModulusProof pail_proof = 2;
   if (this->_internal_has_pail_proof()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1380,7 +1381,7 @@ void Round2P2PMessage::MergeFrom(const Round2P2PMessage& from) {
     _internal_mutable_dlog_proof_x()->::safeheron::proto::DLogProof::MergeFrom(from._internal_dlog_proof_x());
   }
   if (from._internal_has_pail_proof()) {
-    _internal_mutable_pail_proof()->::safeheron::proto::PailProof::MergeFrom(from._internal_pail_proof());
+    _internal_mutable_pail_proof()->::safeheron::proto::PailBlumModulusProof::MergeFrom(from._internal_pail_proof());
   }
   if (from._internal_has_nsf_proof()) {
     _internal_mutable_nsf_proof()->::safeheron::proto::NoSmallFactorProof::MergeFrom(from._internal_nsf_proof());

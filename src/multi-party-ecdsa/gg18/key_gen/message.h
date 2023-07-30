@@ -82,7 +82,7 @@ class Round2BCMessage {
 public:
     safeheron::curve::CurvePoint pub_;
     safeheron::zkp::dlog::DLogProof dlog_proof_x_;
-    safeheron::zkp::pail::PailProof pail_proof_;
+    safeheron::zkp::pail::PailBlumModulusProof pail_proof_;
 
 public:
     bool ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::key_gen::Round2BCMessage &message) const;

@@ -26,11 +26,10 @@ bool Round2P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::
     if (!ok) return false;
     message.mutable_dlog_proof_x()->CopyFrom(dlog_proof);
 
-    for(size_t i = 0; i < pail_proof_.y_N_arr_.size(); ++i){
-        string str;
-        pail_proof_.y_N_arr_[i].ToHexStr(str);
-        message.mutable_pail_proof()->add_y_n_arr(str);
-    }
+    safeheron::proto::PailBlumModulusProof pail_proof;
+    ok = pail_proof_.ToProtoObject(pail_proof);
+    if (!ok) return false;
+    message.mutable_pail_proof()->CopyFrom(pail_proof);
 
     safeheron::proto::NoSmallFactorProof no_small_factor_proof;
     ok = nsf_proof_.ToProtoObject(no_small_factor_proof);
@@ -44,13 +43,10 @@ bool Round2P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa
     bool ok = true;
 
     ok = dlog_proof_x_.FromProtoObject(message.dlog_proof_x());
-    ok = ok && dlog_proof_x_.Verify();
     if (!ok) return false;
 
-    for(int i = 0; i < message.pail_proof().y_n_arr_size(); ++i){
-        BN y_N = BN::FromHexStr(message.pail_proof().y_n_arr(i));
-        pail_proof_.y_N_arr_.push_back(y_N);
-    }
+    ok = pail_proof_.FromProtoObject(message.pail_proof());
+    if (!ok) return false;
 
     ok = nsf_proof_.FromProtoObject(message.nsf_proof());
     if (!ok) return false;

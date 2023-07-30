@@ -32,28 +32,24 @@ bool Round2BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::gg18::k
     if (!ok) return false;
     message.mutable_pub()->CopyFrom(point);
 
-    for(size_t i = 0; i < pail_proof_.y_N_arr_.size(); ++i){
-        string str;
-        pail_proof_.y_N_arr_[i].ToHexStr(str);
-        message.mutable_pail_proof()->add_y_n_arr(str);
-    }
+    safeheron::proto::PailBlumModulusProof pail_proof;
+    ok = pail_proof_.ToProtoObject(pail_proof);
+    if (!ok) return false;
+    message.mutable_pail_proof()->CopyFrom(pail_proof);
 
     return true;
 }
 
 bool Round2BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::gg18::key_gen::Round2BCMessage &message) {
     bool ok = dlog_proof_x_.FromProtoObject(message.dlog_proof_x());
-    ok = ok && dlog_proof_x_.Verify();
     if (!ok) return false;
 
     ok = pub_.FromProtoObject(message.pub());
     ok = ok && !pub_.IsInfinity();
     if (!ok) return false;
 
-    for(int i = 0; i < message.pail_proof().y_n_arr_size(); ++i){
-        BN y_N = BN::FromHexStr(message.pail_proof().y_n_arr(i));
-        pail_proof_.y_N_arr_.push_back(y_N);
-    }
+    ok = pail_proof_.FromProtoObject(message.pail_proof());
+    if (!ok) return false;
 
     return true;
 }

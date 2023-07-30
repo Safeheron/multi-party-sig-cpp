@@ -69,10 +69,7 @@ bool Round3::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
-    ok = bc_message_arr_[pos].pail_proof_.Verify(sign_key.remote_parties_[pos].pail_pub_,
-                                              sign_key.remote_parties_[pos].index_,
-                                                 bc_message_arr_[pos].dlog_proof_x_.pk_.x(),
-                                                 bc_message_arr_[pos].dlog_proof_x_.pk_.y());
+    ok = bc_message_arr_[pos].pail_proof_.Verify(sign_key.remote_parties_[pos].pail_pub_.n());
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to verify paillier proof!");
         return false;

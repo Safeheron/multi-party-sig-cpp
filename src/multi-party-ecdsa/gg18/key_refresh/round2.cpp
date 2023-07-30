@@ -153,10 +153,9 @@ bool Round2::ComputeVerify() {
     ctx->local_party_.dlog_proof_x_.ProveWithREx(ctx->local_party_.new_x_, ctx->local_party_.rand_num_for_schnorr_proof_, sign_key.X_.GetCurveType());
 
     // Paillier proof
-    ctx->local_party_.pail_proof_.Prove(sign_key.local_party_.pail_priv_,
-                                        sign_key.local_party_.index_,
-                                        ctx->local_party_.new_X_.x(),
-                                        ctx->local_party_.new_X_.y());
+    ctx->local_party_.pail_proof_.Prove(sign_key.local_party_.pail_pub_.n(),
+                                        sign_key.local_party_.pail_priv_.p(),
+                                        sign_key.local_party_.pail_priv_.q());
 
 
     // No small factor proof
