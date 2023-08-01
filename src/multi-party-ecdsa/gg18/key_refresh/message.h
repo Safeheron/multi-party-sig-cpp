@@ -76,7 +76,7 @@ public:
 class Round2P2PMessage {
 public:
     safeheron::zkp::dlog::DLogProof dlog_proof_x_;
-    safeheron::zkp::pail::PailProof pail_proof_;
+    safeheron::zkp::pail::PailBlumModulusProof pail_proof_;
     safeheron::zkp::no_small_factor_proof::NoSmallFactorProof nsf_proof_;
 
 public:

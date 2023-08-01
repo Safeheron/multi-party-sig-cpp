@@ -29,7 +29,7 @@ public:
     std::string V_;
 
     // Paillier proof
-    zkp::pail::PailProof pail_proof_;
+    zkp::pail::PailBlumModulusProof pail_proof_;
     // DLN Proof
     zkp::dln_proof::DLNProof dln_proof_1_;
     zkp::dln_proof::DLNProof dln_proof_2_;
