@@ -237,8 +237,10 @@ TEST(KeyGen, KeyGen_t_n)
         std::cout << "Test gg18 key generation with P256 curve:" << std::endl;
         testKeyGen_t_n(safeheron::curve::CurveType::P256);
 
+#ifdef TEST_STARK_CURVE
         std::cout << "Test gg18 key generation with STARK curve:" << std::endl;
         testKeyGen_t_n(safeheron::curve::CurveType::STARK);
+#endif
 
     } catch (const safeheron::exception::LocatedException &e) {
         std::cout << "Exception: " << e.what() << std::endl;

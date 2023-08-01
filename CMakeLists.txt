@@ -8,6 +8,11 @@ set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=/safeheron")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=/safeheron")
 
+option(TEST_STARK_CURVE "Use Stark Curve" OFF)
+if (TEST_STARK_CURVE)
+    add_definitions(-DTEST_STARK_CURVE)
+endif()
+
 cmake_policy(SET CMP0076 NEW)
 cmake_policy(SET CMP0079 NEW)
 add_library(${CMAKE_PROJECT_NAME} SHARED "")

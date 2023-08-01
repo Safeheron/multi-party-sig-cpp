@@ -62,6 +62,7 @@ cd multi-party-ecdsa-cpp
 git submodule update --recursive --init
 mkdir build && cd build
 # Run "cmake .. -DOPENSSL_ROOT_DIR=Your-Root-Directory-of-OPENSSL  -DENABLE_TESTS=ON" instead of the command below on Mac OS.
+# Use cmake .. -DENABLE_TESTS=ON -DTEST_STARK_CURVE=ON for stark curve.
 cmake ..  -DENABLE_TESTS=ON
 # Add the path to the LD_LIBRARY_PATH environment variable on Mac OS; Ignore it on Linux
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib/
