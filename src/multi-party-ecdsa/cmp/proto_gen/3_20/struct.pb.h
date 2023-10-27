@@ -399,6 +399,7 @@ class MinimalSignKey final :
   enum : int {
     kRemotePartiesFieldNumber = 5,
     kWorkspaceIdFieldNumber = 1,
+    kRidFieldNumber = 7,
     kLocalPartyFieldNumber = 4,
     kGXFieldNumber = 6,
     kThresholdFieldNumber = 2,
@@ -434,6 +435,20 @@ class MinimalSignKey final :
   const std::string& _internal_workspace_id() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_workspace_id(const std::string& value);
   std::string* _internal_mutable_workspace_id();
+  public:
+
+  // string rid = 7;
+  void clear_rid();
+  const std::string& rid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rid();
+  PROTOBUF_NODISCARD std::string* release_rid();
+  void set_allocated_rid(std::string* rid);
+  private:
+  const std::string& _internal_rid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rid(const std::string& value);
+  std::string* _internal_mutable_rid();
   public:
 
   // .safeheron.proto.multi_party_ecdsa.cmp.MinimalParty local_party = 4;
@@ -499,6 +514,7 @@ class MinimalSignKey final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::safeheron::proto::multi_party_ecdsa::cmp::MinimalParty > remote_parties_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr workspace_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rid_;
   ::safeheron::proto::multi_party_ecdsa::cmp::MinimalParty* local_party_;
   ::safeheron::proto::CurvePoint* g_x_;
   int32_t threshold_;
@@ -635,6 +651,8 @@ class Party final :
     kTFieldNumber = 12,
     kPFieldNumber = 13,
     kQFieldNumber = 14,
+    kAlphaFieldNumber = 15,
+    kBetaFieldNumber = 16,
     kGXFieldNumber = 4,
     kGYFieldNumber = 5,
   };
@@ -750,6 +768,34 @@ class Party final :
   std::string* _internal_mutable_q();
   public:
 
+  // string alpha = 15;
+  void clear_alpha();
+  const std::string& alpha() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_alpha(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_alpha();
+  PROTOBUF_NODISCARD std::string* release_alpha();
+  void set_allocated_alpha(std::string* alpha);
+  private:
+  const std::string& _internal_alpha() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_alpha(const std::string& value);
+  std::string* _internal_mutable_alpha();
+  public:
+
+  // string beta = 16;
+  void clear_beta();
+  const std::string& beta() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_beta(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_beta();
+  PROTOBUF_NODISCARD std::string* release_beta();
+  void set_allocated_beta(std::string* beta);
+  private:
+  const std::string& _internal_beta() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_beta(const std::string& value);
+  std::string* _internal_mutable_beta();
+  public:
+
   // .safeheron.proto.CurvePoint g_x = 4;
   bool has_g_x() const;
   private:
@@ -801,6 +847,8 @@ class Party final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr t_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr p_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr q_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr alpha_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr beta_;
   ::safeheron::proto::CurvePoint* g_x_;
   ::safeheron::proto::CurvePoint* g_y_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -929,6 +977,7 @@ class SignKey final :
   enum : int {
     kRemotePartiesFieldNumber = 5,
     kWorkspaceIdFieldNumber = 1,
+    kRidFieldNumber = 7,
     kLocalPartyFieldNumber = 4,
     kGXFieldNumber = 6,
     kThresholdFieldNumber = 2,
@@ -964,6 +1013,20 @@ class SignKey final :
   const std::string& _internal_workspace_id() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_workspace_id(const std::string& value);
   std::string* _internal_mutable_workspace_id();
+  public:
+
+  // string rid = 7;
+  void clear_rid();
+  const std::string& rid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rid();
+  PROTOBUF_NODISCARD std::string* release_rid();
+  void set_allocated_rid(std::string* rid);
+  private:
+  const std::string& _internal_rid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rid(const std::string& value);
+  std::string* _internal_mutable_rid();
   public:
 
   // .safeheron.proto.multi_party_ecdsa.cmp.Party local_party = 4;
@@ -1029,6 +1092,7 @@ class SignKey final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::safeheron::proto::multi_party_ecdsa::cmp::Party > remote_parties_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr workspace_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rid_;
   ::safeheron::proto::multi_party_ecdsa::cmp::Party* local_party_;
   ::safeheron::proto::CurvePoint* g_x_;
   int32_t threshold_;
@@ -1589,6 +1653,56 @@ inline void MinimalSignKey::set_allocated_g_x(::safeheron::proto::CurvePoint* g_
   }
   g_x_ = g_x;
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.g_x)
+}
+
+// string rid = 7;
+inline void MinimalSignKey::clear_rid() {
+  rid_.ClearToEmpty();
+}
+inline const std::string& MinimalSignKey::rid() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid)
+  return _internal_rid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void MinimalSignKey::set_rid(ArgT0&& arg0, ArgT... args) {
+ 
+ rid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid)
+}
+inline std::string* MinimalSignKey::mutable_rid() {
+  std::string* _s = _internal_mutable_rid();
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid)
+  return _s;
+}
+inline const std::string& MinimalSignKey::_internal_rid() const {
+  return rid_.Get();
+}
+inline void MinimalSignKey::_internal_set_rid(const std::string& value) {
+  
+  rid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* MinimalSignKey::_internal_mutable_rid() {
+  
+  return rid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* MinimalSignKey::release_rid() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid)
+  return rid_.Release();
+}
+inline void MinimalSignKey::set_allocated_rid(std::string* rid) {
+  if (rid != nullptr) {
+    
+  } else {
+    
+  }
+  rid_.SetAllocated(rid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (rid_.IsDefault()) {
+    rid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid)
 }
 
 // -------------------------------------------------------------------
@@ -2165,6 +2279,106 @@ inline void Party::set_allocated_q(std::string* q) {
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.Party.q)
 }
 
+// string alpha = 15;
+inline void Party::clear_alpha() {
+  alpha_.ClearToEmpty();
+}
+inline const std::string& Party::alpha() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.Party.alpha)
+  return _internal_alpha();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Party::set_alpha(ArgT0&& arg0, ArgT... args) {
+ 
+ alpha_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.Party.alpha)
+}
+inline std::string* Party::mutable_alpha() {
+  std::string* _s = _internal_mutable_alpha();
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.Party.alpha)
+  return _s;
+}
+inline const std::string& Party::_internal_alpha() const {
+  return alpha_.Get();
+}
+inline void Party::_internal_set_alpha(const std::string& value) {
+  
+  alpha_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Party::_internal_mutable_alpha() {
+  
+  return alpha_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Party::release_alpha() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.Party.alpha)
+  return alpha_.Release();
+}
+inline void Party::set_allocated_alpha(std::string* alpha) {
+  if (alpha != nullptr) {
+    
+  } else {
+    
+  }
+  alpha_.SetAllocated(alpha, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (alpha_.IsDefault()) {
+    alpha_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.Party.alpha)
+}
+
+// string beta = 16;
+inline void Party::clear_beta() {
+  beta_.ClearToEmpty();
+}
+inline const std::string& Party::beta() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.Party.beta)
+  return _internal_beta();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Party::set_beta(ArgT0&& arg0, ArgT... args) {
+ 
+ beta_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.Party.beta)
+}
+inline std::string* Party::mutable_beta() {
+  std::string* _s = _internal_mutable_beta();
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.Party.beta)
+  return _s;
+}
+inline const std::string& Party::_internal_beta() const {
+  return beta_.Get();
+}
+inline void Party::_internal_set_beta(const std::string& value) {
+  
+  beta_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Party::_internal_mutable_beta() {
+  
+  return beta_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Party::release_beta() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.Party.beta)
+  return beta_.Release();
+}
+inline void Party::set_allocated_beta(std::string* beta) {
+  if (beta != nullptr) {
+    
+  } else {
+    
+  }
+  beta_.SetAllocated(beta, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (beta_.IsDefault()) {
+    beta_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.Party.beta)
+}
+
 // -------------------------------------------------------------------
 
 // SignKey
@@ -2472,6 +2686,56 @@ inline void SignKey::set_allocated_g_x(::safeheron::proto::CurvePoint* g_x) {
   }
   g_x_ = g_x;
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.SignKey.g_x)
+}
+
+// string rid = 7;
+inline void SignKey::clear_rid() {
+  rid_.ClearToEmpty();
+}
+inline const std::string& SignKey::rid() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid)
+  return _internal_rid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SignKey::set_rid(ArgT0&& arg0, ArgT... args) {
+ 
+ rid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid)
+}
+inline std::string* SignKey::mutable_rid() {
+  std::string* _s = _internal_mutable_rid();
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid)
+  return _s;
+}
+inline const std::string& SignKey::_internal_rid() const {
+  return rid_.Get();
+}
+inline void SignKey::_internal_set_rid(const std::string& value) {
+  
+  rid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SignKey::_internal_mutable_rid() {
+  
+  return rid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SignKey::release_rid() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid)
+  return rid_.Release();
+}
+inline void SignKey::set_allocated_rid(std::string* rid) {
+  if (rid != nullptr) {
+    
+  } else {
+    
+  }
+  rid_.SetAllocated(rid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (rid_.IsDefault()) {
+    rid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid)
 }
 
 #ifdef __GNUC__

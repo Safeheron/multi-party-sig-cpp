@@ -43,6 +43,7 @@ PROTOBUF_CONSTEXPR MinimalSignKey::MinimalSignKey(
     ::_pbi::ConstantInitialized)
   : remote_parties_()
   , workspace_id_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , rid_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , local_party_(nullptr)
   , g_x_(nullptr)
   , threshold_(0)
@@ -66,6 +67,8 @@ PROTOBUF_CONSTEXPR Party::Party(
   , t_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , p_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , q_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , alpha_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , beta_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , g_x_(nullptr)
   , g_y_(nullptr){}
 struct PartyDefaultTypeInternal {
@@ -81,6 +84,7 @@ PROTOBUF_CONSTEXPR SignKey::SignKey(
     ::_pbi::ConstantInitialized)
   : remote_parties_()
   , workspace_id_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , rid_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
   , local_party_(nullptr)
   , g_x_(nullptr)
   , threshold_(0)
@@ -125,6 +129,7 @@ const uint32_t TableStruct_cmp_2fstruct_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::MinimalSignKey, local_party_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::MinimalSignKey, remote_parties_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::MinimalSignKey, g_x_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::MinimalSignKey, rid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::Party, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -141,6 +146,8 @@ const uint32_t TableStruct_cmp_2fstruct_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::Party, t_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::Party, p_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::Party, q_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::Party, alpha_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::Party, beta_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::SignKey, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -153,12 +160,13 @@ const uint32_t TableStruct_cmp_2fstruct_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::SignKey, local_party_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::SignKey, remote_parties_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::SignKey, g_x_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::SignKey, rid_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::MinimalParty)},
   { 10, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::MinimalSignKey)},
-  { 22, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::Party)},
-  { 38, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::SignKey)},
+  { 23, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::Party)},
+  { 41, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::SignKey)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -173,32 +181,33 @@ const char descriptor_table_protodef_cmp_2fstruct_2eproto[] PROTOBUF_SECTION_VAR
   "i_party_ecdsa.cmp\032\021curve_point.proto\"d\n\014"
   "MinimalParty\022\020\n\010party_id\030\001 \001(\t\022\r\n\005index\030"
   "\002 \001(\t\022\t\n\001x\030\003 \001(\t\022(\n\003g_x\030\004 \001(\0132\033.safehero"
-  "n.proto.CurvePoint\"\215\002\n\016MinimalSignKey\022\024\n"
+  "n.proto.CurvePoint\"\232\002\n\016MinimalSignKey\022\024\n"
   "\014workspace_id\030\001 \001(\t\022\021\n\tthreshold\030\002 \001(\005\022\021"
   "\n\tn_parties\030\003 \001(\005\022H\n\013local_party\030\004 \001(\01323"
   ".safeheron.proto.multi_party_ecdsa.cmp.M"
   "inimalParty\022K\n\016remote_parties\030\005 \003(\01323.sa"
   "feheron.proto.multi_party_ecdsa.cmp.Mini"
   "malParty\022(\n\003g_x\030\006 \001(\0132\033.safeheron.proto."
-  "CurvePoint\"\276\001\n\005Party\022\020\n\010party_id\030\001 \001(\t\022\r"
-  "\n\005index\030\002 \001(\t\022\t\n\001x\030\003 \001(\t\022(\n\003g_x\030\004 \001(\0132\033."
-  "safeheron.proto.CurvePoint\022(\n\003g_y\030\005 \001(\0132"
-  "\033.safeheron.proto.CurvePoint\022\t\n\001N\030\n \001(\t\022"
-  "\t\n\001s\030\013 \001(\t\022\t\n\001t\030\014 \001(\t\022\t\n\001p\030\r \001(\t\022\t\n\001q\030\016 "
-  "\001(\t\"\370\001\n\007SignKey\022\024\n\014workspace_id\030\001 \001(\t\022\021\n"
-  "\tthreshold\030\002 \001(\005\022\021\n\tn_parties\030\003 \001(\005\022A\n\013l"
-  "ocal_party\030\004 \001(\0132,.safeheron.proto.multi"
-  "_party_ecdsa.cmp.Party\022D\n\016remote_parties"
-  "\030\005 \003(\0132,.safeheron.proto.multi_party_ecd"
-  "sa.cmp.Party\022(\n\003g_x\030\006 \001(\0132\033.safeheron.pr"
-  "oto.CurvePointb\006proto3"
+  "CurvePoint\022\013\n\003rid\030\007 \001(\t\"\333\001\n\005Party\022\020\n\010par"
+  "ty_id\030\001 \001(\t\022\r\n\005index\030\002 \001(\t\022\t\n\001x\030\003 \001(\t\022(\n"
+  "\003g_x\030\004 \001(\0132\033.safeheron.proto.CurvePoint\022"
+  "(\n\003g_y\030\005 \001(\0132\033.safeheron.proto.CurvePoin"
+  "t\022\t\n\001N\030\n \001(\t\022\t\n\001s\030\013 \001(\t\022\t\n\001t\030\014 \001(\t\022\t\n\001p\030"
+  "\r \001(\t\022\t\n\001q\030\016 \001(\t\022\r\n\005alpha\030\017 \001(\t\022\014\n\004beta\030"
+  "\020 \001(\t\"\205\002\n\007SignKey\022\024\n\014workspace_id\030\001 \001(\t\022"
+  "\021\n\tthreshold\030\002 \001(\005\022\021\n\tn_parties\030\003 \001(\005\022A\n"
+  "\013local_party\030\004 \001(\0132,.safeheron.proto.mul"
+  "ti_party_ecdsa.cmp.Party\022D\n\016remote_parti"
+  "es\030\005 \003(\0132,.safeheron.proto.multi_party_e"
+  "cdsa.cmp.Party\022(\n\003g_x\030\006 \001(\0132\033.safeheron."
+  "proto.CurvePoint\022\013\n\003rid\030\007 \001(\tb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_cmp_2fstruct_2eproto_deps[1] = {
   &::descriptor_table_curve_5fpoint_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_cmp_2fstruct_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_cmp_2fstruct_2eproto = {
-    false, false, 902, descriptor_table_protodef_cmp_2fstruct_2eproto,
+    false, false, 957, descriptor_table_protodef_cmp_2fstruct_2eproto,
     "cmp/struct.proto",
     &descriptor_table_cmp_2fstruct_2eproto_once, descriptor_table_cmp_2fstruct_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_cmp_2fstruct_2eproto::offsets,
@@ -596,6 +605,14 @@ MinimalSignKey::MinimalSignKey(const MinimalSignKey& from)
     workspace_id_.Set(from._internal_workspace_id(), 
       GetArenaForAllocation());
   }
+  rid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    rid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_rid().empty()) {
+    rid_.Set(from._internal_rid(), 
+      GetArenaForAllocation());
+  }
   if (from._internal_has_local_party()) {
     local_party_ = new ::safeheron::proto::multi_party_ecdsa::cmp::MinimalParty(*from.local_party_);
   } else {
@@ -617,6 +634,10 @@ workspace_id_.InitDefault();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   workspace_id_.Set("", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+rid_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  rid_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&local_party_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&n_parties_) -
@@ -635,6 +656,7 @@ MinimalSignKey::~MinimalSignKey() {
 inline void MinimalSignKey::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   workspace_id_.Destroy();
+  rid_.Destroy();
   if (this != internal_default_instance()) delete local_party_;
   if (this != internal_default_instance()) delete g_x_;
 }
@@ -651,6 +673,7 @@ void MinimalSignKey::Clear() {
 
   remote_parties_.Clear();
   workspace_id_.ClearToEmpty();
+  rid_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && local_party_ != nullptr) {
     delete local_party_;
   }
@@ -723,6 +746,16 @@ const char* MinimalSignKey::_InternalParse(const char* ptr, ::_pbi::ParseContext
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_g_x(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string rid = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_rid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid"));
         } else
           goto handle_unusual;
         continue;
@@ -799,6 +832,16 @@ uint8_t* MinimalSignKey::_InternalSerialize(
         _Internal::g_x(this).GetCachedSize(), target, stream);
   }
 
+  // string rid = 7;
+  if (!this->_internal_rid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_rid().data(), static_cast<int>(this->_internal_rid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "safeheron.proto.multi_party_ecdsa.cmp.MinimalSignKey.rid");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_rid(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -827,6 +870,13 @@ size_t MinimalSignKey::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_workspace_id());
+  }
+
+  // string rid = 7;
+  if (!this->_internal_rid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_rid());
   }
 
   // .safeheron.proto.multi_party_ecdsa.cmp.MinimalParty local_party = 4;
@@ -879,6 +929,9 @@ void MinimalSignKey::MergeFrom(const MinimalSignKey& from) {
   if (!from._internal_workspace_id().empty()) {
     _internal_set_workspace_id(from._internal_workspace_id());
   }
+  if (!from._internal_rid().empty()) {
+    _internal_set_rid(from._internal_rid());
+  }
   if (from._internal_has_local_party()) {
     _internal_mutable_local_party()->::safeheron::proto::multi_party_ecdsa::cmp::MinimalParty::MergeFrom(from._internal_local_party());
   }
@@ -914,6 +967,10 @@ void MinimalSignKey::InternalSwap(MinimalSignKey* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &workspace_id_, lhs_arena,
       &other->workspace_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &rid_, lhs_arena,
+      &other->rid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(MinimalSignKey, n_parties_)
@@ -1030,6 +1087,22 @@ Party::Party(const Party& from)
     q_.Set(from._internal_q(), 
       GetArenaForAllocation());
   }
+  alpha_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    alpha_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_alpha().empty()) {
+    alpha_.Set(from._internal_alpha(), 
+      GetArenaForAllocation());
+  }
+  beta_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    beta_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_beta().empty()) {
+    beta_.Set(from._internal_beta(), 
+      GetArenaForAllocation());
+  }
   if (from._internal_has_g_x()) {
     g_x_ = new ::safeheron::proto::CurvePoint(*from.g_x_);
   } else {
@@ -1076,6 +1149,14 @@ q_.InitDefault();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   q_.Set("", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+alpha_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  alpha_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+beta_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  beta_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&g_x_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&g_y_) -
@@ -1101,6 +1182,8 @@ inline void Party::SharedDtor() {
   t_.Destroy();
   p_.Destroy();
   q_.Destroy();
+  alpha_.Destroy();
+  beta_.Destroy();
   if (this != internal_default_instance()) delete g_x_;
   if (this != internal_default_instance()) delete g_y_;
 }
@@ -1123,6 +1206,8 @@ void Party::Clear() {
   t_.ClearToEmpty();
   p_.ClearToEmpty();
   q_.ClearToEmpty();
+  alpha_.ClearToEmpty();
+  beta_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && g_x_ != nullptr) {
     delete g_x_;
   }
@@ -1233,6 +1318,26 @@ const char* Party::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.Party.q"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string alpha = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 122)) {
+          auto str = _internal_mutable_alpha();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.Party.alpha"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string beta = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
+          auto str = _internal_mutable_beta();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.Party.beta"));
         } else
           goto handle_unusual;
         continue;
@@ -1359,6 +1464,26 @@ uint8_t* Party::_InternalSerialize(
         14, this->_internal_q(), target);
   }
 
+  // string alpha = 15;
+  if (!this->_internal_alpha().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_alpha().data(), static_cast<int>(this->_internal_alpha().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "safeheron.proto.multi_party_ecdsa.cmp.Party.alpha");
+    target = stream->WriteStringMaybeAliased(
+        15, this->_internal_alpha(), target);
+  }
+
+  // string beta = 16;
+  if (!this->_internal_beta().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_beta().data(), static_cast<int>(this->_internal_beta().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "safeheron.proto.multi_party_ecdsa.cmp.Party.beta");
+    target = stream->WriteStringMaybeAliased(
+        16, this->_internal_beta(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1431,6 +1556,20 @@ size_t Party::ByteSizeLong() const {
         this->_internal_q());
   }
 
+  // string alpha = 15;
+  if (!this->_internal_alpha().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_alpha());
+  }
+
+  // string beta = 16;
+  if (!this->_internal_beta().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_beta());
+  }
+
   // .safeheron.proto.CurvePoint g_x = 4;
   if (this->_internal_has_g_x()) {
     total_size += 1 +
@@ -1491,6 +1630,12 @@ void Party::MergeFrom(const Party& from) {
   if (!from._internal_q().empty()) {
     _internal_set_q(from._internal_q());
   }
+  if (!from._internal_alpha().empty()) {
+    _internal_set_alpha(from._internal_alpha());
+  }
+  if (!from._internal_beta().empty()) {
+    _internal_set_beta(from._internal_beta());
+  }
   if (from._internal_has_g_x()) {
     _internal_mutable_g_x()->::safeheron::proto::CurvePoint::MergeFrom(from._internal_g_x());
   }
@@ -1548,6 +1693,14 @@ void Party::InternalSwap(Party* other) {
       &q_, lhs_arena,
       &other->q_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &alpha_, lhs_arena,
+      &other->alpha_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &beta_, lhs_arena,
+      &other->beta_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Party, g_y_)
       + sizeof(Party::g_y_)
@@ -1603,6 +1756,14 @@ SignKey::SignKey(const SignKey& from)
     workspace_id_.Set(from._internal_workspace_id(), 
       GetArenaForAllocation());
   }
+  rid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    rid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_rid().empty()) {
+    rid_.Set(from._internal_rid(), 
+      GetArenaForAllocation());
+  }
   if (from._internal_has_local_party()) {
     local_party_ = new ::safeheron::proto::multi_party_ecdsa::cmp::Party(*from.local_party_);
   } else {
@@ -1624,6 +1785,10 @@ workspace_id_.InitDefault();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   workspace_id_.Set("", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+rid_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  rid_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&local_party_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&n_parties_) -
@@ -1642,6 +1807,7 @@ SignKey::~SignKey() {
 inline void SignKey::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   workspace_id_.Destroy();
+  rid_.Destroy();
   if (this != internal_default_instance()) delete local_party_;
   if (this != internal_default_instance()) delete g_x_;
 }
@@ -1658,6 +1824,7 @@ void SignKey::Clear() {
 
   remote_parties_.Clear();
   workspace_id_.ClearToEmpty();
+  rid_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && local_party_ != nullptr) {
     delete local_party_;
   }
@@ -1730,6 +1897,16 @@ const char* SignKey::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) 
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_g_x(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string rid = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_rid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid"));
         } else
           goto handle_unusual;
         continue;
@@ -1806,6 +1983,16 @@ uint8_t* SignKey::_InternalSerialize(
         _Internal::g_x(this).GetCachedSize(), target, stream);
   }
 
+  // string rid = 7;
+  if (!this->_internal_rid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_rid().data(), static_cast<int>(this->_internal_rid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "safeheron.proto.multi_party_ecdsa.cmp.SignKey.rid");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_rid(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1834,6 +2021,13 @@ size_t SignKey::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_workspace_id());
+  }
+
+  // string rid = 7;
+  if (!this->_internal_rid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_rid());
   }
 
   // .safeheron.proto.multi_party_ecdsa.cmp.Party local_party = 4;
@@ -1886,6 +2080,9 @@ void SignKey::MergeFrom(const SignKey& from) {
   if (!from._internal_workspace_id().empty()) {
     _internal_set_workspace_id(from._internal_workspace_id());
   }
+  if (!from._internal_rid().empty()) {
+    _internal_set_rid(from._internal_rid());
+  }
   if (from._internal_has_local_party()) {
     _internal_mutable_local_party()->::safeheron::proto::multi_party_ecdsa::cmp::Party::MergeFrom(from._internal_local_party());
   }
@@ -1921,6 +2118,10 @@ void SignKey::InternalSwap(SignKey* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &workspace_id_, lhs_arena,
       &other->workspace_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &rid_, lhs_arena,
+      &other->rid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SignKey, n_parties_)

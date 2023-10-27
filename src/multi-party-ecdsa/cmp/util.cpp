@@ -1,13 +1,17 @@
-
-
 #include "util.h"
 #include "crypto-bn/rand.h"
 #include "crypto-encode/hex.h"
 #include "crypto-curve/curve.h"
 #include "crypto-paillier/pail.h"
+#include "crypto-sss/polynomial.h"
+#include "crypto-bip32/bip32.h"
+#include "crypto-hash/sha256.h"
+#include "minimal_sign_key.h"
 #include "sign_key.h"
+#include "mpc-flow/common/sid_maker.h"
 
 using safeheron::multi_party_ecdsa::cmp::SignKey;
+using safeheron::mpc_flow::common::SIDMaker;
 
 using std::string;
 using safeheron::bignum::BN;
@@ -46,6 +50,17 @@ int find_party_id(std::string &party_id, const std::vector<std::string> &party_i
     return ret;
 }
 
+int compare_bytes(const std::string &left, const std::string &right){
+    size_t len = std::min(left.size(), right.size());
+    for(size_t i = 0; i < len; ++i){
+        if(left[i] != right[i]) {
+            return ((uint8_t)left[i] < (uint8_t)right[i]) ? -1 : 1;
+        }
+    }
+    if(left.size() == right.size()) return 0;
+    return (left.size() < right.size()) ? -1 : 1;
+}
+
 bool trim_sign_key(std::string &out_sign_key_base64, const std::string &in_sign_key_base64, const std::vector<std::string> &participant_id_arr){
     bool ok = true;
     SignKey sign_key;
@@ -75,6 +90,27 @@ bool trim_sign_key(std::string &out_sign_key_base64, const std::string &in_sign_
     ok = sign_key.ToBase64(out_sign_key_base64 );
     if (!ok) return false;
 
+    return true;
+}
+
+bool prepare_data(safeheron::bignum::BN &N,
+                             safeheron::bignum::BN &s,
+                             safeheron::bignum::BN &t,
+                             safeheron::bignum::BN &p,
+                             safeheron::bignum::BN &q,
+                             safeheron::bignum::BN &alpha,
+                             safeheron::bignum::BN &beta,
+                             safeheron::zkp::dln_proof::TwoDLNProof &two_dln_proof,
+                             safeheron::zkp::pail::PailBlumModulusProof &pail_blum_modulus_proof,
+                             const std::string &ssid_salt) {
+    safeheron::zkp::dln_proof::GenerateN_tilde(N, s, t, p, q, alpha, beta);
+    two_dln_proof.SetSalt(ssid_salt);
+    two_dln_proof.Prove(N, s, t, p, q, alpha, beta);
+    safeheron::bignum::BN P = p * 2 + 1;
+    safeheron::bignum::BN Q = q * 2 + 1;
+    pail_blum_modulus_proof.SetSalt(ssid_salt);
+    bool ok = pail_blum_modulus_proof.Prove(N, P, Q);
+    if (!ok) return false;
     return true;
 }
 

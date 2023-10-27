@@ -413,9 +413,9 @@ Refer to the [test case](./test/cmp/sign_t_n_mt_test.cpp) for more details.
 
 # Security Audit
 
-The GG18 protocol originates from the repository "Safeheron/mpc-dsa-lib", an internal project developed by Safeheron and audited by Kudelski Security in December 2021. There are some updates after the audit due to the attacks on the protocol[\[4\]](#Reference) [\[5\]](#Reference) [\[6\]](#Reference).
+The GG18 protocol originates from a previous repository developed by Safeheron and audited by Kudelski Security. There are some updates after the audit due to the attacks on the protocol[\[4\]](#Reference) [\[5\]](#Reference) [\[6\]](#Reference).
 
-The GG20 and CMP protocols are currently not audited by a third party, although we have further audit plans.
+The CMP protocols has been audited by LeastAuthority in 2023 and we have upgrade the protocol according to the opinions of the LeastAuthority. 
 
 Use at your own risk.
 

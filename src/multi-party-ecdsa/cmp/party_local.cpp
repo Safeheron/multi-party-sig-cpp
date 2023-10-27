@@ -55,6 +55,12 @@ bool LocalParty::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::Party &
     q_.ToHexStr(str);
     party.set_q(str);
 
+    alpha_.ToHexStr(str);
+    party.set_alpha(str);
+
+    beta_.ToHexStr(str);
+    party.set_beta(str);
+
     return true;
 }
 
@@ -99,6 +105,14 @@ bool LocalParty::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp:
 
     q_ = BN::FromHexStr(party.q());
     ok = (q_ != 0);
+    if (!ok) return false;
+
+    alpha_ = BN::FromHexStr(party.alpha());
+    ok = (alpha_ != 0);
+    if (!ok) return false;
+
+    beta_ = BN::FromHexStr(party.beta());
+    ok = (beta_ != 0);
     if (!ok) return false;
 
     return true;

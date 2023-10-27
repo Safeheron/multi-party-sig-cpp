@@ -19,7 +19,7 @@ namespace aux_info_key_refresh {
 
 void Round1::Init() {
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
-    for (int i = 0; i < ctx->get_total_parties() - 1; ++i) {
+    for (int j = 0; j < ctx->get_total_parties() - 1; ++j) {
         bc_message_arr_.emplace_back();
     }
 }
@@ -54,9 +54,9 @@ bool Round1::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
-    ok = (ctx->local_party_.sid_ == bc_message_arr_[pos].sid_);
+    ok = compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0;
     if(!ok){
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ctx->local_party_.sid_ == message_arr_[pos].sid_");
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0");
         return false;
     }
 
@@ -89,12 +89,12 @@ bool Round1::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     out_bc_msg.clear();
     out_des_arr.clear();
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        out_des_arr.push_back(sign_key.remote_parties_[i].party_id_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        out_des_arr.push_back(sign_key.remote_parties_[j].party_id_);
     }
 
     Round1BCMessage bc_message;
-    bc_message.sid_ = ctx->local_party_.sid_;
+    bc_message.ssid_ = ctx->ssid_;
     bc_message.index_ = sign_key.local_party_.index_;
     bc_message.map_party_id_X_ = ctx->local_party_.map_party_id_X_;
     bc_message.map_party_id_A_ = ctx->local_party_.map_remote_party_id_A_;

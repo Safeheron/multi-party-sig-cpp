@@ -48,3 +48,38 @@ message Round3P2PMessage {
     string sigma = 3;
 }
 
+message ProofInPreSignPhase {
+    // Map from ID to aff-g Proof
+    message IDAffGProofMap {
+        map<string, safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+    }
+
+    string c_k_gamma = 1;
+
+    // For all l \eq i,j, namely n - 2 in total, prove that {D_ji} are well-formed in ZK{aff-g}
+    map<string, IDAffGProofMap> id_map_map = 2;
+
+    // In Pre-Signing phase, prove that H_i = enc_i(k_i · gamma_i) is well formed wrt K_i and G_i in ZK{mul}
+    safeheron.proto.PailEncMulProof pail_enc_mul_proof = 3;
+
+    // In Pre-Signing phase, for all l \eq i  , namely n - 1 in total, prove that δ_i is the plaintext value mod q of the ciphertext obtained as H_i * \PI_{j ≠ i} {D_ij * F_ji} in ZK{dec}
+    map<string, safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+}
+
+message ProofInSignPhase {
+    // Map from ID to aff-g Proof
+    message IDAffGProofMap {
+        map<string, safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+    }
+
+    string c_k_x = 1;
+
+    // For all l \eq i,j, namely n - 2 in total, prove that {D_ji} are well-formed in ZK{aff-g}
+    map<string, IDAffGProofMap> id_map_map = 2;
+
+    // In Signing phase, prove that H_i = enc_i(k_i · x_i) is well formed wrt K_i and X_i in ZK{mul*}
+    map<string, safeheron.proto.PailMulGroupEleRangeProof> id_pail_mul_group_ele_proof_map = 3;
+
+    // In Signing phase, for all l \eq i  , namely n - 1 in total, prove that sigma_i is the plaintext value mod q of the ciphertext obtained as K_i^m * (H_hat_i * \PI_{j ≠ i} {D_hat_ij * F_hat_ji})^r in ZK{dec}
+    map<string, safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+}

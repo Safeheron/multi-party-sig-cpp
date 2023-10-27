@@ -1,7 +1,7 @@
 
 
-#ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_ONCE_T_PARTY_H
-#define SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_ONCE_T_PARTY_H
+#ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_T_PARTY_H
+#define SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_T_PARTY_H
 
 
 #include "proto_gen/sign.pb.switch.h"
@@ -22,6 +22,8 @@ namespace sign {
 
 class LocalTParty {
 public:
+    // (ssid, index)
+    std::string ssid_index_;
     // Sample in F_q
     safeheron::bignum::BN k_;
     safeheron::bignum::BN gamma_;
@@ -53,16 +55,23 @@ public:
 
 class RemoteTParty {
 public:
+    // (ssid, index)
+    std::string ssid_index_;
     /***************** from remote party ************************/
     safeheron::bignum::BN G_; // enc(r; mu)
     safeheron::bignum::BN K_; // enc(k; rho)
-    safeheron::zkp::pail::PailEncRangeProof_V2 psi_0_ij_; // M( prove, (K); (k, rho) )
+    safeheron::zkp::pail::PailEncRangeProof_V2 psi_0_ji_; // M( prove, (K); (k, rho) )
 
     /***************** to remote party ************************/
-    safeheron::bignum::BN D_ij;
-    safeheron::bignum::BN D_hat_ij;
-    safeheron::bignum::BN F_ij;     // enc(beta; r)
-    safeheron::bignum::BN F_hat_ij; // enc(beta; r_hat)
+    safeheron::bignum::BN D_ji;
+    safeheron::bignum::BN D_hat_ji;
+    safeheron::bignum::BN F_ji;     // enc(beta; r)
+    safeheron::bignum::BN F_hat_ji; // enc(beta; r_hat)
+
+    safeheron::bignum::BN recv_D_ij;
+    safeheron::bignum::BN recv_D_hat_ij;
+    safeheron::bignum::BN recv_F_ij;     // enc(beta; r)
+    safeheron::bignum::BN recv_F_hat_ij; // enc(beta; r_hat)
 
     safeheron::curve::CurvePoint Gamma_;
 
@@ -82,9 +91,9 @@ public:
     safeheron::bignum::BN beta_tag_ij_;
     safeheron::bignum::BN beta_tag_hat_ij_;
 
-    safeheron::zkp::pail::PailAffGroupEleRangeProof_V2 psi_ij_; // M( prove, (D_ij, K, F_ij, T); (r_ij, beta_ij, s_ij, r_ij) )
-    safeheron::zkp::pail::PailAffGroupEleRangeProof_V2 psi_hat_ij_; // M( prove, (D_hat_ij, K, F_hat_ij, T); (x, beta_hat_ij, s_hat_ij, r_hat_ij) )
-    safeheron::zkp::pail::PailEncGroupEleRangeProof psi_prime_ij_; // M( prove, (Gamma); (k, rho) )
+    safeheron::zkp::pail::PailAffGroupEleRangeProof_V2 psi_ji_; // M( prove, (D_ij, K, F_ij, T); (r_ij, beta_ij, s_ij, r_ij) )
+    safeheron::zkp::pail::PailAffGroupEleRangeProof_V2 psi_hat_ji_; // M( prove, (D_hat_ij, K, F_hat_ij, T); (x, beta_hat_ij, s_hat_ij, r_hat_ij) )
+    safeheron::zkp::pail::PailEncGroupEleRangeProof psi_prime_ji_; // M( prove, (Gamma); (k, rho) )
 
     safeheron::bignum::BN alpha_ij_;
     safeheron::bignum::BN alpha_hat_ij_;
@@ -93,8 +102,9 @@ public:
 
     safeheron::bignum::BN chi_;
     safeheron::bignum::BN delta_;
+    safeheron::bignum::BN raw_delta_;
 
-    safeheron::zkp::pail::PailEncGroupEleRangeProof psi_double_prime_ij_; // M( prove, (Gamma); (k, rho) )
+    safeheron::zkp::pail::PailEncGroupEleRangeProof psi_double_prime_ji_; // M( prove, (Gamma); (k, rho) )
 
     safeheron::bignum::BN sigma_;
 };
@@ -105,4 +115,4 @@ public:
 }
 
 
-#endif //SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_ONCE_T_PARTY_H
+#endif //SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_T_PARTY_H

@@ -21,7 +21,8 @@ namespace aux_info_key_refresh {
 
 class LocalTParty {
 public:
-    std::string sid_;
+    std::string sid_index_;
+    std::string sid_rho_index_;
     /**
      * N, s, t, p, q, pp, qq, alpha, beta
      * - N = p * q
@@ -32,8 +33,6 @@ public:
      */
     safeheron::bignum::BN pp_;
     safeheron::bignum::BN qq_;
-    safeheron::bignum::BN alpha_;
-    safeheron::bignum::BN beta_;
 
     //
     safeheron::bignum::BN tau_;
@@ -64,6 +63,8 @@ public:
 
 class RemoteTParty {
 public:
+    std::string ssid_index_;
+    std::string ssid_rho_index_;
     std::string V_;
     safeheron::bignum::BN x_;
     safeheron::curve::CurvePoint B_; // B = g^tau

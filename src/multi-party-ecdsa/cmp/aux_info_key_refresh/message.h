@@ -13,7 +13,7 @@ namespace aux_info_key_refresh {
 
 class Round0BCMessage {
 public:
-    std::string sid_;
+    std::string ssid_;
     safeheron::bignum::BN index_;
     std::string V_;
 
@@ -33,7 +33,7 @@ public:
 
 class Round1BCMessage {
 public:
-    std::string sid_;
+    std::string ssid_;
     safeheron::bignum::BN index_;
     std::map<std::string, safeheron::curve::CurvePoint> map_party_id_X_;
     std::vector<safeheron::curve::CurvePoint> c_;
@@ -63,7 +63,7 @@ public:
 
 class Round2P2PMessage {
 public:
-    std::string sid_;
+    std::string ssid_;
     safeheron::bignum::BN index_;
     safeheron::zkp::pail::PailBlumModulusProof psi_;
     safeheron::zkp::no_small_factor_proof::NoSmallFactorProof phi_ij_;

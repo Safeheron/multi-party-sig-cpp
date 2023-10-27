@@ -3,11 +3,11 @@
 #include <cstdio>
 #include "context.h"
 #include "crypto-commitment/commitment.h"
-#include "crypto-hash/sha256.h"
+#include "crypto-hash/safe_hash256.h"
 #include "crypto-encode/hex.h"
 
 using std::string;
-using safeheron::hash::CSHA256;
+using safeheron::hash::CSafeHash256;
 using safeheron::sss::Polynomial;
 using safeheron::bignum::BN;
 using safeheron::curve::CurveType;
@@ -58,8 +58,14 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
+    ok = compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0;
+    if(!ok){
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0");
+        return false;
+    }
+
     // check rho
-    ok = (bc_message_arr_[pos].rho_.size() == CSHA256::OUTPUT_SIZE);
+    ok = (bc_message_arr_[pos].rho_.size() == CSafeHash256::OUTPUT_SIZE);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__,
                            "(bc_message_arr_[pos].rho_.size() == CSHA256::OUTPUT_SIZE)");
@@ -67,18 +73,19 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     }
 
     // Verify DLN Proof (N, s, t)
+    bc_message_arr_[pos].psi_tilde_.SetSalt(ctx->remote_parties_[pos].ssid_index_);
     ok = bc_message_arr_[pos].psi_tilde_.Verify(bc_message_arr_[pos].N_, bc_message_arr_[pos].s_, bc_message_arr_[pos].t_);
     if (!ok) {
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ok = message_arr_[pos].psi_tilde_.Verify(message_arr_[pos].N_, message_arr_[pos].s_, message_arr_[pos].N_);");
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ok = message_arr_[pos].psi_tilde_.Verify(message_arr_[pos].N_, message_arr_[pos].s_, message_arr_[pos].t_);");
         return false;
     }
 
-    // Verify V = H( ssid || i || X_arr || A_arr || Y || B || N || s || t || psi_tilde || rho || u )
-    uint8_t digest[CSHA256::OUTPUT_SIZE];
-    CSHA256 sha256;
+    // Verify V = H( ssid || i || X_arr || A_arr || Y || B || N || s || t || psi_tilde || rho || flag_update_minimal_key || u )
+    uint8_t digest[CSafeHash256::OUTPUT_SIZE];
+    CSafeHash256 sha256;
     string buf;
     // sid
-    sha256.Write(reinterpret_cast<const unsigned char *>(bc_message_arr_[pos].sid_.c_str()),bc_message_arr_[pos].sid_.size());
+    sha256.Write(reinterpret_cast<const unsigned char *>(bc_message_arr_[pos].ssid_.c_str()), bc_message_arr_[pos].ssid_.size());
     // index
     bc_message_arr_[pos].index_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
@@ -106,12 +113,12 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     // Y
     bc_message_arr_[pos].Y_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].Y_.x().ToBytesBE(buf);
+    bc_message_arr_[pos].Y_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // B
     bc_message_arr_[pos].B_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].B_.x().ToBytesBE(buf);
+    bc_message_arr_[pos].B_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // N
     bc_message_arr_[pos].N_.ToBytesBE(buf);
@@ -137,12 +144,20 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     }
     // rho
     sha256.Write(reinterpret_cast<const unsigned char *>(bc_message_arr_[pos].rho_.c_str()), bc_message_arr_[pos].rho_.size());
+    //flag_update_minimal_key
+    if (ctx->flag_update_minimal_key_) {
+        std::string bool_str = "true";
+        sha256.Write(reinterpret_cast<const unsigned char *>(bool_str.c_str()), bool_str.size());
+    } else {
+        std::string bool_str = "false";
+        sha256.Write(reinterpret_cast<const unsigned char *>(bool_str.c_str()), bool_str.size());
+    }
     // u
     sha256.Write(reinterpret_cast<const unsigned char *>(bc_message_arr_[pos].u_.c_str()), bc_message_arr_[pos].u_.size());
     sha256.Finalize(digest);
 
     // check Commitment
-    ok = (ctx->remote_parties_[pos].V_.size() == CSHA256::OUTPUT_SIZE) && (0 == memcmp(ctx->remote_parties_[pos].V_.c_str(), digest, CSHA256::OUTPUT_SIZE));
+    ok = (ctx->remote_parties_[pos].V_.size() == CSafeHash256::OUTPUT_SIZE) && (0 == memcmp(ctx->remote_parties_[pos].V_.c_str(), digest, CSafeHash256::OUTPUT_SIZE));
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ok = (ctx->local_party_.V_.size() == CSHA256::OUTPUT_SIZE) && (0 == memcmp(ctx->local_party_.V_.c_str(), digest, CSHA256::OUTPUT_SIZE))!");
         return false;
@@ -191,14 +206,16 @@ bool Round2::ComputeVerify() {
 
     string rho = ctx->local_party_.rho_;
     for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        for (size_t k = 0; k < CSHA256::OUTPUT_SIZE; ++k) {
+        for (size_t k = 0; k < CSafeHash256::OUTPUT_SIZE; ++k) {
             rho[k] ^= ctx->remote_parties_[i].rho_[k];
         }
     }
     ctx->rho_ = rho;
 
+    ctx->ComputeSSID_Rho_Index();
+
     // Paillier Blum Modulus Proof
-    ctx->local_party_.psi_.SetSalt(ctx->rho_);
+    ctx->local_party_.psi_.SetSalt(ctx->local_party_.sid_rho_index_);
     ctx->local_party_.psi_.Prove(sign_key.local_party_.N_,
                                  sign_key.local_party_.p_,
                                  sign_key.local_party_.q_);
@@ -210,7 +227,7 @@ bool Round2::ComputeVerify() {
                                                                          sign_key.remote_parties_[j].t_);
         safeheron::zkp::no_small_factor_proof::NoSmallFactorStatement statement(sign_key.local_party_.N_, 256, 512);
         safeheron::zkp::no_small_factor_proof::NoSmallFactorWitness witness(sign_key.local_party_.p_, sign_key.local_party_.q_);
-        ctx->remote_parties_[j].phi_.SetSalt(ctx->rho_);
+        ctx->remote_parties_[j].phi_.SetSalt(ctx->local_party_.sid_rho_index_);
         ctx->remote_parties_[j].phi_.Prove(set_up, statement, witness);
     }
 
@@ -222,12 +239,12 @@ bool Round2::ComputeVerify() {
         BN &x = ctx->local_party_.map_party_id_x_[sign_key.remote_parties_[j].party_id_];
 
         ctx->remote_parties_[j].C_ = pail_pub.Encrypt(x);
-        ctx->remote_parties_[j].psi_.SetSalt(ctx->rho_);
+        ctx->remote_parties_[j].psi_.SetSalt(ctx->local_party_.sid_rho_index_);
         ctx->remote_parties_[j].psi_.ProveWithREx(x, tau, ctx->GetCurrentCurveType());
     }
 
     // Schnorr Proof
-    ctx->local_party_.pi_.SetSalt(ctx->rho_);
+    ctx->local_party_.pi_.SetSalt(ctx->local_party_.sid_rho_index_);
     ctx->local_party_.pi_.ProveWithREx(ctx->local_party_.y_, ctx->local_party_.tau_, ctx->GetCurrentCurveType());
 
     return true;
@@ -242,19 +259,19 @@ bool Round2::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     out_bc_msg.clear();
     out_des_arr.clear();
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        out_des_arr.push_back(sign_key.remote_parties_[i].party_id_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        out_des_arr.push_back(sign_key.remote_parties_[j].party_id_);
     }
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
         Round2P2PMessage p2p_message;
-        p2p_message.sid_ = ctx->local_party_.sid_;
+        p2p_message.ssid_ = ctx->ssid_;
         p2p_message.index_ = sign_key.local_party_.index_;
         p2p_message.psi_ = ctx->local_party_.psi_;
-        p2p_message.phi_ij_ = ctx->remote_parties_[i].phi_;
+        p2p_message.phi_ij_ = ctx->remote_parties_[j].phi_;
         p2p_message.pi_ = ctx->local_party_.pi_;
-        p2p_message.C_ = ctx->remote_parties_[i].C_;
-        p2p_message.psi_ij_ = ctx->remote_parties_[i].psi_;
+        p2p_message.C_ = ctx->remote_parties_[j].C_;
+        p2p_message.psi_ij_ = ctx->remote_parties_[j].psi_;
         string base64;
         bool ok = p2p_message.ToBase64(base64);
         if (!ok) {

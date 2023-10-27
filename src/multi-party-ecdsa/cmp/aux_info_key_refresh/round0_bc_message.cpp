@@ -25,7 +25,8 @@ bool Round0BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::au
 
     string str;
 
-    message.set_ssid(sid_);
+    str = safeheron::encode::hex::EncodeToHex(ssid_);
+    message.set_ssid(str);
 
     index_.ToHexStr(str);
     message.set_index(str);
@@ -39,7 +40,7 @@ bool Round0BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::au
 bool Round0BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::aux_info_key_refresh::Round0BCMessage &message) {
     bool ok = true;
 
-    sid_ = message.ssid();
+    ssid_ = safeheron::encode::hex::DecodeFromHex(message.ssid());
 
     index_ = BN::FromHexStr(message.index());
     ok = (index_ != 0);

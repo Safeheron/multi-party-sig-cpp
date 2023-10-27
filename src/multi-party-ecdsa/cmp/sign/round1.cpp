@@ -38,7 +38,7 @@ namespace sign {
 
 void Round1::Init() {
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
-    for (int i = 0; i < ctx->get_total_parties() - 1; ++i) {
+    for (int j = 0; j < ctx->get_total_parties() - 1; ++j) {
         bc_message_arr_.emplace_back();
         p2p_message_arr_.emplace_back();
     }
@@ -58,12 +58,14 @@ bool Round1::ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, con
 
     bool ok = bc_message_arr_[pos].FromBase64(bc_msg);
     if (!ok) {
+        ctx->Identify(party_id, ctx->get_cur_round());
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to deserialize from base64!");
         return false;
     }
 
     ok = p2p_message_arr_[pos].FromBase64(p2p_msg);
     if (!ok) {
+        ctx->Identify(party_id, ctx->get_cur_round());
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to deserialize from base64!");
         return false;
     }
@@ -84,30 +86,35 @@ bool Round1::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
-    ok = ctx->ssid_ == bc_message_arr_[pos].ssid_;
+    ok = compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0;
     if (!ok) {
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in ctx->ssid_ == bc_message_arr_[pos].ssid_");
+        ctx->Identify(party_id, ctx->get_cur_round());
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0");
         return false;
     }
 
     ok = sign_key.remote_parties_[pos].index_ == bc_message_arr_[pos].index_;
     if (!ok) {
+        ctx->Identify(party_id, ctx->get_cur_round());
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in sign_key.remote_parties_[pos].index_ == bc_message_arr_[pos].index_");
         return false;
     }
 
-    ok = ctx->ssid_ == p2p_message_arr_[pos].ssid_;
+    ok = compare_bytes(ctx->ssid_, p2p_message_arr_[pos].ssid_) == 0;
     if (!ok) {
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in ctx->ssid_ == p2p_message_arr_[pos].ssid_");
+        ctx->Identify(party_id, ctx->get_cur_round());
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in compare_bytes(ctx->ssid_, p2p_message_arr_[pos].ssid_) == 0");
         return false;
     }
 
     ok = sign_key.remote_parties_[pos].index_ == p2p_message_arr_[pos].index_;
     if (!ok) {
+        ctx->Identify(party_id, ctx->get_cur_round());
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in sign_key.remote_parties_[pos].index_ == p2p_message_arr_[pos].index_");
         return false;
     }
 
+    // Verify that enc_j(\k_j, \rho_j)
     PailEncRangeSetUp_V2 setup(sign_key.local_party_.N_,
                                sign_key.local_party_.s_,
                                sign_key.local_party_.t_);
@@ -119,8 +126,10 @@ bool Round1::ReceiveVerify(const std::string &party_id) {
                                        SECURITY_PARAM_L,
                                        SECURITY_PARAM_EPSILON);
 
+    p2p_message_arr_[pos].psi_0_ij_.SetSalt(ctx->remote_parties_[pos].ssid_index_);
     ok = p2p_message_arr_[pos].psi_0_ij_.Verify(setup, statement);
     if (!ok) {
+        ctx->Identify(party_id, ctx->get_cur_round());
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "message_arr_[pos].psi_0_ij_.Verify(setup, statement)");
         return false;
     }
@@ -161,24 +170,25 @@ static void MTA_Step2(const pail::PailPubKey &remote_pub, const pail::PailPubKey
 
 bool Round1::ComputeVerify() {
     bool ok = true;
-    // Validate child private key share
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
     const SignKey &sign_key = ctx->sign_key_;
 
     const safeheron::curve::Curve * curv = ctx->GetCurrentCurve();
     for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
         // MTA(k, gamma) / MTA(k, x)
-        // Sample in Zn
+        // Sample r_ij, s_ij, \hat{r}_ij, \hat{s}_ij in Zn*
         ctx->remote_parties_[i].r_ij_ = safeheron::rand::RandomBNLtCoPrime(sign_key.local_party_.N_);
         ctx->remote_parties_[i].s_ij_ = safeheron::rand::RandomBNLtCoPrime(sign_key.remote_parties_[i].N_);
         ctx->remote_parties_[i].r_hat_ij_ = safeheron::rand::RandomBNLtCoPrime(sign_key.local_party_.N_);
         ctx->remote_parties_[i].s_hat_ij_ = safeheron::rand::RandomBNLtCoPrime(sign_key.remote_parties_[i].N_);
 
-        // Sample in limit_J
+        // Sample \beta_ij, \hat{beta}_ij in limit_J
         ctx->remote_parties_[i].beta_ij_ = safeheron::rand::RandomNegBNInSymInterval(SECURITY_PARAM_LIMIT_J);
         ctx->remote_parties_[i].beta_hat_ij_ = safeheron::rand::RandomNegBNInSymInterval(SECURITY_PARAM_LIMIT_J);
 
         //MTA(k, gamma) - step 2
+        // D_ji = (\gamma_i ☉ K_j ) ⨁ enc_j(-\beta_ij, s_ij)
+        // F_ji = enc_i(-\beta_ij, r_ij)
         MTA_Step2(ctx->remote_parties_[i].pail_pub_,
                   ctx->local_party_.pail_pub_,
                   ctx->remote_parties_[i].K_,
@@ -186,10 +196,12 @@ bool Round1::ComputeVerify() {
                   ctx->remote_parties_[i].beta_ij_,
                   ctx->remote_parties_[i].s_ij_,
                   ctx->remote_parties_[i].r_ij_,
-                  ctx->remote_parties_[i].D_ij,
-                  ctx->remote_parties_[i].F_ij);
+                  ctx->remote_parties_[i].D_ji,
+                  ctx->remote_parties_[i].F_ji);
 
         //MTA(k, x) - step 2
+        // \hat{D}_ji = (\x_i ☉ K_j ) ⨁ enc_j(-\hat{\beta}_ij, \hat{s}_ij)
+        // \hat{F}_ji = enc_i(-\hat{\beta}_ij, \hat{r}_ij)
         MTA_Step2(ctx->remote_parties_[i].pail_pub_,
                   ctx->local_party_.pail_pub_,
                   ctx->remote_parties_[i].K_,
@@ -197,8 +209,8 @@ bool Round1::ComputeVerify() {
                   ctx->remote_parties_[i].beta_hat_ij_,
                   ctx->remote_parties_[i].s_hat_ij_,
                   ctx->remote_parties_[i].r_hat_ij_,
-                  ctx->remote_parties_[i].D_hat_ij,
-                  ctx->remote_parties_[i].F_hat_ij);
+                  ctx->remote_parties_[i].D_hat_ji,
+                  ctx->remote_parties_[i].F_hat_ji);
 
         // - setup of proof in MTA
         PailAffGroupEleRangeSetUp_V2 setup(sign_key.remote_parties_[i].N_,
@@ -206,14 +218,15 @@ bool Round1::ComputeVerify() {
                                            sign_key.remote_parties_[i].t_);
 
         // - Mta(k, gamma) step 2: bob proof
+        // Prove that D_ji is well formed, according to \PI^{aff-g}
         PailAffGroupEleRangeStatement_V2 statement_1(
                 ctx->remote_parties_[i].pail_pub_.n(),
                 ctx->remote_parties_[i].pail_pub_.n_sqr(),
                 ctx->local_party_.pail_pub_.n(),
                 ctx->local_party_.pail_pub_.n_sqr(),
                 ctx->remote_parties_[i].K_,
-                ctx->remote_parties_[i].D_ij,
-                ctx->remote_parties_[i].F_ij,
+                ctx->remote_parties_[i].D_ji,
+                ctx->remote_parties_[i].F_ji,
                 ctx->local_party_.Gamma_,
                 curv->n,
                 SECURITY_PARAM_L,
@@ -226,17 +239,19 @@ bool Round1::ComputeVerify() {
                 ctx->remote_parties_[i].s_ij_,
                 ctx->remote_parties_[i].r_ij_);
 
-        ctx->remote_parties_[i].psi_ij_.Prove(setup, statement_1, witness_1);
+        ctx->remote_parties_[i].psi_ji_.SetSalt(ctx->local_party_.ssid_index_);
+        ctx->remote_parties_[i].psi_ji_.Prove(setup, statement_1, witness_1);
 
         // - Mta(k, x) step 2: bob proof
+        // Prove that \hat{D}_ji is well formed, according to \PI^{aff-g}
         PailAffGroupEleRangeStatement_V2 statement_2(
                 ctx->remote_parties_[i].pail_pub_.n(),
                 ctx->remote_parties_[i].pail_pub_.n_sqr(),
                 ctx->local_party_.pail_pub_.n(),
                 ctx->local_party_.pail_pub_.n_sqr(),
                 ctx->remote_parties_[i].K_,
-                ctx->remote_parties_[i].D_hat_ij,
-                ctx->remote_parties_[i].F_hat_ij,
+                ctx->remote_parties_[i].D_hat_ji,
+                ctx->remote_parties_[i].F_hat_ji,
                 sign_key.local_party_.X_,
                 curv->n,
                 SECURITY_PARAM_L,
@@ -249,8 +264,12 @@ bool Round1::ComputeVerify() {
                 ctx->remote_parties_[i].s_hat_ij_,
                 ctx->remote_parties_[i].r_hat_ij_);
 
-        ctx->remote_parties_[i].psi_hat_ij_.Prove(setup, statement_2, witness_2);
+        ctx->remote_parties_[i].psi_hat_ji_.SetSalt(ctx->local_party_.ssid_index_);
+        ctx->remote_parties_[i].psi_hat_ji_.Prove(setup, statement_2, witness_2);
 
+        // Prove that according to \PI^{log*}
+        // - G_i = enc_i(\gamma_i, \nu_i)
+        // - \Gamma_i = g * \gamma_i
         PailEncGroupEleRangeSetUp setup_3(sign_key.remote_parties_[i].N_,
                                           sign_key.remote_parties_[i].s_,
                                           sign_key.remote_parties_[i].t_);
@@ -267,7 +286,8 @@ bool Round1::ComputeVerify() {
 
         PailEncGroupEleRangeWitness witness_3(ctx->local_party_.gamma_, ctx->local_party_.nu_);
 
-        ctx->remote_parties_[i].psi_prime_ij_.Prove(setup_3, statement_3, witness_3);
+        ctx->remote_parties_[i].psi_prime_ji_.SetSalt(ctx->local_party_.ssid_index_);
+        ctx->remote_parties_[i].psi_prime_ji_.Prove(setup_3, statement_3, witness_3);
     }
 
     return true;
@@ -283,22 +303,22 @@ bool Round1::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     out_bc_msg.clear();
     out_des_arr.clear();
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        out_des_arr.push_back(sign_key.remote_parties_[i].party_id_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        out_des_arr.push_back(sign_key.remote_parties_[j].party_id_);
     }
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
         Round1P2PMessage p2p_message;
         p2p_message.ssid_ = ctx->ssid_;
         p2p_message.index_ = sign_key.local_party_.index_;
         p2p_message.Gamma_ = ctx->local_party_.Gamma_;
-        p2p_message.D_ij_ = ctx->remote_parties_[i].D_ij;
-        p2p_message.F_ij_ = ctx->remote_parties_[i].F_ij;
-        p2p_message.D_hat_ij_ = ctx->remote_parties_[i].D_hat_ij;
-        p2p_message.F_hat_ij_ = ctx->remote_parties_[i].F_hat_ij;
-        p2p_message.psi_ij_ = ctx->remote_parties_[i].psi_ij_;
-        p2p_message.psi_hat_ij_ = ctx->remote_parties_[i].psi_hat_ij_;
-        p2p_message.psi_prime_ij_ = ctx->remote_parties_[i].psi_prime_ij_;
+        p2p_message.D_ij_ = ctx->remote_parties_[j].D_ji;
+        p2p_message.F_ij_ = ctx->remote_parties_[j].F_ji;
+        p2p_message.D_hat_ij_ = ctx->remote_parties_[j].D_hat_ji;
+        p2p_message.F_hat_ij_ = ctx->remote_parties_[j].F_hat_ji;
+        p2p_message.psi_ij_ = ctx->remote_parties_[j].psi_ji_;
+        p2p_message.psi_hat_ij_ = ctx->remote_parties_[j].psi_hat_ji_;
+        p2p_message.psi_prime_ij_ = ctx->remote_parties_[j].psi_prime_ji_;
         string base64;
         ok = p2p_message.ToBase64(base64);
         if (!ok) {

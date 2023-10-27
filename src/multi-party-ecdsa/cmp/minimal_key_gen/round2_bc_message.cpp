@@ -3,6 +3,7 @@
 
 #include <google/protobuf/util/json_util.h>
 #include "crypto-encode/base64.h"
+#include "crypto-encode/hex.h"
 
 using std::string;
 using safeheron::bignum::BN;
@@ -24,7 +25,8 @@ bool Round2BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::mi
 
     string str;
 
-    message.set_sid(sid_);
+    str = safeheron::encode::hex::EncodeToHex(sid_);
+    message.set_sid(str);
 
     index_.ToHexStr(str);
     message.set_index(str);
@@ -45,7 +47,7 @@ bool Round2BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::mi
 bool Round2BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::minimal_key_gen::Round2BCMessage &message) {
     bool ok = true;
 
-    sid_ = message.sid();
+    sid_ = safeheron::encode::hex::DecodeFromHex(message.sid());
 
     index_ = BN::FromHexStr(message.index());
     ok = (index_ != 0);
