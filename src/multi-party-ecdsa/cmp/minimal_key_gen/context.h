@@ -71,6 +71,10 @@ public:
         return curve_type_;
     }
 
+    void ComputeSID(const std::string &sid);
+
+    void ComputeSID_Index_RID();
+
 public:
     safeheron::curve::CurveType curve_type_;
     MinimalSignKey minimal_sign_key_;
@@ -82,7 +86,7 @@ public:
     Round3 round3_;
 
     std::string rid_;
-    std::string ssid_;
+    std::string sid_;
     safeheron::curve::CurvePoint X_;
 };
 

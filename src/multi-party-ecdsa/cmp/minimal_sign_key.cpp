@@ -5,6 +5,7 @@
 #include "crypto-bn/rand.h"
 #include "crypto-encode/base64.h"
 #include "crypto-sss/vsss.h"
+#include "crypto-encode/hex.h"
 
 using std::string;
 using std::vector;
@@ -60,6 +61,9 @@ bool MinimalSignKey::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::Min
     if (!ok) return false;
     sign_key.mutable_g_x()->CopyFrom(point);
 
+    str = safeheron::encode::hex::EncodeToHex(rid_);
+    sign_key.set_rid(str);
+
     return true;
 }
 
@@ -85,6 +89,8 @@ bool MinimalSignKey::FromProtoObject(const safeheron::proto::multi_party_ecdsa::
     ok = X_.FromProtoObject(minimal_sign_key.g_x());
     ok = ok && !X_.IsInfinity();
     if (!ok) return false;
+
+    rid_ = safeheron::encode::hex::DecodeFromHex(minimal_sign_key.rid());
 
     return true;
 }

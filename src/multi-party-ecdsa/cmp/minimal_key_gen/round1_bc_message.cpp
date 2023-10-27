@@ -25,7 +25,8 @@ bool Round1BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::mi
 
     string str;
 
-    message.set_sid(sid_);
+    str = safeheron::encode::hex::EncodeToHex(sid_);
+    message.set_sid(str);
 
     index_.ToHexStr(str);
     message.set_index(str);
@@ -69,7 +70,7 @@ bool Round1BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::mi
 bool Round1BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::minimal_key_gen::Round1BCMessage &message) {
     bool ok = true;
 
-    sid_ = message.sid();
+    sid_ = safeheron::encode::hex::DecodeFromHex(message.sid());
 
     index_ = BN::FromHexStr(message.index());
     ok = (index_ != 0);

@@ -22,6 +22,7 @@ message MinimalSignKey {
     MinimalParty local_party = 4;
     repeated MinimalParty remote_parties = 5;
     safeheron.proto.CurvePoint g_x = 6;
+    string rid = 7;
 }
 
 message Party {
@@ -35,6 +36,8 @@ message Party {
     string t = 12;
     string p = 13;
     string q = 14;
+    string alpha = 15;
+    string beta = 16;
 }
 
 message SignKey {
@@ -44,4 +47,5 @@ message SignKey {
     Party local_party = 4;
     repeated Party remote_parties = 5;
     safeheron.proto.CurvePoint g_x = 6;
+    string rid = 7;
 }

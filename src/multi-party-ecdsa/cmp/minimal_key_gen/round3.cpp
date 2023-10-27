@@ -22,7 +22,7 @@ namespace minimal_key_gen {
 
 void Round3::Init() {
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
-    for (int i = 0; i < ctx->get_total_parties() - 1; ++i) {
+    for (int j = 0; j < ctx->get_total_parties() - 1; ++j) {
         bc_message_arr_.emplace_back();
     }
 }
@@ -57,12 +57,18 @@ bool Round3::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
+    ok = compare_bytes(ctx->sid_, bc_message_arr_[pos].sid_) == 0;
+    if(!ok){
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in compare_bytes(ctx->ssid_, bc_message_arr_[pos].ssid_) == 0");
+        return false;
+    }
+
     ok = (bc_message_arr_[pos].psi_.A_ == ctx->remote_parties_[pos].A_);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in (message_arr_[pos].psi_.A_ == ctx->remote_parties_[pos].A_)");
         return false;
     }
-    bc_message_arr_[pos].psi_.SetSalt(ctx->rid_);
+    bc_message_arr_[pos].psi_.SetSalt(ctx->remote_parties_[pos].sid_index_rid_);
     ok = bc_message_arr_[pos].psi_.Verify(ctx->remote_parties_[pos].X_);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Receive a differentr g^sign_key_share, or failed to verify schnorr proof of sign_key share!");
@@ -74,7 +80,7 @@ bool Round3::ReceiveVerify(const std::string &party_id) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in (message_arr_[pos].phi_.A_ == ctx->remote_parties_[pos].B_)");
         return false;
     }
-    bc_message_arr_[pos].phi_.SetSalt(ctx->rid_);
+    bc_message_arr_[pos].phi_.SetSalt(ctx->remote_parties_[pos].sid_index_rid_);
     ok = bc_message_arr_[pos].phi_.Verify(minimal_sign_key.remote_parties_[pos].X_);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Receive a differentr g^sign_key_share, or failed to verify schnorr proof of sign_key share!");
@@ -96,8 +102,8 @@ bool Round3::ComputeVerify() {
     }
 
     vector<BN> share_index_arr;
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        share_index_arr.push_back(minimal_sign_key.remote_parties_[i].index_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        share_index_arr.push_back(minimal_sign_key.remote_parties_[j].index_);
     }
     share_index_arr.push_back(minimal_sign_key.local_party_.index_);
 
@@ -105,8 +111,8 @@ bool Round3::ComputeVerify() {
     Polynomial::GetLArray(l_arr, BN::ZERO, share_index_arr, curv->n);
 
     CurvePoint X_star = minimal_sign_key.local_party_.X_ * l_arr.back();
-    for (size_t i = 0; i < minimal_sign_key.remote_parties_.size(); ++i) {
-        X_star += minimal_sign_key.remote_parties_[i].X_ * l_arr[i];
+    for (size_t j = 0; j < minimal_sign_key.remote_parties_.size(); ++j) {
+        X_star += minimal_sign_key.remote_parties_[j].X_ * l_arr[j];
     }
 
     ok = X == X_star;
@@ -116,6 +122,7 @@ bool Round3::ComputeVerify() {
     }
 
     minimal_sign_key.X_ = X;
+    minimal_sign_key.rid_ = ctx->rid_;
 
     return true;
 }

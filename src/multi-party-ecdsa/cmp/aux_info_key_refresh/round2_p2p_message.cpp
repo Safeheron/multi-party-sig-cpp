@@ -3,6 +3,7 @@
 
 #include <google/protobuf/util/json_util.h>
 #include "crypto-encode/base64.h"
+#include "crypto-encode/hex.h"
 
 using std::string;
 using safeheron::bignum::BN;
@@ -24,7 +25,8 @@ bool Round2P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::a
 
     string str;
 
-    message.set_ssid(sid_);
+    str = safeheron::encode::hex::EncodeToHex(ssid_);
+    message.set_ssid(str);
 
     index_.ToHexStr(str);
     message.set_index(str);
@@ -58,7 +60,7 @@ bool Round2P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::a
 bool Round2P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::aux_info_key_refresh::Round2P2PMessage &message) {
     bool ok = true;
 
-    sid_ = message.ssid();
+    ssid_ = safeheron::encode::hex::DecodeFromHex(message.ssid());
 
     index_ = BN::FromHexStr(message.index());
     ok = (index_ != 0);

@@ -2,13 +2,13 @@
 #include "round0.h"
 #include "context.h"
 #include "crypto-commitment/commitment.h"
-#include "crypto-hash/sha256.h"
+#include "crypto-hash/safe_hash256.h"
 #include "crypto-bn/rand.h"
 #include "crypto-encode/hex.h"
 
 using std::string;
 using std::vector;
-using safeheron::hash::CSHA256;
+using safeheron::hash::CSafeHash256;
 using safeheron::bignum::BN;
 using safeheron::curve::CurvePoint;
 
@@ -23,15 +23,17 @@ bool Round0::ComputeVerify() {
     const curve::Curve *curv = ctx->GetCurrentCurve();
     bool ok = true;
 
-    safeheron::zkp::dln_proof::GenerateN_tilde(sign_key.local_party_.N_,
-                                               sign_key.local_party_.s_,
-                                               sign_key.local_party_.t_,
-                                               ctx->local_party_.pp_,
-                                               ctx->local_party_.qq_,
-                                               ctx->local_party_.alpha_,
-                                               ctx->local_party_.beta_);
-    sign_key.local_party_.p_ = ctx->local_party_.pp_ * 2 + 1;
-    sign_key.local_party_.q_ = ctx->local_party_.qq_ * 2 + 1;
+    if (!ctx->flag_prepare_pail_key_) {
+        safeheron::zkp::dln_proof::GenerateN_tilde(sign_key.local_party_.N_,
+                                                   sign_key.local_party_.s_,
+                                                   sign_key.local_party_.t_,
+                                                   ctx->local_party_.pp_,
+                                                   ctx->local_party_.qq_,
+                                                   sign_key.local_party_.alpha_,
+                                                   sign_key.local_party_.beta_);
+        sign_key.local_party_.p_ = ctx->local_party_.pp_ * 2 + 1;
+        sign_key.local_party_.q_ = ctx->local_party_.qq_ * 2 + 1;
+    }
 
     // Sample (B, tau)
     ctx->local_party_.tau_ = safeheron::rand::RandomBN(256);
@@ -46,12 +48,12 @@ bool Round0::ComputeVerify() {
     vector<safeheron::curve::CurvePoint> vs;
     vector<BN> share_index_arr;
     vector<BN> rand_polynomial_coe_arr_;
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        share_index_arr.push_back(sign_key.remote_parties_[i].index_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        share_index_arr.push_back(sign_key.remote_parties_[j].index_);
     }
     share_index_arr.push_back(sign_key.local_party_.index_);
-    for(size_t i = 1; i < sign_key.threshold_; ++i){
-        BN num = safeheron::rand::RandomBN(256);
+    for(size_t j = 1; j < sign_key.threshold_; ++j){
+        BN num = safeheron::rand::RandomBNLt(curv->n);
         ctx->local_party_.f_arr_.push_back(num);
     }
     safeheron::sss::vsss::MakeSharesWithCommitsAndCoes(share_points,
@@ -64,9 +66,9 @@ bool Round0::ComputeVerify() {
                                                                  curv->g);
     ctx->local_party_.map_party_id_x_[sign_key.local_party_.party_id_] = share_points[share_index_arr.size() - 1].y;
     ctx->local_party_.map_party_id_X_[sign_key.local_party_.party_id_] = curv->g * share_points[share_index_arr.size() - 1].y;
-    for(size_t i = 0; i < sign_key.n_parties_ - 1; ++i){
-        ctx->local_party_.map_party_id_x_[sign_key.remote_parties_[i].party_id_] = share_points[i].y;
-        ctx->local_party_.map_party_id_X_[sign_key.remote_parties_[i].party_id_] = curv->g * share_points[i].y;
+    for(size_t j = 0; j < sign_key.n_parties_ - 1; ++j){
+        ctx->local_party_.map_party_id_x_[sign_key.remote_parties_[j].party_id_] = share_points[j].y;
+        ctx->local_party_.map_party_id_X_[sign_key.remote_parties_[j].party_id_] = curv->g * share_points[j].y;
     }
 
     // Sample (tau_1, A_1), ... , (tau_n, A_n)
@@ -84,21 +86,21 @@ bool Round0::ComputeVerify() {
     safeheron::rand::RandomBytes(buf32, sizeof buf32);
     ctx->local_party_.u_.assign((char *)buf32, sizeof buf32);
 
-    //
+    ctx->local_party_.psi_tilde_.SetSalt(ctx->local_party_.sid_index_);
     ctx->local_party_.psi_tilde_.Prove(sign_key.local_party_.N_,
                                        sign_key.local_party_.s_,
                                        sign_key.local_party_.t_,
                                        ctx->local_party_.pp_,
                                        ctx->local_party_.qq_,
-                                       ctx->local_party_.alpha_,
-                                       ctx->local_party_.beta_);
+                                       sign_key.local_party_.alpha_,
+                                       sign_key.local_party_.beta_);
 
-    // V = H( ssid || i || X_arr || A_arr || Y || B || N || s || t || psi_tilde || rho || u )
-    uint8_t digest[CSHA256::OUTPUT_SIZE];
-    CSHA256 sha256;
+    // V = H( ssid || i || X_arr || A_arr || Y || B || N || s || t || psi_tilde || rho || flag_update_minimal_key || u)
+    uint8_t digest[CSafeHash256::OUTPUT_SIZE];
+    CSafeHash256 sha256;
     string buf;
     // sid
-    sha256.Write(reinterpret_cast<const unsigned char *>(ctx->local_party_.sid_.c_str()),ctx->local_party_.sid_.size());
+    sha256.Write(reinterpret_cast<const unsigned char *>(ctx->ssid_.c_str()), ctx->ssid_.size());
     // index
     sign_key.local_party_.index_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
@@ -126,12 +128,12 @@ bool Round0::ComputeVerify() {
     // Y
     sign_key.local_party_.Y_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    sign_key.local_party_.Y_.x().ToBytesBE(buf);
+    sign_key.local_party_.Y_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // B
     ctx->local_party_.B_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.B_.x().ToBytesBE(buf);
+    ctx->local_party_.B_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // N
     sign_key.local_party_.N_.ToBytesBE(buf);
@@ -157,6 +159,14 @@ bool Round0::ComputeVerify() {
     }
     // rho
     sha256.Write(reinterpret_cast<const unsigned char *>(ctx->local_party_.rho_.c_str()), ctx->local_party_.rho_.size());
+    //flag_update_minimal_key
+    if (ctx->flag_update_minimal_key_) {
+        std::string bool_str = "true";
+        sha256.Write(reinterpret_cast<const unsigned char *>(bool_str.c_str()), bool_str.size());
+    } else {
+        std::string bool_str = "false";
+        sha256.Write(reinterpret_cast<const unsigned char *>(bool_str.c_str()), bool_str.size());
+    }
     // u
     sha256.Write(reinterpret_cast<const unsigned char *>(ctx->local_party_.u_.c_str()), ctx->local_party_.u_.size());
     sha256.Finalize(digest);
@@ -180,7 +190,7 @@ bool Round0::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     }
 
     Round0BCMessage bc_message;
-    bc_message.sid_ = ctx->local_party_.sid_;
+    bc_message.ssid_ = ctx->ssid_;
     bc_message.index_ = sign_key.local_party_.index_;
     bc_message.V_ = ctx->local_party_.V_;
     bool ok = bc_message.ToBase64(out_bc_msg);

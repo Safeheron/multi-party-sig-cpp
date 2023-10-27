@@ -1,5 +1,6 @@
 
 #include "context.h"
+#include "mpc-flow/common/sid_maker.h"
 
 #include <utility>
 #include "crypto-bn/rand.h"
@@ -8,6 +9,7 @@
 
 using safeheron::bignum::BN;
 using safeheron::mpc_flow::mpc_parallel_v2::MPCContext;
+using safeheron::mpc_flow::common::SIDMaker;
 
 namespace safeheron {
 namespace multi_party_ecdsa{
@@ -20,6 +22,7 @@ Context::Context(int total_parties): MPCContext(total_parties){
 
 Context::Context(const Context &ctx): MPCContext(ctx){
     // Assign all the member variables.
+    sid_ = ctx.sid_;
     curve_type_ = ctx.curve_type_;
     minimal_sign_key_ = ctx.minimal_sign_key_;
     local_party_ = ctx.local_party_;
@@ -31,7 +34,6 @@ Context::Context(const Context &ctx): MPCContext(ctx){
 
     rid_ = ctx.rid_;
     X_ = ctx.X_;
-    ssid_ = ctx.ssid_;
     // End Assignments.
 
     BindAllRounds();
@@ -45,6 +47,7 @@ Context &Context::operator=(const Context &ctx){
     MPCContext::operator=(ctx);
 
     // Assign all the member variables.
+    sid_ = ctx.sid_;
     curve_type_ = ctx.curve_type_;
     minimal_sign_key_ = ctx.minimal_sign_key_;
     local_party_ = ctx.local_party_;
@@ -56,7 +59,6 @@ Context &Context::operator=(const Context &ctx){
 
     rid_ = ctx.rid_;
     X_ = ctx.X_;
-    ssid_ = ctx.ssid_;
     // End Assignments.
 
     BindAllRounds();
@@ -100,11 +102,15 @@ bool Context::CreateContext(Context &ctx,
         minimal_sign_key.remote_parties_[i].index_ = remote_party_index_arr[i];
     }
 
-    ctx.ssid_ = sid;
-
     for (size_t i = 0; i < n_parties - 1; ++i) {
         ctx.remote_parties_.emplace_back();
     }
+
+    // Construct an ordered party index array
+    std::vector<safeheron::bignum::BN> t_party_index_arr(remote_party_index_arr);
+    t_party_index_arr.push_back(index);
+    std::sort(t_party_index_arr.begin(), t_party_index_arr.end());
+    ctx.ComputeSID(sid);
 
     return true;
 }
@@ -118,9 +124,53 @@ bool Context::CreateContext(Context &ctx,
                             const std::vector<std::string> &remote_party_id_arr,
                             const std::string &sid) {
     const curve::Curve *curv = curve::GetCurveParam(curve_type);
+    // Sample x in Zq
     const safeheron::bignum::BN x = safeheron::rand::RandomBNLt(curv->n);
     return CreateContext(ctx, curve_type, threshold, n_parties, x, index, local_party_id, remote_party_index_arr, remote_party_id_arr, sid);
 }
+
+void Context::ComputeSID(const std::string &sid){
+    // Compute sid = (sid, g, q, P)
+    const curve::Curve *curv = curve::GetCurveParam(curve_type_);
+    SIDMaker sid_maker;
+    sid_maker.Append(sid);
+    sid_maker.Append(curv->g);
+    sid_maker.Append(curv->n);
+
+    // Construct an ordered party index array
+    std::vector<safeheron::bignum::BN> t_party_index_arr;
+    t_party_index_arr.push_back(minimal_sign_key_.local_party_.index_);
+    for(const auto &party: minimal_sign_key_.remote_parties_){
+        t_party_index_arr.push_back(party.index_);
+    }
+    std::sort(t_party_index_arr.begin(), t_party_index_arr.end());
+    // Append all parties [ (i, X_i, Y_i) ]
+    for (const auto & pi : t_party_index_arr) {
+        sid_maker.Append(pi);
+    }
+    sid_maker.Finalize(sid_);
+}
+
+void Context::ComputeSID_Index_RID(){
+    std::string t_ssid;
+    SIDMaker ssid_maker;
+
+    // Set local sid_pid_rid = (sid, pid, rid)
+    ssid_maker.Append(sid_);
+    ssid_maker.Append(minimal_sign_key_.local_party_.index_);
+    ssid_maker.Append(rid_);
+    ssid_maker.Finalize(local_party_.sid_index_rid_);
+
+    for(size_t j = 0; j < remote_parties_.size(); ++j){
+        // Set remote ssid_pid = (sid, pid, rid)
+        ssid_maker.Reset();
+        ssid_maker.Append(sid_);
+        ssid_maker.Append(minimal_sign_key_.remote_parties_[j].index_);
+        ssid_maker.Append(rid_);
+        ssid_maker.Finalize(remote_parties_[j].sid_index_rid_);
+    }
+}
+
 
 void Context::BindAllRounds() {
     RemoveAllRounds();

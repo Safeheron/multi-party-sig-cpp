@@ -26,6 +26,8 @@ public:
     safeheron::bignum::BN t_;
     safeheron::bignum::BN p_;
     safeheron::bignum::BN q_;
+    safeheron::bignum::BN alpha_;
+    safeheron::bignum::BN beta_;
 
 public:
     bool ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::Party &party) const;

@@ -105,12 +105,143 @@ struct Round3P2PMessageDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Round3P2PMessageDefaultTypeInternal _Round3P2PMessage_default_instance_;
+PROTOBUF_CONSTEXPR ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal _ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInPreSignPhase_IDAffGProofMap::ProofInPreSignPhase_IDAffGProofMap(
+    ::_pbi::ConstantInitialized)
+  : id_aff_g_proof_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
+struct ProofInPreSignPhase_IDAffGProofMapDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInPreSignPhase_IDAffGProofMapDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInPreSignPhase_IDAffGProofMapDefaultTypeInternal() {}
+  union {
+    ProofInPreSignPhase_IDAffGProofMap _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInPreSignPhase_IDAffGProofMapDefaultTypeInternal _ProofInPreSignPhase_IDAffGProofMap_default_instance_;
+PROTOBUF_CONSTEXPR ProofInPreSignPhase_IdMapMapEntry_DoNotUse::ProofInPreSignPhase_IdMapMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInPreSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInPreSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInPreSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInPreSignPhase_IdMapMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInPreSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal _ProofInPreSignPhase_IdMapMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInPreSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInPreSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInPreSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInPreSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal _ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInPreSignPhase::ProofInPreSignPhase(
+    ::_pbi::ConstantInitialized)
+  : id_map_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , id_dec_proof_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , c_k_gamma_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , pail_enc_mul_proof_(nullptr){}
+struct ProofInPreSignPhaseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInPreSignPhaseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInPreSignPhaseDefaultTypeInternal() {}
+  union {
+    ProofInPreSignPhase _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInPreSignPhaseDefaultTypeInternal _ProofInPreSignPhase_default_instance_;
+PROTOBUF_CONSTEXPR ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUseDefaultTypeInternal _ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInSignPhase_IDAffGProofMap::ProofInSignPhase_IDAffGProofMap(
+    ::_pbi::ConstantInitialized)
+  : id_aff_g_proof_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
+struct ProofInSignPhase_IDAffGProofMapDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInSignPhase_IDAffGProofMapDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInSignPhase_IDAffGProofMapDefaultTypeInternal() {}
+  union {
+    ProofInSignPhase_IDAffGProofMap _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInSignPhase_IDAffGProofMapDefaultTypeInternal _ProofInSignPhase_IDAffGProofMap_default_instance_;
+PROTOBUF_CONSTEXPR ProofInSignPhase_IdMapMapEntry_DoNotUse::ProofInSignPhase_IdMapMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInSignPhase_IdMapMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInSignPhase_IdMapMapEntry_DoNotUseDefaultTypeInternal _ProofInSignPhase_IdMapMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUseDefaultTypeInternal _ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInSignPhase_IdDecProofMapEntry_DoNotUse::ProofInSignPhase_IdDecProofMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ProofInSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProofInSignPhase_IdDecProofMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInSignPhase_IdDecProofMapEntry_DoNotUseDefaultTypeInternal _ProofInSignPhase_IdDecProofMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProofInSignPhase::ProofInSignPhase(
+    ::_pbi::ConstantInitialized)
+  : id_map_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , id_pail_mul_group_ele_proof_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , id_dec_proof_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , c_k_x_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ProofInSignPhaseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProofInSignPhaseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProofInSignPhaseDefaultTypeInternal() {}
+  union {
+    ProofInSignPhase _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProofInSignPhaseDefaultTypeInternal _ProofInSignPhase_default_instance_;
 }  // namespace sign
 }  // namespace cmp
 }  // namespace multi_party_ecdsa
 }  // namespace proto
 }  // namespace safeheron
-static ::_pb::Metadata file_level_metadata_cmp_2fsign_2eproto[5];
+static ::_pb::Metadata file_level_metadata_cmp_2fsign_2eproto[16];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_cmp_2fsign_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_cmp_2fsign_2eproto = nullptr;
 
@@ -170,6 +301,110 @@ const uint32_t TableStruct_cmp_2fsign_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage, ssid_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage, index_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage, sigma_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap, id_aff_g_proof_map_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase, c_k_gamma_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase, id_map_map_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase, pail_enc_mul_proof_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase, id_dec_proof_map_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap, id_aff_g_proof_map_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase, c_k_x_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase, id_map_map_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase, id_pail_mul_group_ele_proof_map_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase, id_dec_proof_map_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round0BCMessage)},
@@ -177,6 +412,17 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 19, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round1P2PMessage)},
   { 35, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round2P2PMessage)},
   { 46, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage)},
+  { 55, 63, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse)},
+  { 65, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap)},
+  { 72, 80, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse)},
+  { 82, 90, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse)},
+  { 92, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase)},
+  { 102, 110, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse)},
+  { 112, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap)},
+  { 119, 127, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse)},
+  { 129, 137, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse)},
+  { 139, 147, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse)},
+  { 149, -1, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -185,6 +431,17 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::safeheron::proto::multi_party_ecdsa::cmp::sign::_Round1P2PMessage_default_instance_._instance,
   &::safeheron::proto::multi_party_ecdsa::cmp::sign::_Round2P2PMessage_default_instance_._instance,
   &::safeheron::proto::multi_party_ecdsa::cmp::sign::_Round3P2PMessage_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInPreSignPhase_IDAffGProofMap_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInPreSignPhase_IdMapMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInPreSignPhase_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInSignPhase_IDAffGProofMap_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInSignPhase_IdMapMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInSignPhase_IdDecProofMapEntry_DoNotUse_default_instance_._instance,
+  &::safeheron::proto::multi_party_ecdsa::cmp::sign::_ProofInSignPhase_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_cmp_2fsign_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -209,7 +466,51 @@ const char descriptor_table_protodef_cmp_2fsign_2eproto[] PROTOBUF_SECTION_VARIA
   "roto.CurvePoint\022G\n\023psi_double_prime_ij\030\005"
   " \001(\0132*.safeheron.proto.PailEncGroupEleRa"
   "ngeProof\">\n\020Round3P2PMessage\022\014\n\004ssid\030\001 \001"
-  "(\t\022\r\n\005index\030\002 \001(\t\022\r\n\005sigma\030\003 \001(\tb\006proto3"
+  "(\t\022\r\n\005index\030\002 \001(\t\022\r\n\005sigma\030\003 \001(\t\"\214\006\n\023Pro"
+  "ofInPreSignPhase\022\021\n\tc_k_gamma\030\001 \001(\t\022a\n\ni"
+  "d_map_map\030\002 \003(\0132M.safeheron.proto.multi_"
+  "party_ecdsa.cmp.sign.ProofInPreSignPhase"
+  ".IdMapMapEntry\022<\n\022pail_enc_mul_proof\030\003 \001"
+  "(\0132 .safeheron.proto.PailEncMulProof\022l\n\020"
+  "id_dec_proof_map\030\004 \003(\0132R.safeheron.proto"
+  ".multi_party_ecdsa.cmp.sign.ProofInPreSi"
+  "gnPhase.IdDecProofMapEntry\032\366\001\n\016IDAffGPro"
+  "ofMap\022~\n\022id_aff_g_proof_map\030\001 \003(\0132b.safe"
+  "heron.proto.multi_party_ecdsa.cmp.sign.P"
+  "roofInPreSignPhase.IDAffGProofMap.IdAffG"
+  "ProofMapEntry\032d\n\023IdAffGProofMapEntry\022\013\n\003"
+  "key\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.safeheron.pro"
+  "to.PailAffGroupEleRangeProof_V2:\0028\001\032\177\n\rI"
+  "dMapMapEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\013"
+  "2N.safeheron.proto.multi_party_ecdsa.cmp"
+  ".sign.ProofInPreSignPhase.IDAffGProofMap"
+  ":\0028\001\032Y\n\022IdDecProofMapEntry\022\013\n\003key\030\001 \001(\t\022"
+  "2\n\005value\030\002 \001(\0132#.safeheron.proto.PailDec"
+  "ModuloProof:\0028\001\"\260\007\n\020ProofInSignPhase\022\r\n\005"
+  "c_k_x\030\001 \001(\t\022^\n\nid_map_map\030\002 \003(\0132J.safehe"
+  "ron.proto.multi_party_ecdsa.cmp.sign.Pro"
+  "ofInSignPhase.IdMapMapEntry\022\204\001\n\037id_pail_"
+  "mul_group_ele_proof_map\030\003 \003(\0132[.safehero"
+  "n.proto.multi_party_ecdsa.cmp.sign.Proof"
+  "InSignPhase.IdPailMulGroupEleProofMapEnt"
+  "ry\022i\n\020id_dec_proof_map\030\004 \003(\0132O.safeheron"
+  ".proto.multi_party_ecdsa.cmp.sign.ProofI"
+  "nSignPhase.IdDecProofMapEntry\032\363\001\n\016IDAffG"
+  "ProofMap\022{\n\022id_aff_g_proof_map\030\001 \003(\0132_.s"
+  "afeheron.proto.multi_party_ecdsa.cmp.sig"
+  "n.ProofInSignPhase.IDAffGProofMap.IdAffG"
+  "ProofMapEntry\032d\n\023IdAffGProofMapEntry\022\013\n\003"
+  "key\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.safeheron.pro"
+  "to.PailAffGroupEleRangeProof_V2:\0028\001\032|\n\rI"
+  "dMapMapEntry\022\013\n\003key\030\001 \001(\t\022Z\n\005value\030\002 \001(\013"
+  "2K.safeheron.proto.multi_party_ecdsa.cmp"
+  ".sign.ProofInSignPhase.IDAffGProofMap:\0028"
+  "\001\032l\n\036IdPailMulGroupEleProofMapEntry\022\013\n\003k"
+  "ey\030\001 \001(\t\0229\n\005value\030\002 \001(\0132*.safeheron.prot"
+  "o.PailMulGroupEleRangeProof:\0028\001\032Y\n\022IdDec"
+  "ProofMapEntry\022\013\n\003key\030\001 \001(\t\0222\n\005value\030\002 \001("
+  "\0132#.safeheron.proto.PailDecModuloProof:\002"
+  "8\001b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_cmp_2fsign_2eproto_deps[2] = {
   &::descriptor_table_curve_5fpoint_2eproto,
@@ -217,9 +518,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_cmp_2fsign_2eproto_
 };
 static ::_pbi::once_flag descriptor_table_cmp_2fsign_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_cmp_2fsign_2eproto = {
-    false, false, 880, descriptor_table_protodef_cmp_2fsign_2eproto,
+    false, false, 2610, descriptor_table_protodef_cmp_2fsign_2eproto,
     "cmp/sign.proto",
-    &descriptor_table_cmp_2fsign_2eproto_once, descriptor_table_cmp_2fsign_2eproto_deps, 2, 5,
+    &descriptor_table_cmp_2fsign_2eproto_once, descriptor_table_cmp_2fsign_2eproto_deps, 2, 16,
     schemas, file_default_instances, TableStruct_cmp_2fsign_2eproto::offsets,
     file_level_metadata_cmp_2fsign_2eproto, file_level_enum_descriptors_cmp_2fsign_2eproto,
     file_level_service_descriptors_cmp_2fsign_2eproto,
@@ -2179,6 +2480,1260 @@ void Round3P2PMessage::InternalSwap(Round3P2PMessage* other) {
       file_level_metadata_cmp_2fsign_2eproto[4]);
 }
 
+// ===================================================================
+
+ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse() {}
+ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::MergeFrom(const ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[5]);
+}
+
+// ===================================================================
+
+class ProofInPreSignPhase_IDAffGProofMap::_Internal {
+ public:
+};
+
+void ProofInPreSignPhase_IDAffGProofMap::clear_id_aff_g_proof_map() {
+  id_aff_g_proof_map_.Clear();
+}
+ProofInPreSignPhase_IDAffGProofMap::ProofInPreSignPhase_IDAffGProofMap(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  id_aff_g_proof_map_(arena) {
+  SharedCtor();
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ProofInPreSignPhase_IDAffGProofMap::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+}
+ProofInPreSignPhase_IDAffGProofMap::ProofInPreSignPhase_IDAffGProofMap(const ProofInPreSignPhase_IDAffGProofMap& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  id_aff_g_proof_map_.MergeFrom(from.id_aff_g_proof_map_);
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+}
+
+inline void ProofInPreSignPhase_IDAffGProofMap::SharedCtor() {
+}
+
+ProofInPreSignPhase_IDAffGProofMap::~ProofInPreSignPhase_IDAffGProofMap() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ProofInPreSignPhase_IDAffGProofMap::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  id_aff_g_proof_map_.Destruct();
+}
+
+void ProofInPreSignPhase_IDAffGProofMap::ArenaDtor(void* object) {
+  ProofInPreSignPhase_IDAffGProofMap* _this = reinterpret_cast< ProofInPreSignPhase_IDAffGProofMap* >(object);
+  _this->id_aff_g_proof_map_.Destruct();
+}
+void ProofInPreSignPhase_IDAffGProofMap::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ProofInPreSignPhase_IDAffGProofMap::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_aff_g_proof_map_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ProofInPreSignPhase_IDAffGProofMap::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // map<string, .safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_aff_g_proof_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ProofInPreSignPhase_IDAffGProofMap::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+  if (!this->_internal_id_aff_g_proof_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::PailAffGroupEleRangeProof_V2>;
+    using WireHelper = ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_aff_g_proof_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap.IdAffGProofMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  return target;
+}
+
+size_t ProofInPreSignPhase_IDAffGProofMap::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_aff_g_proof_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::PailAffGroupEleRangeProof_V2 >::const_iterator
+      it = this->_internal_id_aff_g_proof_map().begin();
+      it != this->_internal_id_aff_g_proof_map().end(); ++it) {
+    total_size += ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ProofInPreSignPhase_IDAffGProofMap::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ProofInPreSignPhase_IDAffGProofMap::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ProofInPreSignPhase_IDAffGProofMap::GetClassData() const { return &_class_data_; }
+
+void ProofInPreSignPhase_IDAffGProofMap::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ProofInPreSignPhase_IDAffGProofMap *>(to)->MergeFrom(
+      static_cast<const ProofInPreSignPhase_IDAffGProofMap &>(from));
+}
+
+
+void ProofInPreSignPhase_IDAffGProofMap::MergeFrom(const ProofInPreSignPhase_IDAffGProofMap& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  id_aff_g_proof_map_.MergeFrom(from.id_aff_g_proof_map_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ProofInPreSignPhase_IDAffGProofMap::CopyFrom(const ProofInPreSignPhase_IDAffGProofMap& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ProofInPreSignPhase_IDAffGProofMap::IsInitialized() const {
+  return true;
+}
+
+void ProofInPreSignPhase_IDAffGProofMap::InternalSwap(ProofInPreSignPhase_IDAffGProofMap* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  id_aff_g_proof_map_.InternalSwap(&other->id_aff_g_proof_map_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInPreSignPhase_IDAffGProofMap::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[6]);
+}
+
+// ===================================================================
+
+ProofInPreSignPhase_IdMapMapEntry_DoNotUse::ProofInPreSignPhase_IdMapMapEntry_DoNotUse() {}
+ProofInPreSignPhase_IdMapMapEntry_DoNotUse::ProofInPreSignPhase_IdMapMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInPreSignPhase_IdMapMapEntry_DoNotUse::MergeFrom(const ProofInPreSignPhase_IdMapMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInPreSignPhase_IdMapMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[7]);
+}
+
+// ===================================================================
+
+ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse() {}
+ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::MergeFrom(const ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[8]);
+}
+
+// ===================================================================
+
+class ProofInPreSignPhase::_Internal {
+ public:
+  static const ::safeheron::proto::PailEncMulProof& pail_enc_mul_proof(const ProofInPreSignPhase* msg);
+};
+
+const ::safeheron::proto::PailEncMulProof&
+ProofInPreSignPhase::_Internal::pail_enc_mul_proof(const ProofInPreSignPhase* msg) {
+  return *msg->pail_enc_mul_proof_;
+}
+void ProofInPreSignPhase::clear_pail_enc_mul_proof() {
+  if (GetArenaForAllocation() == nullptr && pail_enc_mul_proof_ != nullptr) {
+    delete pail_enc_mul_proof_;
+  }
+  pail_enc_mul_proof_ = nullptr;
+}
+void ProofInPreSignPhase::clear_id_dec_proof_map() {
+  id_dec_proof_map_.Clear();
+}
+ProofInPreSignPhase::ProofInPreSignPhase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  id_map_map_(arena),
+  id_dec_proof_map_(arena) {
+  SharedCtor();
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ProofInPreSignPhase::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+}
+ProofInPreSignPhase::ProofInPreSignPhase(const ProofInPreSignPhase& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  id_map_map_.MergeFrom(from.id_map_map_);
+  id_dec_proof_map_.MergeFrom(from.id_dec_proof_map_);
+  c_k_gamma_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    c_k_gamma_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_c_k_gamma().empty()) {
+    c_k_gamma_.Set(from._internal_c_k_gamma(), 
+      GetArenaForAllocation());
+  }
+  if (from._internal_has_pail_enc_mul_proof()) {
+    pail_enc_mul_proof_ = new ::safeheron::proto::PailEncMulProof(*from.pail_enc_mul_proof_);
+  } else {
+    pail_enc_mul_proof_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+}
+
+inline void ProofInPreSignPhase::SharedCtor() {
+c_k_gamma_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  c_k_gamma_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+pail_enc_mul_proof_ = nullptr;
+}
+
+ProofInPreSignPhase::~ProofInPreSignPhase() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ProofInPreSignPhase::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  id_map_map_.Destruct();
+  id_dec_proof_map_.Destruct();
+  c_k_gamma_.Destroy();
+  if (this != internal_default_instance()) delete pail_enc_mul_proof_;
+}
+
+void ProofInPreSignPhase::ArenaDtor(void* object) {
+  ProofInPreSignPhase* _this = reinterpret_cast< ProofInPreSignPhase* >(object);
+  _this->id_map_map_.Destruct();
+  _this->id_dec_proof_map_.Destruct();
+}
+void ProofInPreSignPhase::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ProofInPreSignPhase::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_map_map_.Clear();
+  id_dec_proof_map_.Clear();
+  c_k_gamma_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && pail_enc_mul_proof_ != nullptr) {
+    delete pail_enc_mul_proof_;
+  }
+  pail_enc_mul_proof_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ProofInPreSignPhase::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string c_k_gamma = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_c_k_gamma();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.c_k_gamma"));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap> id_map_map = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_map_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // .safeheron.proto.PailEncMulProof pail_enc_mul_proof = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_pail_enc_mul_proof(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_dec_proof_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ProofInPreSignPhase::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string c_k_gamma = 1;
+  if (!this->_internal_c_k_gamma().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_c_k_gamma().data(), static_cast<int>(this->_internal_c_k_gamma().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.c_k_gamma");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_c_k_gamma(), target);
+  }
+
+  // map<string, .safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap> id_map_map = 2;
+  if (!this->_internal_id_map_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap>;
+    using WireHelper = ProofInPreSignPhase_IdMapMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_map_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IdMapMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // .safeheron.proto.PailEncMulProof pail_enc_mul_proof = 3;
+  if (this->_internal_has_pail_enc_mul_proof()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::pail_enc_mul_proof(this),
+        _Internal::pail_enc_mul_proof(this).GetCachedSize(), target, stream);
+  }
+
+  // map<string, .safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+  if (!this->_internal_id_dec_proof_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::PailDecModuloProof>;
+    using WireHelper = ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_dec_proof_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IdDecProofMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  return target;
+}
+
+size_t ProofInPreSignPhase::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase.IDAffGProofMap> id_map_map = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_map_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap >::const_iterator
+      it = this->_internal_id_map_map().begin();
+      it != this->_internal_id_map_map().end(); ++it) {
+    total_size += ProofInPreSignPhase_IdMapMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_dec_proof_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::PailDecModuloProof >::const_iterator
+      it = this->_internal_id_dec_proof_map().begin();
+      it != this->_internal_id_dec_proof_map().end(); ++it) {
+    total_size += ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // string c_k_gamma = 1;
+  if (!this->_internal_c_k_gamma().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_c_k_gamma());
+  }
+
+  // .safeheron.proto.PailEncMulProof pail_enc_mul_proof = 3;
+  if (this->_internal_has_pail_enc_mul_proof()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *pail_enc_mul_proof_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ProofInPreSignPhase::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ProofInPreSignPhase::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ProofInPreSignPhase::GetClassData() const { return &_class_data_; }
+
+void ProofInPreSignPhase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ProofInPreSignPhase *>(to)->MergeFrom(
+      static_cast<const ProofInPreSignPhase &>(from));
+}
+
+
+void ProofInPreSignPhase::MergeFrom(const ProofInPreSignPhase& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  id_map_map_.MergeFrom(from.id_map_map_);
+  id_dec_proof_map_.MergeFrom(from.id_dec_proof_map_);
+  if (!from._internal_c_k_gamma().empty()) {
+    _internal_set_c_k_gamma(from._internal_c_k_gamma());
+  }
+  if (from._internal_has_pail_enc_mul_proof()) {
+    _internal_mutable_pail_enc_mul_proof()->::safeheron::proto::PailEncMulProof::MergeFrom(from._internal_pail_enc_mul_proof());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ProofInPreSignPhase::CopyFrom(const ProofInPreSignPhase& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInPreSignPhase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ProofInPreSignPhase::IsInitialized() const {
+  return true;
+}
+
+void ProofInPreSignPhase::InternalSwap(ProofInPreSignPhase* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  id_map_map_.InternalSwap(&other->id_map_map_);
+  id_dec_proof_map_.InternalSwap(&other->id_dec_proof_map_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &c_k_gamma_, lhs_arena,
+      &other->c_k_gamma_, rhs_arena
+  );
+  swap(pail_enc_mul_proof_, other->pail_enc_mul_proof_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInPreSignPhase::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[9]);
+}
+
+// ===================================================================
+
+ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse() {}
+ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::MergeFrom(const ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[10]);
+}
+
+// ===================================================================
+
+class ProofInSignPhase_IDAffGProofMap::_Internal {
+ public:
+};
+
+void ProofInSignPhase_IDAffGProofMap::clear_id_aff_g_proof_map() {
+  id_aff_g_proof_map_.Clear();
+}
+ProofInSignPhase_IDAffGProofMap::ProofInSignPhase_IDAffGProofMap(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  id_aff_g_proof_map_(arena) {
+  SharedCtor();
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ProofInSignPhase_IDAffGProofMap::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+}
+ProofInSignPhase_IDAffGProofMap::ProofInSignPhase_IDAffGProofMap(const ProofInSignPhase_IDAffGProofMap& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  id_aff_g_proof_map_.MergeFrom(from.id_aff_g_proof_map_);
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+}
+
+inline void ProofInSignPhase_IDAffGProofMap::SharedCtor() {
+}
+
+ProofInSignPhase_IDAffGProofMap::~ProofInSignPhase_IDAffGProofMap() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ProofInSignPhase_IDAffGProofMap::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  id_aff_g_proof_map_.Destruct();
+}
+
+void ProofInSignPhase_IDAffGProofMap::ArenaDtor(void* object) {
+  ProofInSignPhase_IDAffGProofMap* _this = reinterpret_cast< ProofInSignPhase_IDAffGProofMap* >(object);
+  _this->id_aff_g_proof_map_.Destruct();
+}
+void ProofInSignPhase_IDAffGProofMap::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ProofInSignPhase_IDAffGProofMap::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_aff_g_proof_map_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ProofInSignPhase_IDAffGProofMap::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // map<string, .safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_aff_g_proof_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ProofInSignPhase_IDAffGProofMap::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+  if (!this->_internal_id_aff_g_proof_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::PailAffGroupEleRangeProof_V2>;
+    using WireHelper = ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_aff_g_proof_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap.IdAffGProofMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  return target;
+}
+
+size_t ProofInSignPhase_IDAffGProofMap::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .safeheron.proto.PailAffGroupEleRangeProof_V2> id_aff_g_proof_map = 1;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_aff_g_proof_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::PailAffGroupEleRangeProof_V2 >::const_iterator
+      it = this->_internal_id_aff_g_proof_map().begin();
+      it != this->_internal_id_aff_g_proof_map().end(); ++it) {
+    total_size += ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ProofInSignPhase_IDAffGProofMap::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ProofInSignPhase_IDAffGProofMap::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ProofInSignPhase_IDAffGProofMap::GetClassData() const { return &_class_data_; }
+
+void ProofInSignPhase_IDAffGProofMap::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ProofInSignPhase_IDAffGProofMap *>(to)->MergeFrom(
+      static_cast<const ProofInSignPhase_IDAffGProofMap &>(from));
+}
+
+
+void ProofInSignPhase_IDAffGProofMap::MergeFrom(const ProofInSignPhase_IDAffGProofMap& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  id_aff_g_proof_map_.MergeFrom(from.id_aff_g_proof_map_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ProofInSignPhase_IDAffGProofMap::CopyFrom(const ProofInSignPhase_IDAffGProofMap& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ProofInSignPhase_IDAffGProofMap::IsInitialized() const {
+  return true;
+}
+
+void ProofInSignPhase_IDAffGProofMap::InternalSwap(ProofInSignPhase_IDAffGProofMap* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  id_aff_g_proof_map_.InternalSwap(&other->id_aff_g_proof_map_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInSignPhase_IDAffGProofMap::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[11]);
+}
+
+// ===================================================================
+
+ProofInSignPhase_IdMapMapEntry_DoNotUse::ProofInSignPhase_IdMapMapEntry_DoNotUse() {}
+ProofInSignPhase_IdMapMapEntry_DoNotUse::ProofInSignPhase_IdMapMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInSignPhase_IdMapMapEntry_DoNotUse::MergeFrom(const ProofInSignPhase_IdMapMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInSignPhase_IdMapMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[12]);
+}
+
+// ===================================================================
+
+ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse() {}
+ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::MergeFrom(const ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[13]);
+}
+
+// ===================================================================
+
+ProofInSignPhase_IdDecProofMapEntry_DoNotUse::ProofInSignPhase_IdDecProofMapEntry_DoNotUse() {}
+ProofInSignPhase_IdDecProofMapEntry_DoNotUse::ProofInSignPhase_IdDecProofMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProofInSignPhase_IdDecProofMapEntry_DoNotUse::MergeFrom(const ProofInSignPhase_IdDecProofMapEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInSignPhase_IdDecProofMapEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[14]);
+}
+
+// ===================================================================
+
+class ProofInSignPhase::_Internal {
+ public:
+};
+
+void ProofInSignPhase::clear_id_pail_mul_group_ele_proof_map() {
+  id_pail_mul_group_ele_proof_map_.Clear();
+}
+void ProofInSignPhase::clear_id_dec_proof_map() {
+  id_dec_proof_map_.Clear();
+}
+ProofInSignPhase::ProofInSignPhase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  id_map_map_(arena),
+  id_pail_mul_group_ele_proof_map_(arena),
+  id_dec_proof_map_(arena) {
+  SharedCtor();
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ProofInSignPhase::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+}
+ProofInSignPhase::ProofInSignPhase(const ProofInSignPhase& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  id_map_map_.MergeFrom(from.id_map_map_);
+  id_pail_mul_group_ele_proof_map_.MergeFrom(from.id_pail_mul_group_ele_proof_map_);
+  id_dec_proof_map_.MergeFrom(from.id_dec_proof_map_);
+  c_k_x_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    c_k_x_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_c_k_x().empty()) {
+    c_k_x_.Set(from._internal_c_k_x(), 
+      GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+}
+
+inline void ProofInSignPhase::SharedCtor() {
+c_k_x_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  c_k_x_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ProofInSignPhase::~ProofInSignPhase() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ProofInSignPhase::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  id_map_map_.Destruct();
+  id_pail_mul_group_ele_proof_map_.Destruct();
+  id_dec_proof_map_.Destruct();
+  c_k_x_.Destroy();
+}
+
+void ProofInSignPhase::ArenaDtor(void* object) {
+  ProofInSignPhase* _this = reinterpret_cast< ProofInSignPhase* >(object);
+  _this->id_map_map_.Destruct();
+  _this->id_pail_mul_group_ele_proof_map_.Destruct();
+  _this->id_dec_proof_map_.Destruct();
+}
+void ProofInSignPhase::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ProofInSignPhase::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_map_map_.Clear();
+  id_pail_mul_group_ele_proof_map_.Clear();
+  id_dec_proof_map_.Clear();
+  c_k_x_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ProofInSignPhase::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string c_k_x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_c_k_x();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.c_k_x"));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap> id_map_map = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_map_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .safeheron.proto.PailMulGroupEleRangeProof> id_pail_mul_group_ele_proof_map = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_pail_mul_group_ele_proof_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&id_dec_proof_map_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ProofInSignPhase::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string c_k_x = 1;
+  if (!this->_internal_c_k_x().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_c_k_x().data(), static_cast<int>(this->_internal_c_k_x().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.c_k_x");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_c_k_x(), target);
+  }
+
+  // map<string, .safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap> id_map_map = 2;
+  if (!this->_internal_id_map_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap>;
+    using WireHelper = ProofInSignPhase_IdMapMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_map_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IdMapMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // map<string, .safeheron.proto.PailMulGroupEleRangeProof> id_pail_mul_group_ele_proof_map = 3;
+  if (!this->_internal_id_pail_mul_group_ele_proof_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::PailMulGroupEleRangeProof>;
+    using WireHelper = ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_pail_mul_group_ele_proof_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IdPailMulGroupEleProofMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // map<string, .safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+  if (!this->_internal_id_dec_proof_map().empty()) {
+    using MapType = ::_pb::Map<std::string, ::safeheron::proto::PailDecModuloProof>;
+    using WireHelper = ProofInSignPhase_IdDecProofMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_id_dec_proof_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IdDecProofMapEntry.key");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  return target;
+}
+
+size_t ProofInSignPhase::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase.IDAffGProofMap> id_map_map = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_map_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap >::const_iterator
+      it = this->_internal_id_map_map().begin();
+      it != this->_internal_id_map_map().end(); ++it) {
+    total_size += ProofInSignPhase_IdMapMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .safeheron.proto.PailMulGroupEleRangeProof> id_pail_mul_group_ele_proof_map = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_pail_mul_group_ele_proof_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::PailMulGroupEleRangeProof >::const_iterator
+      it = this->_internal_id_pail_mul_group_ele_proof_map().begin();
+      it != this->_internal_id_pail_mul_group_ele_proof_map().end(); ++it) {
+    total_size += ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .safeheron.proto.PailDecModuloProof> id_dec_proof_map = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_id_dec_proof_map_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::safeheron::proto::PailDecModuloProof >::const_iterator
+      it = this->_internal_id_dec_proof_map().begin();
+      it != this->_internal_id_dec_proof_map().end(); ++it) {
+    total_size += ProofInSignPhase_IdDecProofMapEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // string c_k_x = 1;
+  if (!this->_internal_c_k_x().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_c_k_x());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ProofInSignPhase::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ProofInSignPhase::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ProofInSignPhase::GetClassData() const { return &_class_data_; }
+
+void ProofInSignPhase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ProofInSignPhase *>(to)->MergeFrom(
+      static_cast<const ProofInSignPhase &>(from));
+}
+
+
+void ProofInSignPhase::MergeFrom(const ProofInSignPhase& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  id_map_map_.MergeFrom(from.id_map_map_);
+  id_pail_mul_group_ele_proof_map_.MergeFrom(from.id_pail_mul_group_ele_proof_map_);
+  id_dec_proof_map_.MergeFrom(from.id_dec_proof_map_);
+  if (!from._internal_c_k_x().empty()) {
+    _internal_set_c_k_x(from._internal_c_k_x());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ProofInSignPhase::CopyFrom(const ProofInSignPhase& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.sign.ProofInSignPhase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ProofInSignPhase::IsInitialized() const {
+  return true;
+}
+
+void ProofInSignPhase::InternalSwap(ProofInSignPhase* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  id_map_map_.InternalSwap(&other->id_map_map_);
+  id_pail_mul_group_ele_proof_map_.InternalSwap(&other->id_pail_mul_group_ele_proof_map_);
+  id_dec_proof_map_.InternalSwap(&other->id_dec_proof_map_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &c_k_x_, lhs_arena,
+      &other->c_k_x_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ProofInSignPhase::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_cmp_2fsign_2eproto_getter, &descriptor_table_cmp_2fsign_2eproto_once,
+      file_level_metadata_cmp_2fsign_2eproto[15]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace sign
 }  // namespace cmp
@@ -2205,6 +3760,50 @@ Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::Rou
 template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage*
 Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage >(Arena* arena) {
   return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::Round3P2PMessage >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IDAffGProofMap >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdMapMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase_IdDecProofMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInPreSignPhase >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap_IdAffGProofMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IDAffGProofMap >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdMapMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdPailMulGroupEleProofMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase_IdDecProofMapEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase*
+Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::sign::ProofInSignPhase >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

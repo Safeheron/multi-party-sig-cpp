@@ -4,6 +4,7 @@
 #include "context.h"
 #include "crypto-commitment/commitment.h"
 #include "crypto-sss/vsss.h"
+#include "crypto-encode/hex.h"
 
 using std::string;
 using std::vector;
@@ -19,7 +20,7 @@ namespace minimal_key_gen {
 
 void Round1::Init() {
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
-    for (int i = 0; i < ctx->get_total_parties() - 1; ++i) {
+    for (int j = 0; j < ctx->get_total_parties() - 1; ++j) {
         bc_message_arr_.emplace_back();
     }
 }
@@ -54,9 +55,9 @@ bool Round1::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
-    ok = (ctx->ssid_ == bc_message_arr_[pos].sid_);
+    ok = compare_bytes(ctx->sid_, bc_message_arr_[pos].sid_) == 0;
     if(!ok){
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "ctx->local_party_.sid_ == message_arr_[pos].sid_");
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "compare_bytes(ctx->sid_, bc_message_arr_[pos].sid_) == 0");
         return false;
     }
 
@@ -84,15 +85,15 @@ bool Round1::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     out_bc_msg.clear();
     out_des_arr.clear();
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
-        out_des_arr.push_back(minimal_sign_key.remote_parties_[i].party_id_);
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
+        out_des_arr.push_back(minimal_sign_key.remote_parties_[j].party_id_);
     }
 
-    for (size_t i = 0; i < ctx->remote_parties_.size(); ++i) {
+    for (size_t j = 0; j < ctx->remote_parties_.size(); ++j) {
         Round1P2PMessage p2p_message;
-        p2p_message.sid_ = ctx->ssid_;
+        p2p_message.sid_ = ctx->sid_;
         p2p_message.index_ = minimal_sign_key.local_party_.index_;
-        p2p_message.x_ij_ = ctx->local_party_.map_party_id_x_[minimal_sign_key.remote_parties_[i].party_id_];
+        p2p_message.x_ij_ = ctx->local_party_.map_party_id_x_[minimal_sign_key.remote_parties_[j].party_id_];
         string base64;
         bool ok = p2p_message.ToBase64(base64);
         if (!ok) {
@@ -103,7 +104,7 @@ bool Round1::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     }
 
     Round1BCMessage bc_message;
-    bc_message.sid_ = ctx->ssid_;
+    bc_message.sid_ = ctx->sid_;
     bc_message.index_ = minimal_sign_key.local_party_.index_;
     bc_message.rid_ = ctx->local_party_.rid_;
     bc_message.X_ = ctx->local_party_.X_;

@@ -4,6 +4,7 @@
 #include <google/protobuf/util/json_util.h>
 #include "crypto-bn/rand.h"
 #include "crypto-encode/base64.h"
+#include "crypto-encode/hex.h"
 #include "crypto-sss/vsss.h"
 
 using std::string;
@@ -60,6 +61,9 @@ bool SignKey::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::SignKey &s
     if (!ok) return false;
     sign_key.mutable_g_x()->CopyFrom(point);
 
+    str = safeheron::encode::hex::EncodeToHex(rid_);
+    sign_key.set_rid(str);
+
     return true;
 }
 
@@ -85,6 +89,8 @@ bool SignKey::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::Si
     ok = X_.FromProtoObject(sign_key.g_x());
     ok = ok && !X_.IsInfinity();
     if (!ok) return false;
+
+    rid_ = safeheron::encode::hex::DecodeFromHex(sign_key.rid());
 
     return true;
 }

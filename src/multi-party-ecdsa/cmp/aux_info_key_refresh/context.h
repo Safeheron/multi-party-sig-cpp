@@ -43,7 +43,20 @@ public:
 
     static bool CreateContext(Context &ctx,
                               const safeheron::multi_party_ecdsa::cmp::MinimalSignKey &minimal_sign_key,
-                              const std::string &sid);
+                              const std::string &sid,
+                              bool flag_update_minimal_key = true);
+
+    static bool CreateContext(Context &ctx,
+                              const safeheron::multi_party_ecdsa::cmp::MinimalSignKey &minimal_sign_key,
+                              const std::string &sid,
+                              safeheron::bignum::BN &N,
+                              safeheron::bignum::BN &s,
+                              safeheron::bignum::BN &t,
+                              safeheron::bignum::BN &p,
+                              safeheron::bignum::BN &q,
+                              safeheron::bignum::BN &alpha,
+                              safeheron::bignum::BN &beta,
+                              bool flag_update_minimal_key = true);
 
     const safeheron::curve::Curve * GetCurrentCurve() const{
         assert(curve_type_ != safeheron::curve::CurveType::INVALID_CURVE);
@@ -57,6 +70,12 @@ public:
         return curve_type_;
     }
 
+    void ComputeSSID(const std::string &sid);
+
+    void ComputeSSID_Index();
+
+    void ComputeSSID_Rho_Index();
+
 public:
     safeheron::curve::CurveType curve_type_;
     SignKey sign_key_;
@@ -67,8 +86,13 @@ public:
     Round2 round2_;
     Round3 round3_;
 
+    bool flag_prepare_pail_key_;
+
+    std::string ssid_;
     std::string rho_;
     safeheron::curve::CurvePoint X_;
+
+    bool flag_update_minimal_key_; //update the private key shards or not
 };
 
 }

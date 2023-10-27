@@ -18,6 +18,7 @@ public:
     LocalParty local_party_;
     std::vector<RemoteParty> remote_parties_;
     safeheron::curve::CurvePoint X_;
+    std::string rid_; // Related to session id
 
 public:
     int get_remote_party_pos(const std::string &remote_party_id) const;

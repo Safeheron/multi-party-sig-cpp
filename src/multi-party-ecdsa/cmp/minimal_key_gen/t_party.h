@@ -21,6 +21,8 @@ namespace minimal_key_gen {
 
 class LocalTParty {
 public:
+    std::string sid_index_rid_;
+
     std::string rid_;
     safeheron::bignum::BN x_;
     safeheron::curve::CurvePoint X_; // X = g^x
@@ -40,6 +42,8 @@ public:
 
 class RemoteTParty {
 public:
+    std::string sid_index_rid_;
+
     std::string rid_;
     safeheron::bignum::BN x_ij_;
     safeheron::curve::CurvePoint X_; // X = g^x

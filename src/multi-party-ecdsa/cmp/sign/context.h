@@ -1,6 +1,6 @@
 
-#ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_ONCE_CONTEXT_H
-#define SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_ONCE_CONTEXT_H
+#ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_CONTEXT_H
+#define SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_CONTEXT_H
 
 #include <vector>
 #include "crypto-curve/curve.h"
@@ -57,6 +57,54 @@ public:
         return sign_key_.X_.GetCurveType();
     }
 
+    bool IsValidPartyID(const std::string& party_id) const;
+    std::string GetSSIDIndex(const std::string& party_id) const;
+    const safeheron::pail::PailPubKey& GetPailPub(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetK(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetG(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetDelta(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetSigma(const std::string& party_id) const;
+    const safeheron::curve::CurvePoint& GetGamma(const std::string& party_id) const;
+    const safeheron::curve::CurvePoint& GetX(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetN(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetS(const std::string& party_id) const;
+    const safeheron::bignum::BN& GetT(const std::string& party_id) const;
+
+    void ExportDF(std::map<std::string, std::map<std::string,safeheron::bignum::BN>> &all_D,
+                  std::map<std::string, std::map<std::string,safeheron::bignum::BN>> &all_F) const;
+
+    void ExportD_hat_F_hat(std::map<std::string, std::map<std::string,safeheron::bignum::BN>> &all_D_hat,
+                           std::map<std::string, std::map<std::string,safeheron::bignum::BN>> &all_F_hat) const;
+
+    bool BuildProofInPreSignPhase(){ return round3_.BuildProof();}
+    bool VerifyProof(std::map<std::string, ProofInPreSignPhase> &map_proof,
+                     std::map<std::string, std::map<std::string, safeheron::bignum::BN>> &all_D,
+                     std::map<std::string, std::map<std::string, safeheron::bignum::BN>> &all_F){ return round3_.VerifyProof(map_proof, all_D, all_F); }
+
+    bool BuildProofInSignPhase(){ return round4_.BuildProof();}
+    bool VerifyProof(std::map<std::string, ProofInSignPhase> &map_proof,
+                     std::map<std::string, std::map<std::string, safeheron::bignum::BN>> &all_D_hat,
+                     std::map<std::string, std::map<std::string, safeheron::bignum::BN>> &all_F_hat){ return round4_.VerifyProof(map_proof, all_D_hat, all_F_hat); }
+
+    void Identify(const std::string &culprit,
+                  int32_t round_index,
+                  bool need_proof_in_pre_sign_phase = false,
+                  bool need_proof_in_sign_phase = false){
+        identify_culprit_ = culprit;
+        identify_round_index_ = round_index;
+        identify_need_proof_in_pre_sign_phase_ = need_proof_in_pre_sign_phase;
+        identify_need_proof_in_sign_phase_ = need_proof_in_sign_phase;
+    }
+
+    std::string IdentifyCulprit() const { return identify_culprit_; };
+    int32_t IdentifyRoundIndex() const { return identify_round_index_; };
+    bool IdentifyNeedProofInPreSignPhase() const { return identify_need_proof_in_pre_sign_phase_; };
+    bool IdentifyNeedProofInSignPhase() const { return identify_need_proof_in_sign_phase_; };
+
+    void ComputeSSID(const std::string &sid);
+
+    void ComputeSSID_Index();
+
 public:
     std::string ssid_;
     safeheron::multi_party_ecdsa::cmp::SignKey sign_key_;
@@ -80,6 +128,16 @@ public:
     safeheron::bignum::BN s_;
     uint32_t v_;
 
+    // Proof in pre-sign phase
+    ProofInPreSignPhase proof_in_pre_sign_phase_;
+    ProofInSignPhase proof_in_sign_phase_;
+
+    // culprit
+    std::string identify_culprit_;
+    int32_t identify_round_index_;
+    bool identify_need_proof_in_pre_sign_phase_;
+    bool identify_need_proof_in_sign_phase_;
+
 };
 
 }
@@ -87,4 +145,4 @@ public:
 }
 }
 
-#endif //SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_ONCE_CONTEXT_H
+#endif //SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_CONTEXT_H
