@@ -72,6 +72,13 @@ if (NOT ${NO_MPC_CMP})
 
     add_executable(cmp.sign_test cmp/sign_test.cpp CTimer.cpp)
     add_test(NAME cmp.sign_test COMMAND cmp.sign_test)
+
+    add_executable(cmp.key_gen_test cmp/key_gen_test.cpp CTimer.cpp)
+    add_test(NAME cmp.key_gen_test COMMAND cmp.key_gen_test)
+
+    add_executable(cmp.key_recovery_test cmp/key_recovery_test.cpp CTimer.cpp)
+    add_test(NAME cmp.key_recovery_test COMMAND cmp.key_recovery_test)
+
     # multi-thread
     add_executable(gg20.sign_t_n_mt_test gg20/sign_t_n_mt_test.cpp)
     add_test(NAME gg20.sign_t_n_mt_test COMMAND gg20.sign_t_n_mt_test)

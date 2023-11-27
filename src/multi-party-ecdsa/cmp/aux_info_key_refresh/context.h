@@ -49,13 +49,13 @@ public:
     static bool CreateContext(Context &ctx,
                               const safeheron::multi_party_ecdsa::cmp::MinimalSignKey &minimal_sign_key,
                               const std::string &sid,
-                              safeheron::bignum::BN &N,
-                              safeheron::bignum::BN &s,
-                              safeheron::bignum::BN &t,
-                              safeheron::bignum::BN &p,
-                              safeheron::bignum::BN &q,
-                              safeheron::bignum::BN &alpha,
-                              safeheron::bignum::BN &beta,
+                              const safeheron::bignum::BN &N,
+                              const safeheron::bignum::BN &s,
+                              const safeheron::bignum::BN &t,
+                              const safeheron::bignum::BN &p,
+                              const safeheron::bignum::BN &q,
+                              const safeheron::bignum::BN &alpha,
+                              const safeheron::bignum::BN &beta,
                               bool flag_update_minimal_key = true);
 
     const safeheron::curve::Curve * GetCurrentCurve() const{

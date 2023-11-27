@@ -147,6 +147,24 @@ file(GLOB cmp_sign_SOURCE
         multi-party-ecdsa/cmp/sign/proto_gen/sign.pb.switch.cc
         )
 
+file(GLOB cmp_key_recovery_SOURCE
+        multi-party-ecdsa/cmp/key_recovery/context.cpp
+        multi-party-ecdsa/cmp/key_recovery/proto_gen/key_recovery.pb.switch.cc
+        multi-party-ecdsa/cmp/key_recovery/round0_bc_message.cpp
+        multi-party-ecdsa/cmp/key_recovery/round1_bc_message.cpp
+        multi-party-ecdsa/cmp/key_recovery/round2_bc_message.cpp
+        multi-party-ecdsa/cmp/key_recovery/round0.cpp
+        multi-party-ecdsa/cmp/key_recovery/round1.cpp
+        multi-party-ecdsa/cmp/key_recovery/round2.cpp
+        multi-party-ecdsa/cmp/key_recovery/round3.cpp
+        )
+
+file(GLOB cmp_key_gen_SOURCE
+        multi-party-ecdsa/cmp/key_gen/context.cpp
+        multi-party-ecdsa/cmp/key_gen/round0.cpp
+        multi-party-ecdsa/cmp/key_gen/round1_6.cpp
+        )
+
 option(NO_MPC_GG18 "NO_MPC_GG18" OFF)
 option(NO_MPC_GG20 "NO_MPC_GG20" OFF)
 option(NO_MPC_CMP "NO_MPC_CMP" OFF)
@@ -173,6 +191,8 @@ if (NOT ${NO_MPC_CMP})
             ${cmp_minimal_key_gen_SOURCE}
             ${cmp_aux_info_key_refresh_SOURCE}
             ${cmp_sign_SOURCE}
+            ${cmp_key_recovery_SOURCE}
+            ${cmp_key_gen_SOURCE}
             )
 endif()
 

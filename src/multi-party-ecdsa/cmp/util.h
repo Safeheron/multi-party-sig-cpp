@@ -7,7 +7,7 @@
 #include "crypto-zkp/two_dln_proof.h"
 #include "crypto-zkp/pail/pail_blum_modulus_proof.h"
 #include "crypto-paillier/pail.h"
-#include "mpc-flow/mpc-parallel/mpc_context.h"
+#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa {
@@ -35,10 +35,9 @@ bool prepare_data(safeheron::bignum::BN &N,
                         safeheron::bignum::BN &p,
                         safeheron::bignum::BN &q,
                         safeheron::bignum::BN &alpha,
-                        safeheron::bignum::BN &beta,
-                        safeheron::zkp::dln_proof::TwoDLNProof &two_dln_proof,
-                        safeheron::zkp::pail::PailBlumModulusProof &pail_blum_modulus_proof,
-                        const std::string &ssid_salt);
+                        safeheron::bignum::BN &beta);
+
+std::string get_err_info(safeheron::mpc_flow::mpc_parallel_v2::MPCContext *ctx);
 
 }
 }

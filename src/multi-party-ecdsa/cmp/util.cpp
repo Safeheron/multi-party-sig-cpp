@@ -99,19 +99,20 @@ bool prepare_data(safeheron::bignum::BN &N,
                              safeheron::bignum::BN &p,
                              safeheron::bignum::BN &q,
                              safeheron::bignum::BN &alpha,
-                             safeheron::bignum::BN &beta,
-                             safeheron::zkp::dln_proof::TwoDLNProof &two_dln_proof,
-                             safeheron::zkp::pail::PailBlumModulusProof &pail_blum_modulus_proof,
-                             const std::string &ssid_salt) {
+                             safeheron::bignum::BN &beta) {
     safeheron::zkp::dln_proof::GenerateN_tilde(N, s, t, p, q, alpha, beta);
-    two_dln_proof.SetSalt(ssid_salt);
-    two_dln_proof.Prove(N, s, t, p, q, alpha, beta);
-    safeheron::bignum::BN P = p * 2 + 1;
-    safeheron::bignum::BN Q = q * 2 + 1;
-    pail_blum_modulus_proof.SetSalt(ssid_salt);
-    bool ok = pail_blum_modulus_proof.Prove(N, P, Q);
-    if (!ok) return false;
     return true;
+}
+
+std::string get_err_info(safeheron::mpc_flow::mpc_parallel_v2::MPCContext *ctx) {
+    std::vector<safeheron::mpc_flow::mpc_parallel_v2::ErrorInfo> error_stack;
+    ctx->get_error_stack(error_stack);
+    std::string err_info;
+    for (size_t i = 0; i < error_stack.size(); ++i) {
+        err_info += error_stack[i].info_;
+        err_info += "\n";
+    }
+    return err_info;
 }
 
 }
