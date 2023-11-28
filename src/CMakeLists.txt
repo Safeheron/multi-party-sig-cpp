@@ -150,9 +150,9 @@ file(GLOB cmp_sign_SOURCE
 file(GLOB cmp_key_recovery_SOURCE
         multi-party-ecdsa/cmp/key_recovery/context.cpp
         multi-party-ecdsa/cmp/key_recovery/proto_gen/key_recovery.pb.switch.cc
-        multi-party-ecdsa/cmp/key_recovery/round0_bc_message.cpp
-        multi-party-ecdsa/cmp/key_recovery/round1_bc_message.cpp
-        multi-party-ecdsa/cmp/key_recovery/round2_bc_message.cpp
+        multi-party-ecdsa/cmp/key_recovery/round0_p2p_message.cpp
+        multi-party-ecdsa/cmp/key_recovery/round1_p2p_message.cpp
+        multi-party-ecdsa/cmp/key_recovery/round2_p2p_message.cpp
         multi-party-ecdsa/cmp/key_recovery/round0.cpp
         multi-party-ecdsa/cmp/key_recovery/round1.cpp
         multi-party-ecdsa/cmp/key_recovery/round2.cpp

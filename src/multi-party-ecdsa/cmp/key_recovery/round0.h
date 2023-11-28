@@ -10,7 +10,7 @@ namespace key_recovery {
 class Round0 : public safeheron::mpc_flow::mpc_parallel_v2::MPCRound {
 public:
     Round0() : MPCRound(safeheron::mpc_flow::mpc_parallel_v2::MessageType::None,
-                        safeheron::mpc_flow::mpc_parallel_v2::MessageType::BROADCAST) {}
+                        safeheron::mpc_flow::mpc_parallel_v2::MessageType::P2P) {}
     bool ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, const std::string &party_id) override { return true; }
 
     bool ReceiveVerify(const std::string &party_id) override { return true; }

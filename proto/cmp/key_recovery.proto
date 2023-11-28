@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package safeheron.proto.multi_party_ecdsa.cmp.key_recovery;
+import "curve_point.proto";
+import "zkp.proto";
+
+message Round0P2PMessage {
+    string V = 1;
+}
+message Round1P2PMessage {
+    safeheron.proto.CurvePoint X = 1;
+    string i = 2;
+    string j = 3;
+    string k = 4;
+    safeheron.proto.CurvePoint A = 5;
+    safeheron.proto.CurvePoint B = 6;
+    safeheron.proto.CurvePoint R = 7;
+    safeheron.proto.CurvePoint T = 8;
+    safeheron.proto.DLogProof_V2 phi = 9;
+}
+message Round2P2PMessage {
+    safeheron.proto.DLogProof_V2 psi = 1;
+    safeheron.proto.CurvePoint X_ki = 2;
+}

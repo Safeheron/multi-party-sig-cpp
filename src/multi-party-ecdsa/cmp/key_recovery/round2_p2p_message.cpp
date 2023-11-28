@@ -12,15 +12,15 @@ namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {
 namespace key_recovery {
-bool Round2BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage &message) const {
+bool Round2P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage &message) const {
     bool ok = true;
 
     safeheron::proto::CurvePoint point ;
     safeheron::proto::DLogProof_V2 dlog_proof;
 
-    ok = S_.ToProtoObject(point);
+    ok = X_ki_.ToProtoObject(point);
     if (!ok) return false;
-    message.mutable_s()->CopyFrom(point);
+    message.mutable_x_ki()->CopyFrom(point);
 
     ok = psi_.ToProtoObject(dlog_proof);
     if (!ok) return false;
@@ -29,8 +29,8 @@ bool Round2BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::ke
     return true;
 }
 
-bool Round2BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage &message) {
-    bool ok = S_.FromProtoObject(message.s());
+bool Round2P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage &message) {
+    bool ok = X_ki_.FromProtoObject(message.x_ki());
     if (!ok) return false;
 
     ok = psi_.FromProtoObject(message.psi());
@@ -39,10 +39,10 @@ bool Round2BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa:
     return true;
 }
 
-typedef Round1BCMessage TheClass;
-typedef safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage ProtoObject;
+typedef Round1P2PMessage TheClass;
+typedef safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage ProtoObject;
 
-bool Round2BCMessage::ToBase64(std::string &b64) const {
+bool Round2P2PMessage::ToBase64(std::string &b64) const {
     bool ok = true;
     b64.clear();
     ProtoObject proto_object;
@@ -54,7 +54,7 @@ bool Round2BCMessage::ToBase64(std::string &b64) const {
     return true;
 }
 
-bool Round2BCMessage::FromBase64(const std::string &b64) {
+bool Round2P2PMessage::FromBase64(const std::string &b64) {
     bool ok = true;
 
     std::string data = safeheron::encode::base64::DecodeFromBase64(b64);
@@ -66,7 +66,7 @@ bool Round2BCMessage::FromBase64(const std::string &b64) {
     return FromProtoObject(proto_object);
 }
 
-bool Round2BCMessage::ToJsonString(std::string &json_str) const {
+bool Round2P2PMessage::ToJsonString(std::string &json_str) const {
     bool ok = true;
     json_str.clear();
     ProtoObject proto_object;
@@ -81,7 +81,7 @@ bool Round2BCMessage::ToJsonString(std::string &json_str) const {
     return true;
 }
 
-bool Round2BCMessage::FromJsonString(const std::string &json_str) {
+bool Round2P2PMessage::FromJsonString(const std::string &json_str) {
     ProtoObject proto_object;
     JsonParseOptions jp_option;
     jp_option.ignore_unknown_fields = true;

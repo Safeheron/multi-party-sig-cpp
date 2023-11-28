@@ -9,10 +9,10 @@ namespace cmp {
 namespace key_recovery {
 class Round1 : public safeheron::mpc_flow::mpc_parallel_v2::MPCRound {
 public:
-    Round0BCMessage bc_message_;
+    Round0P2PMessage p2p_message_;
 
-    Round1() : MPCRound(safeheron::mpc_flow::mpc_parallel_v2::MessageType::BROADCAST,
-                        safeheron::mpc_flow::mpc_parallel_v2::MessageType::BROADCAST) {}
+    Round1() : MPCRound(safeheron::mpc_flow::mpc_parallel_v2::MessageType::P2P,
+                        safeheron::mpc_flow::mpc_parallel_v2::MessageType::P2P) {}
 
     bool ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, const std::string &party_id) override;
 

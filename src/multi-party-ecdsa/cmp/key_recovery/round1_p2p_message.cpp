@@ -12,7 +12,7 @@ namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {
 namespace key_recovery {
-bool Round1BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage &message) const {
+bool Round1P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage &message) const {
     bool ok = true;
 
     std::string str;
@@ -55,7 +55,7 @@ bool Round1BCMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::ke
     return true;
 }
 
-bool Round1BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage &message) {
+bool Round1P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage &message) {
 
     bool ok = X_.FromProtoObject(message.x());
     if (!ok) return false;
@@ -90,10 +90,10 @@ bool Round1BCMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa:
     return true;
 }
 
-typedef Round1BCMessage TheClass;
-typedef safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage ProtoObject;
+typedef Round1P2PMessage TheClass;
+typedef safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage ProtoObject;
 
-bool Round1BCMessage::ToBase64(std::string &b64) const {
+bool Round1P2PMessage::ToBase64(std::string &b64) const {
     bool ok = true;
     b64.clear();
     ProtoObject proto_object;
@@ -105,7 +105,7 @@ bool Round1BCMessage::ToBase64(std::string &b64) const {
     return true;
 }
 
-bool Round1BCMessage::FromBase64(const std::string &b64) {
+bool Round1P2PMessage::FromBase64(const std::string &b64) {
     bool ok = true;
 
     std::string data = safeheron::encode::base64::DecodeFromBase64(b64);
@@ -117,7 +117,7 @@ bool Round1BCMessage::FromBase64(const std::string &b64) {
     return FromProtoObject(proto_object);
 }
 
-bool Round1BCMessage::ToJsonString(std::string &json_str) const {
+bool Round1P2PMessage::ToJsonString(std::string &json_str) const {
     bool ok = true;
     json_str.clear();
     ProtoObject proto_object;
@@ -132,7 +132,7 @@ bool Round1BCMessage::ToJsonString(std::string &json_str) const {
     return  true;
 }
 
-bool Round1BCMessage::FromJsonString(const std::string &json_str) {
+bool Round1P2PMessage::FromJsonString(const std::string &json_str) {
     ProtoObject  proto_object;
     JsonParseOptions jp_option;
     jp_option.ignore_unknown_fields = true;

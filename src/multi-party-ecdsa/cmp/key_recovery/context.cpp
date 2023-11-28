@@ -6,15 +6,15 @@ namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {
 namespace key_recovery {
-Context::Context(int total_parties): MPCContext(total_parties), curve_type_(safeheron::curve::CurveType::INVALID_CURVE) {
+Context::Context(): MPCContext(2), curve_type_(safeheron::curve::CurveType::INVALID_CURVE) {
     BindAllRounds();
 }
 
 Context::Context(const Context &ctx): MPCContext(ctx){
     // Assign all the member variables.
     curve_type_ = ctx.curve_type_;
-    x_ = ctx.x_;
-    s_ = ctx.s_;
+    x_i_ = ctx.x_i_;
+    x_ki_ = ctx.x_ki_;
     X_k_ = ctx.X_k_;
     local_party_ = ctx.local_party_;
     remote_party_ = ctx.remote_party_;
@@ -36,8 +36,8 @@ Context &Context::operator=(const Context &ctx){
 
     // Assign all the member variables.
     curve_type_ = ctx.curve_type_;
-    x_ = ctx.x_;
-    s_ = ctx.s_;
+    x_i_ = ctx.x_i_;
+    x_ki_ = ctx.x_ki_;
     X_k_ = ctx.X_k_;
     local_party_ = ctx.local_party_;
     remote_party_ = ctx.remote_party_;
@@ -68,8 +68,8 @@ bool Context::CreateContext(Context &ctx,
     ctx.curve_type_ = curve_type;
 
     if (x >= curv->n || x <= safeheron::bignum::BN::ZERO) return false;
-    ctx.x_ = x;
-    ctx.local_party_.X_ = curv->g * ctx.x_;
+    ctx.x_i_ = x;
+    ctx.local_party_.X_i_ = curv->g * ctx.x_i_;
 
     ctx.local_party_.i_ = i % curv->n;
     ctx.local_party_.j_ = j % curv->n;
@@ -83,7 +83,7 @@ bool Context::CreateContext(Context &ctx,
     if (!ok) return false;
 
     // Compute lambda of all parties
-    safeheron::sss::Polynomial::GetLArray(ctx.local_party_.l_arr_, safeheron::bignum::BN::ZERO, index_arr, curv->n);
+    safeheron::sss::Polynomial::GetLArray(ctx.local_party_.l_arr_i_j_k_, safeheron::bignum::BN::ZERO, index_arr, curv->n);
 
     index_arr.clear();
     index_arr.push_back(ctx.local_party_.i_);

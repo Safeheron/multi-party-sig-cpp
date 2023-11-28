@@ -1,6 +1,7 @@
 #include "round2.h"
 #include "context.h"
-#include "crypto-hash/sha256.h"
+#include "crypto-hash/safe_hash256.h"
+#include "../util.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {
@@ -14,7 +15,7 @@ bool Round2::ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, con
         return false;
     }
 
-    bool ok = bc_message_.FromBase64(bc_msg);
+    bool ok = p2p_message_.FromBase64(p2p_msg);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to deserialize from base64!");
         return false;
@@ -26,83 +27,77 @@ bool Round2::ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, con
 bool Round2::ReceiveVerify(const std::string &party_id) {
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
 
-    if (bc_message_.i_ != ctx->local_party_.j_
-        || bc_message_.j_ != ctx->local_party_.i_
-        || bc_message_.k_ != ctx->local_party_.k_) {
+    if (p2p_message_.i_ != ctx->local_party_.j_
+        || p2p_message_.j_ != ctx->local_party_.i_
+        || p2p_message_.k_ != ctx->local_party_.k_) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Inconsistent index.");
         return false;
     }
 
-    //if (bc_message_.X_.IsInfinity()) {
-    //    ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "bc_message_.X_ is infinity.");
-    //    return false;
-    //}
-
-    bool ok = bc_message_.phi_.Verify(bc_message_.X_);
+    bool ok = p2p_message_.phi_.Verify(p2p_message_.X_);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in bc_message_.phi_.Verify(ctx->remote_parties_.X_)");
         return false;
     }
-    if (bc_message_.phi_.A_ != bc_message_.R_) {
+    if (p2p_message_.phi_.A_ != p2p_message_.R_) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in (bc_message_.phi_.A_ == bc_message_.R_)");
         return false;
     }
 
-    safeheron::hash::CSHA256 sha256;
-    uint8_t digest[safeheron::hash::CSHA256::OUTPUT_SIZE];
+    // Verify V_{j} = H(X_{j}, j, i, k, A_{j}, B_{j}, R_j, T_j , \phi_{j})
+    safeheron::hash::CSafeHash256 sha256;
+    uint8_t digest[safeheron::hash::CSafeHash256::OUTPUT_SIZE];
 
     std::string buf;
-    bc_message_.X_.x().ToBytesBE(buf);
+    p2p_message_.X_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.X_.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
-    bc_message_.i_.ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.j_.ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.k_.ToBytesBE(buf);
+    p2p_message_.X_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    bc_message_.A_.x().ToBytesBE(buf);
+    p2p_message_.i_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.A_.y().ToBytesBE(buf);
+    p2p_message_.j_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
-    bc_message_.B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.B_.y().ToBytesBE(buf);
+    p2p_message_.k_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    bc_message_.R_.x().ToBytesBE(buf);
+    p2p_message_.A_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.R_.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
-    bc_message_.T_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_.T_.y().ToBytesBE(buf);
+    p2p_message_.A_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    bc_message_.phi_.ToBase64(buf);
+    p2p_message_.B_.x().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+    p2p_message_.B_.y().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+
+    p2p_message_.R_.x().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+    p2p_message_.R_.y().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+
+    p2p_message_.T_.x().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+    p2p_message_.T_.y().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+
+    p2p_message_.phi_.ToBase64(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     sha256.Finalize(digest);
     std::string remote_V((const char*)digest, sizeof(digest));
 
-    if (remote_V != ctx->remote_party_.V_) {
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "remote_V != ctx->remote_parties_.V_!");
+    ok = compare_bytes(remote_V, ctx->remote_party_.V_j_) == 0;
+    if (!ok) {
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "compare_bytes(remote_V, ctx->remote_party_.V_j_) == 0");
         return false;
     }
 
-    ctx->remote_party_.X_ = bc_message_.X_;
-    ctx->remote_party_.i_ = bc_message_.i_;
-    ctx->remote_party_.j_ = bc_message_.j_;
-    ctx->remote_party_.k_ = bc_message_.k_;
-    ctx->remote_party_.A_ = bc_message_.A_;
-    ctx->remote_party_.B_ = bc_message_.B_;
-    ctx->remote_party_.R_ = bc_message_.R_;
-    ctx->remote_party_.T_ = bc_message_.T_;
+    ctx->remote_party_.X_j_ = p2p_message_.X_;
+    ctx->remote_party_.A_j_ = p2p_message_.A_;
+    ctx->remote_party_.B_j_ = p2p_message_.B_;
+    ctx->remote_party_.R_j_ = p2p_message_.R_;
+    ctx->remote_party_.T_j_ = p2p_message_.T_;
 
     return true;
 }
@@ -118,8 +113,9 @@ bool Round2::ComputeVerify() {
     safeheron::hash::CSHA256 sha256;
     uint8_t digest[safeheron::hash::CSHA256::OUTPUT_SIZE];
 
+    // Compute \alpha = H((B_{j})^{a_{i}})
     std::string buf;
-    safeheron::curve::CurvePoint p_1 = ctx->remote_party_.B_ * ctx->local_party_.a_;
+    safeheron::curve::CurvePoint p_1 = ctx->remote_party_.B_j_ * ctx->local_party_.a_i_;
     p_1.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     p_1.y().ToBytesBE(buf);
@@ -127,7 +123,8 @@ bool Round2::ComputeVerify() {
     sha256.Finalize(digest);
     safeheron::bignum::BN alpha = safeheron::bignum::BN::FromBytesBE(digest, sizeof(digest));
 
-    safeheron::curve::CurvePoint p_2 = ctx->remote_party_.A_ * ctx->local_party_.b_;
+    // Compute \beta = H((A_{j})^{b_{i}})
+    safeheron::curve::CurvePoint p_2 = ctx->remote_party_.A_j_ * ctx->local_party_.b_i_;
     sha256.Reset();
     p_2.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
@@ -136,14 +133,25 @@ bool Round2::ComputeVerify() {
     sha256.Finalize(digest);
     safeheron::bignum::BN beta = safeheron::bignum::BN::FromBytesBE(digest, sizeof(digest));
 
-    safeheron::bignum::BN lambda_k = ctx->local_party_.l_arr_.back();
-    safeheron::bignum::BN lambda_i_1 = ctx->local_party_.l_arr_i_j_[0];
-    safeheron::bignum::BN lambda_i_2 = ctx->local_party_.l_arr_[0];
-    safeheron::bignum::BN s = lambda_k.InvM(curv->n) * ((lambda_i_1 - lambda_i_2) * ctx->x_);
-    ctx->s_ = (s + alpha - beta) % curv->n;
+    // Compute \Delta = \alpha - \beta
+    safeheron::bignum::BN delta = alpha - beta;
+    const safeheron::bignum::BN& lambda_i = ctx->local_party_.l_arr_i_j_k_[0];
+    const safeheron::bignum::BN& lambda_j = ctx->local_party_.l_arr_i_j_k_[1];
+    const safeheron::bignum::BN& lambda_k = ctx->local_party_.l_arr_i_j_k_.back();
+    const safeheron::bignum::BN& lambda_i_prime = ctx->local_party_.l_arr_i_j_[0];
+    const safeheron::bignum::BN& lambda_j_prime = ctx->local_party_.l_arr_i_j_[1];
+    // Compute X' = X_i^{\lambda^{\prime}_i } * X_j^{\lambda^{\prime}_j}
+    ctx->local_party_.X_prime_ = ctx->local_party_.X_i_* lambda_i_prime + ctx->remote_party_.X_j_* lambda_j_prime;
 
-    ctx->local_party_.S_ = curv->g * ctx->s_;
-    ctx->local_party_.psi_.ProveWithREx(ctx->s_, ctx->local_party_.t_, ctx->curve_type_);
+    // Compute x_{k,i}^* = {\lambda^{\prime}}_{k}^{-1}*(\lambda_i^{\prime} - \lambda_i) * x
+    safeheron::bignum::BN x_ki_star = lambda_k.InvM(curv->n) * ((lambda_i_prime - lambda_i) * ctx->x_i_);
+
+    // Compute x_{k,i} = x_{k,i}^*  + \Delta \pmod q
+    ctx->x_ki_ = (x_ki_star + delta) % curv->n;
+    // Compute X_{k,i} = g^{x_{k,i}}
+    ctx->local_party_.X_ki_ = curv->g * ctx->x_ki_;
+    // Compute \psi_{i} = \mathcal{M}(prove, \Pi^{log}, (X_{k,i}); (x_{k,i}, t_i))
+    ctx->local_party_.psi_i_.ProveWithREx(ctx->x_ki_, ctx->local_party_.t_i_, ctx->curve_type_);
 
     return true;
 }
@@ -158,15 +166,17 @@ bool Round2::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
 
     out_des_arr.push_back(ctx->remote_party_.party_id_);
 
-    Round2BCMessage bc_message;
-    bc_message.S_ = ctx->local_party_.S_;
-    bc_message.psi_ = ctx->local_party_.psi_;
+    Round2P2PMessage p2p_message;
+    p2p_message.X_ki_ = ctx->local_party_.X_ki_;
+    p2p_message.psi_ = ctx->local_party_.psi_i_;
 
-    bool ok = bc_message.ToBase64(out_bc_msg);
+    std::string base64;
+    bool ok = p2p_message.ToBase64(base64);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in bc_message.ToBase64(out_bc_msg)!");
         return false;
     }
+    out_p2p_msg_arr.push_back(base64);
 
     return true;
 }

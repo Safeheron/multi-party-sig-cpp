@@ -2,7 +2,7 @@
 #include "crypto-bn/bn.h"
 #include "crypto-bn/rand.h"
 #include "crypto-curve/curve.h"
-#include "crypto-hash/sha256.h"
+#include "crypto-hash/safe_hash256.h"
 
 #include "context.h"
 namespace safeheron {
@@ -19,27 +19,37 @@ bool Round0::ComputeVerify() {
         return false;
     }
 
-    ctx->local_party_.a_ = safeheron::rand::RandomBNLt(curv->n);
-    ctx->local_party_.A_ = curv->g * ctx->local_party_.a_;
+    //- Sample a_{i} \in Z_q
+    //- Compute A_{i} = g^{a_{i}}
+    ctx->local_party_.a_i_ = safeheron::rand::RandomBNLt(curv->n);
+    ctx->local_party_.A_i_ = curv->g * ctx->local_party_.a_i_;
 
-    ctx->local_party_.b_ = safeheron::rand::RandomBNLt(curv->n);
-    ctx->local_party_.B_ = curv->g * ctx->local_party_.b_;
+    //- Sample b_{i} \in Z_q
+    //- Computer B_{i} = g^{b_{i}}
+    ctx->local_party_.b_i_ = safeheron::rand::RandomBNLt(curv->n);
+    ctx->local_party_.B_i_ = curv->g * ctx->local_party_.b_i_;
 
-    ctx->local_party_.r_ = safeheron::rand::RandomBNLt(curv->n);
-    ctx->local_party_.R_ = curv->g * ctx->local_party_.r_;
+    //- Sample r_i \in Z_q
+    //- Compute R_i = g^{r_i}
+    ctx->local_party_.r_i_ = safeheron::rand::RandomBNLt(curv->n);
+    ctx->local_party_.R_i_ = curv->g * ctx->local_party_.r_i_;
 
-    ctx->local_party_.t_ = safeheron::rand::RandomBNLt(curv->n);
-    ctx->local_party_.T_ = curv->g * ctx->local_party_.t_;
+    //- Sample t_i \in Z_q
+    //- Compute T_i = g^{t_i}
+    ctx->local_party_.t_i_ = safeheron::rand::RandomBNLt(curv->n);
+    ctx->local_party_.T_i_ = curv->g * ctx->local_party_.t_i_;
 
-    ctx->local_party_.phi_.ProveWithREx(ctx->x_, ctx->local_party_.r_, ctx->curve_type_);
+    // Compute \phi_i = \mathcal{M}(prove, \Pi^{log}, (X_i); (x_i, r_i))
+    ctx->local_party_.phi_i_.ProveWithREx(ctx->x_i_, ctx->local_party_.r_i_, ctx->curve_type_);
 
-    safeheron::hash::CSHA256 sha256;
-    uint8_t digest[safeheron::hash::CSHA256::OUTPUT_SIZE];
+    // Compute V_i = H(X_i, i, j, k, A_i, B_i, R_i, T_i , \phi_{i})
+    safeheron::hash::CSafeHash256 sha256;
+    uint8_t digest[safeheron::hash::CSafeHash256::OUTPUT_SIZE];
 
     std::string buf;
-    ctx->local_party_.X_.x().ToBytesBE(buf);
+    ctx->local_party_.X_i_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.X_.y().ToBytesBE(buf);
+    ctx->local_party_.X_i_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     ctx->local_party_.i_.ToBytesBE(buf);
@@ -49,31 +59,31 @@ bool Round0::ComputeVerify() {
     ctx->local_party_.k_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    ctx->local_party_.A_.x().ToBytesBE(buf);
+    ctx->local_party_.A_i_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.A_.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
-    ctx->local_party_.B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.B_.y().ToBytesBE(buf);
+    ctx->local_party_.A_i_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    ctx->local_party_.R_.x().ToBytesBE(buf);
+    ctx->local_party_.B_i_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.R_.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
-    ctx->local_party_.T_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.T_.y().ToBytesBE(buf);
+    ctx->local_party_.B_i_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    ctx->local_party_.phi_.ToBase64(buf);
+    ctx->local_party_.R_i_.x().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+    ctx->local_party_.R_i_.y().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+
+    ctx->local_party_.T_i_.x().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+    ctx->local_party_.T_i_.y().ToBytesBE(buf);
+    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
+
+    ctx->local_party_.phi_i_.ToBase64(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     sha256.Finalize(digest);
-    ctx->local_party_.V_.assign((const char*)digest, sizeof(digest));
+    ctx->local_party_.V_i_.assign((const char*)digest, sizeof(digest));
 
     return true;
 }
@@ -88,13 +98,15 @@ bool Round0::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
 
     out_des_arr.push_back(ctx->remote_party_.party_id_);
 
-    Round0BCMessage bc_message;
-    bc_message.V_ = ctx->local_party_.V_;
-    bool ok = bc_message.ToBase64(out_bc_msg);
+    std::string base64;
+    Round0P2PMessage p2p_message;
+    p2p_message.V_ = ctx->local_party_.V_i_;
+    bool ok = p2p_message.ToBase64(base64);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in bc_message.ToBase64(out_bc_msg)!");
         return false;
     }
+    out_p2p_msg_arr.push_back(base64);
 
     return true;
 }

@@ -12,7 +12,7 @@ bool Round3::ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, con
         return false;
     }
 
-    bool ok = bc_message_.FromBase64(bc_msg);
+    bool ok = p2p_message_.FromBase64(p2p_msg);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed to deserialize from base64!");
         return false;
@@ -24,24 +24,20 @@ bool Round3::ParseMsg(const std::string &p2p_msg, const std::string &bc_msg, con
 bool Round3::ReceiveVerify(const std::string &party_id) {
     Context *ctx = dynamic_cast<Context *>(this->get_mpc_context());
 
-    //if (bc_message_.S_.IsInfinity()) {
-    //    ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "bc_message_.S_i_ is infinity.");
-    //    return false;
-    //}
-
-    bool ok = bc_message_.psi_.Verify(bc_message_.S_);
+    // \mathcal{M}(Verify, \Pi^{log}, (X_{k,j}), \psi_{j}) = 1
+    bool ok = p2p_message_.psi_.Verify(p2p_message_.X_ki_);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "Failed in bc_message_.psi_.Verify(bc_message_.S_i_)");
         return false;
     }
 
-    if (bc_message_.psi_.A_ != ctx->remote_party_.T_) {
+    if (p2p_message_.psi_.A_ != ctx->remote_party_.T_j_) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__,
                            "Failed in (bc_message_.psi_.A_ != ctx->remote_parties_.T_)");
         return false;
     }
 
-    ctx->remote_party_.S_ = bc_message_.S_;
+    ctx->remote_party_.X_kj_ = p2p_message_.X_ki_;
     return true;
 }
 
@@ -53,17 +49,25 @@ bool Round3::ComputeVerify() {
         return false;
     }
 
-    ctx->X_k_ = ctx->local_party_.S_ + ctx->remote_party_.S_;
+    // Compute X_{k} = X_{k,i} * X_{k,j}
+    ctx->X_k_ = ctx->local_party_.X_ki_ + ctx->remote_party_.X_kj_;
 
-    safeheron::curve::CurvePoint X_1 = ctx->local_party_.X_ * ctx->local_party_.l_arr_i_k_[0] + ctx->X_k_ * ctx->local_party_.l_arr_i_k_[1];
-    safeheron::curve::CurvePoint X_2 = ctx->local_party_.X_ * ctx->local_party_.l_arr_i_j_[0] +  ctx->remote_party_.X_ * ctx->local_party_.l_arr_i_j_[1];
+    const safeheron::bignum::BN& lambda_i = ctx->local_party_.l_arr_i_j_k_[0];
+    const safeheron::bignum::BN& lambda_j = ctx->local_party_.l_arr_i_j_k_[1];
+    const safeheron::bignum::BN& lambda_k = ctx->local_party_.l_arr_i_j_k_.back();
 
-    if (X_1 != X_2) {
-        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "X_1 != X_2");
+    // Compute X'' =  X_i^{\lambda_i} * X_j^{\lambda_j} * X_k^{\lambda_k}
+    ctx->local_party_.X_double_prime_ = ctx->local_party_.X_i_ * lambda_i
+                                      + ctx->remote_party_.X_j_ * lambda_j
+                                      + ctx->X_k_ * lambda_k;
+
+    // Verify X' = X''
+    if (ctx->local_party_.X_prime_ != ctx->local_party_.X_double_prime_) {
+        ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "X' != X''");
         return false;
     }
 
-    ctx->pub_ = X_1;
+    ctx->X_ = ctx->local_party_.X_prime_;
 
     return true;
 }

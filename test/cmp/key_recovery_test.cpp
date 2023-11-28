@@ -16,11 +16,11 @@ bool key_recovery_test(safeheron::curve::CurveType c_type, const safeheron::bign
     std::string party_id_1 = "party_1";
     std::string party_id_2 = "party_2";
 
-    safeheron::multi_party_ecdsa::cmp::key_recovery::Context ctx_1(total_parties);
+    safeheron::multi_party_ecdsa::cmp::key_recovery::Context ctx_1;
     bool ok = safeheron::multi_party_ecdsa::cmp::key_recovery::Context::CreateContext(ctx_1, c_type, x_1, index_1, index_2, index_3, party_id_1, party_id_2);
     if (!ok) return false;
 
-    safeheron::multi_party_ecdsa::cmp::key_recovery::Context ctx_2(total_parties);
+    safeheron::multi_party_ecdsa::cmp::key_recovery::Context ctx_2;
     ok = safeheron::multi_party_ecdsa::cmp::key_recovery::Context::CreateContext(ctx_2, c_type, x_2, index_2, index_1, index_3, party_id_2, party_id_1);
     if (!ok) return false;
 
@@ -67,7 +67,7 @@ bool key_recovery_test(safeheron::curve::CurveType c_type, const safeheron::bign
     }
 
     const safeheron::curve::Curve *curv = safeheron::curve::GetCurveParam( c_type);
-    x_lost = (ctx_1.s_ + ctx_2.s_) % curv->n;
+    x_lost = (ctx_1.x_ki_ + ctx_2.x_ki_) % curv->n;
     safeheron::curve::CurvePoint X_lost = curv->g * x_lost;
     EXPECT_TRUE(X_lost == ctx_1.X_k_);
     EXPECT_TRUE(X_lost == ctx_2.X_k_);

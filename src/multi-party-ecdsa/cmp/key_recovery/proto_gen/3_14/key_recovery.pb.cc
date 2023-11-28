@@ -21,63 +21,63 @@ namespace proto {
 namespace multi_party_ecdsa {
 namespace cmp {
 namespace key_recovery {
-class Round0BCMessageDefaultTypeInternal {
+class Round0P2PMessageDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Round0BCMessage> _instance;
-} _Round0BCMessage_default_instance_;
-class Round1BCMessageDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Round0P2PMessage> _instance;
+} _Round0P2PMessage_default_instance_;
+class Round1P2PMessageDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Round1BCMessage> _instance;
-} _Round1BCMessage_default_instance_;
-class Round2BCMessageDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Round1P2PMessage> _instance;
+} _Round1P2PMessage_default_instance_;
+class Round2P2PMessageDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Round2BCMessage> _instance;
-} _Round2BCMessage_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Round2P2PMessage> _instance;
+} _Round2P2PMessage_default_instance_;
 }  // namespace key_recovery
 }  // namespace cmp
 }  // namespace multi_party_ecdsa
 }  // namespace proto
 }  // namespace safeheron
-static void InitDefaultsscc_info_Round0BCMessage_cmp_2fkey_5frecovery_2eproto() {
+static void InitDefaultsscc_info_Round0P2PMessage_cmp_2fkey_5frecovery_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round0BCMessage_default_instance_;
-    new (ptr) ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage();
+    void* ptr = &::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round0P2PMessage_default_instance_;
+    new (ptr) ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Round0BCMessage_cmp_2fkey_5frecovery_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Round0BCMessage_cmp_2fkey_5frecovery_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Round0P2PMessage_cmp_2fkey_5frecovery_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Round0P2PMessage_cmp_2fkey_5frecovery_2eproto}, {}};
 
-static void InitDefaultsscc_info_Round1BCMessage_cmp_2fkey_5frecovery_2eproto() {
+static void InitDefaultsscc_info_Round1P2PMessage_cmp_2fkey_5frecovery_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round1BCMessage_default_instance_;
-    new (ptr) ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage();
+    void* ptr = &::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round1P2PMessage_default_instance_;
+    new (ptr) ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Round1BCMessage_cmp_2fkey_5frecovery_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Round1BCMessage_cmp_2fkey_5frecovery_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Round1P2PMessage_cmp_2fkey_5frecovery_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Round1P2PMessage_cmp_2fkey_5frecovery_2eproto}, {
       &scc_info_CurvePoint_curve_5fpoint_2eproto.base,
       &scc_info_DLogProof_V2_zkp_2eproto.base,}};
 
-static void InitDefaultsscc_info_Round2BCMessage_cmp_2fkey_5frecovery_2eproto() {
+static void InitDefaultsscc_info_Round2P2PMessage_cmp_2fkey_5frecovery_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round2BCMessage_default_instance_;
-    new (ptr) ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage();
+    void* ptr = &::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round2P2PMessage_default_instance_;
+    new (ptr) ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Round2BCMessage_cmp_2fkey_5frecovery_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Round2BCMessage_cmp_2fkey_5frecovery_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Round2P2PMessage_cmp_2fkey_5frecovery_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Round2P2PMessage_cmp_2fkey_5frecovery_2eproto}, {
       &scc_info_DLogProof_V2_zkp_2eproto.base,
       &scc_info_CurvePoint_curve_5fpoint_2eproto.base,}};
 
@@ -87,73 +87,73 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cmp_2fkey_5frecovery_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage, v_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage, v_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, x_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, i_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, j_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, k_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, a_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, b_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, r_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, t_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage, phi_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, x_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, i_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, j_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, k_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, a_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, b_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, r_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, t_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, phi_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage, psi_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage, s_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage, psi_),
+  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage, x_ki_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage)},
-  { 6, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage)},
-  { 20, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage)},
+  { 0, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage)},
+  { 6, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage)},
+  { 20, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round0BCMessage_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round1BCMessage_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round2BCMessage_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round0P2PMessage_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round1P2PMessage_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::_Round2P2PMessage_default_instance_),
 };
 
 const char descriptor_table_protodef_cmp_2fkey_5frecovery_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\026cmp/key_recovery.proto\0222safeheron.prot"
   "o.multi_party_ecdsa.cmp.key_recovery\032\021cu"
-  "rve_point.proto\032\tzkp.proto\"\034\n\017Round0BCMe"
-  "ssage\022\t\n\001V\030\001 \001(\t\"\246\002\n\017Round1BCMessage\022&\n\001"
-  "X\030\001 \001(\0132\033.safeheron.proto.CurvePoint\022\t\n\001"
-  "i\030\002 \001(\t\022\t\n\001j\030\003 \001(\t\022\t\n\001k\030\004 \001(\t\022&\n\001A\030\005 \001(\013"
-  "2\033.safeheron.proto.CurvePoint\022&\n\001B\030\006 \001(\013"
-  "2\033.safeheron.proto.CurvePoint\022&\n\001R\030\007 \001(\013"
-  "2\033.safeheron.proto.CurvePoint\022&\n\001T\030\010 \001(\013"
-  "2\033.safeheron.proto.CurvePoint\022*\n\003phi\030\t \001"
-  "(\0132\035.safeheron.proto.DLogProof_V2\"e\n\017Rou"
-  "nd2BCMessage\022*\n\003psi\030\001 \001(\0132\035.safeheron.pr"
-  "oto.DLogProof_V2\022&\n\001S\030\002 \001(\0132\033.safeheron."
-  "proto.CurvePointb\006proto3"
+  "rve_point.proto\032\tzkp.proto\"\035\n\020Round0P2PM"
+  "essage\022\t\n\001V\030\001 \001(\t\"\247\002\n\020Round1P2PMessage\022&"
+  "\n\001X\030\001 \001(\0132\033.safeheron.proto.CurvePoint\022\t"
+  "\n\001i\030\002 \001(\t\022\t\n\001j\030\003 \001(\t\022\t\n\001k\030\004 \001(\t\022&\n\001A\030\005 \001"
+  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001B\030\006 \001"
+  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001R\030\007 \001"
+  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001T\030\010 \001"
+  "(\0132\033.safeheron.proto.CurvePoint\022*\n\003phi\030\t"
+  " \001(\0132\035.safeheron.proto.DLogProof_V2\"i\n\020R"
+  "ound2P2PMessage\022*\n\003psi\030\001 \001(\0132\035.safeheron"
+  ".proto.DLogProof_V2\022)\n\004X_ki\030\002 \001(\0132\033.safe"
+  "heron.proto.CurvePointb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_cmp_2fkey_5frecovery_2eproto_deps[2] = {
   &::descriptor_table_curve_5fpoint_2eproto,
   &::descriptor_table_zkp_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cmp_2fkey_5frecovery_2eproto_sccs[3] = {
-  &scc_info_Round0BCMessage_cmp_2fkey_5frecovery_2eproto.base,
-  &scc_info_Round1BCMessage_cmp_2fkey_5frecovery_2eproto.base,
-  &scc_info_Round2BCMessage_cmp_2fkey_5frecovery_2eproto.base,
+  &scc_info_Round0P2PMessage_cmp_2fkey_5frecovery_2eproto.base,
+  &scc_info_Round1P2PMessage_cmp_2fkey_5frecovery_2eproto.base,
+  &scc_info_Round2P2PMessage_cmp_2fkey_5frecovery_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_cmp_2fkey_5frecovery_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cmp_2fkey_5frecovery_2eproto = {
-  false, false, descriptor_table_protodef_cmp_2fkey_5frecovery_2eproto, "cmp/key_recovery.proto", 544,
+  false, false, descriptor_table_protodef_cmp_2fkey_5frecovery_2eproto, "cmp/key_recovery.proto", 550,
   &descriptor_table_cmp_2fkey_5frecovery_2eproto_once, descriptor_table_cmp_2fkey_5frecovery_2eproto_sccs, descriptor_table_cmp_2fkey_5frecovery_2eproto_deps, 3, 2,
   schemas, file_default_instances, TableStruct_cmp_2fkey_5frecovery_2eproto::offsets,
   file_level_metadata_cmp_2fkey_5frecovery_2eproto, 3, file_level_enum_descriptors_cmp_2fkey_5frecovery_2eproto, file_level_service_descriptors_cmp_2fkey_5frecovery_2eproto,
@@ -169,17 +169,17 @@ namespace key_recovery {
 
 // ===================================================================
 
-class Round0BCMessage::_Internal {
+class Round0P2PMessage::_Internal {
  public:
 };
 
-Round0BCMessage::Round0BCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+Round0P2PMessage::Round0P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
 }
-Round0BCMessage::Round0BCMessage(const Round0BCMessage& from)
+Round0P2PMessage::Round0P2PMessage(const Round0P2PMessage& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   v_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -187,42 +187,42 @@ Round0BCMessage::Round0BCMessage(const Round0BCMessage& from)
     v_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_v(), 
       GetArena());
   }
-  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
 }
 
-void Round0BCMessage::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round0BCMessage_cmp_2fkey_5frecovery_2eproto.base);
+void Round0P2PMessage::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round0P2PMessage_cmp_2fkey_5frecovery_2eproto.base);
   v_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-Round0BCMessage::~Round0BCMessage() {
-  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+Round0P2PMessage::~Round0P2PMessage() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void Round0BCMessage::SharedDtor() {
+void Round0P2PMessage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   v_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void Round0BCMessage::ArenaDtor(void* object) {
-  Round0BCMessage* _this = reinterpret_cast< Round0BCMessage* >(object);
+void Round0P2PMessage::ArenaDtor(void* object) {
+  Round0P2PMessage* _this = reinterpret_cast< Round0P2PMessage* >(object);
   (void)_this;
 }
-void Round0BCMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void Round0P2PMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void Round0BCMessage::SetCachedSize(int size) const {
+void Round0P2PMessage::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Round0BCMessage& Round0BCMessage::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Round0BCMessage_cmp_2fkey_5frecovery_2eproto.base);
+const Round0P2PMessage& Round0P2PMessage::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Round0P2PMessage_cmp_2fkey_5frecovery_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Round0BCMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+void Round0P2PMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -231,7 +231,7 @@ void Round0BCMessage::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Round0BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Round0P2PMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -243,7 +243,7 @@ const char* Round0BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_v();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -269,9 +269,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Round0BCMessage::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* Round0P2PMessage::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -280,7 +280,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_v().data(), static_cast<int>(this->_internal_v().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V");
+      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_v(), target);
   }
@@ -289,12 +289,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   return target;
 }
 
-size_t Round0BCMessage::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+size_t Round0P2PMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -317,23 +317,23 @@ size_t Round0BCMessage::ByteSizeLong() const {
   return total_size;
 }
 
-void Round0BCMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+void Round0P2PMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   GOOGLE_DCHECK_NE(&from, this);
-  const Round0BCMessage* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Round0BCMessage>(
+  const Round0P2PMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Round0P2PMessage>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
     MergeFrom(*source);
   }
 }
 
-void Round0BCMessage::MergeFrom(const Round0BCMessage& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+void Round0P2PMessage::MergeFrom(const Round0P2PMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -344,114 +344,114 @@ void Round0BCMessage::MergeFrom(const Round0BCMessage& from) {
   }
 }
 
-void Round0BCMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+void Round0P2PMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Round0BCMessage::CopyFrom(const Round0BCMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+void Round0P2PMessage::CopyFrom(const Round0P2PMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Round0BCMessage::IsInitialized() const {
+bool Round0P2PMessage::IsInitialized() const {
   return true;
 }
 
-void Round0BCMessage::InternalSwap(Round0BCMessage* other) {
+void Round0P2PMessage::InternalSwap(Round0P2PMessage* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   v_.Swap(&other->v_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Round0BCMessage::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Round0P2PMessage::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-class Round1BCMessage::_Internal {
+class Round1P2PMessage::_Internal {
  public:
-  static const ::safeheron::proto::CurvePoint& x(const Round1BCMessage* msg);
-  static const ::safeheron::proto::CurvePoint& a(const Round1BCMessage* msg);
-  static const ::safeheron::proto::CurvePoint& b(const Round1BCMessage* msg);
-  static const ::safeheron::proto::CurvePoint& r(const Round1BCMessage* msg);
-  static const ::safeheron::proto::CurvePoint& t(const Round1BCMessage* msg);
-  static const ::safeheron::proto::DLogProof_V2& phi(const Round1BCMessage* msg);
+  static const ::safeheron::proto::CurvePoint& x(const Round1P2PMessage* msg);
+  static const ::safeheron::proto::CurvePoint& a(const Round1P2PMessage* msg);
+  static const ::safeheron::proto::CurvePoint& b(const Round1P2PMessage* msg);
+  static const ::safeheron::proto::CurvePoint& r(const Round1P2PMessage* msg);
+  static const ::safeheron::proto::CurvePoint& t(const Round1P2PMessage* msg);
+  static const ::safeheron::proto::DLogProof_V2& phi(const Round1P2PMessage* msg);
 };
 
 const ::safeheron::proto::CurvePoint&
-Round1BCMessage::_Internal::x(const Round1BCMessage* msg) {
+Round1P2PMessage::_Internal::x(const Round1P2PMessage* msg) {
   return *msg->x_;
 }
 const ::safeheron::proto::CurvePoint&
-Round1BCMessage::_Internal::a(const Round1BCMessage* msg) {
+Round1P2PMessage::_Internal::a(const Round1P2PMessage* msg) {
   return *msg->a_;
 }
 const ::safeheron::proto::CurvePoint&
-Round1BCMessage::_Internal::b(const Round1BCMessage* msg) {
+Round1P2PMessage::_Internal::b(const Round1P2PMessage* msg) {
   return *msg->b_;
 }
 const ::safeheron::proto::CurvePoint&
-Round1BCMessage::_Internal::r(const Round1BCMessage* msg) {
+Round1P2PMessage::_Internal::r(const Round1P2PMessage* msg) {
   return *msg->r_;
 }
 const ::safeheron::proto::CurvePoint&
-Round1BCMessage::_Internal::t(const Round1BCMessage* msg) {
+Round1P2PMessage::_Internal::t(const Round1P2PMessage* msg) {
   return *msg->t_;
 }
 const ::safeheron::proto::DLogProof_V2&
-Round1BCMessage::_Internal::phi(const Round1BCMessage* msg) {
+Round1P2PMessage::_Internal::phi(const Round1P2PMessage* msg) {
   return *msg->phi_;
 }
-void Round1BCMessage::clear_x() {
+void Round1P2PMessage::clear_x() {
   if (GetArena() == nullptr && x_ != nullptr) {
     delete x_;
   }
   x_ = nullptr;
 }
-void Round1BCMessage::clear_a() {
+void Round1P2PMessage::clear_a() {
   if (GetArena() == nullptr && a_ != nullptr) {
     delete a_;
   }
   a_ = nullptr;
 }
-void Round1BCMessage::clear_b() {
+void Round1P2PMessage::clear_b() {
   if (GetArena() == nullptr && b_ != nullptr) {
     delete b_;
   }
   b_ = nullptr;
 }
-void Round1BCMessage::clear_r() {
+void Round1P2PMessage::clear_r() {
   if (GetArena() == nullptr && r_ != nullptr) {
     delete r_;
   }
   r_ = nullptr;
 }
-void Round1BCMessage::clear_t() {
+void Round1P2PMessage::clear_t() {
   if (GetArena() == nullptr && t_ != nullptr) {
     delete t_;
   }
   t_ = nullptr;
 }
-void Round1BCMessage::clear_phi() {
+void Round1P2PMessage::clear_phi() {
   if (GetArena() == nullptr && phi_ != nullptr) {
     delete phi_;
   }
   phi_ = nullptr;
 }
-Round1BCMessage::Round1BCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+Round1P2PMessage::Round1P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
 }
-Round1BCMessage::Round1BCMessage(const Round1BCMessage& from)
+Round1P2PMessage::Round1P2PMessage(const Round1P2PMessage& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   i_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -499,11 +499,11 @@ Round1BCMessage::Round1BCMessage(const Round1BCMessage& from)
   } else {
     phi_ = nullptr;
   }
-  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
 }
 
-void Round1BCMessage::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round1BCMessage_cmp_2fkey_5frecovery_2eproto.base);
+void Round1P2PMessage::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round1P2PMessage_cmp_2fkey_5frecovery_2eproto.base);
   i_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   j_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   k_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -513,13 +513,13 @@ void Round1BCMessage::SharedCtor() {
       reinterpret_cast<char*>(&x_)) + sizeof(phi_));
 }
 
-Round1BCMessage::~Round1BCMessage() {
-  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+Round1P2PMessage::~Round1P2PMessage() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void Round1BCMessage::SharedDtor() {
+void Round1P2PMessage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   i_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   j_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -532,23 +532,23 @@ void Round1BCMessage::SharedDtor() {
   if (this != internal_default_instance()) delete phi_;
 }
 
-void Round1BCMessage::ArenaDtor(void* object) {
-  Round1BCMessage* _this = reinterpret_cast< Round1BCMessage* >(object);
+void Round1P2PMessage::ArenaDtor(void* object) {
+  Round1P2PMessage* _this = reinterpret_cast< Round1P2PMessage* >(object);
   (void)_this;
 }
-void Round1BCMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void Round1P2PMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void Round1BCMessage::SetCachedSize(int size) const {
+void Round1P2PMessage::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Round1BCMessage& Round1BCMessage::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Round1BCMessage_cmp_2fkey_5frecovery_2eproto.base);
+const Round1P2PMessage& Round1P2PMessage::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Round1P2PMessage_cmp_2fkey_5frecovery_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Round1BCMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+void Round1P2PMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -583,7 +583,7 @@ void Round1BCMessage::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Round1BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Round1P2PMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -602,7 +602,7 @@ const char* Round1BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_i();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -611,7 +611,7 @@ const char* Round1BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_j();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -620,7 +620,7 @@ const char* Round1BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_k();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -681,9 +681,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Round1BCMessage::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* Round1P2PMessage::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -700,7 +700,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_i().data(), static_cast<int>(this->_internal_i().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i");
+      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_i(), target);
   }
@@ -710,7 +710,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_j().data(), static_cast<int>(this->_internal_j().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j");
+      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j");
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_j(), target);
   }
@@ -720,7 +720,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_k().data(), static_cast<int>(this->_internal_k().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k");
+      "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k");
     target = stream->WriteStringMaybeAliased(
         4, this->_internal_k(), target);
   }
@@ -769,12 +769,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   return target;
 }
 
-size_t Round1BCMessage::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+size_t Round1P2PMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -853,23 +853,23 @@ size_t Round1BCMessage::ByteSizeLong() const {
   return total_size;
 }
 
-void Round1BCMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+void Round1P2PMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   GOOGLE_DCHECK_NE(&from, this);
-  const Round1BCMessage* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Round1BCMessage>(
+  const Round1P2PMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Round1P2PMessage>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
     MergeFrom(*source);
   }
 }
 
-void Round1BCMessage::MergeFrom(const Round1BCMessage& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+void Round1P2PMessage::MergeFrom(const Round1P2PMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -904,78 +904,78 @@ void Round1BCMessage::MergeFrom(const Round1BCMessage& from) {
   }
 }
 
-void Round1BCMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+void Round1P2PMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Round1BCMessage::CopyFrom(const Round1BCMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+void Round1P2PMessage::CopyFrom(const Round1P2PMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Round1BCMessage::IsInitialized() const {
+bool Round1P2PMessage::IsInitialized() const {
   return true;
 }
 
-void Round1BCMessage::InternalSwap(Round1BCMessage* other) {
+void Round1P2PMessage::InternalSwap(Round1P2PMessage* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   i_.Swap(&other->i_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   j_.Swap(&other->j_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   k_.Swap(&other->k_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Round1BCMessage, phi_)
-      + sizeof(Round1BCMessage::phi_)
-      - PROTOBUF_FIELD_OFFSET(Round1BCMessage, x_)>(
+      PROTOBUF_FIELD_OFFSET(Round1P2PMessage, phi_)
+      + sizeof(Round1P2PMessage::phi_)
+      - PROTOBUF_FIELD_OFFSET(Round1P2PMessage, x_)>(
           reinterpret_cast<char*>(&x_),
           reinterpret_cast<char*>(&other->x_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Round1BCMessage::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Round1P2PMessage::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-class Round2BCMessage::_Internal {
+class Round2P2PMessage::_Internal {
  public:
-  static const ::safeheron::proto::DLogProof_V2& psi(const Round2BCMessage* msg);
-  static const ::safeheron::proto::CurvePoint& s(const Round2BCMessage* msg);
+  static const ::safeheron::proto::DLogProof_V2& psi(const Round2P2PMessage* msg);
+  static const ::safeheron::proto::CurvePoint& x_ki(const Round2P2PMessage* msg);
 };
 
 const ::safeheron::proto::DLogProof_V2&
-Round2BCMessage::_Internal::psi(const Round2BCMessage* msg) {
+Round2P2PMessage::_Internal::psi(const Round2P2PMessage* msg) {
   return *msg->psi_;
 }
 const ::safeheron::proto::CurvePoint&
-Round2BCMessage::_Internal::s(const Round2BCMessage* msg) {
-  return *msg->s_;
+Round2P2PMessage::_Internal::x_ki(const Round2P2PMessage* msg) {
+  return *msg->x_ki_;
 }
-void Round2BCMessage::clear_psi() {
+void Round2P2PMessage::clear_psi() {
   if (GetArena() == nullptr && psi_ != nullptr) {
     delete psi_;
   }
   psi_ = nullptr;
 }
-void Round2BCMessage::clear_s() {
-  if (GetArena() == nullptr && s_ != nullptr) {
-    delete s_;
+void Round2P2PMessage::clear_x_ki() {
+  if (GetArena() == nullptr && x_ki_ != nullptr) {
+    delete x_ki_;
   }
-  s_ = nullptr;
+  x_ki_ = nullptr;
 }
-Round2BCMessage::Round2BCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+Round2P2PMessage::Round2P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(arena_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
 }
-Round2BCMessage::Round2BCMessage(const Round2BCMessage& from)
+Round2P2PMessage::Round2P2PMessage(const Round2P2PMessage& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_psi()) {
@@ -983,51 +983,51 @@ Round2BCMessage::Round2BCMessage(const Round2BCMessage& from)
   } else {
     psi_ = nullptr;
   }
-  if (from._internal_has_s()) {
-    s_ = new ::safeheron::proto::CurvePoint(*from.s_);
+  if (from._internal_has_x_ki()) {
+    x_ki_ = new ::safeheron::proto::CurvePoint(*from.x_ki_);
   } else {
-    s_ = nullptr;
+    x_ki_ = nullptr;
   }
-  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(copy_constructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
 }
 
-void Round2BCMessage::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round2BCMessage_cmp_2fkey_5frecovery_2eproto.base);
+void Round2P2PMessage::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Round2P2PMessage_cmp_2fkey_5frecovery_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&psi_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&s_) -
-      reinterpret_cast<char*>(&psi_)) + sizeof(s_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&x_ki_) -
+      reinterpret_cast<char*>(&psi_)) + sizeof(x_ki_));
 }
 
-Round2BCMessage::~Round2BCMessage() {
-  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+Round2P2PMessage::~Round2P2PMessage() {
+  // @@protoc_insertion_point(destructor:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void Round2BCMessage::SharedDtor() {
+void Round2P2PMessage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete psi_;
-  if (this != internal_default_instance()) delete s_;
+  if (this != internal_default_instance()) delete x_ki_;
 }
 
-void Round2BCMessage::ArenaDtor(void* object) {
-  Round2BCMessage* _this = reinterpret_cast< Round2BCMessage* >(object);
+void Round2P2PMessage::ArenaDtor(void* object) {
+  Round2P2PMessage* _this = reinterpret_cast< Round2P2PMessage* >(object);
   (void)_this;
 }
-void Round2BCMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void Round2P2PMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void Round2BCMessage::SetCachedSize(int size) const {
+void Round2P2PMessage::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Round2BCMessage& Round2BCMessage::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Round2BCMessage_cmp_2fkey_5frecovery_2eproto.base);
+const Round2P2PMessage& Round2P2PMessage::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Round2P2PMessage_cmp_2fkey_5frecovery_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Round2BCMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+void Round2P2PMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1036,14 +1036,14 @@ void Round2BCMessage::Clear() {
     delete psi_;
   }
   psi_ = nullptr;
-  if (GetArena() == nullptr && s_ != nullptr) {
-    delete s_;
+  if (GetArena() == nullptr && x_ki_ != nullptr) {
+    delete x_ki_;
   }
-  s_ = nullptr;
+  x_ki_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Round2BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Round2P2PMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -1057,10 +1057,10 @@ const char* Round2BCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .safeheron.proto.CurvePoint S = 2;
+      // .safeheron.proto.CurvePoint X_ki = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_s(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_x_ki(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1086,9 +1086,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Round2BCMessage::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* Round2P2PMessage::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(serialize_to_array_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1100,24 +1100,24 @@ failure:
         1, _Internal::psi(this), target, stream);
   }
 
-  // .safeheron.proto.CurvePoint S = 2;
-  if (this->has_s()) {
+  // .safeheron.proto.CurvePoint X_ki = 2;
+  if (this->has_x_ki()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::s(this), target, stream);
+        2, _Internal::x_ki(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(serialize_to_array_end:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   return target;
 }
 
-size_t Round2BCMessage::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+size_t Round2P2PMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1131,11 +1131,11 @@ size_t Round2BCMessage::ByteSizeLong() const {
         *psi_);
   }
 
-  // .safeheron.proto.CurvePoint S = 2;
-  if (this->has_s()) {
+  // .safeheron.proto.CurvePoint X_ki = 2;
+  if (this->has_x_ki()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *s_);
+        *x_ki_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1147,23 +1147,23 @@ size_t Round2BCMessage::ByteSizeLong() const {
   return total_size;
 }
 
-void Round2BCMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+void Round2P2PMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   GOOGLE_DCHECK_NE(&from, this);
-  const Round2BCMessage* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Round2BCMessage>(
+  const Round2P2PMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Round2P2PMessage>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
     MergeFrom(*source);
   }
 }
 
-void Round2BCMessage::MergeFrom(const Round2BCMessage& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+void Round2P2PMessage::MergeFrom(const Round2P2PMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1172,41 +1172,41 @@ void Round2BCMessage::MergeFrom(const Round2BCMessage& from) {
   if (from.has_psi()) {
     _internal_mutable_psi()->::safeheron::proto::DLogProof_V2::MergeFrom(from._internal_psi());
   }
-  if (from.has_s()) {
-    _internal_mutable_s()->::safeheron::proto::CurvePoint::MergeFrom(from._internal_s());
+  if (from.has_x_ki()) {
+    _internal_mutable_x_ki()->::safeheron::proto::CurvePoint::MergeFrom(from._internal_x_ki());
   }
 }
 
-void Round2BCMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+void Round2P2PMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Round2BCMessage::CopyFrom(const Round2BCMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+void Round2P2PMessage::CopyFrom(const Round2P2PMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Round2BCMessage::IsInitialized() const {
+bool Round2P2PMessage::IsInitialized() const {
   return true;
 }
 
-void Round2BCMessage::InternalSwap(Round2BCMessage* other) {
+void Round2P2PMessage::InternalSwap(Round2P2PMessage* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Round2BCMessage, s_)
-      + sizeof(Round2BCMessage::s_)
-      - PROTOBUF_FIELD_OFFSET(Round2BCMessage, psi_)>(
+      PROTOBUF_FIELD_OFFSET(Round2P2PMessage, x_ki_)
+      + sizeof(Round2P2PMessage::x_ki_)
+      - PROTOBUF_FIELD_OFFSET(Round2P2PMessage, psi_)>(
           reinterpret_cast<char*>(&psi_),
           reinterpret_cast<char*>(&other->psi_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Round2BCMessage::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Round2P2PMessage::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1218,14 +1218,14 @@ void Round2BCMessage::InternalSwap(Round2BCMessage* other) {
 }  // namespace proto
 }  // namespace safeheron
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage* Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage >(arena);
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage* Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage >(arena);
 }
-template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage* Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage >(arena);
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage* Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage >(arena);
 }
-template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage* Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage >(arena);
+template<> PROTOBUF_NOINLINE ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage* Arena::CreateMaybeMessage< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -60,24 +60,24 @@ namespace proto {
 namespace multi_party_ecdsa {
 namespace cmp {
 namespace key_recovery {
-class Round0BCMessage;
-class Round0BCMessageDefaultTypeInternal;
-extern Round0BCMessageDefaultTypeInternal _Round0BCMessage_default_instance_;
-class Round1BCMessage;
-class Round1BCMessageDefaultTypeInternal;
-extern Round1BCMessageDefaultTypeInternal _Round1BCMessage_default_instance_;
-class Round2BCMessage;
-class Round2BCMessageDefaultTypeInternal;
-extern Round2BCMessageDefaultTypeInternal _Round2BCMessage_default_instance_;
+class Round0P2PMessage;
+class Round0P2PMessageDefaultTypeInternal;
+extern Round0P2PMessageDefaultTypeInternal _Round0P2PMessage_default_instance_;
+class Round1P2PMessage;
+class Round1P2PMessageDefaultTypeInternal;
+extern Round1P2PMessageDefaultTypeInternal _Round1P2PMessage_default_instance_;
+class Round2P2PMessage;
+class Round2P2PMessageDefaultTypeInternal;
+extern Round2P2PMessageDefaultTypeInternal _Round2P2PMessage_default_instance_;
 }  // namespace key_recovery
 }  // namespace cmp
 }  // namespace multi_party_ecdsa
 }  // namespace proto
 }  // namespace safeheron
 PROTOBUF_NAMESPACE_OPEN
-template<> ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage* Arena::CreateMaybeMessage<::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0BCMessage>(Arena*);
-template<> ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage* Arena::CreateMaybeMessage<::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1BCMessage>(Arena*);
-template<> ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage* Arena::CreateMaybeMessage<::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2BCMessage>(Arena*);
+template<> ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage* Arena::CreateMaybeMessage<::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage>(Arena*);
+template<> ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage* Arena::CreateMaybeMessage<::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage>(Arena*);
+template<> ::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage* Arena::CreateMaybeMessage<::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace safeheron {
 namespace proto {
@@ -87,23 +87,23 @@ namespace key_recovery {
 
 // ===================================================================
 
-class Round0BCMessage PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage) */ {
+class Round0P2PMessage PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage) */ {
  public:
-  inline Round0BCMessage() : Round0BCMessage(nullptr) {}
-  virtual ~Round0BCMessage();
+  inline Round0P2PMessage() : Round0P2PMessage(nullptr) {}
+  virtual ~Round0P2PMessage();
 
-  Round0BCMessage(const Round0BCMessage& from);
-  Round0BCMessage(Round0BCMessage&& from) noexcept
-    : Round0BCMessage() {
+  Round0P2PMessage(const Round0P2PMessage& from);
+  Round0P2PMessage(Round0P2PMessage&& from) noexcept
+    : Round0P2PMessage() {
     *this = ::std::move(from);
   }
 
-  inline Round0BCMessage& operator=(const Round0BCMessage& from) {
+  inline Round0P2PMessage& operator=(const Round0P2PMessage& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Round0BCMessage& operator=(Round0BCMessage&& from) noexcept {
+  inline Round0P2PMessage& operator=(Round0P2PMessage&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -121,19 +121,19 @@ class Round0BCMessage PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Round0BCMessage& default_instance();
+  static const Round0P2PMessage& default_instance();
 
-  static inline const Round0BCMessage* internal_default_instance() {
-    return reinterpret_cast<const Round0BCMessage*>(
-               &_Round0BCMessage_default_instance_);
+  static inline const Round0P2PMessage* internal_default_instance() {
+    return reinterpret_cast<const Round0P2PMessage*>(
+               &_Round0P2PMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(Round0BCMessage& a, Round0BCMessage& b) {
+  friend void swap(Round0P2PMessage& a, Round0P2PMessage& b) {
     a.Swap(&b);
   }
-  inline void Swap(Round0BCMessage* other) {
+  inline void Swap(Round0P2PMessage* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -141,7 +141,7 @@ class Round0BCMessage PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Round0BCMessage* other) {
+  void UnsafeArenaSwap(Round0P2PMessage* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -149,17 +149,17 @@ class Round0BCMessage PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Round0BCMessage* New() const final {
-    return CreateMaybeMessage<Round0BCMessage>(nullptr);
+  inline Round0P2PMessage* New() const final {
+    return CreateMaybeMessage<Round0P2PMessage>(nullptr);
   }
 
-  Round0BCMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Round0BCMessage>(arena);
+  Round0P2PMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Round0P2PMessage>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Round0BCMessage& from);
-  void MergeFrom(const Round0BCMessage& from);
+  void CopyFrom(const Round0P2PMessage& from);
+  void MergeFrom(const Round0P2PMessage& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -173,13 +173,13 @@ class Round0BCMessage PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Round0BCMessage* other);
+  void InternalSwap(Round0P2PMessage* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage";
+    return "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage";
   }
   protected:
-  explicit Round0BCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Round0P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -217,7 +217,7 @@ class Round0BCMessage PROTOBUF_FINAL :
   std::string* _internal_mutable_v();
   public:
 
-  // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage)
+  // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage)
  private:
   class _Internal;
 
@@ -230,23 +230,23 @@ class Round0BCMessage PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class Round1BCMessage PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage) */ {
+class Round1P2PMessage PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage) */ {
  public:
-  inline Round1BCMessage() : Round1BCMessage(nullptr) {}
-  virtual ~Round1BCMessage();
+  inline Round1P2PMessage() : Round1P2PMessage(nullptr) {}
+  virtual ~Round1P2PMessage();
 
-  Round1BCMessage(const Round1BCMessage& from);
-  Round1BCMessage(Round1BCMessage&& from) noexcept
-    : Round1BCMessage() {
+  Round1P2PMessage(const Round1P2PMessage& from);
+  Round1P2PMessage(Round1P2PMessage&& from) noexcept
+    : Round1P2PMessage() {
     *this = ::std::move(from);
   }
 
-  inline Round1BCMessage& operator=(const Round1BCMessage& from) {
+  inline Round1P2PMessage& operator=(const Round1P2PMessage& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Round1BCMessage& operator=(Round1BCMessage&& from) noexcept {
+  inline Round1P2PMessage& operator=(Round1P2PMessage&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -264,19 +264,19 @@ class Round1BCMessage PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Round1BCMessage& default_instance();
+  static const Round1P2PMessage& default_instance();
 
-  static inline const Round1BCMessage* internal_default_instance() {
-    return reinterpret_cast<const Round1BCMessage*>(
-               &_Round1BCMessage_default_instance_);
+  static inline const Round1P2PMessage* internal_default_instance() {
+    return reinterpret_cast<const Round1P2PMessage*>(
+               &_Round1P2PMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(Round1BCMessage& a, Round1BCMessage& b) {
+  friend void swap(Round1P2PMessage& a, Round1P2PMessage& b) {
     a.Swap(&b);
   }
-  inline void Swap(Round1BCMessage* other) {
+  inline void Swap(Round1P2PMessage* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -284,7 +284,7 @@ class Round1BCMessage PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Round1BCMessage* other) {
+  void UnsafeArenaSwap(Round1P2PMessage* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -292,17 +292,17 @@ class Round1BCMessage PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Round1BCMessage* New() const final {
-    return CreateMaybeMessage<Round1BCMessage>(nullptr);
+  inline Round1P2PMessage* New() const final {
+    return CreateMaybeMessage<Round1P2PMessage>(nullptr);
   }
 
-  Round1BCMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Round1BCMessage>(arena);
+  Round1P2PMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Round1P2PMessage>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Round1BCMessage& from);
-  void MergeFrom(const Round1BCMessage& from);
+  void CopyFrom(const Round1P2PMessage& from);
+  void MergeFrom(const Round1P2PMessage& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -316,13 +316,13 @@ class Round1BCMessage PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Round1BCMessage* other);
+  void InternalSwap(Round1P2PMessage* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage";
+    return "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage";
   }
   protected:
-  explicit Round1BCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Round1P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -508,7 +508,7 @@ class Round1BCMessage PROTOBUF_FINAL :
       ::safeheron::proto::DLogProof_V2* phi);
   ::safeheron::proto::DLogProof_V2* unsafe_arena_release_phi();
 
-  // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage)
+  // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage)
  private:
   class _Internal;
 
@@ -529,23 +529,23 @@ class Round1BCMessage PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class Round2BCMessage PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage) */ {
+class Round2P2PMessage PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage) */ {
  public:
-  inline Round2BCMessage() : Round2BCMessage(nullptr) {}
-  virtual ~Round2BCMessage();
+  inline Round2P2PMessage() : Round2P2PMessage(nullptr) {}
+  virtual ~Round2P2PMessage();
 
-  Round2BCMessage(const Round2BCMessage& from);
-  Round2BCMessage(Round2BCMessage&& from) noexcept
-    : Round2BCMessage() {
+  Round2P2PMessage(const Round2P2PMessage& from);
+  Round2P2PMessage(Round2P2PMessage&& from) noexcept
+    : Round2P2PMessage() {
     *this = ::std::move(from);
   }
 
-  inline Round2BCMessage& operator=(const Round2BCMessage& from) {
+  inline Round2P2PMessage& operator=(const Round2P2PMessage& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Round2BCMessage& operator=(Round2BCMessage&& from) noexcept {
+  inline Round2P2PMessage& operator=(Round2P2PMessage&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -563,19 +563,19 @@ class Round2BCMessage PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Round2BCMessage& default_instance();
+  static const Round2P2PMessage& default_instance();
 
-  static inline const Round2BCMessage* internal_default_instance() {
-    return reinterpret_cast<const Round2BCMessage*>(
-               &_Round2BCMessage_default_instance_);
+  static inline const Round2P2PMessage* internal_default_instance() {
+    return reinterpret_cast<const Round2P2PMessage*>(
+               &_Round2P2PMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(Round2BCMessage& a, Round2BCMessage& b) {
+  friend void swap(Round2P2PMessage& a, Round2P2PMessage& b) {
     a.Swap(&b);
   }
-  inline void Swap(Round2BCMessage* other) {
+  inline void Swap(Round2P2PMessage* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -583,7 +583,7 @@ class Round2BCMessage PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Round2BCMessage* other) {
+  void UnsafeArenaSwap(Round2P2PMessage* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -591,17 +591,17 @@ class Round2BCMessage PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Round2BCMessage* New() const final {
-    return CreateMaybeMessage<Round2BCMessage>(nullptr);
+  inline Round2P2PMessage* New() const final {
+    return CreateMaybeMessage<Round2P2PMessage>(nullptr);
   }
 
-  Round2BCMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Round2BCMessage>(arena);
+  Round2P2PMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Round2P2PMessage>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Round2BCMessage& from);
-  void MergeFrom(const Round2BCMessage& from);
+  void CopyFrom(const Round2P2PMessage& from);
+  void MergeFrom(const Round2P2PMessage& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -615,13 +615,13 @@ class Round2BCMessage PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Round2BCMessage* other);
+  void InternalSwap(Round2P2PMessage* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage";
+    return "safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage";
   }
   protected:
-  explicit Round2BCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Round2P2PMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -642,7 +642,7 @@ class Round2BCMessage PROTOBUF_FINAL :
 
   enum : int {
     kPsiFieldNumber = 1,
-    kSFieldNumber = 2,
+    kXKiFieldNumber = 2,
   };
   // .safeheron.proto.DLogProof_V2 psi = 1;
   bool has_psi() const;
@@ -662,25 +662,25 @@ class Round2BCMessage PROTOBUF_FINAL :
       ::safeheron::proto::DLogProof_V2* psi);
   ::safeheron::proto::DLogProof_V2* unsafe_arena_release_psi();
 
-  // .safeheron.proto.CurvePoint S = 2;
-  bool has_s() const;
+  // .safeheron.proto.CurvePoint X_ki = 2;
+  bool has_x_ki() const;
   private:
-  bool _internal_has_s() const;
+  bool _internal_has_x_ki() const;
   public:
-  void clear_s();
-  const ::safeheron::proto::CurvePoint& s() const;
-  ::safeheron::proto::CurvePoint* release_s();
-  ::safeheron::proto::CurvePoint* mutable_s();
-  void set_allocated_s(::safeheron::proto::CurvePoint* s);
+  void clear_x_ki();
+  const ::safeheron::proto::CurvePoint& x_ki() const;
+  ::safeheron::proto::CurvePoint* release_x_ki();
+  ::safeheron::proto::CurvePoint* mutable_x_ki();
+  void set_allocated_x_ki(::safeheron::proto::CurvePoint* x_ki);
   private:
-  const ::safeheron::proto::CurvePoint& _internal_s() const;
-  ::safeheron::proto::CurvePoint* _internal_mutable_s();
+  const ::safeheron::proto::CurvePoint& _internal_x_ki() const;
+  ::safeheron::proto::CurvePoint* _internal_mutable_x_ki();
   public:
-  void unsafe_arena_set_allocated_s(
-      ::safeheron::proto::CurvePoint* s);
-  ::safeheron::proto::CurvePoint* unsafe_arena_release_s();
+  void unsafe_arena_set_allocated_x_ki(
+      ::safeheron::proto::CurvePoint* x_ki);
+  ::safeheron::proto::CurvePoint* unsafe_arena_release_x_ki();
 
-  // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage)
+  // @@protoc_insertion_point(class_scope:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage)
  private:
   class _Internal;
 
@@ -688,7 +688,7 @@ class Round2BCMessage PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::safeheron::proto::DLogProof_V2* psi_;
-  ::safeheron::proto::CurvePoint* s_;
+  ::safeheron::proto::CurvePoint* x_ki_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_cmp_2fkey_5frecovery_2eproto;
 };
@@ -701,59 +701,59 @@ class Round2BCMessage PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Round0BCMessage
+// Round0P2PMessage
 
 // string V = 1;
-inline void Round0BCMessage::clear_v() {
+inline void Round0P2PMessage::clear_v() {
   v_.ClearToEmpty();
 }
-inline const std::string& Round0BCMessage::v() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+inline const std::string& Round0P2PMessage::v() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
   return _internal_v();
 }
-inline void Round0BCMessage::set_v(const std::string& value) {
+inline void Round0P2PMessage::set_v(const std::string& value) {
   _internal_set_v(value);
-  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
 }
-inline std::string* Round0BCMessage::mutable_v() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+inline std::string* Round0P2PMessage::mutable_v() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
   return _internal_mutable_v();
 }
-inline const std::string& Round0BCMessage::_internal_v() const {
+inline const std::string& Round0P2PMessage::_internal_v() const {
   return v_.Get();
 }
-inline void Round0BCMessage::_internal_set_v(const std::string& value) {
+inline void Round0P2PMessage::_internal_set_v(const std::string& value) {
   
   v_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Round0BCMessage::set_v(std::string&& value) {
+inline void Round0P2PMessage::set_v(std::string&& value) {
   
   v_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
 }
-inline void Round0BCMessage::set_v(const char* value) {
+inline void Round0P2PMessage::set_v(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   v_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
 }
-inline void Round0BCMessage::set_v(const char* value,
+inline void Round0P2PMessage::set_v(const char* value,
     size_t size) {
   
   v_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
 }
-inline std::string* Round0BCMessage::_internal_mutable_v() {
+inline std::string* Round0P2PMessage::_internal_mutable_v() {
   
   return v_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Round0BCMessage::release_v() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+inline std::string* Round0P2PMessage::release_v() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
   return v_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Round0BCMessage::set_allocated_v(std::string* v) {
+inline void Round0P2PMessage::set_allocated_v(std::string* v) {
   if (v != nullptr) {
     
   } else {
@@ -761,30 +761,30 @@ inline void Round0BCMessage::set_allocated_v(std::string* v) {
   }
   v_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), v,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0BCMessage.V)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round0P2PMessage.V)
 }
 
 // -------------------------------------------------------------------
 
-// Round1BCMessage
+// Round1P2PMessage
 
 // .safeheron.proto.CurvePoint X = 1;
-inline bool Round1BCMessage::_internal_has_x() const {
+inline bool Round1P2PMessage::_internal_has_x() const {
   return this != internal_default_instance() && x_ != nullptr;
 }
-inline bool Round1BCMessage::has_x() const {
+inline bool Round1P2PMessage::has_x() const {
   return _internal_has_x();
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::_internal_x() const {
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::_internal_x() const {
   const ::safeheron::proto::CurvePoint* p = x_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
       ::safeheron::proto::_CurvePoint_default_instance_);
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::x() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.X)
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::x() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.X)
   return _internal_x();
 }
-inline void Round1BCMessage::unsafe_arena_set_allocated_x(
+inline void Round1P2PMessage::unsafe_arena_set_allocated_x(
     ::safeheron::proto::CurvePoint* x) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(x_);
@@ -795,9 +795,9 @@ inline void Round1BCMessage::unsafe_arena_set_allocated_x(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.X)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.X)
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_x() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::release_x() {
   
   ::safeheron::proto::CurvePoint* temp = x_;
   x_ = nullptr;
@@ -806,14 +806,14 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_x() {
   }
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::unsafe_arena_release_x() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.X)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::unsafe_arena_release_x() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.X)
   
   ::safeheron::proto::CurvePoint* temp = x_;
   x_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_x() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::_internal_mutable_x() {
   
   if (x_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
@@ -821,11 +821,11 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_x() {
   }
   return x_;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::mutable_x() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.X)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::mutable_x() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.X)
   return _internal_mutable_x();
 }
-inline void Round1BCMessage::set_allocated_x(::safeheron::proto::CurvePoint* x) {
+inline void Round1P2PMessage::set_allocated_x(::safeheron::proto::CurvePoint* x) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(x_);
@@ -842,60 +842,60 @@ inline void Round1BCMessage::set_allocated_x(::safeheron::proto::CurvePoint* x) 
     
   }
   x_ = x;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.X)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.X)
 }
 
 // string i = 2;
-inline void Round1BCMessage::clear_i() {
+inline void Round1P2PMessage::clear_i() {
   i_.ClearToEmpty();
 }
-inline const std::string& Round1BCMessage::i() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+inline const std::string& Round1P2PMessage::i() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
   return _internal_i();
 }
-inline void Round1BCMessage::set_i(const std::string& value) {
+inline void Round1P2PMessage::set_i(const std::string& value) {
   _internal_set_i(value);
-  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
 }
-inline std::string* Round1BCMessage::mutable_i() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+inline std::string* Round1P2PMessage::mutable_i() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
   return _internal_mutable_i();
 }
-inline const std::string& Round1BCMessage::_internal_i() const {
+inline const std::string& Round1P2PMessage::_internal_i() const {
   return i_.Get();
 }
-inline void Round1BCMessage::_internal_set_i(const std::string& value) {
+inline void Round1P2PMessage::_internal_set_i(const std::string& value) {
   
   i_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Round1BCMessage::set_i(std::string&& value) {
+inline void Round1P2PMessage::set_i(std::string&& value) {
   
   i_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
 }
-inline void Round1BCMessage::set_i(const char* value) {
+inline void Round1P2PMessage::set_i(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   i_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
 }
-inline void Round1BCMessage::set_i(const char* value,
+inline void Round1P2PMessage::set_i(const char* value,
     size_t size) {
   
   i_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
 }
-inline std::string* Round1BCMessage::_internal_mutable_i() {
+inline std::string* Round1P2PMessage::_internal_mutable_i() {
   
   return i_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Round1BCMessage::release_i() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+inline std::string* Round1P2PMessage::release_i() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
   return i_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Round1BCMessage::set_allocated_i(std::string* i) {
+inline void Round1P2PMessage::set_allocated_i(std::string* i) {
   if (i != nullptr) {
     
   } else {
@@ -903,60 +903,60 @@ inline void Round1BCMessage::set_allocated_i(std::string* i) {
   }
   i_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), i,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.i)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.i)
 }
 
 // string j = 3;
-inline void Round1BCMessage::clear_j() {
+inline void Round1P2PMessage::clear_j() {
   j_.ClearToEmpty();
 }
-inline const std::string& Round1BCMessage::j() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+inline const std::string& Round1P2PMessage::j() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
   return _internal_j();
 }
-inline void Round1BCMessage::set_j(const std::string& value) {
+inline void Round1P2PMessage::set_j(const std::string& value) {
   _internal_set_j(value);
-  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
 }
-inline std::string* Round1BCMessage::mutable_j() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+inline std::string* Round1P2PMessage::mutable_j() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
   return _internal_mutable_j();
 }
-inline const std::string& Round1BCMessage::_internal_j() const {
+inline const std::string& Round1P2PMessage::_internal_j() const {
   return j_.Get();
 }
-inline void Round1BCMessage::_internal_set_j(const std::string& value) {
+inline void Round1P2PMessage::_internal_set_j(const std::string& value) {
   
   j_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Round1BCMessage::set_j(std::string&& value) {
+inline void Round1P2PMessage::set_j(std::string&& value) {
   
   j_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
 }
-inline void Round1BCMessage::set_j(const char* value) {
+inline void Round1P2PMessage::set_j(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   j_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
 }
-inline void Round1BCMessage::set_j(const char* value,
+inline void Round1P2PMessage::set_j(const char* value,
     size_t size) {
   
   j_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
 }
-inline std::string* Round1BCMessage::_internal_mutable_j() {
+inline std::string* Round1P2PMessage::_internal_mutable_j() {
   
   return j_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Round1BCMessage::release_j() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+inline std::string* Round1P2PMessage::release_j() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
   return j_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Round1BCMessage::set_allocated_j(std::string* j) {
+inline void Round1P2PMessage::set_allocated_j(std::string* j) {
   if (j != nullptr) {
     
   } else {
@@ -964,60 +964,60 @@ inline void Round1BCMessage::set_allocated_j(std::string* j) {
   }
   j_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), j,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.j)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.j)
 }
 
 // string k = 4;
-inline void Round1BCMessage::clear_k() {
+inline void Round1P2PMessage::clear_k() {
   k_.ClearToEmpty();
 }
-inline const std::string& Round1BCMessage::k() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+inline const std::string& Round1P2PMessage::k() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
   return _internal_k();
 }
-inline void Round1BCMessage::set_k(const std::string& value) {
+inline void Round1P2PMessage::set_k(const std::string& value) {
   _internal_set_k(value);
-  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+  // @@protoc_insertion_point(field_set:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
 }
-inline std::string* Round1BCMessage::mutable_k() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+inline std::string* Round1P2PMessage::mutable_k() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
   return _internal_mutable_k();
 }
-inline const std::string& Round1BCMessage::_internal_k() const {
+inline const std::string& Round1P2PMessage::_internal_k() const {
   return k_.Get();
 }
-inline void Round1BCMessage::_internal_set_k(const std::string& value) {
+inline void Round1P2PMessage::_internal_set_k(const std::string& value) {
   
   k_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Round1BCMessage::set_k(std::string&& value) {
+inline void Round1P2PMessage::set_k(std::string&& value) {
   
   k_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+  // @@protoc_insertion_point(field_set_rvalue:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
 }
-inline void Round1BCMessage::set_k(const char* value) {
+inline void Round1P2PMessage::set_k(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   k_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+  // @@protoc_insertion_point(field_set_char:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
 }
-inline void Round1BCMessage::set_k(const char* value,
+inline void Round1P2PMessage::set_k(const char* value,
     size_t size) {
   
   k_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+  // @@protoc_insertion_point(field_set_pointer:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
 }
-inline std::string* Round1BCMessage::_internal_mutable_k() {
+inline std::string* Round1P2PMessage::_internal_mutable_k() {
   
   return k_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Round1BCMessage::release_k() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+inline std::string* Round1P2PMessage::release_k() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
   return k_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Round1BCMessage::set_allocated_k(std::string* k) {
+inline void Round1P2PMessage::set_allocated_k(std::string* k) {
   if (k != nullptr) {
     
   } else {
@@ -1025,26 +1025,26 @@ inline void Round1BCMessage::set_allocated_k(std::string* k) {
   }
   k_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), k,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.k)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.k)
 }
 
 // .safeheron.proto.CurvePoint A = 5;
-inline bool Round1BCMessage::_internal_has_a() const {
+inline bool Round1P2PMessage::_internal_has_a() const {
   return this != internal_default_instance() && a_ != nullptr;
 }
-inline bool Round1BCMessage::has_a() const {
+inline bool Round1P2PMessage::has_a() const {
   return _internal_has_a();
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::_internal_a() const {
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::_internal_a() const {
   const ::safeheron::proto::CurvePoint* p = a_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
       ::safeheron::proto::_CurvePoint_default_instance_);
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::a() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.A)
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::a() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.A)
   return _internal_a();
 }
-inline void Round1BCMessage::unsafe_arena_set_allocated_a(
+inline void Round1P2PMessage::unsafe_arena_set_allocated_a(
     ::safeheron::proto::CurvePoint* a) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(a_);
@@ -1055,9 +1055,9 @@ inline void Round1BCMessage::unsafe_arena_set_allocated_a(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.A)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.A)
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_a() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::release_a() {
   
   ::safeheron::proto::CurvePoint* temp = a_;
   a_ = nullptr;
@@ -1066,14 +1066,14 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_a() {
   }
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::unsafe_arena_release_a() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.A)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::unsafe_arena_release_a() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.A)
   
   ::safeheron::proto::CurvePoint* temp = a_;
   a_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_a() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::_internal_mutable_a() {
   
   if (a_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
@@ -1081,11 +1081,11 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_a() {
   }
   return a_;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::mutable_a() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.A)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::mutable_a() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.A)
   return _internal_mutable_a();
 }
-inline void Round1BCMessage::set_allocated_a(::safeheron::proto::CurvePoint* a) {
+inline void Round1P2PMessage::set_allocated_a(::safeheron::proto::CurvePoint* a) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(a_);
@@ -1102,26 +1102,26 @@ inline void Round1BCMessage::set_allocated_a(::safeheron::proto::CurvePoint* a) 
     
   }
   a_ = a;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.A)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.A)
 }
 
 // .safeheron.proto.CurvePoint B = 6;
-inline bool Round1BCMessage::_internal_has_b() const {
+inline bool Round1P2PMessage::_internal_has_b() const {
   return this != internal_default_instance() && b_ != nullptr;
 }
-inline bool Round1BCMessage::has_b() const {
+inline bool Round1P2PMessage::has_b() const {
   return _internal_has_b();
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::_internal_b() const {
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::_internal_b() const {
   const ::safeheron::proto::CurvePoint* p = b_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
       ::safeheron::proto::_CurvePoint_default_instance_);
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::b() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.B)
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::b() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
   return _internal_b();
 }
-inline void Round1BCMessage::unsafe_arena_set_allocated_b(
+inline void Round1P2PMessage::unsafe_arena_set_allocated_b(
     ::safeheron::proto::CurvePoint* b) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(b_);
@@ -1132,9 +1132,9 @@ inline void Round1BCMessage::unsafe_arena_set_allocated_b(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.B)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_b() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::release_b() {
   
   ::safeheron::proto::CurvePoint* temp = b_;
   b_ = nullptr;
@@ -1143,14 +1143,14 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_b() {
   }
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::unsafe_arena_release_b() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.B)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::unsafe_arena_release_b() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
   
   ::safeheron::proto::CurvePoint* temp = b_;
   b_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_b() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::_internal_mutable_b() {
   
   if (b_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
@@ -1158,11 +1158,11 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_b() {
   }
   return b_;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::mutable_b() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.B)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::mutable_b() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
   return _internal_mutable_b();
 }
-inline void Round1BCMessage::set_allocated_b(::safeheron::proto::CurvePoint* b) {
+inline void Round1P2PMessage::set_allocated_b(::safeheron::proto::CurvePoint* b) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(b_);
@@ -1179,26 +1179,26 @@ inline void Round1BCMessage::set_allocated_b(::safeheron::proto::CurvePoint* b) 
     
   }
   b_ = b;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.B)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
 }
 
 // .safeheron.proto.CurvePoint R = 7;
-inline bool Round1BCMessage::_internal_has_r() const {
+inline bool Round1P2PMessage::_internal_has_r() const {
   return this != internal_default_instance() && r_ != nullptr;
 }
-inline bool Round1BCMessage::has_r() const {
+inline bool Round1P2PMessage::has_r() const {
   return _internal_has_r();
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::_internal_r() const {
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::_internal_r() const {
   const ::safeheron::proto::CurvePoint* p = r_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
       ::safeheron::proto::_CurvePoint_default_instance_);
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::r() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.R)
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::r() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.R)
   return _internal_r();
 }
-inline void Round1BCMessage::unsafe_arena_set_allocated_r(
+inline void Round1P2PMessage::unsafe_arena_set_allocated_r(
     ::safeheron::proto::CurvePoint* r) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(r_);
@@ -1209,9 +1209,9 @@ inline void Round1BCMessage::unsafe_arena_set_allocated_r(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.R)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.R)
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_r() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::release_r() {
   
   ::safeheron::proto::CurvePoint* temp = r_;
   r_ = nullptr;
@@ -1220,14 +1220,14 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_r() {
   }
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::unsafe_arena_release_r() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.R)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::unsafe_arena_release_r() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.R)
   
   ::safeheron::proto::CurvePoint* temp = r_;
   r_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_r() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::_internal_mutable_r() {
   
   if (r_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
@@ -1235,11 +1235,11 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_r() {
   }
   return r_;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::mutable_r() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.R)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::mutable_r() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.R)
   return _internal_mutable_r();
 }
-inline void Round1BCMessage::set_allocated_r(::safeheron::proto::CurvePoint* r) {
+inline void Round1P2PMessage::set_allocated_r(::safeheron::proto::CurvePoint* r) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(r_);
@@ -1256,26 +1256,26 @@ inline void Round1BCMessage::set_allocated_r(::safeheron::proto::CurvePoint* r) 
     
   }
   r_ = r;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.R)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.R)
 }
 
 // .safeheron.proto.CurvePoint T = 8;
-inline bool Round1BCMessage::_internal_has_t() const {
+inline bool Round1P2PMessage::_internal_has_t() const {
   return this != internal_default_instance() && t_ != nullptr;
 }
-inline bool Round1BCMessage::has_t() const {
+inline bool Round1P2PMessage::has_t() const {
   return _internal_has_t();
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::_internal_t() const {
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::_internal_t() const {
   const ::safeheron::proto::CurvePoint* p = t_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
       ::safeheron::proto::_CurvePoint_default_instance_);
 }
-inline const ::safeheron::proto::CurvePoint& Round1BCMessage::t() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.T)
+inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::t() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.T)
   return _internal_t();
 }
-inline void Round1BCMessage::unsafe_arena_set_allocated_t(
+inline void Round1P2PMessage::unsafe_arena_set_allocated_t(
     ::safeheron::proto::CurvePoint* t) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(t_);
@@ -1286,9 +1286,9 @@ inline void Round1BCMessage::unsafe_arena_set_allocated_t(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.T)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.T)
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_t() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::release_t() {
   
   ::safeheron::proto::CurvePoint* temp = t_;
   t_ = nullptr;
@@ -1297,14 +1297,14 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::release_t() {
   }
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::unsafe_arena_release_t() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.T)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::unsafe_arena_release_t() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.T)
   
   ::safeheron::proto::CurvePoint* temp = t_;
   t_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_t() {
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::_internal_mutable_t() {
   
   if (t_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
@@ -1312,11 +1312,11 @@ inline ::safeheron::proto::CurvePoint* Round1BCMessage::_internal_mutable_t() {
   }
   return t_;
 }
-inline ::safeheron::proto::CurvePoint* Round1BCMessage::mutable_t() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.T)
+inline ::safeheron::proto::CurvePoint* Round1P2PMessage::mutable_t() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.T)
   return _internal_mutable_t();
 }
-inline void Round1BCMessage::set_allocated_t(::safeheron::proto::CurvePoint* t) {
+inline void Round1P2PMessage::set_allocated_t(::safeheron::proto::CurvePoint* t) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(t_);
@@ -1333,26 +1333,26 @@ inline void Round1BCMessage::set_allocated_t(::safeheron::proto::CurvePoint* t) 
     
   }
   t_ = t;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.T)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.T)
 }
 
 // .safeheron.proto.DLogProof_V2 phi = 9;
-inline bool Round1BCMessage::_internal_has_phi() const {
+inline bool Round1P2PMessage::_internal_has_phi() const {
   return this != internal_default_instance() && phi_ != nullptr;
 }
-inline bool Round1BCMessage::has_phi() const {
+inline bool Round1P2PMessage::has_phi() const {
   return _internal_has_phi();
 }
-inline const ::safeheron::proto::DLogProof_V2& Round1BCMessage::_internal_phi() const {
+inline const ::safeheron::proto::DLogProof_V2& Round1P2PMessage::_internal_phi() const {
   const ::safeheron::proto::DLogProof_V2* p = phi_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::DLogProof_V2&>(
       ::safeheron::proto::_DLogProof_V2_default_instance_);
 }
-inline const ::safeheron::proto::DLogProof_V2& Round1BCMessage::phi() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.phi)
+inline const ::safeheron::proto::DLogProof_V2& Round1P2PMessage::phi() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.phi)
   return _internal_phi();
 }
-inline void Round1BCMessage::unsafe_arena_set_allocated_phi(
+inline void Round1P2PMessage::unsafe_arena_set_allocated_phi(
     ::safeheron::proto::DLogProof_V2* phi) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(phi_);
@@ -1363,9 +1363,9 @@ inline void Round1BCMessage::unsafe_arena_set_allocated_phi(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.phi)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.phi)
 }
-inline ::safeheron::proto::DLogProof_V2* Round1BCMessage::release_phi() {
+inline ::safeheron::proto::DLogProof_V2* Round1P2PMessage::release_phi() {
   
   ::safeheron::proto::DLogProof_V2* temp = phi_;
   phi_ = nullptr;
@@ -1374,14 +1374,14 @@ inline ::safeheron::proto::DLogProof_V2* Round1BCMessage::release_phi() {
   }
   return temp;
 }
-inline ::safeheron::proto::DLogProof_V2* Round1BCMessage::unsafe_arena_release_phi() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.phi)
+inline ::safeheron::proto::DLogProof_V2* Round1P2PMessage::unsafe_arena_release_phi() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.phi)
   
   ::safeheron::proto::DLogProof_V2* temp = phi_;
   phi_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::DLogProof_V2* Round1BCMessage::_internal_mutable_phi() {
+inline ::safeheron::proto::DLogProof_V2* Round1P2PMessage::_internal_mutable_phi() {
   
   if (phi_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::DLogProof_V2>(GetArena());
@@ -1389,11 +1389,11 @@ inline ::safeheron::proto::DLogProof_V2* Round1BCMessage::_internal_mutable_phi(
   }
   return phi_;
 }
-inline ::safeheron::proto::DLogProof_V2* Round1BCMessage::mutable_phi() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.phi)
+inline ::safeheron::proto::DLogProof_V2* Round1P2PMessage::mutable_phi() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.phi)
   return _internal_mutable_phi();
 }
-inline void Round1BCMessage::set_allocated_phi(::safeheron::proto::DLogProof_V2* phi) {
+inline void Round1P2PMessage::set_allocated_phi(::safeheron::proto::DLogProof_V2* phi) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(phi_);
@@ -1410,30 +1410,30 @@ inline void Round1BCMessage::set_allocated_phi(::safeheron::proto::DLogProof_V2*
     
   }
   phi_ = phi;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1BCMessage.phi)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.phi)
 }
 
 // -------------------------------------------------------------------
 
-// Round2BCMessage
+// Round2P2PMessage
 
 // .safeheron.proto.DLogProof_V2 psi = 1;
-inline bool Round2BCMessage::_internal_has_psi() const {
+inline bool Round2P2PMessage::_internal_has_psi() const {
   return this != internal_default_instance() && psi_ != nullptr;
 }
-inline bool Round2BCMessage::has_psi() const {
+inline bool Round2P2PMessage::has_psi() const {
   return _internal_has_psi();
 }
-inline const ::safeheron::proto::DLogProof_V2& Round2BCMessage::_internal_psi() const {
+inline const ::safeheron::proto::DLogProof_V2& Round2P2PMessage::_internal_psi() const {
   const ::safeheron::proto::DLogProof_V2* p = psi_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::DLogProof_V2&>(
       ::safeheron::proto::_DLogProof_V2_default_instance_);
 }
-inline const ::safeheron::proto::DLogProof_V2& Round2BCMessage::psi() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.psi)
+inline const ::safeheron::proto::DLogProof_V2& Round2P2PMessage::psi() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.psi)
   return _internal_psi();
 }
-inline void Round2BCMessage::unsafe_arena_set_allocated_psi(
+inline void Round2P2PMessage::unsafe_arena_set_allocated_psi(
     ::safeheron::proto::DLogProof_V2* psi) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(psi_);
@@ -1444,9 +1444,9 @@ inline void Round2BCMessage::unsafe_arena_set_allocated_psi(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.psi)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.psi)
 }
-inline ::safeheron::proto::DLogProof_V2* Round2BCMessage::release_psi() {
+inline ::safeheron::proto::DLogProof_V2* Round2P2PMessage::release_psi() {
   
   ::safeheron::proto::DLogProof_V2* temp = psi_;
   psi_ = nullptr;
@@ -1455,14 +1455,14 @@ inline ::safeheron::proto::DLogProof_V2* Round2BCMessage::release_psi() {
   }
   return temp;
 }
-inline ::safeheron::proto::DLogProof_V2* Round2BCMessage::unsafe_arena_release_psi() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.psi)
+inline ::safeheron::proto::DLogProof_V2* Round2P2PMessage::unsafe_arena_release_psi() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.psi)
   
   ::safeheron::proto::DLogProof_V2* temp = psi_;
   psi_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::DLogProof_V2* Round2BCMessage::_internal_mutable_psi() {
+inline ::safeheron::proto::DLogProof_V2* Round2P2PMessage::_internal_mutable_psi() {
   
   if (psi_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::DLogProof_V2>(GetArena());
@@ -1470,11 +1470,11 @@ inline ::safeheron::proto::DLogProof_V2* Round2BCMessage::_internal_mutable_psi(
   }
   return psi_;
 }
-inline ::safeheron::proto::DLogProof_V2* Round2BCMessage::mutable_psi() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.psi)
+inline ::safeheron::proto::DLogProof_V2* Round2P2PMessage::mutable_psi() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.psi)
   return _internal_mutable_psi();
 }
-inline void Round2BCMessage::set_allocated_psi(::safeheron::proto::DLogProof_V2* psi) {
+inline void Round2P2PMessage::set_allocated_psi(::safeheron::proto::DLogProof_V2* psi) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(psi_);
@@ -1491,84 +1491,84 @@ inline void Round2BCMessage::set_allocated_psi(::safeheron::proto::DLogProof_V2*
     
   }
   psi_ = psi;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.psi)
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.psi)
 }
 
-// .safeheron.proto.CurvePoint S = 2;
-inline bool Round2BCMessage::_internal_has_s() const {
-  return this != internal_default_instance() && s_ != nullptr;
+// .safeheron.proto.CurvePoint X_ki = 2;
+inline bool Round2P2PMessage::_internal_has_x_ki() const {
+  return this != internal_default_instance() && x_ki_ != nullptr;
 }
-inline bool Round2BCMessage::has_s() const {
-  return _internal_has_s();
+inline bool Round2P2PMessage::has_x_ki() const {
+  return _internal_has_x_ki();
 }
-inline const ::safeheron::proto::CurvePoint& Round2BCMessage::_internal_s() const {
-  const ::safeheron::proto::CurvePoint* p = s_;
+inline const ::safeheron::proto::CurvePoint& Round2P2PMessage::_internal_x_ki() const {
+  const ::safeheron::proto::CurvePoint* p = x_ki_;
   return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
       ::safeheron::proto::_CurvePoint_default_instance_);
 }
-inline const ::safeheron::proto::CurvePoint& Round2BCMessage::s() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.S)
-  return _internal_s();
+inline const ::safeheron::proto::CurvePoint& Round2P2PMessage::x_ki() const {
+  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.X_ki)
+  return _internal_x_ki();
 }
-inline void Round2BCMessage::unsafe_arena_set_allocated_s(
-    ::safeheron::proto::CurvePoint* s) {
+inline void Round2P2PMessage::unsafe_arena_set_allocated_x_ki(
+    ::safeheron::proto::CurvePoint* x_ki) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(s_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(x_ki_);
   }
-  s_ = s;
-  if (s) {
+  x_ki_ = x_ki;
+  if (x_ki) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.S)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.X_ki)
 }
-inline ::safeheron::proto::CurvePoint* Round2BCMessage::release_s() {
+inline ::safeheron::proto::CurvePoint* Round2P2PMessage::release_x_ki() {
   
-  ::safeheron::proto::CurvePoint* temp = s_;
-  s_ = nullptr;
+  ::safeheron::proto::CurvePoint* temp = x_ki_;
+  x_ki_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round2BCMessage::unsafe_arena_release_s() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.S)
+inline ::safeheron::proto::CurvePoint* Round2P2PMessage::unsafe_arena_release_x_ki() {
+  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.X_ki)
   
-  ::safeheron::proto::CurvePoint* temp = s_;
-  s_ = nullptr;
+  ::safeheron::proto::CurvePoint* temp = x_ki_;
+  x_ki_ = nullptr;
   return temp;
 }
-inline ::safeheron::proto::CurvePoint* Round2BCMessage::_internal_mutable_s() {
+inline ::safeheron::proto::CurvePoint* Round2P2PMessage::_internal_mutable_x_ki() {
   
-  if (s_ == nullptr) {
+  if (x_ki_ == nullptr) {
     auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
-    s_ = p;
+    x_ki_ = p;
   }
-  return s_;
+  return x_ki_;
 }
-inline ::safeheron::proto::CurvePoint* Round2BCMessage::mutable_s() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.S)
-  return _internal_mutable_s();
+inline ::safeheron::proto::CurvePoint* Round2P2PMessage::mutable_x_ki() {
+  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.X_ki)
+  return _internal_mutable_x_ki();
 }
-inline void Round2BCMessage::set_allocated_s(::safeheron::proto::CurvePoint* s) {
+inline void Round2P2PMessage::set_allocated_x_ki(::safeheron::proto::CurvePoint* x_ki) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(s_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(x_ki_);
   }
-  if (s) {
+  if (x_ki) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(s)->GetArena();
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(x_ki)->GetArena();
     if (message_arena != submessage_arena) {
-      s = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, s, submessage_arena);
+      x_ki = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, x_ki, submessage_arena);
     }
     
   } else {
     
   }
-  s_ = s;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2BCMessage.S)
+  x_ki_ = x_ki;
+  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round2P2PMessage.X_ki)
 }
 
 #ifdef __GNUC__

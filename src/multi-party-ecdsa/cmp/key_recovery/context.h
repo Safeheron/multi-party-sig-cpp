@@ -22,9 +22,8 @@ class Context : public safeheron::mpc_flow::mpc_parallel_v2::MPCContext {
 public:
     /**
      * Default constructor
-     * @param total_parties
      */
-    Context(int total_parties);
+    Context();
     /**
      * Copy constructor
      * @param ctx
@@ -45,7 +44,7 @@ public:
       * @param x local secret key shard
       * @param i local party index
       * @param j remote party index (no lost key)
-      * @param k the third party index (lost key)
+      * @param k the recovered party index (lost key)
       * @param local_party_id
       * @param remote_party_id
       * @return
@@ -62,16 +61,16 @@ public:
     safeheron::curve::CurveType curve_type_;
 
     //local secret key shard
-    safeheron::bignum::BN x_;
+    safeheron::bignum::BN x_i_;
 
-    //partial secret key shard of the third party
-    safeheron::bignum::BN s_;
+    //partial secret key shard of the recovered party
+    safeheron::bignum::BN x_ki_;
 
-    //public key shard of the third party
+    //public key shard of the recovered party
     safeheron::curve::CurvePoint X_k_;
 
     //full public key
-    safeheron::curve::CurvePoint pub_;
+    safeheron::curve::CurvePoint X_;
 
     LocalTParty local_party_;
     RemoteTParty remote_party_;
