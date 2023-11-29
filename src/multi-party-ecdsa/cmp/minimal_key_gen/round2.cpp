@@ -2,10 +2,10 @@
 #include "round2.h"
 #include <cstdio>
 #include "context.h"
-#include "crypto-commitment/commitment.h"
-#include "crypto-hash/safe_hash256.h"
-#include "crypto-encode/hex.h"
-#include "crypto-sss/vsss.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-hash/safe_hash256.h"
+#include "crypto-suites/crypto-encode/hex.h"
+#include "crypto-suites/crypto-sss/vsss.h"
 #include "mpc-flow/common/sid_maker.h"
 
 using std::string;

@@ -2,7 +2,7 @@
 #include "round1.h"
 #include <cstdio>
 #include "context.h"
-#include "crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
 
 using std::string;
 using safeheron::bignum::BN;

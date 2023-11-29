@@ -1,8 +1,8 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_MESSAGE_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_MESSAGE_H
 #include <string>
-#include "crypto-curve/curve_point.h"
-#include "crypto-zkp/dlog_proof_v2.h"
+#include "crypto-suites/crypto-curve/curve_point.h"
+#include "crypto-suites/crypto-zkp/dlog_proof_v2.h"
 #include "proto_gen/key_recovery.pb.switch.h"
 namespace safeheron {
 namespace multi_party_ecdsa {

@@ -2,8 +2,8 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_GG20_SIGN_ONCE_MESSAGE_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_GG20_SIGN_ONCE_MESSAGE_H
 
-#include "crypto-commitment/commitment.h"
-#include "crypto-zkp/zkp.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-zkp/zkp.h"
 #include "proto_gen/sign.pb.switch.h"
 
 namespace safeheron {

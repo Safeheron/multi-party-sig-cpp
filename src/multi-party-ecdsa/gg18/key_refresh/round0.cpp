@@ -1,10 +1,10 @@
 
 #include "round0.h"
 #include "context.h"
-#include "crypto-commitment/commitment.h"
-#include "crypto-sss/vsss.h"
-#include "crypto-hash/sha256.h"
-#include "crypto-bn/rand.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-sss/vsss.h"
+#include "crypto-suites/crypto-hash/sha256.h"
+#include "crypto-suites/crypto-bn/rand.h"
 
 using std::string;
 using std::vector;

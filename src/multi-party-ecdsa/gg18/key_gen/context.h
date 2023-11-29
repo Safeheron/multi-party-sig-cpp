@@ -3,7 +3,7 @@
 #define SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_CONTEXT_H
 
 #include <vector>
-#include "crypto-bn/bn.h"
+#include "crypto-suites/crypto-bn/bn.h"
 #include "mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "../party.h"
 #include "t_party.h"

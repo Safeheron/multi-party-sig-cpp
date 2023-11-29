@@ -2,8 +2,8 @@
 #include "round1.h"
 #include <cstdio>
 #include "context.h"
-#include "crypto-commitment/commitment.h"
-#include "crypto-sss/vsss.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-sss/vsss.h"
 
 using std::string;
 using std::vector;

@@ -2,8 +2,8 @@
 #include "round2.h"
 #include <cstdio>
 #include "context.h"
-#include "crypto-commitment/commitment.h"
-#include "crypto-bn/rand.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-bn/rand.h"
 
 using std::string;
 using safeheron::bignum::BN;

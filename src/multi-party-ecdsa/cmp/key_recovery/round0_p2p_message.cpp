@@ -1,7 +1,7 @@
 #include "message.h"
 #include <google/protobuf/util/json_util.h>
-#include "crypto-encode/base64.h"
-#include "crypto-encode/hex.h"
+#include "crypto-suites/crypto-encode/base64.h"
+#include "crypto-suites/crypto-encode/hex.h"
 
 using google::protobuf::util::Status;
 using google::protobuf::util::MessageToJsonString;

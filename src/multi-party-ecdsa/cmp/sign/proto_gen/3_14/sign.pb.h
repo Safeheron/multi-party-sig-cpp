@@ -34,8 +34,8 @@
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "crypto-curve/proto_gen/curve_point.pb.switch.h"
-#include "crypto-zkp/proto_gen/zkp.pb.switch.h"
+#include "crypto-suites/crypto-curve/proto_gen/curve_point.pb.switch.h"
+#include "crypto-suites/crypto-zkp/proto_gen/zkp.pb.switch.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_cmp_2fsign_2eproto

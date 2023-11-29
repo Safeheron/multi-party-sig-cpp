@@ -3,8 +3,8 @@
 #include "mpc-flow/common/sid_maker.h"
 
 #include <utility>
-#include "crypto-bn/rand.h"
-#include "crypto-curve/curve.h"
+#include "crypto-suites/crypto-bn/rand.h"
+#include "crypto-suites/crypto-curve/curve.h"
 #include "../sign_key.h"
 
 using safeheron::bignum::BN;

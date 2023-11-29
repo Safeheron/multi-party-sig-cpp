@@ -1,7 +1,7 @@
 
 #include "round9.h"
 #include "context.h"
-#include "crypto-curve/curve.h"
+#include "crypto-suites/crypto-curve/curve.h"
 
 using std::string;
 using safeheron::bignum::BN;

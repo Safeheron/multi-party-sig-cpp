@@ -1,10 +1,10 @@
 
 
 #include "util.h"
-#include "crypto-bn/rand.h"
-#include "crypto-encode/hex.h"
-#include "crypto-curve/curve.h"
-#include "crypto-paillier/pail.h"
+#include "crypto-suites/crypto-bn/rand.h"
+#include "crypto-suites/crypto-encode/hex.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-paillier/pail.h"
 #include "sign_key.h"
 
 using std::string;

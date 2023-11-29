@@ -1,9 +1,9 @@
 
 #include "round0.h"
 #include "context.h"
-#include "crypto-commitment/commitment.h"
-#include "crypto-curve/curve.h"
-#include "crypto-bn/rand.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-bn/rand.h"
 #include "../../gg18/sign/mta.h"
 
 using std::string;

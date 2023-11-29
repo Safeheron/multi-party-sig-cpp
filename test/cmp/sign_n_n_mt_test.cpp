@@ -2,9 +2,9 @@
 #include <future>
 #include <vector>
 #include <google/protobuf/stubs/common.h>
-#include <exception/located_exception.h>
+#include "crypto-suites/exception/located_exception.h"
 #include "gtest/gtest.h"
-#include "crypto-curve/curve.h"
+#include "crypto-suites/crypto-curve/curve.h"
 #include "../../src/multi-party-ecdsa/cmp/cmp.h"
 #include "../../src/multi-party-ecdsa/cmp/util.h"
 #include "../thread_safe_queue.h"

@@ -1,5 +1,5 @@
 #include "context.h"
-#include "crypto-sss/polynomial.h"
+#include "crypto-suites/crypto-sss/polynomial.h"
 #include "../util.h"
 
 namespace safeheron {

@@ -2,11 +2,11 @@
 
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_UTIL_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_SIGN_UTIL_H
-#include "crypto-bn/bn.h"
-#include "crypto-curve/curve.h"
-#include "crypto-zkp/two_dln_proof.h"
-#include "crypto-zkp/pail/pail_blum_modulus_proof.h"
-#include "crypto-paillier/pail.h"
+#include "crypto-suites/crypto-bn/bn.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-zkp/two_dln_proof.h"
+#include "crypto-suites/crypto-zkp/pail/pail_blum_modulus_proof.h"
+#include "crypto-suites/crypto-paillier/pail.h"
 #include "mpc-flow/mpc-parallel-v2/mpc_context.h"
 
 namespace safeheron {

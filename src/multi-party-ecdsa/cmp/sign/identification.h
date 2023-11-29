@@ -4,7 +4,7 @@
 
 #include <string>
 #include <vector>
-#include "crypto-zkp/zkp.h"
+#include "crypto-suites/crypto-zkp/zkp.h"
 #include "mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "proto_gen/sign.pb.switch.h"
 

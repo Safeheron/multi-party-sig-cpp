@@ -1,8 +1,8 @@
 #include "round0.h"
-#include "crypto-bn/bn.h"
-#include "crypto-bn/rand.h"
-#include "crypto-curve/curve.h"
-#include "crypto-hash/safe_hash256.h"
+#include "crypto-suites/crypto-bn/bn.h"
+#include "crypto-suites/crypto-bn/rand.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-hash/safe_hash256.h"
 
 #include "context.h"
 namespace safeheron {

@@ -1,12 +1,12 @@
 
 #include "round2.h"
 #include "context.h"
-#include "crypto-commitment/commitment.h"
-#include "crypto-curve/curve.h"
-#include "crypto-zkp/pedersen_proof.h"
-#include "crypto-bn/rand.h"
-#include "crypto-hash/safe_hash256.h"
-#include "crypto-encode/hex.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-zkp/pedersen_proof.h"
+#include "crypto-suites/crypto-bn/rand.h"
+#include "crypto-suites/crypto-hash/safe_hash256.h"
+#include "crypto-suites/crypto-encode/hex.h"
 #include "security_param.h"
 
 using std::string;

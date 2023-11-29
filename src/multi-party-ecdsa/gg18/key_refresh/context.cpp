@@ -2,8 +2,8 @@
 #include "context.h"
 
 #include <utility>
-#include "crypto-bn/rand.h"
-#include "crypto-curve/curve.h"
+#include "crypto-suites/crypto-bn/rand.h"
+#include "crypto-suites/crypto-curve/curve.h"
 #include "../util.h"
 
 using safeheron::bignum::BN;

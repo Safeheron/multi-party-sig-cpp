@@ -1,6 +1,6 @@
 #include "round2.h"
 #include "context.h"
-#include "crypto-hash/safe_hash256.h"
+#include "crypto-suites/crypto-hash/safe_hash256.h"
 #include "../util.h"
 namespace safeheron {
 namespace multi_party_ecdsa {

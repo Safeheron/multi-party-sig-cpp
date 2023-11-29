@@ -2,10 +2,10 @@
 #define SAFEHERON_CRYPTO__MTA_V2_H
 
 #include <string>
-#include "crypto-bn/bn.h"
-#include "crypto-curve/curve.h"
-#include "crypto-paillier/pail.h"
-#include "crypto-zkp/zkp.h"
+#include "crypto-suites/crypto-bn/bn.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-paillier/pail.h"
+#include "crypto-suites/crypto-zkp/zkp.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa {

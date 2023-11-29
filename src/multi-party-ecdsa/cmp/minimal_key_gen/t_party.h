@@ -5,13 +5,13 @@
 
 
 #include "proto_gen/minimal_key_gen.pb.switch.h"
-#include "crypto-bn/bn.h"
-#include "crypto-paillier/pail.h"
-#include "crypto-curve/curve.h"
-#include "crypto-zkp/zkp.h"
-#include "crypto-sss/vsss.h"
+#include "crypto-suites/crypto-bn/bn.h"
+#include "crypto-suites/crypto-paillier/pail.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-zkp/zkp.h"
+#include "crypto-suites/crypto-sss/vsss.h"
 #include "mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

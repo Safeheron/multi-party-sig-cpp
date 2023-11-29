@@ -2,8 +2,8 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_AUX_INFO_KEY_REFRESH_MESSAGE_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_AUX_INFO_KEY_REFRESH_MESSAGE_H
 
-#include "crypto-commitment/commitment.h"
-#include "crypto-zkp/zkp.h"
+#include "crypto-suites/crypto-commitment/commitment.h"
+#include "crypto-suites/crypto-zkp/zkp.h"
 #include "proto_gen/aux_info_key_refresh.pb.switch.h"
 
 namespace safeheron {

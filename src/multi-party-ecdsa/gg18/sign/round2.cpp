@@ -1,7 +1,7 @@
 
 #include "round2.h"
 #include "context.h"
-#include "crypto-curve/curve.h"
+#include "crypto-suites/crypto-curve/curve.h"
 #include "mta.h"
 
 using std::string;

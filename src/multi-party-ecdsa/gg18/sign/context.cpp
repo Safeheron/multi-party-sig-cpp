@@ -2,7 +2,7 @@
 #include "context.h"
 
 #include <utility>
-#include "crypto-bn/rand.h"
+#include "crypto-suites/crypto-bn/rand.h"
 
 using safeheron::bignum::BN;
 using safeheron::curve::Curve;

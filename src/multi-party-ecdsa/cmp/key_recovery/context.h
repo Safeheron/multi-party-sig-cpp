@@ -1,8 +1,8 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_CONTEXT_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_CONTEXT_H
 #include "mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "crypto-curve/curve.h"
-#include "crypto-bn/bn.h"
+#include "crypto-suites/crypto-curve/curve.h"
+#include "crypto-suites/crypto-bn/bn.h"
 #include "t_party.h"
 #include "round0.h"
 #include "round1.h"

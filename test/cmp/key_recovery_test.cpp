@@ -3,9 +3,9 @@
 #include <vector>
 #include <google/protobuf/stubs/common.h>
 #include "gtest/gtest.h"
-#include "crypto-sss/polynomial.h"
-#include "crypto-bn/bn.h"
-#include "crypto-bn/rand.h"
+#include "crypto-suites/crypto-sss/polynomial.h"
+#include "crypto-suites/crypto-bn/bn.h"
+#include "crypto-suites/crypto-bn/rand.h"
 #include "../CTimer.h"
 #include "../message.h"
 
