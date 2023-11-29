@@ -5,7 +5,7 @@
 
 #include <vector>
 #include "crypto-suites/crypto-bn/bn.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "../party.h"
 #include "t_party.h"
 #include "../minimal_sign_key.h"

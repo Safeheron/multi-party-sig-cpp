@@ -5,7 +5,7 @@
 #include <vector>
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-bn/bn.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "../sign_key.h"
 #include "t_party.h"
 #include "round0.h"

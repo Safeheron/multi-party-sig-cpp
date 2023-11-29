@@ -7,7 +7,7 @@
 #include "crypto-suites/crypto-paillier/pail.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "mpc-flow/mpc-parallel/mpc_context.h"
+#include "../../mpc-flow/mpc-parallel/mpc_context.h"
 #include "crypto-suites/crypto-commitment/kgd_number.h"
 
 namespace safeheron {

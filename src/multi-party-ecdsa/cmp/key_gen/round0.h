@@ -1,6 +1,6 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_ROUND0_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_ROUND0_H
-#include <mpc-flow/mpc-parallel-v2/mpc_round.h>
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_round.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

@@ -10,7 +10,7 @@
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
 #include "crypto-suites/crypto-sss/vsss.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "crypto-suites/crypto-commitment/commitment.h"
 
 namespace safeheron {

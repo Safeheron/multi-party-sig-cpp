@@ -1,6 +1,6 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_CONTEXT_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_CONTEXT_H
-#include <mpc-flow/mpc-parallel-v2/mpc_context.h>
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "../minimal_key_gen/context.h"
 #include "../aux_info_key_refresh/context.h"
 #include "round0.h"

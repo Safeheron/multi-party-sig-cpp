@@ -1,6 +1,6 @@
 
 #include "context.h"
-#include "mpc-flow/common/sid_maker.h"
+#include "../../../mpc-flow/common/sid_maker.h"
 
 #include <utility>
 #include "crypto-suites/crypto-bn/rand.h"

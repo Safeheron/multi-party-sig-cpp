@@ -7,7 +7,7 @@
 #include "crypto-suites/crypto-zkp/two_dln_proof.h"
 #include "crypto-suites/crypto-zkp/pail/pail_blum_modulus_proof.h"
 #include "crypto-suites/crypto-paillier/pail.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa {

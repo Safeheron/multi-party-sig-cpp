@@ -10,8 +10,8 @@
 #include "crypto-suites/crypto-paillier/pail.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "mpc-flow/mpc-parallel/LazyBCValidator.h"
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../../mpc-flow/mpc-parallel/LazyBCValidator.h"
 #include "crypto-suites/crypto-commitment/commitment.h"
 
 namespace safeheron {

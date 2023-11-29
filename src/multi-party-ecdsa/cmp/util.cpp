@@ -7,7 +7,7 @@
 #include "crypto-suites/crypto-hash/sha256.h"
 #include "minimal_sign_key.h"
 #include "sign_key.h"
-#include "mpc-flow/common/sid_maker.h"
+#include "../../mpc-flow/common/sid_maker.h"
 
 using safeheron::multi_party_ecdsa::cmp::SignKey;
 using safeheron::mpc_flow::common::SIDMaker;

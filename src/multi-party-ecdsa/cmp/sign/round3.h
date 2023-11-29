@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include "message.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "identification.h"
 
 namespace safeheron {

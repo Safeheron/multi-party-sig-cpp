@@ -1,7 +1,7 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_ROUND1_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_ROUND1_H
 #include "message.h"
-#include "mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa {

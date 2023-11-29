@@ -7,7 +7,7 @@
 #include "crypto-suites/exception/safeheron_exceptions.h"
 #include "security_param.h"
 #include "crypto-suites/crypto-sss/polynomial.h"
-#include "mpc-flow/common/sid_maker.h"
+#include "../../../mpc-flow/common/sid_maker.h"
 #include "crypto-suites/crypto-encode/hex.h"
 
 using std::vector;
