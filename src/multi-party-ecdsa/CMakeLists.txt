@@ -169,6 +169,11 @@ option(NO_MPC_GG18 "NO_MPC_GG18" OFF)
 option(NO_MPC_GG20 "NO_MPC_GG20" OFF)
 option(NO_MPC_CMP "NO_MPC_CMP" OFF)
 
+if (${ENABLE_SNAP_SCOPE})
+    set(NO_MPC_GG18 TRUE)
+    set(NO_MPC_GG20 TRUE)
+endif()
+
 if (NOT ${NO_MPC_GG18})
     MESSAGE(STATUS "NO_MPC_GG18")
     target_sources(${CMAKE_PROJECT_NAME} PRIVATE

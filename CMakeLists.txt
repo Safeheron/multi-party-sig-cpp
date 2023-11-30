@@ -8,6 +8,11 @@ set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=/safeheron")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra -Wno-unused-parameter -Wno-unused-variable -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=/safeheron")
 
+option(ENABLE_SNAP_SCOPE "Enable Snap Scope" OFF)
+if (${ENABLE_SNAP_SCOPE})
+    message(STATUS "Notice: ******************* Enable Snap Scope ******************* ")
+endif()
+
 option(TEST_STARK_CURVE "Use Stark Curve" OFF)
 if (TEST_STARK_CURVE)
     add_definitions(-DTEST_STARK_CURVE)

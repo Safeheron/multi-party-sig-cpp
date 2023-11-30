@@ -18,9 +18,16 @@ link_libraries(
         pthread
 )
 
+
 option(NO_MPC_GG18 "NO_MPC_GG18" OFF)
 option(NO_MPC_GG20 "NO_MPC_GG20" OFF)
 option(NO_MPC_CMP "NO_MPC_CMP" OFF)
+
+if (${ENABLE_SNAP_SCOPE})
+    set(NO_MPC_GG18 TRUE)
+    set(NO_MPC_GG20 TRUE)
+endif()
+
 
 if (NOT ${NO_MPC_GG18})
     # gg18
@@ -54,12 +61,9 @@ if (NOT ${NO_MPC_GG20})
     # multi-thread
     add_executable(gg20.sign_n_n_mt_test gg20/sign_n_n_mt_test.cpp)
     add_test(NAME gg20.sign_n_n_mt_test COMMAND gg20.sign_n_n_mt_test)
-endif()
 
-if (NOT ${NO_MPC_GG20_HD})
-    ## gg20_hd_v0
-    add_executable(gg20_hd_v0.sign_test gg20_hd_v0/sign_test.cpp)
-    add_test(NAME gg20_hd_v0.sign_test COMMAND gg20_hd_v0.sign_test)
+    add_executable(gg20.sign_t_n_mt_test gg20/sign_t_n_mt_test.cpp)
+    add_test(NAME gg20.sign_t_n_mt_test COMMAND gg20.sign_t_n_mt_test)
 endif()
 
 if (NOT ${NO_MPC_CMP})
@@ -80,9 +84,6 @@ if (NOT ${NO_MPC_CMP})
     add_test(NAME cmp.key_recovery_test COMMAND cmp.key_recovery_test)
 
     # multi-thread
-    add_executable(gg20.sign_t_n_mt_test gg20/sign_t_n_mt_test.cpp)
-    add_test(NAME gg20.sign_t_n_mt_test COMMAND gg20.sign_t_n_mt_test)
-
     add_executable(cmp.minimal_key_gen_mt_test cmp/minimal_key_gen_mt_test.cpp)
     add_test(NAME cmp.minimal_key_gen_mt_test COMMAND cmp.minimal_key_gen_mt_test)
 
