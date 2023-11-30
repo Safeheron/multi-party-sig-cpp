@@ -1,10 +1,12 @@
-# multi-party-ecdsa-cpp
+# multi-party-sig-cpp
 
-This project is a C++ implementation of {t,n}-threshold ECDSA (elliptic curve digital signature algorithm). 
+This code repository has been renamed to "multi-party-sig-cpp" from "multi-party-ecdsa-cpp".
+
+This project is a C++ implementation of {t,n}-Threshold Signature Scheme. It supports ECDSA (elliptic curve digital signature algorithm) now. Ed25519, Schnorr and BLS will be supported soon. 
 
 # Introduction
 
-The library implements three different mpc protocols for threshold ECDSA. 
+The library implements three different mpc protocols for threshold ECDSA now. 
 
 - GG18[\[1\]](#Reference): The GG18 protocol implements a {t,n}-threshold signature scheme according to Gennaro & Goldfeder's paper in 2018.
     - Key Generation: Create a new ECDSA private key shared among all the given participants.
@@ -42,7 +44,10 @@ Hint: In order to make the description more concise, the [CMP paper](https://epr
 - Secp256r1 (P256)
 - STARK Curve
 
-Hint: The STARK Curve is a new curve used by STARK Ware. It is a 256-bit curve with a 128-bit security level. It is designed to be used in the STARK extension protocol. The STARK Curve is not supported by OpenSSL. We have implemented the STARK Curve in our library [safeheron-crypto-suites-cpp](https://github.com/Safeheron/safeheron-crypto-suites-cpp), refer to the branch "stark_curve". We will give more test cases and examples in the future.
+Hint: The STARK Curve is a new curve used by STARK Ware. It is a 256-bit curve with a 128-bit security level. It is designed to be used in the STARK extension protocol. If you wish to use Stark curve, please follow the instructions below:
+- Install the [OpenSSL extended by Safeheron](https://github.com/Safeheron/openssl/tree/stark_curve) (refer to the "stark_curve" branch). The StarkCurve is not supported by OpenSSL. We have extended OpenSSL to support the StarkCurve. Otherwise, you will get an error when you use the Stark curve.
+- Set -DENABLE_STARK=ON and complile the library [safeheron-crypto-suites-cpp](https://github.com/Safeheron/safeheron-crypto-suites-cpp).
+- Set -DTEST_STARK_CURVE=ON and complile current library.
 
 # Prerequisites
 
@@ -50,15 +55,14 @@ Hint: The STARK Curve is a new curve used by STARK Ware. It is a 256-bit curve w
 - [OpenSSL](https://github.com/openssl/openssl#documentation). See the [OpenSSL Installation Instructions](./OpenSSL-Installation.md)
 - [Protocol Buffers](https://github.com/protocolbuffers/protobuf.git). See the [Protocol Buffers Installation Instructions](./Protocol-Buffers-Installation.md)
 - [safeheron-crypto-suites-cpp](https://github.com/safeheron/safeheron-crypto-suites-cpp). See [Install safeheron-crypto-suites-cpp](https://github.com/Safeheron/safeheron-crypto-suites-cpp/blob/main/README.md).
-- [mpc-flow-cpp](https://github.com/safeheron/mpc-flow-cpp). See [Install safeheron-crypto-suites-cpp](https://github.com/Safeheron/mpc-flow-cpp/blob/main/README.md).
 
 # Build and Install
 
 Linux and Mac are supported now.  After obtaining the Source, have a look at the installation script.
 
 ```shell
-git clone https://github.com/safeheron/multi-party-ecdsa-cpp.git
-cd multi-party-ecdsa-cpp
+git clone https://github.com/safeheron/multi-party-sig-cpp.git
+cd multi-party-sig-cpp
 git submodule update --recursive --init
 mkdir build && cd build
 # Run "cmake .. -DOPENSSL_ROOT_DIR=Your-Root-Directory-of-OPENSSL  -DENABLE_TESTS=ON" instead of the command below on Mac OS.
@@ -91,7 +95,7 @@ More platforms such as Windows would be supported soon.
 
 CMake is your best option. It supports building on Linux, MacOS and Windows (soon) but also has a good chance of working on other platforms (no promises!). cmake has good support for crosscompiling and can be used for targeting the Android platform.
 
-To build multi-party-ecdsa-cpp from source, follow the BUILDING guide.
+To build multi-party-sig-cpp from source, follow the BUILDING guide.
 
 The canonical way to discover dependencies in CMake is the find_package command.
 
@@ -105,16 +109,16 @@ find_package(PkgConfig REQUIRED)
 pkg_search_module(PROTOBUF REQUIRED protobuf)  # this looks for *.pc file
 #set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)
-find_package(MultiPartyEcdsa REQUIRED)
+find_package(MultiPartySig REQUIRED)
 
 add_executable(${PROJECT_NAME} XXXX.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC
-        ${MultiPartyEcdsa_INCLUDE_DIRS}
+        ${MultiPartySig_INCLUDE_DIRS}
         ${PROTOBUF_INCLUDE_DIRS}
         )
           
 target_link_libraries(${PROJECT_NAME} PUBLIC
-        MultiPartyEcdsa
+        MultiPartySig
         OpenSSL::Crypto
         ${PROTOBUF_LINK_LIBRARIES}
         pthread )

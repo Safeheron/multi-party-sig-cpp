@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project("MultiPartyEcdsa" VERSION 1.0.1)
+project("MultiPartySig" VERSION 1.0.1)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE "Release")
@@ -17,6 +17,8 @@ option(TEST_STARK_CURVE "Use Stark Curve" OFF)
 if (TEST_STARK_CURVE)
     add_definitions(-DTEST_STARK_CURVE)
 endif()
+
+include_directories(src)
 
 cmake_policy(SET CMP0076 NEW)
 cmake_policy(SET CMP0079 NEW)

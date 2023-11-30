@@ -7,22 +7,22 @@ get_filename_component(_INSTALL_PREFIX "${CMAKE_CURRENT_LIST_DIR}/../../../" ABS
 
 
 @PACKAGE_INIT@
-set_and_check(MultiPartyEcdsa_INCLUDE_DIR  "${_INSTALL_PREFIX}/include/safeheron")
-set_and_check(MultiPartyEcdsa_INCLUDE_DIRS "${_INSTALL_PREFIX}/include/safeheron")
-set_and_check(MultiPartyEcdsa_LIBRARY_DIR "${_INSTALL_PREFIX}/lib")
+set_and_check(MultiPartySig_INCLUDE_DIR  "${_INSTALL_PREFIX}/include/safeheron")
+set_and_check(MultiPartySig_INCLUDE_DIRS "${_INSTALL_PREFIX}/include/safeheron")
+set_and_check(MultiPartySig_LIBRARY_DIR "${_INSTALL_PREFIX}/lib")
 
 MESSAGE(STATUS "###################################")
 MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}")
 
 IF (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     MESSAGE(STATUS "current platform: Darwin ")
-    set_and_check(MultiPartyEcdsa_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartyEcdsa.dylib")
+    set_and_check(MultiPartySig_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartySig.dylib")
 ELSEIF (CMAKE_SYSTEM_NAME MATCHES "Windows")
     MESSAGE(STATUS "current platform: Windows")
-    set_and_check(MultiPartyEcdsa_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartyEcdsa.dll")
+    set_and_check(MultiPartySig_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartySig.dll")
 ELSE ()
     MESSAGE(STATUS "other platform: ${CMAKE_SYSTEM_NAME}")
-    set_and_check(MultiPartyEcdsa_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartyEcdsa.so")
+    set_and_check(MultiPartySig_LIBRARY "${_INSTALL_PREFIX}/lib/libMultiPartySig.so")
 ENDIF (CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
 MESSAGE(STATUS "###################################")

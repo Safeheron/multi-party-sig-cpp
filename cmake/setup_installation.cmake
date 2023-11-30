@@ -21,7 +21,7 @@ install(
         TARGETS ${PROJECT_NAME}
         EXPORT ${exported_targets_name}
         ARCHIVE DESTINATION lib
-        PUBLIC_HEADER DESTINATION include/safeheron
+        PUBLIC_HEADER DESTINATION include
 )
 
 install(
@@ -41,7 +41,7 @@ install(
 ## Install head files
 install(
         DIRECTORY src/
-        DESTINATION include/safeheron
+        DESTINATION include
         FILES_MATCHING PATTERN "*.h"
         PATTERN "ed25519_ex.h" EXCLUDE
         PATTERN "openssl_curve_wrapper.h" EXCLUDE
@@ -50,6 +50,6 @@ install(
 ## Install proto files
 install(
         DIRECTORY proto/
-        DESTINATION include/safeheron/proto
+        DESTINATION include/multi-party-sig/proto
         FILES_MATCHING PATTERN "*.proto"
 )
