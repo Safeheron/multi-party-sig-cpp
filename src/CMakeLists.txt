@@ -1,5 +1,5 @@
-add_subdirectory(mpc-flow)
-add_subdirectory(multi-party-ecdsa)
+add_subdirectory(multi-party-sig/mpc-flow)
+add_subdirectory(multi-party-sig/multi-party-ecdsa)
 
 find_package(PkgConfig REQUIRED)
 pkg_search_module(PROTOBUF REQUIRED protobuf)  # depend on pkg-config, this looks for opencv.pc file

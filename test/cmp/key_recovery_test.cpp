@@ -1,4 +1,4 @@
-#include "../../src/multi-party-ecdsa/cmp/key_recovery/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/context.h"
 #include <string>
 #include <vector>
 #include <google/protobuf/stubs/common.h>

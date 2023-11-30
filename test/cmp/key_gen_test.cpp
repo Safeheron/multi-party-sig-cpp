@@ -1,5 +1,5 @@
-#include "../../src/multi-party-ecdsa/cmp/key_gen/context.h"
-#include "../../src/multi-party-ecdsa/cmp/util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_gen/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
 #include <string>
 #include <vector>
 #include <google/protobuf/stubs/common.h>

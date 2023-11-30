@@ -5,7 +5,7 @@
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/exception/located_exception.h"
-#include "../../src/multi-party-ecdsa/cmp/cmp.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/cmp.h"
 #include "../thread_safe_queue.h"
 #include "../message.h"
 #include "../party_message_queue.h"

@@ -5,7 +5,7 @@
 #include "crypto-suites/exception/located_exception.h"
 #include "gtest/gtest.h"
 #include "crypto-suites/crypto-curve/curve.h"
-#include "../../src/multi-party-ecdsa/gg18/gg18.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/gg18.h"
 #include "../message.h"
 
 using std::string;
