@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "proto_gen/sign.pb.switch.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/proto_gen/sign.pb.switch.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

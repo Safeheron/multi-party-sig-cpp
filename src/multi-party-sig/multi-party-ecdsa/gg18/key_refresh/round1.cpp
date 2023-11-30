@@ -1,8 +1,7 @@
-
-#include "round1.h"
 #include <cstdio>
-#include "context.h"
 #include "crypto-suites/crypto-commitment/commitment.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_refresh/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_refresh/context.h"
 
 using std::string;
 using safeheron::bignum::BN;

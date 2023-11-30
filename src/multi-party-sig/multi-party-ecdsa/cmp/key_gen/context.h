@@ -1,11 +1,11 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_CONTEXT_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_CONTEXT_H
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "../minimal_key_gen/context.h"
-#include "../aux_info_key_refresh/context.h"
-#include "round0.h"
-#include "round1_6.h"
-#include "t_party.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_gen/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_gen/round1_6.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_gen/t_party.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 #include <cassert>
-#include "mpc_context.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
 
 namespace safeheron{
 namespace mpc_flow{

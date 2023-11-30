@@ -4,6 +4,6 @@
 
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_GG20_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_GG20_H
-#include "sign/context.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/context.h"
 
 #endif //SAFEHERON_MULTI_PARTY_ECDSA_GG20_H

@@ -2,7 +2,7 @@
 // Created by Sword03 on 2022/11/23.
 //
 
-#include "LazyBCValidator.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel/LazyBCValidator.h"
 
 namespace safeheron {
 namespace mpc_flow {

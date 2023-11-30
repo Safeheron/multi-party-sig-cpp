@@ -1,9 +1,9 @@
 
-#include "message.h"
 
 #include <google/protobuf/util/json_util.h>
 #include "crypto-suites/crypto-encode/base64.h"
-#include "identification.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/identification.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/message.h"
 
 using std::string;
 using safeheron::bignum::BN;

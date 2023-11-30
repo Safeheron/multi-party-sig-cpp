@@ -4,16 +4,16 @@
 
 #include <vector>
 #include "crypto-suites/crypto-curve/curve.h"
-#include "../util.h"
 #include "crypto-suites/crypto-bn/bn.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "../sign_key.h"
-#include "t_party.h"
-#include "round0.h"
-#include "round1.h"
-#include "round2.h"
-#include "round3.h"
-#include "round4.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/t_party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round3.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round4.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

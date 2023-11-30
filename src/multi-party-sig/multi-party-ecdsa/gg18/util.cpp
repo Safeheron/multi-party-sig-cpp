@@ -1,11 +1,11 @@
 
 
-#include "util.h"
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-encode/hex.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-paillier/pail.h"
-#include "sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/util.h"
 
 using std::string;
 using safeheron::bignum::BN;

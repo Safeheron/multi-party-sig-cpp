@@ -1,13 +1,13 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_CONTEXT_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_RECOVERY_CONTEXT_H
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-bn/bn.h"
-#include "t_party.h"
-#include "round0.h"
-#include "round1.h"
-#include "round2.h"
-#include "round3.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/t_party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round3.h"
 
 /**
  * Key recovery protocol for threshold 2-3.

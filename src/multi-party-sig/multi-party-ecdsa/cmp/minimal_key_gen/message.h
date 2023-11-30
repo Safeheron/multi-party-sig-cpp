@@ -2,9 +2,8 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_NAKED_KEY_GEN_MESSAGE_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_NAKED_KEY_GEN_MESSAGE_H
 
-#include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "proto_gen/minimal_key_gen.pb.switch.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/proto_gen/minimal_key_gen.pb.switch.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

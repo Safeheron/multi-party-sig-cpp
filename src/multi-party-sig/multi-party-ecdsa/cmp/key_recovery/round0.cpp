@@ -1,10 +1,10 @@
-#include "round0.h"
 #include "crypto-suites/crypto-bn/bn.h"
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-hash/safe_hash256.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round0.h"
 
-#include "context.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

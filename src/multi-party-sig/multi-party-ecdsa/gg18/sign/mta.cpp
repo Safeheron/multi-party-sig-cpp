@@ -1,9 +1,9 @@
-#include "mta.h"
 #include <google/protobuf/util/json_util.h>
 #include "crypto-suites/crypto-hash/sha256.h"
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-encode/base64.h"
 #include "crypto-suites/exception/located_exception.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign/mta.h"
 
 using std::string;
 using std::vector;

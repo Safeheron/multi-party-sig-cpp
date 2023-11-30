@@ -1,9 +1,7 @@
-
-#include "round0.h"
-#include "context.h"
 #include "crypto-suites/crypto-bn/rand.h"
-#include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-bn/rand.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_gen/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_gen/context.h"
 
 using std::string;
 

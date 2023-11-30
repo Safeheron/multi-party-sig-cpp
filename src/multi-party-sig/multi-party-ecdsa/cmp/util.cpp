@@ -1,13 +1,13 @@
-#include "util.h"
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-encode/hex.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-paillier/pail.h"
 #include "crypto-suites/crypto-sss/polynomial.h"
 #include "crypto-suites/crypto-hash/sha256.h"
-#include "minimal_sign_key.h"
-#include "sign_key.h"
-#include "../../mpc-flow/common/sid_maker.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign_key.h"
+#include "multi-party-sig/mpc-flow/common/sid_maker.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
 
 using safeheron::multi_party_ecdsa::cmp::SignKey;
 using safeheron::mpc_flow::common::SIDMaker;

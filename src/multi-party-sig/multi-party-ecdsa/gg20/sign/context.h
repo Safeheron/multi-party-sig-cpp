@@ -5,17 +5,17 @@
 #include <vector>
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-bn/bn.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "../../gg18/gg18.h"
-#include "t_party.h"
-#include "round0.h"
-#include "round1.h"
-#include "round2.h"
-#include "round3.h"
-#include "round4.h"
-#include "round5.h"
-#include "round6.h"
-#include "round7.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/gg18.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/t_party.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round3.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round4.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round5.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round6.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round7.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

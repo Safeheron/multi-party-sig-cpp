@@ -1,11 +1,9 @@
-
-#include "round4.h"
 #include <vector>
-#include "context.h"
-#include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-bn/rand.h"
-#include "security_param.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/security_param.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round4.h"
 
 using std::string;
 using std::vector;

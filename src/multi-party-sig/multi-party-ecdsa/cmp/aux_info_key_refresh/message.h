@@ -4,7 +4,7 @@
 
 #include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "proto_gen/aux_info_key_refresh.pb.switch.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/proto_gen/aux_info_key_refresh.pb.switch.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

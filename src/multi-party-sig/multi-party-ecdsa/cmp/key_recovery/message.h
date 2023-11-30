@@ -3,7 +3,7 @@
 #include <string>
 #include "crypto-suites/crypto-curve/curve_point.h"
 #include "crypto-suites/crypto-zkp/dlog_proof_v2.h"
-#include "proto_gen/key_recovery.pb.switch.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/proto_gen/key_recovery.pb.switch.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

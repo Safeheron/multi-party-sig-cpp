@@ -1,7 +1,7 @@
-#include "round2.h"
-#include "context.h"
 #include "crypto-suites/crypto-hash/safe_hash256.h"
-#include "../util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/context.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

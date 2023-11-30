@@ -1,14 +1,14 @@
 
-#include "context.h"
 
 #include <utility>
 #include "crypto-suites/crypto-bn/bn.h"
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/exception/safeheron_exceptions.h"
-#include "security_param.h"
-#include "crypto-suites/crypto-sss/polynomial.h"
-#include "../../../mpc-flow/common/sid_maker.h"
 #include "crypto-suites/crypto-encode/hex.h"
+#include "crypto-suites/crypto-sss/polynomial.h"
+#include "multi-party-sig/mpc-flow/common/sid_maker.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/security_param.h"
 
 using std::vector;
 using safeheron::bignum::BN;

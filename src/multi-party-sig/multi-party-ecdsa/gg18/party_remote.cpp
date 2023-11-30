@@ -1,8 +1,7 @@
-
-#include "party.h"
 #include <google/protobuf/util/json_util.h>
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-encode/base64.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/party.h"
 
 using std::string;
 using safeheron::bignum::BN;

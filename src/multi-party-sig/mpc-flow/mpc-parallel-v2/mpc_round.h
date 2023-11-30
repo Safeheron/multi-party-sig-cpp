@@ -9,8 +9,8 @@
 #include <vector>
 #include <cassert>
 
-#include "message_type.h"
-#include "error_info.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/message_type.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/error_info.h"
 
 namespace safeheron {
 namespace mpc_flow {

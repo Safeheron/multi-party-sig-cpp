@@ -1,11 +1,9 @@
-
-
-#include "sign_key.h"
 #include <google/protobuf/util/json_util.h>
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-encode/base64.h"
 #include "crypto-suites/crypto-encode/hex.h"
 #include "crypto-suites/crypto-sss/vsss.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign_key.h"
 
 using std::string;
 using std::vector;

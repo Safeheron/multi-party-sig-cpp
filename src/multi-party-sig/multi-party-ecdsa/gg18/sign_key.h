@@ -1,10 +1,8 @@
-
-
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_VAULT_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_VAULT_H
 
 #include <string>
-#include "party.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/party.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

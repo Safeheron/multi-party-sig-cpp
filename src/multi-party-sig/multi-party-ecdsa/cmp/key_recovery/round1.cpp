@@ -1,5 +1,5 @@
-#include "round1.h"
-#include "context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/context.h"
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

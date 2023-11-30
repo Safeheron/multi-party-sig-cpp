@@ -1,10 +1,9 @@
-
-#include "round2.h"
-#include "context.h"
 #include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-hash/sha256.h"
 #include "crypto-suites/crypto-bn/rand.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_refresh/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_refresh/context.h"
 
 using std::string;
 using std::vector;

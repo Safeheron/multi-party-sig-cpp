@@ -1,8 +1,7 @@
-
-#include "round7.h"
-#include "context.h"
 #include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-curve/curve.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/round7.h"
+#include "multi-party-sig/multi-party-ecdsa/gg20/sign/context.h"
 
 using std::string;
 using safeheron::bignum::BN;

@@ -1,20 +1,18 @@
-
-
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_CMP_AUX_INFO_KEY_REFRESH_CONTEXT_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_AUX_INFO_KEY_REFRESH_CONTEXT_H
 
 #include <vector>
 #include "crypto-suites/crypto-bn/bn.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "../party.h"
-#include "t_party.h"
-#include "../minimal_sign_key.h"
-#include "../sign_key.h"
-#include "round0.h"
-#include "round1.h"
-#include "round2.h"
-#include "round3.h"
-#include "../util.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/t_party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/round3.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

@@ -4,7 +4,7 @@
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_KEY_GEN_NAKED_SIGN_KEY_H
 
 #include <string>
-#include "minimal_party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_party.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

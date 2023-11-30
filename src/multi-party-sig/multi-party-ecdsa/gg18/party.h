@@ -2,12 +2,12 @@
 #ifndef SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_PARTY_H
 #define SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_GEN_PARTY_H
 
-#include "proto_gen/struct.pb.switch.h"
 #include "crypto-suites/crypto-bn/bn.h"
 #include "crypto-suites/crypto-paillier/pail.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "../../mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/proto_gen/struct.pb.switch.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

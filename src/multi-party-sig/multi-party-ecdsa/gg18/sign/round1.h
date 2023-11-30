@@ -4,8 +4,8 @@
 
 #include <string>
 #include <vector>
-#include "message.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign/message.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

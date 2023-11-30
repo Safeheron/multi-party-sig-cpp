@@ -1,10 +1,9 @@
-
-#include "round2.h"
 #include <cstdio>
-#include "context.h"
 #include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-hash/safe_hash256.h"
 #include "crypto-suites/crypto-encode/hex.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/round2.h"
 
 using std::string;
 using safeheron::hash::CSafeHash256;

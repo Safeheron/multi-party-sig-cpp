@@ -4,14 +4,13 @@
 #define SAFEHERON_MULTI_PARTY_ECDSA_CMP_AUX_INFO_KEY_REFRESH_T_PARTY_H
 
 
-#include "proto_gen/aux_info_key_refresh.pb.switch.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/aux_info_key_refresh/proto_gen/aux_info_key_refresh.pb.switch.h"
 #include "crypto-suites/crypto-bn/bn.h"
 #include "crypto-suites/crypto-paillier/pail.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
 #include "crypto-suites/crypto-sss/vsss.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "crypto-suites/crypto-commitment/commitment.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

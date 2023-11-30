@@ -10,7 +10,7 @@
 #include <vector>
 #include <cassert>
 #include <iostream>
-#include "mpc_round.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel/mpc_round.h"
 
 namespace safeheron{
 namespace mpc_flow{

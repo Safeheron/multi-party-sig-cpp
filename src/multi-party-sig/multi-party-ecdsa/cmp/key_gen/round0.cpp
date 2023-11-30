@@ -1,6 +1,6 @@
-#include "round0.h"
-#include "context.h"
-#include "../util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_gen/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_gen/context.h"
+
 namespace safeheron {
 namespace multi_party_ecdsa {
 namespace cmp {

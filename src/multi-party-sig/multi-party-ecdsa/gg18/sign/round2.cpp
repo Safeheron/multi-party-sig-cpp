@@ -1,8 +1,7 @@
-
-#include "round2.h"
-#include "context.h"
 #include "crypto-suites/crypto-curve/curve.h"
-#include "mta.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign/mta.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign/context.h"
 
 using std::string;
 using safeheron::bignum::BN;

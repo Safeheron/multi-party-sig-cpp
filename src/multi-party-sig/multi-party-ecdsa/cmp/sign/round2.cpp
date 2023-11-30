@@ -1,13 +1,11 @@
-
-#include "round2.h"
-#include "context.h"
-#include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/pedersen_proof.h"
 #include "crypto-suites/crypto-bn/rand.h"
 #include "crypto-suites/crypto-hash/safe_hash256.h"
 #include "crypto-suites/crypto-encode/hex.h"
-#include "security_param.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/security_param.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/sign/context.h"
 
 using std::string;
 using safeheron::bignum::BN;

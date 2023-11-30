@@ -5,15 +5,15 @@
 
 #include <vector>
 #include "crypto-suites/crypto-bn/bn.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
-#include "../party.h"
-#include "t_party.h"
-#include "../minimal_sign_key.h"
-#include "round0.h"
-#include "round1.h"
-#include "round2.h"
-#include "round3.h"
-#include "../util.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_sign_key.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/t_party.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/round0.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/round1.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/round2.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/round3.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa{

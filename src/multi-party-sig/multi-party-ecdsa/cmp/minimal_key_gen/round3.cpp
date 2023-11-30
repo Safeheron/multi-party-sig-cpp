@@ -1,9 +1,7 @@
-
-#include "round3.h"
-#include "context.h"
-#include "crypto-suites/crypto-commitment/commitment.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-sss/vsss.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/round3.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/minimal_key_gen/context.h"
 
 using std::string;
 using std::vector;

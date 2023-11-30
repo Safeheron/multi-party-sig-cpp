@@ -4,13 +4,13 @@
 #define SAFEHERON_MULTI_PARTY_ECDSA_GG18_KEY_REFRESH_T_PARTY_H
 
 
-#include "proto_gen/key_refresh.pb.switch.h"
 #include "crypto-suites/crypto-sss/vsss.h"
 #include "crypto-suites/crypto-bn/bn.h"
 #include "crypto-suites/crypto-paillier/pail.h"
 #include "crypto-suites/crypto-curve/curve.h"
 #include "crypto-suites/crypto-zkp/zkp.h"
-#include "../../../mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/mpc-flow/mpc-parallel-v2/mpc_context.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/key_refresh/proto_gen/key_refresh.pb.switch.h"
 
 
 namespace safeheron {

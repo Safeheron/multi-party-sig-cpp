@@ -1,8 +1,6 @@
-
-#include "context.h"
-
 #include <utility>
 #include "crypto-suites/crypto-bn/rand.h"
+#include "multi-party-sig/multi-party-ecdsa/gg18/sign/context.h"
 
 using safeheron::bignum::BN;
 using safeheron::curve::Curve;

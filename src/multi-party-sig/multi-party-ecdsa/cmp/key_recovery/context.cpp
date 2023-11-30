@@ -1,6 +1,6 @@
-#include "context.h"
 #include "crypto-suites/crypto-sss/polynomial.h"
-#include "../util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/util.h"
+#include "multi-party-sig/multi-party-ecdsa/cmp/key_recovery/context.h"
 
 namespace safeheron {
 namespace multi_party_ecdsa {
