@@ -66,11 +66,6 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     p2p_message_.A_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    p2p_message_.B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p2p_message_.B_.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
     p2p_message_.R_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     p2p_message_.R_.y().ToBytesBE(buf);
@@ -95,7 +90,6 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
 
     ctx->remote_party_.X_j_ = p2p_message_.X_;
     ctx->remote_party_.A_j_ = p2p_message_.A_;
-    ctx->remote_party_.B_j_ = p2p_message_.B_;
     ctx->remote_party_.R_j_ = p2p_message_.R_;
     ctx->remote_party_.T_j_ = p2p_message_.T_;
 
@@ -113,28 +107,20 @@ bool Round2::ComputeVerify() {
     safeheron::hash::CSHA256 sha256;
     uint8_t digest[safeheron::hash::CSHA256::OUTPUT_SIZE];
 
-    // Compute \alpha = H((B_{j})^{a_{i}})
+    // Compute \alpha = H((A_{j})^{a_{i}})
     std::string buf;
-    safeheron::curve::CurvePoint p_1 = ctx->remote_party_.B_j_ * ctx->local_party_.a_i_;
-    p_1.x().ToBytesBE(buf);
+    safeheron::curve::CurvePoint p = ctx->remote_party_.A_j_ * ctx->local_party_.a_i_;
+    p.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p_1.y().ToBytesBE(buf);
+    p.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     sha256.Finalize(digest);
     safeheron::bignum::BN alpha = safeheron::bignum::BN::FromBytesBE(digest, sizeof(digest));
+    alpha = alpha % curv->n;
 
-    // Compute \beta = H((A_{j})^{b_{i}})
-    safeheron::curve::CurvePoint p_2 = ctx->remote_party_.A_j_ * ctx->local_party_.b_i_;
-    sha256.Reset();
-    p_2.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p_2.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    sha256.Finalize(digest);
-    safeheron::bignum::BN beta = safeheron::bignum::BN::FromBytesBE(digest, sizeof(digest));
+    // Compute \Delta
+    safeheron::bignum::BN delta = (ctx->local_party_.i_ > ctx->local_party_.j_) ? alpha : curv->n - alpha;
 
-    // Compute \Delta = \alpha - \beta
-    safeheron::bignum::BN delta = alpha - beta;
     const safeheron::bignum::BN& lambda_i = ctx->local_party_.l_arr_i_j_k_[0];
     const safeheron::bignum::BN& lambda_j = ctx->local_party_.l_arr_i_j_k_[1];
     const safeheron::bignum::BN& lambda_k = ctx->local_party_.l_arr_i_j_k_.back();

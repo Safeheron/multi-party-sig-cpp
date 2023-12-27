@@ -13,10 +13,9 @@ message Round1P2PMessage {
     string j = 3;
     string k = 4;
     safeheron.proto.CurvePoint A = 5;
-    safeheron.proto.CurvePoint B = 6;
-    safeheron.proto.CurvePoint R = 7;
-    safeheron.proto.CurvePoint T = 8;
-    safeheron.proto.DLogProof_V2 phi = 9;
+    safeheron.proto.CurvePoint R = 6;
+    safeheron.proto.CurvePoint T = 7;
+    safeheron.proto.DLogProof_V2 phi = 8;
 }
 message Round2P2PMessage {
     safeheron.proto.DLogProof_V2 psi = 1;

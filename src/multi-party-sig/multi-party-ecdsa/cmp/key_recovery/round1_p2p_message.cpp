@@ -36,10 +36,6 @@ bool Round1P2PMessage::ToProtoObject(safeheron::proto::multi_party_ecdsa::cmp::k
     if (!ok) return false;
     message.mutable_a()->CopyFrom(point);
 
-    ok = B_.ToProtoObject(point);
-    if (!ok) return false;
-    message.mutable_b()->CopyFrom(point);
-
     ok = R_.ToProtoObject(point);
     if (!ok) return false;
     message.mutable_r()->CopyFrom(point);
@@ -73,9 +69,6 @@ bool Round1P2PMessage::FromProtoObject(const safeheron::proto::multi_party_ecdsa
     if (!ok) return false;
 
     ok = A_.FromProtoObject(message.a());
-    if (!ok) return false;
-
-    ok = B_.FromProtoObject(message.b());
     if (!ok) return false;
 
     ok = R_.FromProtoObject(message.r());

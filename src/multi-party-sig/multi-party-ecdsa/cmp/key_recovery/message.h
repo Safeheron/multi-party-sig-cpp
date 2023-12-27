@@ -32,7 +32,6 @@ public:
     safeheron::bignum::BN j_;
     safeheron::bignum::BN k_;
     safeheron::curve::CurvePoint A_;
-    safeheron::curve::CurvePoint B_;
     safeheron::curve::CurvePoint R_;
     safeheron::curve::CurvePoint T_;
     safeheron::zkp::dlog::DLogProof_V2 phi_;

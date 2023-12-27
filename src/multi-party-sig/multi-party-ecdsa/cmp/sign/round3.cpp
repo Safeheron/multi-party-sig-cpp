@@ -169,7 +169,7 @@ bool Round3::ComputeVerify() {
     // R = Gamma^(delta^-1 mod q)
     ctx->R_ = ctx->Gamma_ * delta.InvM(curv->n);
 
-    ctx->r_ = ctx->R_.x();
+    ctx->r_ = ctx->R_.x() % curv->n;
 
     // sigma = k * m + r * chi  mod q
     ctx->local_party_.sigma_ = (ctx->local_party_.k_ * ctx->m_ + ctx->r_ * ctx->local_party_.chi_ ) % curv->n;

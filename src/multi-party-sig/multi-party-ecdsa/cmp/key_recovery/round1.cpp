@@ -50,7 +50,6 @@ bool Round1::MakeMessage(std::vector<std::string> &out_p2p_msg_arr, std::string 
     p2p_message.j_ = ctx->local_party_.j_;
     p2p_message.k_ = ctx->local_party_.k_;
     p2p_message.A_ = ctx->local_party_.A_i_;
-    p2p_message.B_ = ctx->local_party_.B_i_;
     p2p_message.R_ = ctx->local_party_.R_i_;
     p2p_message.T_ = ctx->local_party_.T_i_;
     p2p_message.phi_ = ctx->local_party_.phi_i_;

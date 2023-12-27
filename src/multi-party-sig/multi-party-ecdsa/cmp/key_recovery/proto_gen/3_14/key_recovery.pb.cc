@@ -102,7 +102,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cmp_2fkey_5frecovery_2eproto::
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, j_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, k_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, a_),
-  PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, b_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, r_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, t_),
   PROTOBUF_FIELD_OFFSET(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage, phi_),
@@ -117,7 +116,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cmp_2fkey_5frecovery_2eproto::
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round0P2PMessage)},
   { 6, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round1P2PMessage)},
-  { 20, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage)},
+  { 19, -1, sizeof(::safeheron::proto::multi_party_ecdsa::cmp::key_recovery::Round2P2PMessage)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -130,13 +129,12 @@ const char descriptor_table_protodef_cmp_2fkey_5frecovery_2eproto[] PROTOBUF_SEC
   "\n\026cmp/key_recovery.proto\0222safeheron.prot"
   "o.multi_party_ecdsa.cmp.key_recovery\032\021cu"
   "rve_point.proto\032\tzkp.proto\"\035\n\020Round0P2PM"
-  "essage\022\t\n\001V\030\001 \001(\t\"\247\002\n\020Round1P2PMessage\022&"
+  "essage\022\t\n\001V\030\001 \001(\t\"\377\001\n\020Round1P2PMessage\022&"
   "\n\001X\030\001 \001(\0132\033.safeheron.proto.CurvePoint\022\t"
   "\n\001i\030\002 \001(\t\022\t\n\001j\030\003 \001(\t\022\t\n\001k\030\004 \001(\t\022&\n\001A\030\005 \001"
-  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001B\030\006 \001"
-  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001R\030\007 \001"
-  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001T\030\010 \001"
-  "(\0132\033.safeheron.proto.CurvePoint\022*\n\003phi\030\t"
+  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001R\030\006 \001"
+  "(\0132\033.safeheron.proto.CurvePoint\022&\n\001T\030\007 \001"
+  "(\0132\033.safeheron.proto.CurvePoint\022*\n\003phi\030\010"
   " \001(\0132\035.safeheron.proto.DLogProof_V2\"i\n\020R"
   "ound2P2PMessage\022*\n\003psi\030\001 \001(\0132\035.safeheron"
   ".proto.DLogProof_V2\022)\n\004X_ki\030\002 \001(\0132\033.safe"
@@ -153,7 +151,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cmp
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_cmp_2fkey_5frecovery_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cmp_2fkey_5frecovery_2eproto = {
-  false, false, descriptor_table_protodef_cmp_2fkey_5frecovery_2eproto, "cmp/key_recovery.proto", 550,
+  false, false, descriptor_table_protodef_cmp_2fkey_5frecovery_2eproto, "cmp/key_recovery.proto", 510,
   &descriptor_table_cmp_2fkey_5frecovery_2eproto_once, descriptor_table_cmp_2fkey_5frecovery_2eproto_sccs, descriptor_table_cmp_2fkey_5frecovery_2eproto_deps, 3, 2,
   schemas, file_default_instances, TableStruct_cmp_2fkey_5frecovery_2eproto::offsets,
   file_level_metadata_cmp_2fkey_5frecovery_2eproto, 3, file_level_enum_descriptors_cmp_2fkey_5frecovery_2eproto, file_level_service_descriptors_cmp_2fkey_5frecovery_2eproto,
@@ -379,7 +377,6 @@ class Round1P2PMessage::_Internal {
  public:
   static const ::safeheron::proto::CurvePoint& x(const Round1P2PMessage* msg);
   static const ::safeheron::proto::CurvePoint& a(const Round1P2PMessage* msg);
-  static const ::safeheron::proto::CurvePoint& b(const Round1P2PMessage* msg);
   static const ::safeheron::proto::CurvePoint& r(const Round1P2PMessage* msg);
   static const ::safeheron::proto::CurvePoint& t(const Round1P2PMessage* msg);
   static const ::safeheron::proto::DLogProof_V2& phi(const Round1P2PMessage* msg);
@@ -392,10 +389,6 @@ Round1P2PMessage::_Internal::x(const Round1P2PMessage* msg) {
 const ::safeheron::proto::CurvePoint&
 Round1P2PMessage::_Internal::a(const Round1P2PMessage* msg) {
   return *msg->a_;
-}
-const ::safeheron::proto::CurvePoint&
-Round1P2PMessage::_Internal::b(const Round1P2PMessage* msg) {
-  return *msg->b_;
 }
 const ::safeheron::proto::CurvePoint&
 Round1P2PMessage::_Internal::r(const Round1P2PMessage* msg) {
@@ -420,12 +413,6 @@ void Round1P2PMessage::clear_a() {
     delete a_;
   }
   a_ = nullptr;
-}
-void Round1P2PMessage::clear_b() {
-  if (GetArena() == nullptr && b_ != nullptr) {
-    delete b_;
-  }
-  b_ = nullptr;
 }
 void Round1P2PMessage::clear_r() {
   if (GetArena() == nullptr && r_ != nullptr) {
@@ -479,11 +466,6 @@ Round1P2PMessage::Round1P2PMessage(const Round1P2PMessage& from)
   } else {
     a_ = nullptr;
   }
-  if (from._internal_has_b()) {
-    b_ = new ::safeheron::proto::CurvePoint(*from.b_);
-  } else {
-    b_ = nullptr;
-  }
   if (from._internal_has_r()) {
     r_ = new ::safeheron::proto::CurvePoint(*from.r_);
   } else {
@@ -526,7 +508,6 @@ void Round1P2PMessage::SharedDtor() {
   k_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete x_;
   if (this != internal_default_instance()) delete a_;
-  if (this != internal_default_instance()) delete b_;
   if (this != internal_default_instance()) delete r_;
   if (this != internal_default_instance()) delete t_;
   if (this != internal_default_instance()) delete phi_;
@@ -564,10 +545,6 @@ void Round1P2PMessage::Clear() {
     delete a_;
   }
   a_ = nullptr;
-  if (GetArena() == nullptr && b_ != nullptr) {
-    delete b_;
-  }
-  b_ = nullptr;
   if (GetArena() == nullptr && r_ != nullptr) {
     delete r_;
   }
@@ -631,30 +608,23 @@ const char* Round1P2PMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .safeheron.proto.CurvePoint B = 6;
+      // .safeheron.proto.CurvePoint R = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_b(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .safeheron.proto.CurvePoint R = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_r(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .safeheron.proto.CurvePoint T = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+      // .safeheron.proto.CurvePoint T = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_t(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .safeheron.proto.DLogProof_V2 phi = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+      // .safeheron.proto.DLogProof_V2 phi = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_phi(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -733,36 +703,28 @@ failure:
         5, _Internal::a(this), target, stream);
   }
 
-  // .safeheron.proto.CurvePoint B = 6;
-  if (this->has_b()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::b(this), target, stream);
-  }
-
-  // .safeheron.proto.CurvePoint R = 7;
+  // .safeheron.proto.CurvePoint R = 6;
   if (this->has_r()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        7, _Internal::r(this), target, stream);
+        6, _Internal::r(this), target, stream);
   }
 
-  // .safeheron.proto.CurvePoint T = 8;
+  // .safeheron.proto.CurvePoint T = 7;
   if (this->has_t()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        8, _Internal::t(this), target, stream);
+        7, _Internal::t(this), target, stream);
   }
 
-  // .safeheron.proto.DLogProof_V2 phi = 9;
+  // .safeheron.proto.DLogProof_V2 phi = 8;
   if (this->has_phi()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::phi(this), target, stream);
+        8, _Internal::phi(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -816,28 +778,21 @@ size_t Round1P2PMessage::ByteSizeLong() const {
         *a_);
   }
 
-  // .safeheron.proto.CurvePoint B = 6;
-  if (this->has_b()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *b_);
-  }
-
-  // .safeheron.proto.CurvePoint R = 7;
+  // .safeheron.proto.CurvePoint R = 6;
   if (this->has_r()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *r_);
   }
 
-  // .safeheron.proto.CurvePoint T = 8;
+  // .safeheron.proto.CurvePoint T = 7;
   if (this->has_t()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *t_);
   }
 
-  // .safeheron.proto.DLogProof_V2 phi = 9;
+  // .safeheron.proto.DLogProof_V2 phi = 8;
   if (this->has_phi()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -889,9 +844,6 @@ void Round1P2PMessage::MergeFrom(const Round1P2PMessage& from) {
   }
   if (from.has_a()) {
     _internal_mutable_a()->::safeheron::proto::CurvePoint::MergeFrom(from._internal_a());
-  }
-  if (from.has_b()) {
-    _internal_mutable_b()->::safeheron::proto::CurvePoint::MergeFrom(from._internal_b());
   }
   if (from.has_r()) {
     _internal_mutable_r()->::safeheron::proto::CurvePoint::MergeFrom(from._internal_r());

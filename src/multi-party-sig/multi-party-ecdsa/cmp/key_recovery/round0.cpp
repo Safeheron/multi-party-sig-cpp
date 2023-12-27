@@ -24,11 +24,6 @@ bool Round0::ComputeVerify() {
     ctx->local_party_.a_i_ = safeheron::rand::RandomBNLt(curv->n);
     ctx->local_party_.A_i_ = curv->g * ctx->local_party_.a_i_;
 
-    //- Sample b_{i} \in Z_q
-    //- Computer B_{i} = g^{b_{i}}
-    ctx->local_party_.b_i_ = safeheron::rand::RandomBNLt(curv->n);
-    ctx->local_party_.B_i_ = curv->g * ctx->local_party_.b_i_;
-
     //- Sample r_i \in Z_q
     //- Compute R_i = g^{r_i}
     ctx->local_party_.r_i_ = safeheron::rand::RandomBNLt(curv->n);
@@ -62,11 +57,6 @@ bool Round0::ComputeVerify() {
     ctx->local_party_.A_i_.x().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     ctx->local_party_.A_i_.y().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-
-    ctx->local_party_.B_i_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.B_i_.y().ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     ctx->local_party_.R_i_.x().ToBytesBE(buf);

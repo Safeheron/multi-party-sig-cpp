@@ -27,9 +27,7 @@ public:
     safeheron::bignum::BN k_;
 
     safeheron::bignum::BN a_i_;
-    safeheron::bignum::BN b_i_;
     safeheron::curve::CurvePoint A_i_;
-    safeheron::curve::CurvePoint B_i_;
 
     safeheron::curve::CurvePoint X_ki_;
     safeheron::bignum::BN t_i_;
@@ -47,7 +45,6 @@ public:
     std::string party_id_;
 
     safeheron::curve::CurvePoint A_j_;
-    safeheron::curve::CurvePoint B_j_;
 
     safeheron::curve::CurvePoint X_j_;
     safeheron::curve::CurvePoint R_j_;

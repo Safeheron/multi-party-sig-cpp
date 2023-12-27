@@ -347,10 +347,9 @@ class Round1P2PMessage PROTOBUF_FINAL :
     kKFieldNumber = 4,
     kXFieldNumber = 1,
     kAFieldNumber = 5,
-    kBFieldNumber = 6,
-    kRFieldNumber = 7,
-    kTFieldNumber = 8,
-    kPhiFieldNumber = 9,
+    kRFieldNumber = 6,
+    kTFieldNumber = 7,
+    kPhiFieldNumber = 8,
   };
   // string i = 2;
   void clear_i();
@@ -436,25 +435,7 @@ class Round1P2PMessage PROTOBUF_FINAL :
       ::safeheron::proto::CurvePoint* a);
   ::safeheron::proto::CurvePoint* unsafe_arena_release_a();
 
-  // .safeheron.proto.CurvePoint B = 6;
-  bool has_b() const;
-  private:
-  bool _internal_has_b() const;
-  public:
-  void clear_b();
-  const ::safeheron::proto::CurvePoint& b() const;
-  ::safeheron::proto::CurvePoint* release_b();
-  ::safeheron::proto::CurvePoint* mutable_b();
-  void set_allocated_b(::safeheron::proto::CurvePoint* b);
-  private:
-  const ::safeheron::proto::CurvePoint& _internal_b() const;
-  ::safeheron::proto::CurvePoint* _internal_mutable_b();
-  public:
-  void unsafe_arena_set_allocated_b(
-      ::safeheron::proto::CurvePoint* b);
-  ::safeheron::proto::CurvePoint* unsafe_arena_release_b();
-
-  // .safeheron.proto.CurvePoint R = 7;
+  // .safeheron.proto.CurvePoint R = 6;
   bool has_r() const;
   private:
   bool _internal_has_r() const;
@@ -472,7 +453,7 @@ class Round1P2PMessage PROTOBUF_FINAL :
       ::safeheron::proto::CurvePoint* r);
   ::safeheron::proto::CurvePoint* unsafe_arena_release_r();
 
-  // .safeheron.proto.CurvePoint T = 8;
+  // .safeheron.proto.CurvePoint T = 7;
   bool has_t() const;
   private:
   bool _internal_has_t() const;
@@ -490,7 +471,7 @@ class Round1P2PMessage PROTOBUF_FINAL :
       ::safeheron::proto::CurvePoint* t);
   ::safeheron::proto::CurvePoint* unsafe_arena_release_t();
 
-  // .safeheron.proto.DLogProof_V2 phi = 9;
+  // .safeheron.proto.DLogProof_V2 phi = 8;
   bool has_phi() const;
   private:
   bool _internal_has_phi() const;
@@ -520,7 +501,6 @@ class Round1P2PMessage PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr k_;
   ::safeheron::proto::CurvePoint* x_;
   ::safeheron::proto::CurvePoint* a_;
-  ::safeheron::proto::CurvePoint* b_;
   ::safeheron::proto::CurvePoint* r_;
   ::safeheron::proto::CurvePoint* t_;
   ::safeheron::proto::DLogProof_V2* phi_;
@@ -1105,84 +1085,7 @@ inline void Round1P2PMessage::set_allocated_a(::safeheron::proto::CurvePoint* a)
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.A)
 }
 
-// .safeheron.proto.CurvePoint B = 6;
-inline bool Round1P2PMessage::_internal_has_b() const {
-  return this != internal_default_instance() && b_ != nullptr;
-}
-inline bool Round1P2PMessage::has_b() const {
-  return _internal_has_b();
-}
-inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::_internal_b() const {
-  const ::safeheron::proto::CurvePoint* p = b_;
-  return p != nullptr ? *p : reinterpret_cast<const ::safeheron::proto::CurvePoint&>(
-      ::safeheron::proto::_CurvePoint_default_instance_);
-}
-inline const ::safeheron::proto::CurvePoint& Round1P2PMessage::b() const {
-  // @@protoc_insertion_point(field_get:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
-  return _internal_b();
-}
-inline void Round1P2PMessage::unsafe_arena_set_allocated_b(
-    ::safeheron::proto::CurvePoint* b) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(b_);
-  }
-  b_ = b;
-  if (b) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
-}
-inline ::safeheron::proto::CurvePoint* Round1P2PMessage::release_b() {
-  
-  ::safeheron::proto::CurvePoint* temp = b_;
-  b_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::safeheron::proto::CurvePoint* Round1P2PMessage::unsafe_arena_release_b() {
-  // @@protoc_insertion_point(field_release:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
-  
-  ::safeheron::proto::CurvePoint* temp = b_;
-  b_ = nullptr;
-  return temp;
-}
-inline ::safeheron::proto::CurvePoint* Round1P2PMessage::_internal_mutable_b() {
-  
-  if (b_ == nullptr) {
-    auto* p = CreateMaybeMessage<::safeheron::proto::CurvePoint>(GetArena());
-    b_ = p;
-  }
-  return b_;
-}
-inline ::safeheron::proto::CurvePoint* Round1P2PMessage::mutable_b() {
-  // @@protoc_insertion_point(field_mutable:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
-  return _internal_mutable_b();
-}
-inline void Round1P2PMessage::set_allocated_b(::safeheron::proto::CurvePoint* b) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(b_);
-  }
-  if (b) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(b)->GetArena();
-    if (message_arena != submessage_arena) {
-      b = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, b, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  b_ = b;
-  // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.B)
-}
-
-// .safeheron.proto.CurvePoint R = 7;
+// .safeheron.proto.CurvePoint R = 6;
 inline bool Round1P2PMessage::_internal_has_r() const {
   return this != internal_default_instance() && r_ != nullptr;
 }
@@ -1259,7 +1162,7 @@ inline void Round1P2PMessage::set_allocated_r(::safeheron::proto::CurvePoint* r)
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.R)
 }
 
-// .safeheron.proto.CurvePoint T = 8;
+// .safeheron.proto.CurvePoint T = 7;
 inline bool Round1P2PMessage::_internal_has_t() const {
   return this != internal_default_instance() && t_ != nullptr;
 }
@@ -1336,7 +1239,7 @@ inline void Round1P2PMessage::set_allocated_t(::safeheron::proto::CurvePoint* t)
   // @@protoc_insertion_point(field_set_allocated:safeheron.proto.multi_party_ecdsa.cmp.key_recovery.Round1P2PMessage.T)
 }
 
-// .safeheron.proto.DLogProof_V2 phi = 9;
+// .safeheron.proto.DLogProof_V2 phi = 8;
 inline bool Round1P2PMessage::_internal_has_phi() const {
   return this != internal_default_instance() && phi_ != nullptr;
 }
