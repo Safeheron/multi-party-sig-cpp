@@ -229,7 +229,7 @@ bool Context::CreateContext(Context &ctx,
 }
 
 void Context::ComputeSSID(const std::string &sid){
-    // Compute ssid = (sid, g, q, P, rid, X, Y)
+    // Compute ssid = (sid, g, q, P, rid, X)
     const curve::Curve *curv = curve::GetCurveParam(curve_type_);
     SIDMaker sid_maker;
     sid_maker.Append(sid);
@@ -243,12 +243,6 @@ void Context::ComputeSSID(const std::string &sid){
         }
         return sign_key_.local_party_.X_;
     };
-    auto GetY = [&](const BN &index) {
-        for(const auto &party: sign_key_.remote_parties_){
-            if(party.index_ == index) return party.Y_;
-        }
-        return sign_key_.local_party_.Y_;
-    };
 
     // Construct an ordered party index array
     std::vector<safeheron::bignum::BN> t_party_index_arr;
@@ -257,11 +251,10 @@ void Context::ComputeSSID(const std::string &sid){
         t_party_index_arr.push_back(party.index_);
     }
     std::sort(t_party_index_arr.begin(), t_party_index_arr.end());
-    // Append all parties [ (i, X_i, Y_i) ]
+    // Append all parties [ (i, X_i) ]
     for (const auto & pi : t_party_index_arr) {
         sid_maker.Append(pi);
         sid_maker.Append(GetX(pi));
-        sid_maker.Append(GetY(pi));
     }
     sid_maker.Finalize(ssid_);
 }
