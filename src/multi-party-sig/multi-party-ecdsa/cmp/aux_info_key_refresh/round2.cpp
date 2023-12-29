@@ -90,34 +90,24 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // X
     for(const auto &item: bc_message_arr_[pos].map_party_id_X_){
-        item.second.x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        item.second.y().ToBytesBE(buf);
+        item.second.EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // c
     for(size_t i = 0; i < bc_message_arr_[pos].c_.size(); ++i){
-        bc_message_arr_[pos].c_[i].x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        bc_message_arr_[pos].c_[i].y().ToBytesBE(buf);
+        bc_message_arr_[pos].c_[i].EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // A
     for(const auto &item: bc_message_arr_[pos].map_party_id_A_){
-        item.second.x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        item.second.y().ToBytesBE(buf);
+        item.second.EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // Y
-    bc_message_arr_[pos].Y_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].Y_.y().ToBytesBE(buf);
+    bc_message_arr_[pos].Y_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // B
-    bc_message_arr_[pos].B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].B_.y().ToBytesBE(buf);
+    bc_message_arr_[pos].B_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // N
     bc_message_arr_[pos].N_.ToBytesBE(buf);

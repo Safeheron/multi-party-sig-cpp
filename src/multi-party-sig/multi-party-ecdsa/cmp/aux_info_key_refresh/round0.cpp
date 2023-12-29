@@ -104,34 +104,24 @@ bool Round0::ComputeVerify() {
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // X
     for(const auto &item : ctx->local_party_.map_party_id_X_){
-        item.second.x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        item.second.y().ToBytesBE(buf);
+        item.second.EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // c
     for(size_t i = 0; i < ctx->local_party_.c_.size(); ++i){
-        ctx->local_party_.c_[i].x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        ctx->local_party_.c_[i].y().ToBytesBE(buf);
+        ctx->local_party_.c_[i].EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // A
     for(const auto &item: ctx->local_party_.map_remote_party_id_A_){
-        item.second.x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        item.second.y().ToBytesBE(buf);
+        item.second.EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // Y
-    sign_key.local_party_.Y_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    sign_key.local_party_.Y_.y().ToBytesBE(buf);
+    sign_key.local_party_.Y_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // B
-    ctx->local_party_.B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.B_.y().ToBytesBE(buf);
+    ctx->local_party_.B_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // N
     sign_key.local_party_.N_.ToBytesBE(buf);

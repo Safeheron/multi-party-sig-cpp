@@ -49,9 +49,7 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     uint8_t digest[safeheron::hash::CSafeHash256::OUTPUT_SIZE];
 
     std::string buf;
-    p2p_message_.X_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p2p_message_.X_.y().ToBytesBE(buf);
+    p2p_message_.X_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     p2p_message_.i_.ToBytesBE(buf);
@@ -61,19 +59,13 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     p2p_message_.k_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    p2p_message_.A_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p2p_message_.A_.y().ToBytesBE(buf);
+    p2p_message_.A_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    p2p_message_.R_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p2p_message_.R_.y().ToBytesBE(buf);
+    p2p_message_.R_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    p2p_message_.T_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p2p_message_.T_.y().ToBytesBE(buf);
+    p2p_message_.T_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     p2p_message_.phi_.ToBase64(buf);
@@ -110,9 +102,7 @@ bool Round2::ComputeVerify() {
     // Compute \alpha = H((A_{j})^{a_{i}})
     std::string buf;
     safeheron::curve::CurvePoint p = ctx->remote_party_.A_j_ * ctx->local_party_.a_i_;
-    p.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    p.y().ToBytesBE(buf);
+    p.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     sha256.Finalize(digest);
     safeheron::bignum::BN alpha = safeheron::bignum::BN::FromBytesBE(digest, sizeof(digest));

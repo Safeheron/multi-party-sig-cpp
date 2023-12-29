@@ -74,9 +74,7 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     string buf;
     // VS Commitment
     for(size_t i = 0; i < bc_message_arr_[pos].vs_.size(); ++i){
-        bc_message_arr_[pos].vs_[i].x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        bc_message_arr_[pos].vs_[i].y().ToBytesBE(buf);
+        bc_message_arr_[pos].vs_[i].EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // N_tilde

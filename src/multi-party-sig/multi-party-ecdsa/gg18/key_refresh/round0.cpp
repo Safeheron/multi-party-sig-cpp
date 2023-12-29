@@ -72,9 +72,7 @@ bool Round0::ComputeVerify() {
     string buf;
     // VS Commitment
     for(size_t i = 0; i < ctx->local_party_.vs_.size(); ++i){
-        ctx->local_party_.vs_[i].x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        ctx->local_party_.vs_[i].y().ToBytesBE(buf);
+        ctx->local_party_.vs_[i].EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // N_tilde

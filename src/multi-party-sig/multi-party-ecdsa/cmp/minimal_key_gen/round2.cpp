@@ -93,33 +93,23 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
     sha256.Write(reinterpret_cast<const unsigned char *>(bc_message_arr_[pos].rid_.c_str()),
                  bc_message_arr_[pos].rid_.size());
     // X
-    bc_message_arr_[pos].X_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].X_.y().ToBytesBE(buf);
+    bc_message_arr_[pos].X_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // A
-    bc_message_arr_[pos].A_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].A_.y().ToBytesBE(buf);
+    bc_message_arr_[pos].A_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // B
-    bc_message_arr_[pos].B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    bc_message_arr_[pos].B_.y().ToBytesBE(buf);
+    bc_message_arr_[pos].B_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // c
     for (size_t k = 0; k < bc_message_arr_[pos].c_.size(); ++k) {
-        bc_message_arr_[pos].c_[k].x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        bc_message_arr_[pos].c_[k].y().ToBytesBE(buf);
+        bc_message_arr_[pos].c_[k].EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // map_id_X
     map<string, CurvePoint>::iterator iter;
     for (iter = bc_message_arr_[pos].map_party_id_X_.begin(); iter != bc_message_arr_[pos].map_party_id_X_.end(); ++iter) {
-        iter->second.x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        iter->second.y().ToBytesBE(buf);
+        iter->second.EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // u

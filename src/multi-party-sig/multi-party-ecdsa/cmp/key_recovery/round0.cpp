@@ -42,9 +42,7 @@ bool Round0::ComputeVerify() {
     uint8_t digest[safeheron::hash::CSafeHash256::OUTPUT_SIZE];
 
     std::string buf;
-    ctx->local_party_.X_i_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.X_i_.y().ToBytesBE(buf);
+    ctx->local_party_.X_i_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     ctx->local_party_.i_.ToBytesBE(buf);
@@ -54,19 +52,13 @@ bool Round0::ComputeVerify() {
     ctx->local_party_.k_.ToBytesBE(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    ctx->local_party_.A_i_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.A_i_.y().ToBytesBE(buf);
+    ctx->local_party_.A_i_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    ctx->local_party_.R_i_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.R_i_.y().ToBytesBE(buf);
+    ctx->local_party_.R_i_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
-    ctx->local_party_.T_i_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.T_i_.y().ToBytesBE(buf);
+    ctx->local_party_.T_i_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
 
     ctx->local_party_.phi_i_.ToBase64(buf);

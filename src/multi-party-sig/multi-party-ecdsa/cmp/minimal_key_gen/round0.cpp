@@ -93,33 +93,23 @@ bool Round0::ComputeVerify() {
     // rid
     sha256.Write(reinterpret_cast<const unsigned char *>(ctx->local_party_.rid_.c_str()), ctx->local_party_.rid_.size());
     // X
-    ctx->local_party_.X_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.X_.y().ToBytesBE(buf);
+    ctx->local_party_.X_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // A
-    ctx->local_party_.A_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.A_.y().ToBytesBE(buf);
+    ctx->local_party_.A_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // B
-    ctx->local_party_.B_.x().ToBytesBE(buf);
-    sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-    ctx->local_party_.B_.y().ToBytesBE(buf);
+    ctx->local_party_.B_.EncodeFull(buf);
     sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     // c
     for(size_t k = 0; k < ctx->local_party_.c_.size(); ++k){
-        ctx->local_party_.c_[k].x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        ctx->local_party_.c_[k].y().ToBytesBE(buf);
+        ctx->local_party_.c_[k].EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // map_id_X
     map<string, CurvePoint>::iterator iter;
     for(iter = ctx->local_party_.map_party_id_X_.begin(); iter != ctx->local_party_.map_party_id_X_.end(); ++iter){
-        iter->second.x().ToBytesBE(buf);
-        sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
-        iter->second.y().ToBytesBE(buf);
+        iter->second.EncodeFull(buf);
         sha256.Write(reinterpret_cast<const unsigned char *>(buf.c_str()), buf.size());
     }
     // u
