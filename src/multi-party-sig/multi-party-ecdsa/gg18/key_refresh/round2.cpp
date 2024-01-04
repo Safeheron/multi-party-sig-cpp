@@ -102,7 +102,7 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
         return false;
     }
 
-    ok = safeheron::sss::vsss::VerifyShare(bc_message_arr_[pos].vs_, sign_key.local_party_.index_, p2p_message_arr_[pos].x_ij_, curv->g, curv->n);
+    ok = safeheron::sss::vsss::VerifyShare(bc_message_arr_[pos].vs_, sign_key.threshold_, sign_key.local_party_.index_, p2p_message_arr_[pos].x_ij_, curv->g, curv->n);
     if (!ok) {
         ctx->PushErrorCode(1, __FILE__, __LINE__, __FUNCTION__, "safeheron::sss::vsss_secp256k1::VerifyShare(message_arr_[pos].vs_, sign_key.local_party_.index_, message_arr_[pos].x_ij_)");
         return false;

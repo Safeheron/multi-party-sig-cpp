@@ -135,6 +135,7 @@ bool Round2::ReceiveVerify(const std::string &party_id) {
 
     // check x_ij according to Feldman Commitment
     ok = safeheron::sss::vsss::VerifyShare(bc_message_arr_[pos].c_,
+                                           minimal_sign_key.threshold_,
                                                      minimal_sign_key.local_party_.index_,
                                                      p2p_message_arr_[pos].x_ij_,
                                                      curv->g,

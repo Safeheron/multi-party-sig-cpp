@@ -80,6 +80,7 @@ bool Round3::ReceiveVerify(const std::string &party_id) {
 
     // check x_ij
     ok = safeheron::sss::vsss::VerifyShare(ctx->remote_parties_[pos].c_,
+                                           sign_key.threshold_,
                                            sign_key.local_party_.index_,
                                            x,
                                            curv->g,
