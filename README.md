@@ -419,9 +419,7 @@ Refer to the [test case](./test/cmp/sign_t_n_mt_test.cpp) for more details.
 
 The GG18 protocol originates from a previous repository developed by Safeheron and audited by Kudelski Security. There are some updates after the audit due to the attacks on the protocol[\[4\]](#Reference) [\[5\]](#Reference) [\[6\]](#Reference).
 
-The CMP protocols has been audited by LeastAuthority in 2023 and we have upgrade the protocol according to the opinions of the LeastAuthority. 
-
-Use at your own risk.
+The CMP protocols has been audited by LeastAuthority in 2023 and we have upgrade the protocol according to the opinions of the LeastAuthority, and this is [the audit report](https://leastauthority.com/wp-content/uploads/2024/01/Safeheron_Crypto_Suites__Multiparty_ECDSA_Updated_Final_Audit_Report_Least_Authority.pdf). 
 
 # Reference
 
