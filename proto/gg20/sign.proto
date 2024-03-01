@@ -2,10 +2,7 @@ syntax = "proto3";
 
 package safeheron.proto.multi_party_ecdsa.gg20.sign;
 
-//import "commitment.proto";
 import "curve_point.proto";
-import "mta.proto";
-//import "paillier.proto";
 import "zkp.proto";
 
 message Round0BCMessage {
@@ -18,10 +15,10 @@ message Round0P2PMessage {
 }
 
 message Round1P2PMessage {
-    safeheron.proto.MtaMessageB message_b_for_k_gamma = 1;
-    safeheron.proto.MtaMessageB message_b_for_k_w = 2;
+    string message_b_for_k_gamma = 1;
+    string message_b_for_k_w = 2;
     safeheron.proto.PailAffRangeProof bob_proof_1 = 3;
-    safeheron.proto.PailAffRangeProof bob_proof_2 = 4;
+    safeheron.proto.PailAffGroupEleRangeProof_V1 bob_proof_2 = 4;
 }
 
 message Round2BCMessage {
