@@ -265,7 +265,7 @@ Refer to the [test case](./test/gg20/sign_t_n_mt_test.cpp) for more details.
 
 ### Minimal Key Genaeration
 
-Refer to the [test case](./test/gg18/key_gen_mt_test.cpp) for more details.
+Refer to the [test case](./test/cmp/minimal_key_gen_mt_test.cpp) for more details.
 
 At the end of the MPC Procedure, each signer will get the secret share:
 
