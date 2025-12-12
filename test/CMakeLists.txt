@@ -22,10 +22,12 @@ link_libraries(
 option(NO_MPC_GG18 "NO_MPC_GG18" OFF)
 option(NO_MPC_GG20 "NO_MPC_GG20" OFF)
 option(NO_MPC_CMP "NO_MPC_CMP" OFF)
+option(NO_LINDELL17 "NO_LINDELL17" OFF)
 
 if (${ENABLE_SNAP_SCOPE})
     set(NO_MPC_GG18 TRUE)
     set(NO_MPC_GG20 TRUE)
+    set(NO_LINDELL17 TRUE)
 endif()
 
 
@@ -97,5 +99,12 @@ if (NOT ${NO_MPC_CMP})
     add_test(NAME cmp.sign_t_n_test COMMAND cmp.sign_t_n_mt_test)
 endif()
 
+if (NOT ${NO_LINDELL17})
+    add_executable(lindell17.key-gen-test lindell17/key-gen-test.cpp)
+    add_test(NAME lindell17.key-gen-test COMMAND lindell17.key-gen-test)
+
+    add_executable(lindell17.sign-test lindell17/sign-test.cpp)
+    add_test(NAME lindell17.sign-test COMMAND lindell17.sign-test)
+endif()
 
 

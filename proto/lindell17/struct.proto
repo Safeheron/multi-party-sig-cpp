@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package safeheron.proto.two_party_ecdsa.lindell17;
+
+import "curve_point.proto";
+import "paillier.proto";
+
+message P1KeyShare {
+  string x1 = 1;
+  safeheron.proto.CurvePoint Q = 2;
+  safeheron.proto.PailPriv pail_priv = 3;
+  safeheron.proto.PailPub pail_pub = 4;
+}
+
+message P2KeyShare {
+  string x2 = 1;
+  safeheron.proto.CurvePoint Q = 2;
+  safeheron.proto.PailPub pail_pub = 3;
+  string c = 4;
+}
