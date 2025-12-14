@@ -20,7 +20,7 @@ The library implements three different mpc protocols for threshold ECDSA now.
     - Minimal Key Generation: Create a new ECDSA private key shared among all the given participants. Note that only the key relevant to the asset is generated.
     - Auxiliary info and key Refresh: Refresh of the auxiliary info and the secret shares while keeping the public key the same. 
     - Sign: Generates an ECDSA signature for specified message.
-- Lindell17[\[7\]](#Reference): A two party ECDSA protocol originates from Professor Yehuda Lindell's 2017 paper(Lindell 17), "Fast Secure Two-Party ECDSA Signing". It is a threshold ECDSA signature scheme specifically designed for two-party computation (2PC) scenarios.
+- Lindell17[\[7\]](#Reference): A classical two-party ECDSA protocol originates from Lindell ’17 [\[7\]](#Reference). It is a threshold ECDSA signature scheme specifically designed for two-party computation (2PC) scenarios.
   This release is a variant of Lindell 17 protocol based on the additive secret sharing, please consult the following "Important Tips" section for the specific differences on protocol.
     - Key Generation:  Generate the private key shard for Party 1 and Party 2 respectively.
     - Sign: Generates an ECDSA signature for specified message.
