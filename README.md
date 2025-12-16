@@ -510,7 +510,7 @@ The CMP protocols has been audited by LeastAuthority in 2023 and we have upgrade
 ##### [6] [Attacking Threshold Wallets](https://eprint.iacr.org/2020/1052.pdf)
 ##### [7] [Fast Secure Two-Party ECDSA Signing](https://eprint.iacr.org/2017/552.pdf)
 ##### [8] [A Variant of Lindell17](./A%20Variant%20of%20Lindell17.pdf)
-
+##### [9] [Attacts on Lindell17](https://github.com/Safeheron/attack_lindell17)
 # Development Process & Contact
 This library is maintained by Safeheron. Contributions are highly welcomed! Besides GitHub issues and PRs, feel free to reach out by mail.
 
