@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package safeheron.proto.two_party_ecdsa.lindell17.key_gen;
+
+import "curve_point.proto";
+import "paillier.proto";
+import "zkp.proto";
+
+message P1Message1 {
+  string commitment = 1;
+}
+
+message P2Message1 {
+  safeheron.proto.CurvePoint Q2 = 1;
+  safeheron.proto.DLogProof_V2 d_log_proof_Q2 = 2;
+}
+
+message P1Message2 {
+  safeheron.proto.CurvePoint Q1 = 1;
+  safeheron.proto.DLogProof_V2 d_log_proof_Q1 = 2;
+  string blind_factor = 3;
+  string c = 4;
+  safeheron.proto.PailPub pail_pub = 5;
+  safeheron.proto.PailNProof pail_n_proof = 6;
+}
+
+message P2Message2 {
+  safeheron.proto.PDLVMessage1 pdl_v_message1 = 1;
+}
+
+message P1Message3 {
+    safeheron.proto.PDLPMessage1 pdl_p_message1 = 1;
+}
+
+message P2Message3 {
+  safeheron.proto.PDLVMessage2 pdl_v_message2 = 1;
+}
+
+message P1Message4 {
+    safeheron.proto.PDLPMessage2 pdl_p_message2 = 1;
+}

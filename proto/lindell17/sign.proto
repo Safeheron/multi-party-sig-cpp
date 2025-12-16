@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package safeheron.proto.two_party_ecdsa.lindell17.sign;
+
+import "curve_point.proto";
+import "zkp.proto";
+
+message P1Message0 {
+  string sid1_commitment = 1;
+}
+
+message P2Message0 {
+  string sid2 = 1;
+}
+
+message P1Message1 {
+  string sid1 = 1;
+  string sid1_blind_factor = 2;
+
+  string zk_pk_commitment = 3;
+}
+
+message P2Message1 {
+  safeheron.proto.CurvePoint R2 = 1;
+  safeheron.proto.DLogProof_V2 d_log_proof_R2 = 2;
+}
+
+message P1Message2 {
+  safeheron.proto.CurvePoint R1 = 1;
+  safeheron.proto.DLogProof_V2 d_log_proof_R1 = 2;
+  string t = 3;
+  string zk_pk_blind_factor = 4;
+}
+
+message P2Message2 {
+  string c3 = 1;
+}
