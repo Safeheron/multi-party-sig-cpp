@@ -22,7 +22,7 @@ include_directories(src)
 
 cmake_policy(SET CMP0076 NEW)
 cmake_policy(SET CMP0079 NEW)
-add_library(${CMAKE_PROJECT_NAME} SHARED "")
+add_library(${CMAKE_PROJECT_NAME} "")
 add_subdirectory(src)
 
 option(ENABLE_TESTS "Enable tests" OFF)
