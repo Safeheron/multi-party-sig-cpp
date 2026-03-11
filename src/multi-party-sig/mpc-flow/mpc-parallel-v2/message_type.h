@@ -5,6 +5,7 @@
 #ifndef SAFEHERON_MPC_FLOW_MPC_PARALLEL_V2_MESSAGE_TYPE_H
 #define SAFEHERON_MPC_FLOW_MPC_PARALLEL_V2_MESSAGE_TYPE_H
 
+#include <cstdint>
 #include <string>
 
 namespace safeheron {
