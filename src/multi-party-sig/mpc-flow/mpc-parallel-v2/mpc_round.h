@@ -5,6 +5,7 @@
 #ifndef SAFEHERON_MPC_FLOW_MPC_PARALLEL_V2_MPC_ROUND_H
 #define SAFEHERON_MPC_FLOW_MPC_PARALLEL_V2_MPC_ROUND_H
 
+#include <cstdint>
 #include <string>
 #include <vector>
 #include <cassert>

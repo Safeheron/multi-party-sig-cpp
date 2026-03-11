@@ -5,6 +5,7 @@
 #ifndef SAFEHERON_MPC_FLOW_MPC_PARALLEL_LAZYBCVALIDATER_H
 #define SAFEHERON_MPC_FLOW_MPC_PARALLEL_LAZYBCVALIDATER_H
 
+#include <cstdint>
 #include <string>
 #include <vector>
 
