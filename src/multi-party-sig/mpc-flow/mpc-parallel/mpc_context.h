@@ -5,6 +5,7 @@
 #ifndef SAFEHERON_MPC_FLOW_MPC_PARALLEL_MPC_CONTEXT_H
 #define SAFEHERON_MPC_FLOW_MPC_PARALLEL_MPC_CONTEXT_H
 
+#include <cstdint>
 #include <string>
 #include <utility>
 #include <vector>
